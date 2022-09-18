@@ -2,3 +2,4 @@ https://github.com/JetBrains/Exposed/wiki/LibDocumentation
 https://github.com/JetBrains/Exposed/wiki/DataBase-and-DataSource
 https://www.baeldung.com/kotlin/exposed-persistence
 https://github.com/JetBrains/Exposed/wiki/Getting-Started
+https://coroutinedispatcher.com/posts/exposed/
