@@ -1,0 +1,22 @@
+CREATE TABLE clientespagos (
+  idClientePagos INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  montoPagos REAL NOT NULL,
+  fechaPago TEXT NOT NULL,
+  estadoPago INTEGER NOT NULL
+);
+
+
+selectAll:
+SELECT * FROM clientespagos ORDER BY idClientePagos;
+
+findByID:
+SELECT * FROM clientespagos WHERE idClientePagos = ?;
+
+deleteAll:
+DELETE FROM clientespagos;
+
+deleteByID:
+DELETE FROM clientespagos WHERE idClientePagos = ?;
+
+insertItem:
+INSERT OR REPLACE INTO clientespagos (idClientePagos, montoPagos, fechaPago,estadoPago) VALUES (?, ?, ?,?);

@@ -1,0 +1,6 @@
+CREATE TABLE clientespagos (
+  idClientePagos INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  montoPagos REAL NOT NULL,
+  fechaPago TEXT NOT NULL,
+  estadoPago INTEGER NOT NULL
+);
