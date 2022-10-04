@@ -79,3 +79,9 @@ android {
         targetSdk = 32
     }
 }
+
+sqldelight {
+    database("TLPDatabase") {
+        packageName = "com.database.sqldelight"
+        }
+}

@@ -1,0 +1,21 @@
+CREATE TABLE superadministradores (
+  idSuperAdmin INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  superAdminUsuario TEXT  NOT NULL,
+  superAdminContrasenna TEXT  NOT NULL
+);
+
+
+selectAll:
+SELECT * FROM superadministradores ORDER BY idSuperAdmin;
+
+deleteAll:
+DELETE FROM superadministradores;
+
+findByID:
+SELECT * FROM superadministradores WHERE idSuperAdmin = ?;
+
+deleteByID:
+DELETE FROM superadministradores WHERE idSuperAdmin = ?;
+
+insertItem:
+INSERT OR REPLACE INTO superadministradores (idSuperAdmin, superAdminUsuario, superAdminContrasenna) VALUES (?, ?, ?);
