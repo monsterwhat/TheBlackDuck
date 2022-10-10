@@ -1,9 +1,0 @@
-https://github.com/JetBrains/Exposed/wiki/LibDocumentation
-https://github.com/JetBrains/Exposed/wiki/DataBase-and-DataSource
-https://www.baeldung.com/kotlin/exposed-persistence
-https://github.com/JetBrains/Exposed/wiki/Getting-Started
-https://coroutinedispatcher.com/posts/exposed/
-https://cashapp.github.io/sqldelight/multiplatform_sqlite/types/
-https://cashapp.github.io/sqldelight/multiplatform_sqlite/
-https://www.valueof.io/blog/installing-sqldelight-in-kotlin-multiplatform-project
-https://kotlinlang.org/docs/multiplatform-mobile-dependencies.html
