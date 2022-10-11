@@ -15,7 +15,6 @@ namespace TheBlackDuck.Services
         {
             get { return connection; }
         }
-        private Connection() { }
         public static Connection Singleton
         {
             get{
