@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "A:\\Documents\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj": {}
+    "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj": {}
   },
   "projects": {
-    "A:\\Documents\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj": {
+    "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
+        "projectUniqueName": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
         "projectName": "TheBlackDuck.UWP",
-        "projectPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
+        "projectPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
         "packagesPath": "C:\\Users\\MoNsT\\.nuget\\packages\\",
-        "outputPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.UWP\\obj\\",
+        "outputPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -33,8 +33,8 @@
         "frameworks": {
           "uap10.0.16299": {
             "projectReferences": {
-              "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
-                "projectPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj"
+              "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
+                "projectPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj"
               }
             }
           }
@@ -87,14 +87,14 @@
         }
       }
     },
-    "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
+    "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj",
+        "projectUniqueName": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj",
         "projectName": "TheBlackDuck",
-        "projectPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj",
+        "projectPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj",
         "packagesPath": "C:\\Users\\MoNsT\\.nuget\\packages\\",
-        "outputPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\obj\\",
+        "outputPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -158,7 +158,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

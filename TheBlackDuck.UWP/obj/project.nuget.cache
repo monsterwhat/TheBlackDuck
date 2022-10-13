@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8ZdNa1ATfOMzAxQCpx5adT8pgvD3T76Y9nE9DEjItBW3Oy1RYIruhMQ6uZwVihlCWOvhZgc7VjPA4DJmOv5w7w==",
+  "dgSpecHash": "3opgECFNrBd2aYqh87vnMqiYaX7sxoTl+ojPRzVoD0NfTZrRMZanHEyjGUHG0NOO4qMMJ16NQZ5SDhgK9ZARaA==",
   "success": true,
-  "projectFilePath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
+  "projectFilePath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MoNsT\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
@@ -10,7 +10,7 @@
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\microsoft.net.native.compiler\\2.2.10-rel-29722-00\\microsoft.net.native.compiler.2.2.10-rel-29722-00.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\microsoft.net.uwpcoreruntimesdk\\2.2.12\\microsoft.net.uwpcoreruntimesdk.2.2.12.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "C:\\Users\\MoNsT\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\microsoft.netcore.universalwindowsplatform\\6.2.12\\microsoft.netcore.universalwindowsplatform.6.2.12.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\microsoft.ui.xaml\\2.4.3\\microsoft.ui.xaml.2.4.3.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\mysql.data\\8.0.30\\mysql.data.8.0.30.nupkg.sha512",

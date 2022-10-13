@@ -7,7 +7,7 @@ namespace TheBlackDuck.Models.Interfaces
 {
     internal interface IClientesPagosDAO : ICRUD<clientesPagos>
     {
-        Boolean UpdateByID();
+        Boolean UpdateByID(int idClientePagos, double montoPagos, DateTime fechaPago, int estadoPago);
         List<clientesPagos> ListAll();
         Boolean DeleteByID(int idClientePago);
         clientesPagos GetByID(int idClientePago);

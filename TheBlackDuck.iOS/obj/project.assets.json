@@ -2356,11 +2356,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.iOS\\TheBlackDuck.iOS.csproj",
+      "projectUniqueName": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.iOS\\TheBlackDuck.iOS.csproj",
       "projectName": "TheBlackDuck.iOS",
-      "projectPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.iOS\\TheBlackDuck.iOS.csproj",
+      "projectPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.iOS\\TheBlackDuck.iOS.csproj",
       "packagesPath": "C:\\Users\\MoNsT\\.nuget\\packages\\",
-      "outputPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.iOS\\obj\\",
+      "outputPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2381,8 +2381,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
-              "projectPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj"
+            "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
+              "projectPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj"
             }
           }
         }

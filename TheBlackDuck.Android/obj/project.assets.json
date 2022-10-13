@@ -4061,11 +4061,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.Android\\TheBlackDuck.Android.csproj",
+      "projectUniqueName": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.Android\\TheBlackDuck.Android.csproj",
       "projectName": "TheBlackDuck.Android",
-      "projectPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.Android\\TheBlackDuck.Android.csproj",
+      "projectPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.Android\\TheBlackDuck.Android.csproj",
       "packagesPath": "C:\\Users\\MoNsT\\.nuget\\packages\\",
-      "outputPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.Android\\obj\\",
+      "outputPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -4086,8 +4086,8 @@
       "frameworks": {
         "monoandroid12.0": {
           "projectReferences": {
-            "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
-              "projectPath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj"
+            "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
+              "projectPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj"
             }
           }
         }

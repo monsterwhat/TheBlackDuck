@@ -124,6 +124,7 @@ namespace TheBlackDuck.Models.Implementations
             }
             catch (Exception e)
             {
+                Console.WriteLine(e);
                 return null;
             }
             finally

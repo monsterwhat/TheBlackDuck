@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>OIJ-MOVIL</Machine>
-    <WindowsUser>Alvaro Padilla</WindowsUser>
+    <Machine>ALVAROPC</Machine>
+    <WindowsUser>Al</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>ec0cc741-fd3e-485c-81be-68815c480690</PackageIdentityName>
     <PackageIdentityPublisher>CN=94747433-1979-4649-A431-6F2E7345D3F7</PackageIdentityPublisher>
-    <IntermediateOutputPath>A:\Documents\TheBlackDuck\TheBlackDuck.UWP\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>A:\Documents\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>2C24E9B363CA5DB7CE295AE281E0281A9BB7F56C6CBF4E9C98C12BEE44E30052</RegisteredManifestChecksum>
+    <LayoutDir>D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>81D68D50019B62DE2DEF1F65408849D709752C2D0AEA581CFDC0589FC5E19CC6</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>BFAE752A-F325-4DD0-9644-A3239C1B7349_1.0.0.0_x64__av3vtw3x375q4</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>BFAE752A-F325-4DD0-9644-A3239C1B7349_av3vtw3x375q4!App</RegisteredUserModeAppID>
     <RegisteredPackageID>BFAE752A-F325-4DD0-9644-A3239C1B7349</RegisteredPackageID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-11T02:44:57.810</Modified>
+      <Modified>2022-10-13T00:55:51.833</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\TheBlackDuck.UWP.exe">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\TheBlackDuck.UWP.exe">
       <PackagePath>entrypoint\TheBlackDuck.UWP.exe</PackagePath>
-      <Modified>2022-10-11T02:44:53.723</Modified>
+      <Modified>2022-10-13T00:55:51.358</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\google.protobuf\3.19.4\lib\netstandard2.0\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
@@ -114,9 +114,9 @@
       <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
       <Modified>2021-10-14T09:55:14.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck\bin\Debug\netstandard2.0\TheBlackDuck.dll">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck\bin\Debug\netstandard2.0\TheBlackDuck.dll">
       <PackagePath>TheBlackDuck.dll</PackagePath>
-      <Modified>2022-10-11T02:41:46.383</Modified>
+      <Modified>2022-10-13T00:55:48.626</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -130,168 +130,168 @@
       <PackagePath>Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml</PackagePath>
       <Modified>2021-10-14T09:49:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2022-10-07T23:27:31.984</Modified>
+      <Modified>2022-10-10T01:49:05.672</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-100.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.661</Modified>
+      <Modified>2022-10-10T01:49:05.661</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.673</Modified>
+      <Modified>2022-10-10T01:49:05.662</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-400.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.689</Modified>
+      <Modified>2022-10-10T01:49:05.662</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-100.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.704</Modified>
+      <Modified>2022-10-10T01:49:05.662</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.713</Modified>
+      <Modified>2022-10-10T01:49:05.662</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-400.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.723</Modified>
+      <Modified>2022-10-10T01:49:05.663</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.751</Modified>
+      <Modified>2022-10-10T01:49:05.663</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.761</Modified>
+      <Modified>2022-10-10T01:49:05.663</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.773</Modified>
+      <Modified>2022-10-10T01:49:05.663</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.789</Modified>
+      <Modified>2022-10-10T01:49:05.665</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.803</Modified>
+      <Modified>2022-10-10T01:49:05.665</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.815</Modified>
+      <Modified>2022-10-10T01:49:05.665</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.828</Modified>
+      <Modified>2022-10-10T01:49:05.666</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.835</Modified>
+      <Modified>2022-10-10T01:49:05.666</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.849</Modified>
+      <Modified>2022-10-10T01:49:05.666</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.857</Modified>
+      <Modified>2022-10-10T01:49:05.666</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.864</Modified>
+      <Modified>2022-10-10T01:49:05.667</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.874</Modified>
+      <Modified>2022-10-10T01:49:05.667</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.883</Modified>
+      <Modified>2022-10-10T01:49:05.667</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.894</Modified>
+      <Modified>2022-10-10T01:49:05.668</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.900</Modified>
+      <Modified>2022-10-10T01:49:05.668</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.923</Modified>
+      <Modified>2022-10-10T01:49:05.669</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.931</Modified>
+      <Modified>2022-10-10T01:49:05.669</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.938</Modified>
+      <Modified>2022-10-10T01:49:05.669</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.944</Modified>
+      <Modified>2022-10-10T01:49:05.669</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.952</Modified>
+      <Modified>2022-10-10T01:49:05.670</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-07T23:27:31.967</Modified>
+      <Modified>2022-10-10T01:49:05.670</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\xamarin_logo.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\xamarin_logo.png">
       <PackagePath>xamarin_logo.png</PackagePath>
-      <Modified>2022-10-07T23:27:32.306</Modified>
+      <Modified>2022-10-10T01:49:05.838</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\icon_about.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\icon_about.png">
       <PackagePath>icon_about.png</PackagePath>
-      <Modified>2022-10-07T23:27:32.246</Modified>
+      <Modified>2022-10-10T01:49:05.814</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\icon_feed.png">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\icon_feed.png">
       <PackagePath>icon_feed.png</PackagePath>
-      <Modified>2022-10-07T23:27:32.251</Modified>
+      <Modified>2022-10-10T01:49:05.814</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\TheBlackDuck.UWP.xr.xml">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\TheBlackDuck.UWP.xr.xml">
       <PackagePath>TheBlackDuck.UWP.xr.xml</PackagePath>
-      <Modified>2022-10-11T02:44:53.510</Modified>
+      <Modified>2022-10-13T00:00:23.732</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-10-11T02:44:53.608</Modified>
+      <Modified>2022-10-13T00:55:51.317</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-10-11T02:44:53.609</Modified>
+      <Modified>2022-10-13T00:55:51.317</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.19041.0\\redist\Debug\X64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -305,13 +305,13 @@
       <PackagePath>WinMetadata\Microsoft.UI.Xaml.winmd</PackagePath>
       <Modified>2020-07-10T00:07:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-10-11T02:44:55.318</Modified>
+      <Modified>2022-10-13T00:55:21.337</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="A:\Documents\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\TheBlackDuck.UWP.exe">
+    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\TheBlackDuck.UWP.exe">
       <PackagePath>TheBlackDuck.UWP.exe</PackagePath>
-      <Modified>2022-10-11T02:44:57.804</Modified>
+      <Modified>2022-10-13T00:55:51.830</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

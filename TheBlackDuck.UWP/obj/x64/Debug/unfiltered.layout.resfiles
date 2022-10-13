@@ -1,3 +1,4 @@
+WinMetadata\Windows.winmd
 Assets\LargeTile.scale-100.png
 Assets\LargeTile.scale-200.png
 Assets\LargeTile.scale-400.png
@@ -32,4 +33,3 @@ icon_about.png
 icon_feed.png
 Properties\Default.rd.xml
 xamarin_logo.png
-WinMetadata\Windows.winmd

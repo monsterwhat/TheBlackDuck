@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mEc5K4XMEh8BLHkEMHOCyD4CoKt9ZDSN+odkNA+N/pVm+c65rLnS7QgIedxEUDGcl0JoGv8ovKKeu/Vr1uWAEQ==",
+  "dgSpecHash": "CzkBKrfRfp2sQPcqRtdfNGeItW1e/y75Iw/IC/gNKQ8m0sNX8ZKbkJG5KO68LMN0VTnh14/FbQsmUkstRrbFHQ==",
   "success": true,
-  "projectFilePath": "A:\\Documents\\TheBlackDuck\\TheBlackDuck.Android\\TheBlackDuck.Android.csproj",
+  "projectFilePath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.Android\\TheBlackDuck.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MoNsT\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
