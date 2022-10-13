@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9n7REOtBTOzKJ3ZV7/amBIQTFwevrWVdrXxF1bQoqRHvHNjbbr743oicGa2zBx8KS2qI3uUDowUqQamKen7MNQ==",
+  "dgSpecHash": "aC9lbZCvVaC9tCdS5GMu61Wtv6TvRq8PBz8lpLoTiHvEcmHj3qgczuaYausMn2rlm3uXse0+zLpKME0D8OeDKg==",
   "success": true,
   "projectFilePath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,7 @@
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\MoNsT\\.nuget\\packages\\mysql.data\\8.0.30\\mysql.data.8.0.30.nupkg.sha512",
+    "C:\\Users\\MoNsT\\.nuget\\packages\\mysql.data\\8.0.31\\mysql.data.8.0.31.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",

@@ -30,13 +30,13 @@
     <AppXManifest Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-13T00:55:51.833</Modified>
+      <Modified>2022-10-13T02:06:30.933</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\TheBlackDuck.UWP.exe">
       <PackagePath>entrypoint\TheBlackDuck.UWP.exe</PackagePath>
-      <Modified>2022-10-13T00:55:51.358</Modified>
+      <Modified>2022-10-13T02:06:30.378</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\google.protobuf\3.19.4\lib\netstandard2.0\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
@@ -53,6 +53,10 @@
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\k4os.hash.xxhash\1.0.6\lib\netstandard2.0\K4os.Hash.xxHash.dll">
       <PackagePath>K4os.Hash.xxHash.dll</PackagePath>
       <Modified>2019-07-03T20:39:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\magicgradients\1.1.0\lib\netstandard2.0\MagicGradients.dll">
+      <PackagePath>MagicGradients.dll</PackagePath>
+      <Modified>2020-05-04T04:55:30.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\mysql.data\8.0.30\lib\netstandard2.0\MySql.Data.dll">
       <PackagePath>MySql.Data.dll</PackagePath>
@@ -73,6 +77,34 @@
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2021-02-05T01:15:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\libEGL.dll">
+      <PackagePath>libEGL.dll</PackagePath>
+      <Modified>2019-12-14T02:41:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\libGLESv2.dll">
+      <PackagePath>libGLESv2.dll</PackagePath>
+      <Modified>2019-12-14T02:41:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\libSkiaSharp.dll">
+      <PackagePath>libSkiaSharp.dll</PackagePath>
+      <Modified>2019-12-14T02:41:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\lib\uap10.0\SkiaSharp.dll">
+      <PackagePath>SkiaSharp.dll</PackagePath>
+      <Modified>2019-12-14T02:41:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp.views\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\SkiaSharp.Views.Interop.UWP.dll">
+      <PackagePath>SkiaSharp.Views.Interop.UWP.dll</PackagePath>
+      <Modified>2019-12-14T02:41:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp.views\1.68.1.1\lib\uap10.0\SkiaSharp.Views.UWP.dll">
+      <PackagePath>SkiaSharp.Views.UWP.dll</PackagePath>
+      <Modified>2019-12-14T02:41:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp.views.forms\1.68.1.1\lib\uap10.0\SkiaSharp.Views.Forms.dll">
+      <PackagePath>SkiaSharp.Views.Forms.dll</PackagePath>
+      <Modified>2019-12-14T02:42:02.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\system.configuration.configurationmanager\4.4.1\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll">
       <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>
@@ -116,7 +148,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck\bin\Debug\netstandard2.0\TheBlackDuck.dll">
       <PackagePath>TheBlackDuck.dll</PackagePath>
-      <Modified>2022-10-13T00:55:48.626</Modified>
+      <Modified>2022-10-13T02:06:27.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -287,11 +319,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-10-13T00:55:51.317</Modified>
+      <Modified>2022-10-13T02:06:30.335</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-10-13T00:55:51.317</Modified>
+      <Modified>2022-10-13T02:06:30.335</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.19041.0\\redist\Debug\X64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -307,11 +339,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-10-13T00:55:21.337</Modified>
+      <Modified>2022-10-13T02:06:30.510</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\TheBlackDuck.UWP.exe">
       <PackagePath>TheBlackDuck.UWP.exe</PackagePath>
-      <Modified>2022-10-13T00:55:51.830</Modified>
+      <Modified>2022-10-13T02:06:30.931</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

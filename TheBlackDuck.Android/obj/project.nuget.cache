@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CzkBKrfRfp2sQPcqRtdfNGeItW1e/y75Iw/IC/gNKQ8m0sNX8ZKbkJG5KO68LMN0VTnh14/FbQsmUkstRrbFHQ==",
+  "dgSpecHash": "nync9EQS9QsWDR12/Ot/h4VWlrRuZ9WPxPCDJMWbMLvlQTq0JxCAldIn4MXePONMCh/uQntIlt+/gUFUCh2vpg==",
   "success": true,
   "projectFilePath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.Android\\TheBlackDuck.Android.csproj",
   "expectedPackageFiles": [
@@ -72,31 +72,10 @@
     "C:\\Users\\MoNsT\\.nuget\\packages\\xamarin.androidx.versionedparcelable\\1.1.1.8\\xamarin.androidx.versionedparcelable.1.1.1.8.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\xamarin.androidx.viewpager\\1.0.0.8\\xamarin.androidx.viewpager.1.0.0.8.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\xamarin.androidx.viewpager2\\1.0.0.10\\xamarin.androidx.viewpager2.1.0.0.10.nupkg.sha512",
-    "C:\\Users\\MoNsT\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\MoNsT\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512",
+    "C:\\Users\\MoNsT\\.nuget\\packages\\xamarin.essentials\\1.7.3\\xamarin.essentials.1.7.3.nupkg.sha512",
+    "C:\\Users\\MoNsT\\.nuget\\packages\\xamarin.forms\\5.0.0.2515\\xamarin.forms.5.0.0.2515.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\xamarin.google.android.material\\1.4.0.2\\xamarin.google.android.material.1.4.0.2.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Essentials from 1.7.3 to 1.7.0. Reference the package directly from the project to select a different version. \r\n TheBlackDuck.Android -> TheBlackDuck -> Xamarin.Essentials (>= 1.7.3) \r\n TheBlackDuck.Android -> Xamarin.Essentials (>= 1.7.0)",
-      "libraryId": "Xamarin.Essentials",
-      "targetGraphs": [
-        "MonoAndroid,Version=v12.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2515 to 5.0.0.2196. Reference the package directly from the project to select a different version. \r\n TheBlackDuck.Android -> TheBlackDuck -> Xamarin.Forms (>= 5.0.0.2515) \r\n TheBlackDuck.Android -> Xamarin.Forms (>= 5.0.0.2196)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "MonoAndroid,Version=v12.0"
-      ]
-    }
-  ]
+  "logs": []
 }

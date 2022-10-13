@@ -77,7 +77,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "MySql.Data/8.0.30": {
+      "MySql.Data/8.0.31": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "3.19.4",
@@ -93,14 +93,12 @@
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         }
       },
@@ -435,38 +433,35 @@
         "runtime.json"
       ]
     },
-    "MySql.Data/8.0.30": {
-      "sha512": "SRoxG9ASRQrqL/JKU9KxaWfkmWtBuw5rA7d9G34Z1w4Aq5YwvxIjuGDOkUSk/H6VOmlZ/wywgBSX9S6btbUAYg==",
+    "MySql.Data/8.0.31": {
+      "sha512": "ZVcctmag6cX0DtDxWh3fhBlSdZfGHKIUIodl7QtjZKupSgbCT0X+bO1Faw/NfUR2VfoxB/L9WzLfeCvki65qVg==",
       "type": "package",
-      "path": "mysql.data/8.0.30",
+      "path": "mysql.data/8.0.31",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net452/MySql.Data.dll",
         "lib/net452/MySql.Data.xml",
-        "lib/net452/Ubiety.Dns.Core.dll",
         "lib/net452/ZstdNet.dll",
         "lib/net48/MySql.Data.dll",
         "lib/net48/MySql.Data.xml",
-        "lib/net48/Ubiety.Dns.Core.dll",
         "lib/net48/ZstdNet.dll",
         "lib/net5.0/MySql.Data.dll",
         "lib/net5.0/MySql.Data.xml",
-        "lib/net5.0/Ubiety.Dns.Core.dll",
         "lib/net5.0/ZstdNet.dll",
         "lib/net6.0/MySql.Data.dll",
         "lib/net6.0/MySql.Data.xml",
-        "lib/net6.0/Ubiety.Dns.Core.dll",
         "lib/net6.0/ZstdNet.dll",
+        "lib/net7.0/MySql.Data.dll",
+        "lib/net7.0/MySql.Data.xml",
+        "lib/net7.0/ZstdNet.dll",
         "lib/netstandard2.0/MySql.Data.dll",
         "lib/netstandard2.0/MySql.Data.xml",
-        "lib/netstandard2.0/Ubiety.Dns.Core.dll",
         "lib/netstandard2.0/ZstdNet.dll",
         "lib/netstandard2.1/MySql.Data.dll",
         "lib/netstandard2.1/MySql.Data.xml",
-        "lib/netstandard2.1/Ubiety.Dns.Core.dll",
         "lib/netstandard2.1/ZstdNet.dll",
-        "mysql.data.8.0.30.nupkg.sha512",
+        "mysql.data.8.0.31.nupkg.sha512",
         "mysql.data.nuspec"
       ]
     },
@@ -1245,7 +1240,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "MySql.Data >= 8.0.30",
+      "MySql.Data >= 8.0.31",
       "NETStandard.Library >= 2.0.3",
       "Xamarin.Essentials >= 1.7.3",
       "Xamarin.Forms >= 5.0.0.2515"
@@ -1298,7 +1293,7 @@
         "dependencies": {
           "MySql.Data": {
             "target": "Package",
-            "version": "[8.0.30, )"
+            "version": "[8.0.31, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",

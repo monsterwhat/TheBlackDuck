@@ -40,6 +40,9 @@
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\k4os.hash.xxhash\1.0.6\lib\netstandard2.0\K4os.Hash.xxHash.dll">
       <PackagePath>K4os.Hash.xxHash.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\magicgradients\1.1.0\lib\netstandard2.0\MagicGradients.dll">
+      <PackagePath>MagicGradients.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\mysql.data\8.0.30\lib\netstandard2.0\MySql.Data.dll">
       <PackagePath>MySql.Data.dll</PackagePath>
     </AppxPackagedFile>
@@ -54,6 +57,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\libEGL.dll">
+      <PackagePath>libEGL.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\libGLESv2.dll">
+      <PackagePath>libGLESv2.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\libSkiaSharp.dll">
+      <PackagePath>libSkiaSharp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\lib\uap10.0\SkiaSharp.dll">
+      <PackagePath>SkiaSharp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp.views\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\SkiaSharp.Views.Interop.UWP.dll">
+      <PackagePath>SkiaSharp.Views.Interop.UWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp.views\1.68.1.1\lib\uap10.0\SkiaSharp.Views.UWP.dll">
+      <PackagePath>SkiaSharp.Views.UWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp.views.forms\1.68.1.1\lib\uap10.0\SkiaSharp.Views.Forms.dll">
+      <PackagePath>SkiaSharp.Views.Forms.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\system.configuration.configurationmanager\4.4.1\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll">
       <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>

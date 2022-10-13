@@ -7,8 +7,21 @@
              x:Class="TheBlackDuck.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-        </StackLayout>
+        <Grid BackgroundColor="#099aba">
+            <StackLayout VerticalOptions="Center"
+                         Margin="20">
+                <Label Text="The Black Duck"
+                       FontSize="Large"
+                       TextColor="Black"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontFamily="School"
+                        />
+                <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011448.png" Scale="0.3"/>
+
+                <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

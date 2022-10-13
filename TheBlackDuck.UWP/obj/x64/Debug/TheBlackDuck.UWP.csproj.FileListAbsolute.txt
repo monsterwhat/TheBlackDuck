@@ -160,3 +160,11 @@ D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\obj\x64\Debug\MultipleQualifie
 D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\obj\x64\Debug\ProjectArchitectures.txt
 D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\obj\x64\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636160715180000000.json
 D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637425031200000000.json
+D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\MagicGradients.dll
+D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\libEGL.dll
+D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\libGLESv2.dll
+D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\libSkiaSharp.dll
+D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\SkiaSharp.dll
+D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\SkiaSharp.Views.Interop.UWP.dll
+D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\SkiaSharp.Views.UWP.dll
+D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\SkiaSharp.Views.Forms.dll
