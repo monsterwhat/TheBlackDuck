@@ -14,8 +14,8 @@ namespace TheBlackDuck.ViewModels
             Username = "admin";
             Password = "admin";
         }
-        
-            
+
+
 
     }
 }

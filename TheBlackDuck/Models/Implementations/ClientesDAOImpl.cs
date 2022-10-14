@@ -32,19 +32,6 @@ namespace TheBlackDuck.Models.Implementations
             }
         }
 
-        public bool DeleteByID()
-        {
-            try
-            {
-                return false;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return false;
-            }
-        }
-
         public clientes GetByID(int idCliente)
         {
             try
@@ -71,19 +58,6 @@ namespace TheBlackDuck.Models.Implementations
             catch (Exception e)
             {
                 Console.WriteLine("Error en GetByID de Clientes");
-                Console.WriteLine(e);
-                return null;
-            }
-        }
-
-        public clientes GetByID()
-        {
-            try
-            {
-                return null;
-            }
-            catch (Exception e)
-            {
                 Console.WriteLine(e);
                 return null;
             }
@@ -118,19 +92,6 @@ namespace TheBlackDuck.Models.Implementations
                 Console.WriteLine("Error en ListAll de Clientes");
                 Console.WriteLine(e);
                 return null;
-            }
-        }
-
-        public bool UpdateByID()
-        {
-            try
-            {
-                return false;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return false;
             }
         }
 

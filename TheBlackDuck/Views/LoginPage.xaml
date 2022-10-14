@@ -7,21 +7,49 @@
              x:Class="TheBlackDuck.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <Grid BackgroundColor="#099aba">
-            <StackLayout VerticalOptions="Center"
-                         Margin="20">
+        <StackLayout VerticalOptions="Center" BackgroundColor="#099aba">
+            <StackLayout Margin="30">
                 <Label Text="The Black Duck"
                        FontSize="Large"
                        TextColor="Black"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        FontFamily="School"
+                       Margin="0,0,0,0"
                         />
+
                 <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011448.png" Scale="0.3"/>
 
-                <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+                <Grid IsVisible="true" ColumnSpacing="2" RowSpacing="2">
+
+                    <Entry Placeholder="Username"
+                       PlaceholderColor="Black"
+                       TextColor="Black"
+                       FontFamily="School"
+                       FontSize="Medium"
+                       BackgroundColor="White"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       Margin="0,0,0,0"
+                       />
+
+                    <Entry Placeholder="Password"
+                       PlaceholderColor="Black"
+                       TextColor="Black"
+                       FontFamily="School"
+                       FontSize="Medium"
+                       BackgroundColor="White"
+                       IsPassword="True"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       />
+
+                </Grid>
+
+                <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" CornerRadius="15" BackgroundColor="Black"/>
 
             </StackLayout>
-        </Grid>
+
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

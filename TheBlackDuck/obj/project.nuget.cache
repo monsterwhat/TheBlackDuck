@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aC9lbZCvVaC9tCdS5GMu61Wtv6TvRq8PBz8lpLoTiHvEcmHj3qgczuaYausMn2rlm3uXse0+zLpKME0D8OeDKg==",
+  "dgSpecHash": "zB0Aijh6TLjQMuFVAwt4F8FHX52omfk56O83FSdqjMhXbXQZA2ntlXLrWXArM4hSIwu72b9UMpm1hBR7hTMQiw==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj",
+  "projectFilePath": "C:\\Users\\MoNsT\\OneDrive\\Documentos\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MoNsT\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",

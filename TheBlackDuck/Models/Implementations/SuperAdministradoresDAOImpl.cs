@@ -32,17 +32,7 @@ namespace TheBlackDuck.Models.Implementations
                 return false;
             }
         }
-        public Boolean DeleteByID()
-        {
-            try
-            {
-                return false;
-            }catch(Exception e)
-            {
-                Console.WriteLine(e);
-                return false;
-            }
-        }
+
         public List<superadministradores> ListAll()
         {
             try
@@ -104,18 +94,7 @@ namespace TheBlackDuck.Models.Implementations
                 return null;
             }
         }
-        public superadministradores GetByID()
-        {
-            try
-            {
-                return null;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return null;
-            }
-        }
+
         public Boolean UpdateByID(int idSuperAdmin, string superAdminUsuario, string superAdminContrasena)
         {
             try
@@ -136,18 +115,6 @@ namespace TheBlackDuck.Models.Implementations
             catch (Exception e)
             {
                 Console.WriteLine("Error en UpdateByID de SuperAdministradores");
-                Console.WriteLine(e);
-                return false;
-            }
-        }
-        public Boolean UpdateByID()
-        {
-            try
-            {
-                return false;
-            }
-            catch (Exception e)
-            {
                 Console.WriteLine(e);
                 return false;
             }

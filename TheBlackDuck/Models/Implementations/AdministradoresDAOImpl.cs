@@ -36,23 +36,6 @@ namespace TheBlackDuck.Models.Implementations
 
         }
 
-        public Boolean DeleteByID()
-        {
-            try
-            {
-                return false;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return false;
-            }
-            finally
-            {
-
-            }
-        }
-
         public List<administradores> ListAll()
         {
             try
@@ -116,23 +99,6 @@ namespace TheBlackDuck.Models.Implementations
             }
         }
 
-        public administradores GetByID()
-        {
-            try
-            {
-                return null;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return null;
-            }
-            finally
-            {
-
-            }
-        }
-
         public Boolean UpdateByID(int idAdministrador, string administradorescol, string adminUsuario, string adminContrasena)
         {
             try
@@ -158,20 +124,6 @@ namespace TheBlackDuck.Models.Implementations
             }
         }
 
-        public Boolean UpdateByID()
-        {
-            try
-            {
-                return false;
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
-                return false;
-            }
-        }
     }
-
-
 
 }

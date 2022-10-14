@@ -547,7 +547,7 @@
           "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
-      "MySql.Data/8.0.30": {
+      "MySql.Data/8.0.31": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "3.19.4",
@@ -563,14 +563,12 @@
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         }
       },
@@ -873,7 +871,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "MySql.Data": "8.0.30",
+          "MySql.Data": "8.0.31",
           "Xamarin.Essentials": "1.7.3",
           "Xamarin.Forms": "5.0.0.2515"
         },
@@ -1432,7 +1430,7 @@
           "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
-      "MySql.Data/8.0.30": {
+      "MySql.Data/8.0.31": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "3.19.4",
@@ -1448,14 +1446,12 @@
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         }
       },
@@ -1913,7 +1909,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "MySql.Data": "8.0.30",
+          "MySql.Data": "8.0.31",
           "Xamarin.Essentials": "1.7.3",
           "Xamarin.Forms": "5.0.0.2515"
         },
@@ -2472,7 +2468,7 @@
           "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
-      "MySql.Data/8.0.30": {
+      "MySql.Data/8.0.31": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "3.19.4",
@@ -2488,14 +2484,12 @@
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         }
       },
@@ -2954,7 +2948,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "MySql.Data": "8.0.30",
+          "MySql.Data": "8.0.31",
           "Xamarin.Essentials": "1.7.3",
           "Xamarin.Forms": "5.0.0.2515"
         },
@@ -3513,7 +3507,7 @@
           "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
-      "MySql.Data/8.0.30": {
+      "MySql.Data/8.0.31": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "3.19.4",
@@ -3529,14 +3523,12 @@
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         }
       },
@@ -3992,7 +3984,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "MySql.Data": "8.0.30",
+          "MySql.Data": "8.0.31",
           "Xamarin.Essentials": "1.7.3",
           "Xamarin.Forms": "5.0.0.2515"
         },
@@ -4551,7 +4543,7 @@
           "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
-      "MySql.Data/8.0.30": {
+      "MySql.Data/8.0.31": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "3.19.4",
@@ -4567,14 +4559,12 @@
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         }
       },
@@ -5032,7 +5022,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "MySql.Data": "8.0.30",
+          "MySql.Data": "8.0.31",
           "Xamarin.Essentials": "1.7.3",
           "Xamarin.Forms": "5.0.0.2515"
         },
@@ -5591,7 +5581,7 @@
           "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
-      "MySql.Data/8.0.30": {
+      "MySql.Data/8.0.31": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "3.19.4",
@@ -5607,14 +5597,12 @@
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         }
       },
@@ -6073,7 +6061,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "MySql.Data": "8.0.30",
+          "MySql.Data": "8.0.31",
           "Xamarin.Essentials": "1.7.3",
           "Xamarin.Forms": "5.0.0.2515"
         },
@@ -6632,7 +6620,7 @@
           "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
-      "MySql.Data/8.0.30": {
+      "MySql.Data/8.0.31": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "3.19.4",
@@ -6648,14 +6636,12 @@
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         }
       },
@@ -7113,7 +7099,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "MySql.Data": "8.0.30",
+          "MySql.Data": "8.0.31",
           "Xamarin.Essentials": "1.7.3",
           "Xamarin.Forms": "5.0.0.2515"
         },
@@ -7672,7 +7658,7 @@
           "buildTransitive/Microsoft.UI.Xaml.props": {}
         }
       },
-      "MySql.Data/8.0.30": {
+      "MySql.Data/8.0.31": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "3.19.4",
@@ -7688,14 +7674,12 @@
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/netstandard2.0/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.0/ZstdNet.dll": {}
         }
       },
@@ -8154,7 +8138,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "MySql.Data": "8.0.30",
+          "MySql.Data": "8.0.31",
           "Xamarin.Essentials": "1.7.3",
           "Xamarin.Forms": "5.0.0.2515"
         },
@@ -8324,7 +8308,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/2.1.0": {
-      "sha512": "ok+RPAtESz/9MUXeIEz6Lv5XAGQsaNmEYXMsgVALj4D7kqC8gveKWXWXbufLySR2fWrwZf8smyN5RmHu0e4BHA==",
+      "sha512": "GmkKfoyerqmsHMn7OZj0AKpcBabD+GaafqphvX2Mw406IwiJRy1pKcKqdCfKJfYmkRyJ6+e+RaUylgdJoDa1jQ==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.1.0",
       "files": [
@@ -8662,38 +8646,35 @@
         "tools/VisualStudioToolsManifest.xml"
       ]
     },
-    "MySql.Data/8.0.30": {
-      "sha512": "SRoxG9ASRQrqL/JKU9KxaWfkmWtBuw5rA7d9G34Z1w4Aq5YwvxIjuGDOkUSk/H6VOmlZ/wywgBSX9S6btbUAYg==",
+    "MySql.Data/8.0.31": {
+      "sha512": "ZVcctmag6cX0DtDxWh3fhBlSdZfGHKIUIodl7QtjZKupSgbCT0X+bO1Faw/NfUR2VfoxB/L9WzLfeCvki65qVg==",
       "type": "package",
-      "path": "mysql.data/8.0.30",
+      "path": "mysql.data/8.0.31",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net452/MySql.Data.dll",
         "lib/net452/MySql.Data.xml",
-        "lib/net452/Ubiety.Dns.Core.dll",
         "lib/net452/ZstdNet.dll",
         "lib/net48/MySql.Data.dll",
         "lib/net48/MySql.Data.xml",
-        "lib/net48/Ubiety.Dns.Core.dll",
         "lib/net48/ZstdNet.dll",
         "lib/net5.0/MySql.Data.dll",
         "lib/net5.0/MySql.Data.xml",
-        "lib/net5.0/Ubiety.Dns.Core.dll",
         "lib/net5.0/ZstdNet.dll",
         "lib/net6.0/MySql.Data.dll",
         "lib/net6.0/MySql.Data.xml",
-        "lib/net6.0/Ubiety.Dns.Core.dll",
         "lib/net6.0/ZstdNet.dll",
+        "lib/net7.0/MySql.Data.dll",
+        "lib/net7.0/MySql.Data.xml",
+        "lib/net7.0/ZstdNet.dll",
         "lib/netstandard2.0/MySql.Data.dll",
         "lib/netstandard2.0/MySql.Data.xml",
-        "lib/netstandard2.0/Ubiety.Dns.Core.dll",
         "lib/netstandard2.0/ZstdNet.dll",
         "lib/netstandard2.1/MySql.Data.dll",
         "lib/netstandard2.1/MySql.Data.xml",
-        "lib/netstandard2.1/Ubiety.Dns.Core.dll",
         "lib/netstandard2.1/ZstdNet.dll",
-        "mysql.data.8.0.30.nupkg.sha512",
+        "mysql.data.8.0.31.nupkg.sha512",
         "mysql.data.nuspec"
       ]
     },
@@ -13290,11 +13271,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\MoNsT\\OneDrive\\Documentos\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
       "projectName": "TheBlackDuck.UWP",
-      "projectPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
+      "projectPath": "C:\\Users\\MoNsT\\OneDrive\\Documentos\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\TheBlackDuck.UWP.csproj",
       "packagesPath": "C:\\Users\\MoNsT\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\obj\\",
+      "outputPath": "C:\\Users\\MoNsT\\OneDrive\\Documentos\\GitHub\\TheBlackDuck\\TheBlackDuck.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -13316,8 +13297,8 @@
       "frameworks": {
         "uap10.0.16299": {
           "projectReferences": {
-            "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
-              "projectPath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj"
+            "C:\\Users\\MoNsT\\OneDrive\\Documentos\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj": {
+              "projectPath": "C:\\Users\\MoNsT\\OneDrive\\Documentos\\GitHub\\TheBlackDuck\\TheBlackDuck\\TheBlackDuck.csproj"
             }
           }
         }

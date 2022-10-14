@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "R09e4ICrrJEVwGPvQHl0WsAPU4l6SXzYmMjKAAnI6iJBmisdzOKPla28c7+vjAqdW81rwuRV27fNV5yCTGOyrw==",
+  "dgSpecHash": "e/uh9PfkNxXEzNadi11thBQ2Y6SK5gQqjJHK/oz5PiTBp+b2Mbnmv0gJutYarVTjHVCCz/kzT675oB6EIP2VBg==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.iOS\\TheBlackDuck.iOS.csproj",
+  "projectFilePath": "C:\\Users\\MoNsT\\OneDrive\\Documentos\\GitHub\\TheBlackDuck\\TheBlackDuck.iOS\\TheBlackDuck.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MoNsT\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
-    "C:\\Users\\MoNsT\\.nuget\\packages\\mysql.data\\8.0.30\\mysql.data.8.0.30.nupkg.sha512",
+    "C:\\Users\\MoNsT\\.nuget\\packages\\mysql.data\\8.0.31\\mysql.data.8.0.31.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",

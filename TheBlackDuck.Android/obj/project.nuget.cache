@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "nync9EQS9QsWDR12/Ot/h4VWlrRuZ9WPxPCDJMWbMLvlQTq0JxCAldIn4MXePONMCh/uQntIlt+/gUFUCh2vpg==",
+  "dgSpecHash": "C9pQf2y5AE0YwMWuC2TtT6/rpm0nmBLOB890Ee5wAl0mlbT7KyewtISwBnB4rN1zmt4I82bfNMxprW0ATqLwtA==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\GitHub\\TheBlackDuck\\TheBlackDuck.Android\\TheBlackDuck.Android.csproj",
+  "projectFilePath": "C:\\Users\\MoNsT\\OneDrive\\Documentos\\GitHub\\TheBlackDuck\\TheBlackDuck.Android\\TheBlackDuck.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MoNsT\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
-    "C:\\Users\\MoNsT\\.nuget\\packages\\mysql.data\\8.0.30\\mysql.data.8.0.30.nupkg.sha512",
+    "C:\\Users\\MoNsT\\.nuget\\packages\\mysql.data\\8.0.31\\mysql.data.8.0.31.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\MoNsT\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",

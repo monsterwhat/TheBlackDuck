@@ -33,18 +33,6 @@ namespace TheBlackDuck.Models.Implementations
             }
         }
 
-        public bool DeleteByID()
-        {
-            try
-            {
-                return false;
-            }
-            catch (Exception e){
-                Console.WriteLine(e);
-                return false;
-            }
-        }
-
         public clientesPagos GetByID(int idClientePago)
         {
             try
@@ -69,19 +57,6 @@ namespace TheBlackDuck.Models.Implementations
             }catch(Exception e)
             {
                 Console.WriteLine("Error en GetByID de ClientePago");
-                Console.WriteLine(e);
-                return null;
-            }
-        }
-
-        public clientesPagos GetByID()
-        {
-            try
-            {
-                return null;
-            }
-            catch (Exception e)
-            {
                 Console.WriteLine(e);
                 return null;
             }
@@ -117,17 +92,6 @@ namespace TheBlackDuck.Models.Implementations
             }
         }
 
-        public bool UpdateByID()
-        {
-            try
-            {
-                return false;
-            }catch(Exception e)
-            {
-                Console.WriteLine(e);
-                return false;
-            }
-        }
 
         public bool UpdateByID(int idClientePago, double montoPagos, DateTime fechaPago, int estadoPago)
         {

@@ -5,7 +5,7 @@ using TheBlackDuck.Models.Objects;
 
 namespace TheBlackDuck.Models.Interfaces
 {
-    internal interface ISuperAdministradoresDAO : ICRUD<superadministradores>
+    internal interface ISuperAdministradoresDAO
     {
         Boolean UpdateByID(int idSuperAdmin, string superAdminUsuario, string superAdminContrasena);
         List<superadministradores> ListAll();

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>ALVAROPC</Machine>
-    <WindowsUser>Al</WindowsUser>
+    <Machine>OIJ-MOVIL</Machine>
+    <WindowsUser>Alvaro Padilla</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>ec0cc741-fd3e-485c-81be-68815c480690</PackageIdentityName>
     <PackageIdentityPublisher>CN=94747433-1979-4649-A431-6F2E7345D3F7</PackageIdentityPublisher>
-    <IntermediateOutputPath>D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>81D68D50019B62DE2DEF1F65408849D709752C2D0AEA581CFDC0589FC5E19CC6</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>1790BDD54CEA602339DE679980B54B49184223B865A0132D5FB00ED02363488D</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>BFAE752A-F325-4DD0-9644-A3239C1B7349_1.0.0.0_x64__av3vtw3x375q4</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>BFAE752A-F325-4DD0-9644-A3239C1B7349_av3vtw3x375q4!App</RegisteredUserModeAppID>
     <RegisteredPackageID>BFAE752A-F325-4DD0-9644-A3239C1B7349</RegisteredPackageID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-13T02:06:30.933</Modified>
+      <Modified>2022-10-14T23:08:30.143</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\TheBlackDuck.UWP.exe">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\TheBlackDuck.UWP.exe">
       <PackagePath>entrypoint\TheBlackDuck.UWP.exe</PackagePath>
-      <Modified>2022-10-13T02:06:30.378</Modified>
+      <Modified>2022-10-14T23:08:28.981</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\google.protobuf\3.19.4\lib\netstandard2.0\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
@@ -54,57 +54,21 @@
       <PackagePath>K4os.Hash.xxHash.dll</PackagePath>
       <Modified>2019-07-03T20:39:02.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\magicgradients\1.1.0\lib\netstandard2.0\MagicGradients.dll">
-      <PackagePath>MagicGradients.dll</PackagePath>
-      <Modified>2020-05-04T04:55:30.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\mysql.data\8.0.30\lib\netstandard2.0\MySql.Data.dll">
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\mysql.data\8.0.31\lib\netstandard2.0\MySql.Data.dll">
       <PackagePath>MySql.Data.dll</PackagePath>
-      <Modified>2022-06-10T20:37:08.000</Modified>
+      <Modified>2022-09-09T14:08:02.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\mysql.data\8.0.30\lib\netstandard2.0\Ubiety.Dns.Core.dll">
-      <PackagePath>Ubiety.Dns.Core.dll</PackagePath>
-      <Modified>2022-06-10T20:34:18.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\mysql.data\8.0.30\lib\netstandard2.0\ZstdNet.dll">
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\mysql.data\8.0.31\lib\netstandard2.0\ZstdNet.dll">
       <PackagePath>ZstdNet.dll</PackagePath>
-      <Modified>2022-06-10T20:34:18.000</Modified>
+      <Modified>2022-09-09T14:03:36.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\portable.bouncycastle\1.9.0\lib\netstandard2.0\BouncyCastle.Crypto.dll">
       <PackagePath>BouncyCastle.Crypto.dll</PackagePath>
       <Modified>2021-10-19T11:53:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.14\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
-      <Modified>2021-02-05T01:15:54.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\libEGL.dll">
-      <PackagePath>libEGL.dll</PackagePath>
-      <Modified>2019-12-14T02:41:10.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\libGLESv2.dll">
-      <PackagePath>libGLESv2.dll</PackagePath>
-      <Modified>2019-12-14T02:41:02.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\libSkiaSharp.dll">
-      <PackagePath>libSkiaSharp.dll</PackagePath>
-      <Modified>2019-12-14T02:41:04.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp\1.68.1.1\lib\uap10.0\SkiaSharp.dll">
-      <PackagePath>SkiaSharp.dll</PackagePath>
-      <Modified>2019-12-14T02:41:08.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp.views\1.68.1.1\runtimes\win10-x64\nativeassets\uap10.0\SkiaSharp.Views.Interop.UWP.dll">
-      <PackagePath>SkiaSharp.Views.Interop.UWP.dll</PackagePath>
-      <Modified>2019-12-14T02:41:44.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp.views\1.68.1.1\lib\uap10.0\SkiaSharp.Views.UWP.dll">
-      <PackagePath>SkiaSharp.Views.UWP.dll</PackagePath>
-      <Modified>2019-12-14T02:41:42.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\skiasharp.views.forms\1.68.1.1\lib\uap10.0\SkiaSharp.Views.Forms.dll">
-      <PackagePath>SkiaSharp.Views.Forms.dll</PackagePath>
-      <Modified>2019-12-14T02:42:02.000</Modified>
+      <Modified>2022-06-11T04:23:28.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\system.configuration.configurationmanager\4.4.1\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll">
       <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>
@@ -126,29 +90,29 @@
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
       <Modified>2016-11-30T02:58:38.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.essentials\1.7.0\lib\uap10.0.16299\Xamarin.Essentials.dll">
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.essentials\1.7.3\lib\uap10.0.16299\Xamarin.Essentials.dll">
       <PackagePath>Xamarin.Essentials.dll</PackagePath>
-      <Modified>2021-07-13T15:07:20.000</Modified>
+      <Modified>2022-05-06T11:38:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2196\lib\uap10.0.16299\Xamarin.Forms.Core.dll">
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2515\lib\uap10.0.16299\Xamarin.Forms.Core.dll">
       <PackagePath>Xamarin.Forms.Core.dll</PackagePath>
-      <Modified>2021-10-14T09:54:32.000</Modified>
+      <Modified>2022-07-20T08:02:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2196\lib\uap10.0.16299\Xamarin.Forms.Platform.UAP.dll">
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2515\lib\uap10.0.16299\Xamarin.Forms.Platform.UAP.dll">
       <PackagePath>Xamarin.Forms.Platform.UAP.dll</PackagePath>
-      <Modified>2021-10-14T09:54:28.000</Modified>
+      <Modified>2022-07-20T08:02:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2196\lib\uap10.0.16299\Xamarin.Forms.Platform.dll">
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2515\lib\uap10.0.16299\Xamarin.Forms.Platform.dll">
       <PackagePath>Xamarin.Forms.Platform.dll</PackagePath>
-      <Modified>2021-10-14T09:55:10.000</Modified>
+      <Modified>2022-07-20T08:02:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2196\lib\uap10.0.16299\Xamarin.Forms.Xaml.dll">
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2515\lib\uap10.0.16299\Xamarin.Forms.Xaml.dll">
       <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
-      <Modified>2021-10-14T09:55:14.000</Modified>
+      <Modified>2022-07-20T08:02:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck\bin\Debug\netstandard2.0\TheBlackDuck.dll">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck\bin\Debug\netstandard2.0\TheBlackDuck.dll">
       <PackagePath>TheBlackDuck.dll</PackagePath>
-      <Modified>2022-10-13T02:06:27.548</Modified>
+      <Modified>2022-10-14T23:08:20.504</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -158,172 +122,172 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2020-12-02T10:52:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2196\lib\uap10.0.16299\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
+    <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\xamarin.forms\5.0.0.2515\lib\uap10.0.16299\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
       <PackagePath>Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml</PackagePath>
-      <Modified>2021-10-14T09:49:54.000</Modified>
+      <Modified>2022-07-20T07:56:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2022-10-10T01:49:05.672</Modified>
+      <Modified>2022-10-07T23:27:31.984</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.661</Modified>
+      <Modified>2022-10-07T23:27:31.661</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.662</Modified>
+      <Modified>2022-10-07T23:27:31.673</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.662</Modified>
+      <Modified>2022-10-07T23:27:31.689</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.662</Modified>
+      <Modified>2022-10-07T23:27:31.704</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.662</Modified>
+      <Modified>2022-10-07T23:27:31.713</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.663</Modified>
+      <Modified>2022-10-07T23:27:31.723</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.663</Modified>
+      <Modified>2022-10-07T23:27:31.751</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.663</Modified>
+      <Modified>2022-10-07T23:27:31.761</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.663</Modified>
+      <Modified>2022-10-07T23:27:31.773</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.665</Modified>
+      <Modified>2022-10-07T23:27:31.789</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.665</Modified>
+      <Modified>2022-10-07T23:27:31.803</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.665</Modified>
+      <Modified>2022-10-07T23:27:31.815</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.666</Modified>
+      <Modified>2022-10-07T23:27:31.828</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.666</Modified>
+      <Modified>2022-10-07T23:27:31.835</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.666</Modified>
+      <Modified>2022-10-07T23:27:31.849</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.666</Modified>
+      <Modified>2022-10-07T23:27:31.857</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.667</Modified>
+      <Modified>2022-10-07T23:27:31.864</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.667</Modified>
+      <Modified>2022-10-07T23:27:31.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.667</Modified>
+      <Modified>2022-10-07T23:27:31.883</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.668</Modified>
+      <Modified>2022-10-07T23:27:31.894</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.668</Modified>
+      <Modified>2022-10-07T23:27:31.900</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.669</Modified>
+      <Modified>2022-10-07T23:27:31.923</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.669</Modified>
+      <Modified>2022-10-07T23:27:31.931</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.669</Modified>
+      <Modified>2022-10-07T23:27:31.938</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.669</Modified>
+      <Modified>2022-10-07T23:27:31.944</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.670</Modified>
+      <Modified>2022-10-07T23:27:31.952</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-10-10T01:49:05.670</Modified>
+      <Modified>2022-10-07T23:27:31.967</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\xamarin_logo.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\xamarin_logo.png">
       <PackagePath>xamarin_logo.png</PackagePath>
-      <Modified>2022-10-10T01:49:05.838</Modified>
+      <Modified>2022-10-07T23:27:32.306</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\icon_about.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\icon_about.png">
       <PackagePath>icon_about.png</PackagePath>
-      <Modified>2022-10-10T01:49:05.814</Modified>
+      <Modified>2022-10-07T23:27:32.246</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\icon_feed.png">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\icon_feed.png">
       <PackagePath>icon_feed.png</PackagePath>
-      <Modified>2022-10-10T01:49:05.814</Modified>
+      <Modified>2022-10-07T23:27:32.251</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\TheBlackDuck.UWP.xr.xml">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\TheBlackDuck.UWP.xr.xml">
       <PackagePath>TheBlackDuck.UWP.xr.xml</PackagePath>
-      <Modified>2022-10-13T00:00:23.732</Modified>
+      <Modified>2022-10-11T02:44:53.510</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-10-13T02:06:30.335</Modified>
+      <Modified>2022-10-14T23:08:28.859</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-10-13T02:06:30.335</Modified>
+      <Modified>2022-10-14T23:08:28.859</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.19041.0\\redist\Debug\X64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -337,13 +301,13 @@
       <PackagePath>WinMetadata\Microsoft.UI.Xaml.winmd</PackagePath>
       <Modified>2020-07-10T00:07:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-10-13T02:06:30.510</Modified>
+      <Modified>2022-10-14T22:49:01.932</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Documents\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\TheBlackDuck.UWP.exe">
+    <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck.UWP\bin\x64\Debug\Core\TheBlackDuck.UWP.exe">
       <PackagePath>TheBlackDuck.UWP.exe</PackagePath>
-      <Modified>2022-10-13T02:06:30.931</Modified>
+      <Modified>2022-10-14T23:08:30.137</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
@@ -392,57 +356,57 @@
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\MoNsT\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
-      <Version>2.2.29713.2</Version>
+      <Version>2.2.31331.1</Version>
       <Architecture>x86</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\MoNsT\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.31331.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\MoNsT\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
-      <Version>2.2.29713.2</Version>
+      <Version>2.2.31331.1</Version>
       <Architecture>x64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\MoNsT\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.31331.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\MoNsT\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
       <Name>Microsoft.NET.CoreRuntime.2.2</Name>
-      <Version>2.2.29713.2</Version>
+      <Version>2.2.31331.1</Version>
       <Architecture>arm</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\MoNsT\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.31331.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\MoNsT\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
-      <Version>2.2.29301.2</Version>
+      <Version>2.2.31327.1</Version>
       <Architecture>x86</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\MoNsT\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.31327.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\MoNsT\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
-      <Version>2.2.29301.2</Version>
+      <Version>2.2.31327.1</Version>
       <Architecture>x64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\MoNsT\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.31327.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
-    <ResolvedSDKReference Include="C:\Users\MoNsT\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
       <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
-      <Version>2.2.29301.2</Version>
+      <Version>2.2.31327.1</Version>
       <Architecture>arm</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
-      <AppxLocation>C:\Users\MoNsT\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.31327.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
