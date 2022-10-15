@@ -112,7 +112,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\OneDrive\Documentos\GitHub\TheBlackDuck\TheBlackDuck\bin\Debug\netstandard2.0\TheBlackDuck.dll">
       <PackagePath>TheBlackDuck.dll</PackagePath>
-      <Modified>2022-10-14T23:08:20.504</Modified>
+      <Modified>2022-10-14T23:42:12.038</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MoNsT\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>

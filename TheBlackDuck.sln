@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBlackDuck.Android", "The
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBlackDuck.iOS", "TheBlackDuck.iOS\TheBlackDuck.iOS.csproj", "{69D67F8F-0B53-4B99-B283-006ACCCA2A6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBlackDuck", "TheBlackDuck\TheBlackDuck.csproj", "{34997B36-2380-4CF6-A069-06EEC4235F75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBlackDuck", "TheBlackDuck\TheBlackDuck.csproj", "{34997B36-2380-4CF6-A069-06EEC4235F75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

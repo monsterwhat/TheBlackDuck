@@ -15,7 +15,6 @@ public class MonoPackageManager_Resources {
 		"System.Security.Permissions.dll",
 		"System.Security.Principal.Windows.dll",
 		"TheBlackDuck.dll",
-		"Ubiety.Dns.Core.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.Annotation.dll",
 		"Xamarin.AndroidX.Annotation.Experimental.dll",

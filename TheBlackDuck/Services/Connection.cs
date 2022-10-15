@@ -11,21 +11,28 @@ namespace TheBlackDuck.Services
         private static Connection singleton;
         private static MySqlConnection connection;
 
-        public MySqlConnection MysqlConnectionFactory
+        public Connection()
         {
-            get { return connection; }
+            connection = new MySqlConnection(connectionString);
         }
-        public static Connection Singleton
+
+        public void CloseConnection()
         {
-            get{
-                if (singleton == null)
-                {
-                    singleton = new Connection();
-                    connection = new MySqlConnection(connectionString);
-                }
-                return singleton;
-            }
+            connection.Close();
         }
+
+        public MySqlConnection getConnection()
+        {
+           return connection;
+        }
+
+        public void Dispose()
+        {
+            connection.Dispose();
+        }
+
+
+
 
     }
 }

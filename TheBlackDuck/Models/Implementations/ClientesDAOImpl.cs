@@ -121,5 +121,36 @@ namespace TheBlackDuck.Models.Implementations
                 return false;
             }
         }
+
+        public bool Login(int telefono, string password)
+        {
+            try
+            {
+
+                Connection con = new Connection();
+                MySqlConnection conx = con.getConnection();
+                MySqlCommand command = new MySqlCommand("SELECT * FROM clientes WHERE clienteNumero = @numeroCliente AND clienteContrasena = @clienteContrasena", conx);
+                command.Parameters.AddWithValue("@numeroCliente", telefono);
+                command.Parameters.AddWithValue("@clienteContrasena", password);
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    conx.Close();
+                    return true;
+                }
+                else
+                {
+                    conx.Close();
+                    return false;
+                }
+
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error en Login de Clientes");
+                Console.WriteLine(e);
+                return false;
+            }
+        }
     }
 }
