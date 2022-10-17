@@ -23,10 +23,10 @@ namespace Sync_test
 
         private void LoadData()
         {
-            
+
         }
 
-        public bool VerifyLogin()
+        public int VerifyLogin()
         {
             try
             {
@@ -38,51 +38,77 @@ namespace Sync_test
                 {
                     if (!password.Equals(null))
                     {
-                        if (Login(telefono, password))
+                        switch (Login(telefono, password))
                         {
-                            return true;
+                            case "cliente":
+                                return 1;
+                            case "admin":
+                                return 2;
+                            case "superadmin":
+                                return 3;
+                            default:
+                                DisplayAlert("Error", "La contraseña es incorrecta", "OK");
+                                return 0;
                         }
                     }
                 }
-                return false;
+                return 0;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return false;
+                return 0;
             }
         }
 
-        public bool Login(int t, string p)
+        public String Login(int t, string p)
         {
             try
             {
                 loginService login = new loginService();
-                if (login.loginByRank(t, p))
+                string rank = login.loginByRank(t, p);
+                if (rank != null)
                 {
-                    return true;
+                    return rank;
                 }
-                return false;
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return false;
+                return null;
 
             }
         }
 
         private void IngresoBtn_Clicked(object sender, EventArgs e)
         {
-            if (VerifyLogin())
+            try
             {
-                Navigation.PushModalAsync(new AdminMainPage());
+                int rank = VerifyLogin();
+                switch (rank)
+                {
+                    case 1:
+                        //Navigation.PushModalAsync(new ClientePage());
+                        break;
+                    case 2:
+                        Navigation.PushModalAsync(new AdminMainPage());
+                        break;
+                    case 3:
+                        //Navigation.PushModalAsync(new SuperAdminPage());
+                        break;
+                    default:
+                        DisplayAlert("Error", "El usuario no existe", "OK");
+                        break;
+                }
             }
-            else
+            catch (Exception exception)
             {
-
+                Console.WriteLine(exception);
             }
         }
-
     }
 }

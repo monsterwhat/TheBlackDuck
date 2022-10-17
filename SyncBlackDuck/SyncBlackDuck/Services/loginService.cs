@@ -46,8 +46,10 @@ namespace SyncBlackDuck.Services
                 command.Parameters.AddWithValue("@val1", t);
                 command.Parameters.AddWithValue("@val2", p);
                 MySqlDataReader reader = command.ExecuteReader();
-                
-                
+
+                string rank = null;
+
+                return rank;
                 
             }
             catch (Exception e)
