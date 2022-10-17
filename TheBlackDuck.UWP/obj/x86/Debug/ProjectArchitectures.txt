@@ -1,1 +1,0 @@
-A:\Documents\TheBlackDuck\TheBlackDuck.UWP\TheBlackDuck.UWP.csproj;x86
