@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:local="clr-namespace:Sync_test"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="Sync_test.MainPage">
+
+    
+    <StackLayout BackgroundColor="#393E46" >
+
+        <StackLayout Margin="0,90,0,0">
+            <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
+        </StackLayout>
+        
+        <StackLayout Margin="40,40,40,40">
+
+            <Label FontAttributes="Bold" TextColor="White" FontSize="22" Margin="0,0,0,10">Login</Label>
+
+            <inputLayout:SfTextInputLayout ContainerType="Outlined" 
+            Hint="Telefono" UnfocusedColor="#C9D6DF"
+            FocusedColor="#00afb2" 
+            ErrorColor="#B00020"
+            LeadingViewPosition="Outside">
+                <Entry x:Name="txt_telefono"/>
+                <inputLayout:SfTextInputLayout.LeadingView>
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/976/976373.png" 
+                           HeightRequest="35"></Image>
+                </inputLayout:SfTextInputLayout.LeadingView>
+            </inputLayout:SfTextInputLayout>
+
+            <inputLayout:SfTextInputLayout ContainerType="Outlined" 
+            Hint="Contraseña" UnfocusedColor="#C9D6DF"
+            FocusedColor="#00afb2" ErrorColor="#B00020" 
+            LeadingViewPosition="Outside">
+                <Entry IsPassword="true" x:Name="txt_password"/>
+                <inputLayout:SfTextInputLayout.LeadingView>
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/747/747981.png" ></Image>
+                </inputLayout:SfTextInputLayout.LeadingView>
+            </inputLayout:SfTextInputLayout>
+
+            <buttons:SfButton x:Name="IngresoBtn" Text="Ingresar" IsCheckable="True" Margin="0,5,0,0" 
+                              FontSize="19" BackgroundColor="#222831" CornerRadius="7" Clicked="IngresoBtn_Clicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

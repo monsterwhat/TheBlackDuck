@@ -1,0 +1,22 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:local="clr-namespace:Sync_test"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="Sync_test.AdminMainPage">
+
+
+    <StackLayout BackgroundColor="#393E46" >
+
+        
+
+        <StackLayout Margin="0,90,0,0">
+            <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
+        </StackLayout>
+
+        <StackLayout Margin="40,40,40,40">
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
