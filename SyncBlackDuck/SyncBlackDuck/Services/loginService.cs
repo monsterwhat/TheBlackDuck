@@ -13,12 +13,12 @@ namespace SyncBlackDuck.Services
     {
         public Boolean validacionLogin(userInstance u)
         {
-            Connection conn = new Connection();
-            MySqlConnection mysql = conn.getConnection();
-            mysql.Open();
-            try 
+            try
             {
-                MySqlCommand command = new MySqlCommand("SELECT * FROM test.usuarios WHERE nameUser = @val1 AND passUser = @val2;", mysql);
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.getConnection();
+
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_name = @val1 AND user_passwordd = @val2;", mysql);
                 command.Parameters.AddWithValue("@val1", u.Name);
                 command.Parameters.AddWithValue("@val2", u.Password);
                 command.ExecuteNonQuery();
@@ -30,9 +30,6 @@ namespace SyncBlackDuck.Services
                 Console.WriteLine(ex.Message);
                 return false;
 
-            } finally
-            {
-                conn.Disconnect();
             }
         }
         public string loginByRank(int t, string p)
@@ -41,21 +38,26 @@ namespace SyncBlackDuck.Services
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                mysql.Open();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM test.usuarios WHERE telefono = @val1 AND password = @val2;", mysql);
+                MySqlCommand command = new MySqlCommand("SELECT user_rol FROM user WHERE user_telefono = @val1 AND user_password = @val2;", mysql);
                 command.Parameters.AddWithValue("@val1", t);
                 command.Parameters.AddWithValue("@val2", p);
                 MySqlDataReader reader = command.ExecuteReader();
-
-                string rank = null;
-
-                return rank;
+                while(reader.Read())
+                {
+                    if (reader.GetString(0) != null)
+                    {
+                        
+                        return reader.GetString(0);
+                    }
+                }
+                
+                return "na";
                 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return null;
+                return "error";
             }
 
         }

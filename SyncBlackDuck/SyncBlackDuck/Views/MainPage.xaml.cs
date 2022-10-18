@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using TheBlackDuck.Models.Implementations;
 using SyncBlackDuck.Services;
 
 namespace Sync_test
@@ -20,45 +19,9 @@ namespace Sync_test
             LoadData();
         }
 
-
         private void LoadData()
         {
 
-        }
-
-        public int VerifyLogin()
-        {
-            try
-            {
-
-                int telefono = Convert.ToInt32(txt_telefono.Text);
-                string password = txt_password.Text;
-
-                if (!telefono.Equals(null))
-                {
-                    if (!password.Equals(null))
-                    {
-                        switch (Login(telefono, password))
-                        {
-                            case "cliente":
-                                return 1;
-                            case "admin":
-                                return 2;
-                            case "superadmin":
-                                return 3;
-                            default:
-                                DisplayAlert("Error", "La contraseña es incorrecta", "OK");
-                                return 0;
-                        }
-                    }
-                }
-                return 0;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return 0;
-            }
         }
 
         public String Login(int t, string p)
@@ -88,22 +51,30 @@ namespace Sync_test
         {
             try
             {
-                int rank = VerifyLogin();
-                switch (rank)
-                {
-                    case 1:
-                        //Navigation.PushModalAsync(new ClientePage());
-                        break;
-                    case 2:
-                        Navigation.PushModalAsync(new AdminMainPage());
-                        break;
-                    case 3:
-                        //Navigation.PushModalAsync(new SuperAdminPage());
-                        break;
-                    default:
-                        DisplayAlert("Error", "El usuario no existe", "OK");
-                        break;
-                }
+                    int telefono = Convert.ToInt32(txt_telefono.Text);
+                    string password = txt_password.Text;
+
+                    if (!telefono.Equals(null))
+                    {
+                        if (!password.Equals(null))
+                        {
+                            switch (Login(telefono, password))
+                            {
+                                case "cliente":
+                                    Navigation.PushModalAsync(new AdminMainPage());
+                                    break;
+                                case "admin":
+                                    Navigation.PushModalAsync(new AdminMainPage());
+                                    break;
+                                case "superadmin":
+                                    Navigation.PushModalAsync(new AdminMainPage());
+                                    break;
+                                default:
+                                    DisplayAlert("Error", "El usuario no existe", "OK");
+                                    break;
+                            }
+                        }
+                    }
             }
             catch (Exception exception)
             {

@@ -9,10 +9,9 @@ namespace SyncBlackDuck.Model
     {
         static public userInstance singleton = null;
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Password { get; set; }
-
+        private int user_group;
+        private int user_id;
+        
         public static userInstance getSingleton() 
         {
             if (singleton == null)
@@ -24,5 +23,10 @@ namespace SyncBlackDuck.Model
             }
             return singleton;
         }
+
+        public int User_group { get => user_group; set => user_group = value; }
+        public int User_id { get => user_id; set => user_id = value; }
+        
+
     }
 }
