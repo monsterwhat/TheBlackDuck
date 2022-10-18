@@ -41,23 +41,21 @@ namespace SyncBlackDuck.Services
 
         }
 
+        public bool modificar(userInstance item, char T)
+        {
+            throw new NotImplementedException();
+        }
 
         public ArrayList verTodo()
         {
             throw new NotImplementedException();
         }
-
-        bool ICRUD<userInstance>.eliminar(userInstance user)
+        public bool eliminar(userInstance item)
         {
             throw new NotImplementedException();
         }
 
-        bool ICRUD<userInstance>.insertar(userInstance user)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool ICRUD<userInstance>.modificar(userInstance user)
+        public bool insertar(userInstance item)
         {
             throw new NotImplementedException();
         }

@@ -40,10 +40,6 @@
                 </inputLayout:SfTextInputLayout.LeadingView>
             </inputLayout:SfTextInputLayout>
 
-            <!--=<buttons:SfButton Command="{Binding SubmitCommand}" x:Name="IngresoBtn" Text="Ingresar" 
-                              IsCheckable="True" Margin="0,5,0,0" FontSize="19" BackgroundColor="#222831" 
-                              CornerRadius="7" Clicked="IngresoBtn_Clicked"/>=-->
-
             <buttons:SfButton Text="Ingresar" Command="{Binding Path=Login}"
                               Margin="0,5,0,0" FontSize="19" BackgroundColor="#222831" 
                               CornerRadius="7" />

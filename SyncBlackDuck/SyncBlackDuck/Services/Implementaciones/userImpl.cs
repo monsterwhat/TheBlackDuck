@@ -38,7 +38,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             throw new NotImplementedException();
         }
 
-        public bool modificar(user item)
+        public bool modificar(user item, char T)
         {
             throw new NotImplementedException();
         }
