@@ -23,7 +23,7 @@
                 ContainerType="Outlined" Hint="Telefono" 
                 UnfocusedColor="#C9D6DF" FocusedColor="#00afb2" 
                 ErrorColor="#B00020" LeadingViewPosition="Outside">
-                <Entry Text="{Binding Cellphone}" x:Name="Cellphone" />
+                <Entry Text="{Binding Telefono}" TextColor="White" Keyboard="Numeric" />
                 <inputLayout:SfTextInputLayout.LeadingView>
                     <Image Source="https://cdn-icons-png.flaticon.com/512/976/976373.png" 
                            HeightRequest="35"></Image>
@@ -34,7 +34,7 @@
                 ContainerType="Outlined" Hint="Contraseña" 
                 UnfocusedColor="#C9D6DF" FocusedColor="#00afb2" 
                 ErrorColor="#B00020" LeadingViewPosition="Outside">
-                <Entry Text="{Binding Password}" x:Name="Password" />
+                <Entry Text="{Binding Password}" IsPassword="true" TextColor="White"/>
                 <inputLayout:SfTextInputLayout.LeadingView>
                     <Image Source="https://cdn-icons-png.flaticon.com/512/747/747981.png" ></Image>
                 </inputLayout:SfTextInputLayout.LeadingView>
@@ -44,7 +44,7 @@
                               IsCheckable="True" Margin="0,5,0,0" FontSize="19" BackgroundColor="#222831" 
                               CornerRadius="7" Clicked="IngresoBtn_Clicked"/>=-->
 
-            <buttons:SfButton x:Name="btn" Text="Ingresar" Command="{Binding LoginCommand}"
+            <buttons:SfButton Text="Ingresar" Command="{Binding Path=Login}"
                               Margin="0,5,0,0" FontSize="19" BackgroundColor="#222831" 
                               CornerRadius="7" />
         </StackLayout>
