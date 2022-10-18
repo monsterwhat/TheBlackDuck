@@ -1,13 +1,6 @@
-﻿using Syncfusion.XForms.TextInputLayout;
-using Syncfusion.XForms.Buttons;
+﻿using SyncBlackDuck.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SyncBlackDuck.Services;
 
 namespace Sync_test
 {
@@ -24,7 +17,7 @@ namespace Sync_test
 
         }
 
-        public String Login(int t, string p)
+        public string Login(int t, string p)
         {
             try
             {
@@ -51,30 +44,30 @@ namespace Sync_test
         {
             try
             {
-                    int telefono = Convert.ToInt32(txt_telefono.Text);
-                    string password = txt_password.Text;
+                int telefono = Convert.ToInt32(Cellphone.Text);
+                string password = Password.Text;
 
-                    if (!telefono.Equals(null))
+                if (!telefono.Equals(null))
+                {
+                    if (!password.Equals(null))
                     {
-                        if (!password.Equals(null))
+                        switch (Login(telefono, password))
                         {
-                            switch (Login(telefono, password))
-                            {
-                                case "cliente":
-                                    Navigation.PushModalAsync(new AdminMainPage());
-                                    break;
-                                case "admin":
-                                    Navigation.PushModalAsync(new AdminMainPage());
-                                    break;
-                                case "superadmin":
-                                    Navigation.PushModalAsync(new AdminMainPage());
-                                    break;
-                                default:
-                                    DisplayAlert("Error", "El usuario no existe", "OK");
-                                    break;
-                            }
+                            case "cliente":
+                                Navigation.PushModalAsync(new AdminMainPage());
+                                break;
+                            case "admin":
+                                Navigation.PushModalAsync(new AdminMainPage());
+                                break;
+                            case "superadmin":
+                                Navigation.PushModalAsync(new AdminMainPage());
+                                break;
+                            default:
+                                DisplayAlert("Error", "El usuario no existe", "OK");
+                                break;
                         }
                     }
+                }
             }
             catch (Exception exception)
             {
