@@ -22,15 +22,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Views\AdminMainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controller\" />
   </ItemGroup>
 </Project>
