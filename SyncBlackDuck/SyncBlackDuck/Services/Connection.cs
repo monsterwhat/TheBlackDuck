@@ -10,11 +10,10 @@ namespace SyncBlackDuck.Services
 
         public Connection()
         {
-            connection = new MySqlConnection(connectionString);
             try
             {
+                connection = new MySqlConnection(connectionString);
                 connection.Open();
-
             }
             catch
             { // Metodo para devolver el stacktrace en caso de un error
@@ -29,7 +28,6 @@ namespace SyncBlackDuck.Services
             try
             {
                 connection.Close();
-
             }
             catch
             { // Metodo para devolver el stacktrace en caso de un error

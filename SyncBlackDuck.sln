@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncBlackDuck.Android", "Sy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncBlackDuck.iOS", "SyncBlackDuck\SyncBlackDuck.iOS\SyncBlackDuck.iOS.csproj", "{94977792-9700-489A-AD98-E2F276CB0B3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncBlackDuck", "SyncBlackDuck\SyncBlackDuck\SyncBlackDuck.csproj", "{9A5F15B2-B5E3-4A10-9F79-CF8374C25B10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncBlackDuck", "SyncBlackDuck\SyncBlackDuck\SyncBlackDuck.csproj", "{9A5F15B2-B5E3-4A10-9F79-CF8374C25B10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
