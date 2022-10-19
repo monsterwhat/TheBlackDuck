@@ -20,8 +20,6 @@ namespace SyncBlackDuck.Services.Login
                 //Si se puede leer encontro resultados = si existe el usuario...
                 while (reader.Read())
                 {
-                    if (reader.GetString(0) != null)
-                    {
                         user loggedInUser = new user();
                         loggedInUser.User_id = reader.GetInt32(0);
                         loggedInUser.User_name = reader.GetString(1);
@@ -29,7 +27,6 @@ namespace SyncBlackDuck.Services.Login
                         loggedInUser.User_telefono = reader.GetInt32(4);
                         //Devolver entidad usuario.
                         return loggedInUser;
-                    }
                 }
                 //Si no se encontro un usuario retornar null
                 return null;
