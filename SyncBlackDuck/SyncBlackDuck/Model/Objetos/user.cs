@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SyncBlackDuck.Model.Objetos
 {
-    internal class user
+    public class user
     {
 
         private int user_id;
@@ -28,13 +26,21 @@ namespace SyncBlackDuck.Model.Objetos
         {
         }
 
+        public user(int user_id, string user_name, int user_telefono, string user_rol)
+        {
+            this.user_id = user_id;
+            this.user_name = user_name;
+            this.user_telefono = user_telefono;
+            this.user_rol = user_rol;
+        }
+
         public int User_id { get => user_id; set => user_id = value; }
         public string User_name { get => user_name; set => user_name = value; }
         public string User_password { get => user_password; set => user_password = value; }
         public DateTime User_time { get => user_time; set => user_time = value; }
         public int User_telefono { get => user_telefono; set => user_telefono = value; }
         public string User_rol { get => user_rol; set => user_rol = value; }
-        
+
 
     }
 }

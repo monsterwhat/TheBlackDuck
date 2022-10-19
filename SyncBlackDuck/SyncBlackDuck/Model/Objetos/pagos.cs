@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SyncBlackDuck.Model.Objetos
 {
-    internal class pagos
+    public class pagos
     {
 
         private int pagos_id;
@@ -25,8 +23,8 @@ namespace SyncBlackDuck.Model.Objetos
         public int Pagos_id { get => pagos_id; set => pagos_id = value; }
         public DateTime Pagos_fecha { get => pagos_fecha; set => pagos_fecha = value; }
         public int Pagos_estado { get => pagos_estado; set => pagos_estado = value; }
-        
-        
+
+
 
     }
 }
