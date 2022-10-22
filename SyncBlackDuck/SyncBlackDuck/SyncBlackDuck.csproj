@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -22,6 +22,7 @@
     <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.50" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="20.3.0.50" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="20.3.0.50" />
+    <PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="20.3.0.50" />
     <PackageReference Include="Uno.UI" Version="4.5.14" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
