@@ -72,11 +72,6 @@ namespace SyncBlackDuck.ViewModel
                 {
                     loggedInUser = loginByRank(Telefono, Password);
                     Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
-
-                }
-                else
-                {
-                    AsyncSession();
                 }
 
                 switch (loggedInUser.User_rol)
