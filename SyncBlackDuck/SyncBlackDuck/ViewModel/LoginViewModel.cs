@@ -85,12 +85,12 @@ namespace SyncBlackDuck.ViewModel
                         //Redireccion superAdmin
                         App.Current.MainPage = new NavigationPage(new AdminMainPage());
                         break;
-                    case null:
+                    case "cliente":
                         //Mostrar error de login
                         break;
                     default:
                         //Deberia ser cliente
-                        App.Current.MainPage = new NavigationPage(new AdminMainPage());
+                        App.Current.MainPage.DisplayAlert("Error de autenticacion!", "Usuario o contraseña incorrectos", "OK");
                         break;
 
                 }
