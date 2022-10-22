@@ -1,48 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-    <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
-             xmlns:local="clr-namespace:Sync_test" xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel"
-             x:Class="Sync_test.MainPage">
+<ContentPage
+    x:Class="Sync_test.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:local="clr-namespace:Sync_test"
+    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel">
 
     <ContentPage.BindingContext>
-        <viewModel:LoginViewModel/>
+        <viewModel:LoginViewModel />
     </ContentPage.BindingContext>
-    <StackLayout BackgroundColor="#393E46" >
+    <StackLayout BackgroundColor="#393E46">
 
         <StackLayout Margin="0,90,0,0">
-            <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
+            <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
         </StackLayout>
 
         <StackLayout Margin="40,40,40,40">
 
-            <Label FontAttributes="Bold" TextColor="White" FontSize="22" Margin="0,0,0,10">Login</Label>
+            <Label
+                Margin="0,0,0,10"
+                FontAttributes="Bold"
+                FontSize="22"
+                TextColor="White">
+                Login
+            </Label>
 
             <inputLayout:SfTextInputLayout
-                ContainerType="Outlined" Hint="Telefono" 
-                UnfocusedColor="#C9D6DF" FocusedColor="#00afb2" 
-                ErrorColor="#B00020" LeadingViewPosition="Outside">
-                <Entry Text="{Binding Telefono}" TextColor="White" Keyboard="Numeric" />
+                ContainerType="Outlined"
+                ErrorColor="#B00020"
+                FocusedColor="#00afb2"
+                Hint="Telefono"
+                LeadingViewPosition="Outside"
+                UnfocusedColor="#C9D6DF">
+                <Entry
+                    Keyboard="Numeric"
+                    Text="{Binding Telefono}"
+                    TextColor="White" />
                 <inputLayout:SfTextInputLayout.LeadingView>
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/976/976373.png" 
-                           HeightRequest="35"></Image>
+                    <Image HeightRequest="35" Source="https://cdn-icons-png.flaticon.com/512/976/976373.png" />
                 </inputLayout:SfTextInputLayout.LeadingView>
             </inputLayout:SfTextInputLayout>
 
             <inputLayout:SfTextInputLayout
-                ContainerType="Outlined" Hint="Contraseña" 
-                UnfocusedColor="#C9D6DF" FocusedColor="#00afb2" 
-                ErrorColor="#B00020" LeadingViewPosition="Outside">
-                <Entry Text="{Binding Password}" IsPassword="true" TextColor="White"/>
+                ContainerType="Outlined"
+                ErrorColor="#B00020"
+                FocusedColor="#00afb2"
+                Hint="Contraseña"
+                LeadingViewPosition="Outside"
+                UnfocusedColor="#C9D6DF">
+                <Entry
+                    IsPassword="true"
+                    Text="{Binding Password}"
+                    TextColor="White" />
                 <inputLayout:SfTextInputLayout.LeadingView>
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/747/747981.png" ></Image>
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/747/747981.png" />
                 </inputLayout:SfTextInputLayout.LeadingView>
             </inputLayout:SfTextInputLayout>
 
-            <buttons:SfButton Text="Ingresar" Command="{Binding Path=Login}"
-                              Margin="0,5,0,0" FontSize="19" BackgroundColor="#222831" 
-                              CornerRadius="7" />
+            <buttons:SfButton
+                Margin="0,5,0,0"
+                BackgroundColor="#222831"
+                Command="{Binding Path=Login}"
+                CornerRadius="7"
+                FontSize="19"
+                Text="Ingresar" />
         </StackLayout>
     </StackLayout>
 </ContentPage>

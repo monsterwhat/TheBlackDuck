@@ -3,7 +3,6 @@ using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Login;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -27,6 +26,7 @@ namespace SyncBlackDuck.ViewModel
 
         public LoginViewModel()
         {
+           AsyncSession();
         }
 
         //Binding del boton login en la vista
@@ -50,15 +50,8 @@ namespace SyncBlackDuck.ViewModel
                     //Guardamos la session
                     userId = id;
                     loggedInUser = loginByPhone(int.Parse(userId));
+                    LoginCommand();
                 }
-                else
-                {
-                    //Si no existe buscamos la session
-                    loggedInUser = loginByRank(Telefono, Password);
-                    //La guardamos globalmente
-                    Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
-                }
-
                 return Task.CompletedTask;
             }
             catch (Exception e)
@@ -67,15 +60,21 @@ namespace SyncBlackDuck.ViewModel
                 Console.WriteLine(e);
                 Console.WriteLine("Error en AsyncSession");
                 return Task.CompletedTask;
-            }
 
+            }
         }
         //Metodo Async para iniciar sesion
         private Task LoginAsync()
         {
             try
             {
-                _ = AsyncSession();
+                if(loggedInUser == null)
+                {
+                    loggedInUser = loginByRank(Telefono, Password);
+                    Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
+
+                }
+
                 switch (loggedInUser.User_rol)
                 {
                     case "admin":
