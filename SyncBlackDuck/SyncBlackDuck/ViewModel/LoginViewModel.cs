@@ -32,14 +32,13 @@ namespace SyncBlackDuck.ViewModel
         //Binding del boton login en la vista
         public ICommand Login => LoginCommand();
 
-
         private Command LoginCommand()
         {
             return new Command(async () => await LoginAsync());
         }
 
         //Metodo Async para guardar la informacion del usuario
-        private Task AsyncSession()
+        private void AsyncSession()
         {
             try
             {
@@ -52,15 +51,11 @@ namespace SyncBlackDuck.ViewModel
                     loggedInUser = loginByPhone(int.Parse(userId));
                     LoginAsync();
                 }
-                return Task.CompletedTask;
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e);
                 Console.WriteLine("Error en AsyncSession");
-                return Task.CompletedTask;
-
             }
         }
         //Metodo Async para iniciar sesion
@@ -91,7 +86,6 @@ namespace SyncBlackDuck.ViewModel
                         //Deberia ser cliente
                         App.Current.MainPage.DisplayAlert("Error de autenticacion!", "Usuario o contraseña incorrectos", "OK");
                         break;
-
                 }
 
                 //Fin metodo Async
@@ -105,6 +99,5 @@ namespace SyncBlackDuck.ViewModel
 
             }
         }
-
     }
 }
