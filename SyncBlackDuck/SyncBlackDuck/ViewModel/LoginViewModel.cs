@@ -26,7 +26,7 @@ namespace SyncBlackDuck.ViewModel
 
         public LoginViewModel()
         {
-           AsyncSession();
+            AsyncSession();
         }
 
         //Binding del boton login en la vista
@@ -68,12 +68,13 @@ namespace SyncBlackDuck.ViewModel
         {
             try
             {
-                if(loggedInUser == null)
+                if (loggedInUser == null)
                 {
                     loggedInUser = loginByRank(Telefono, Password);
                     Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
 
-                } else
+                }
+                else
                 {
                     AsyncSession();
                 }
@@ -87,7 +88,7 @@ namespace SyncBlackDuck.ViewModel
                     case "superadmin":
                         //Redireccion superAdmin
                         App.Current.MainPage = new NavigationPage(new AdminMainPage());
-                        break;`
+                        break;
                     case "cliente":
                         App.Current.MainPage = new NavigationPage(new AdminMainPage());
                         break;
