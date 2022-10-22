@@ -50,7 +50,7 @@ namespace SyncBlackDuck.ViewModel
                     //Guardamos la session
                     userId = id;
                     loggedInUser = loginByPhone(int.Parse(userId));
-                    LoginCommand();
+                    LoginAsync();
                 }
                 return Task.CompletedTask;
             }
@@ -73,6 +73,9 @@ namespace SyncBlackDuck.ViewModel
                     loggedInUser = loginByRank(Telefono, Password);
                     Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
 
+                } else
+                {
+                    AsyncSession();
                 }
 
                 switch (loggedInUser.User_rol)
@@ -84,9 +87,9 @@ namespace SyncBlackDuck.ViewModel
                     case "superadmin":
                         //Redireccion superAdmin
                         App.Current.MainPage = new NavigationPage(new AdminMainPage());
-                        break;
+                        break;`
                     case "cliente":
-                        //Mostrar error de login
+                        App.Current.MainPage = new NavigationPage(new AdminMainPage());
                         break;
                     default:
                         //Deberia ser cliente
@@ -94,6 +97,7 @@ namespace SyncBlackDuck.ViewModel
                         break;
 
                 }
+
                 //Fin metodo Async
                 return Task.CompletedTask;
             }
