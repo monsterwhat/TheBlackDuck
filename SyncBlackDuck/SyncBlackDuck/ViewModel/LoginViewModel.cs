@@ -26,11 +26,12 @@ namespace SyncBlackDuck.ViewModel
 
         public LoginViewModel()
         {
-            AsyncSession();
+           AsyncSession();
         }
 
         //Binding del boton login en la vista
         public ICommand Login => LoginCommand();
+
 
         private Command LoginCommand()
         {
@@ -38,7 +39,7 @@ namespace SyncBlackDuck.ViewModel
         }
 
         //Metodo Async para guardar la informacion del usuario
-        private void AsyncSession()
+        private Task AsyncSession()
         {
             try
             {
@@ -49,13 +50,17 @@ namespace SyncBlackDuck.ViewModel
                     //Guardamos la session
                     userId = id;
                     loggedInUser = loginByPhone(int.Parse(userId));
-                    LoginAsync();
+                    LoginCommand();
                 }
+                return Task.CompletedTask;
             }
             catch (Exception e)
             {
+
                 Console.WriteLine(e);
                 Console.WriteLine("Error en AsyncSession");
+                return Task.CompletedTask;
+
             }
         }
         //Metodo Async para iniciar sesion
@@ -63,10 +68,11 @@ namespace SyncBlackDuck.ViewModel
         {
             try
             {
-                if (loggedInUser == null)
+                if(loggedInUser == null)
                 {
                     loggedInUser = loginByRank(Telefono, Password);
                     Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
+
                 }
 
                 switch (loggedInUser.User_rol)
@@ -79,15 +85,15 @@ namespace SyncBlackDuck.ViewModel
                         //Redireccion superAdmin
                         App.Current.MainPage = new NavigationPage(new AdminMainPage());
                         break;
-                    case "cliente":
-                        App.Current.MainPage = new NavigationPage(new AdminMainPage());
+                    case null:
+                        //Mostrar error de login
                         break;
                     default:
                         //Deberia ser cliente
-                        App.Current.MainPage.DisplayAlert("Error de autenticacion!", "Usuario o contraseña incorrectos", "OK");
+                        App.Current.MainPage = new NavigationPage(new AdminMainPage());
                         break;
-                }
 
+                }
                 //Fin metodo Async
                 return Task.CompletedTask;
             }
@@ -99,5 +105,6 @@ namespace SyncBlackDuck.ViewModel
 
             }
         }
+
     }
 }
