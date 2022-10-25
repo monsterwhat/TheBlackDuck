@@ -15,7 +15,7 @@ namespace SyncBlackDuck
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new AppShell();
             Connection conn = new Connection();
         }
 
