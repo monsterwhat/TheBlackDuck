@@ -15,8 +15,7 @@ namespace SyncBlackDuck
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
-            Connection conn = new Connection();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

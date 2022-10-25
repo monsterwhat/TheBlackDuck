@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyApp"
+             xmlns:view="clr-namespace:SyncBlackDuck.Views" 
+             xmlns:view1="clr-namespace:Sync_test"
+             x:Class="SyncBlackDuck.AppShell"
+>
+
+        <FlyoutItem Title="AdminPage">
+            <ShellContent Title="Admin" ContentTemplate="{DataTemplate view1:AdminMainPage}"/>
+        </FlyoutItem>
+
+        <FlyoutItem Title="LoginPage">
+            <ShellContent ContentTemplate="{DataTemplate view1:MainPage}"/>
+        </FlyoutItem>
+
+
+</Shell>
