@@ -12,9 +12,9 @@ namespace SyncBlackDuck.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        AdminGestUViewModel()
+        public AdminGestUViewModel()
         {
-          
+
         }
 
         // ICommands para las redirecciones de paginas

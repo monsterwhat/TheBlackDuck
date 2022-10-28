@@ -60,6 +60,7 @@ namespace SyncBlackDuck.ViewModel
             try
             {
                 // Aqui hay que cerrar la sesion guardada
+                Application.Current.Properties["id"] = 0;
                 App.Current.MainPage = new NavigationPage(new MainPage());
             }
             catch (Exception e)
