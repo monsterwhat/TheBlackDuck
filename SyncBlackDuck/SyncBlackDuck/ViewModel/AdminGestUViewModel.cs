@@ -8,10 +8,9 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel
 {
-    internal class AdminGestUViewModel : INotifyPropertyChanged
+    public class AdminGestUViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
         public AdminGestUViewModel()
         {
 
