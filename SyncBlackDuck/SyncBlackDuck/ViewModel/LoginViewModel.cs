@@ -51,6 +51,10 @@ namespace SyncBlackDuck.ViewModel
                     userId = id;
                     loggedInUser = loginByPhone(int.Parse(userId));
                     LoginCommand();
+                    /* Aqui si encuentra el usuario, deberia redireccionar al
+                       main page de cada usuario por medio de un if, que revise
+                       el tipo de rol y a partir de este, lo mande a su respectivo
+                       main page */
                 }
                 return Task.CompletedTask;
             }

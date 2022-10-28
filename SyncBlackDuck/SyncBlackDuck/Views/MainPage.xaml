@@ -5,13 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-    xmlns:local="clr-namespace:Sync_test"
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel"
-    Shell.NavBarIsVisible="false"
-     Shell.TabBarIsVisible="false">
+    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel">
 
     <ContentPage.BindingContext>
-        <viewModel:LoginViewModel />
+        <viewModel:LoginViewModel/>
     </ContentPage.BindingContext>
     
     <StackLayout BackgroundColor="#393E46">
