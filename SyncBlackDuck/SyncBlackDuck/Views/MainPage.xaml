@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel">
+    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel"
+    NavigationPage.HasNavigationBar="false">
 
     <ContentPage.BindingContext>
         <viewModel:LoginViewModel />
