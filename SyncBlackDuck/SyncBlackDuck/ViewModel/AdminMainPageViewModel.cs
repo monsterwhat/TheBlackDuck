@@ -44,7 +44,7 @@ namespace SyncBlackDuck.ViewModel
             try
             {
                 // Redireccion usuarios
-                App.Current.MainPage = new NavigationPage(new AdminGestionUsuarios());
+                App.Current.MainPage = new NavigationPage(new AdminGestUsuarios());
             }
             catch (Exception e)
             {
