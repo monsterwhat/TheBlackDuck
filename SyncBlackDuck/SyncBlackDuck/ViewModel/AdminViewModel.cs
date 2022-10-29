@@ -3,10 +3,13 @@ using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using SyncBlackDuck.Services.Login;
 using SyncBlackDuck.Views.AdminViews;
+using Syncfusion.SfDataGrid.XForms;
+using Syncfusion.XForms.Themes;
 using System;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -18,11 +21,10 @@ namespace SyncBlackDuck.ViewModel
         private string user_telefono;
         private user loggedInUser;
         private userImpl userImpl;
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
-        public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
-
+        public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }     
         public AdminViewModel()
         {
             // PARA EL DATATABLE TEMPORAL
@@ -110,8 +112,17 @@ namespace SyncBlackDuck.ViewModel
             listaUsuarios = new ArrayList();
             
             user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1002, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1003, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1004, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1005, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1006, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1007, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1008, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1009, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1010, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1011, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1012, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
 
             /*
             listaUsuarios = userImpl.verTodo();
@@ -122,5 +133,8 @@ namespace SyncBlackDuck.ViewModel
             }
             */
         }
+     
+
+
     }
 }

@@ -10,7 +10,7 @@
     </ContentPage.BindingContext>
 
     <StackLayout BackgroundColor="#393E46" >
-        <Label TextColor="white" FontSize="15" >Cliente</Label>
+        <Label Margin="15,15,0,0" TextColor="white" FontSize="15" >Cliente</Label>
         <StackLayout Margin="0,90,0,0">
             <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
         </StackLayout>

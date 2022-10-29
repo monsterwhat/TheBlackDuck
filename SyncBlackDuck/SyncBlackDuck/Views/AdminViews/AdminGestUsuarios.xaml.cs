@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Syncfusion.SfDataGrid.XForms;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace SyncBlackDuck.Views.AdminViews
