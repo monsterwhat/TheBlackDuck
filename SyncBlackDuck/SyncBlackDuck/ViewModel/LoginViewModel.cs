@@ -1,6 +1,8 @@
 ﻿using Sync_test;
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Login;
+using SyncBlackDuck.Views.ClientViews;
+using SyncBlackDuck.Views.SuperAdminViews;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -90,14 +92,14 @@ namespace SyncBlackDuck.ViewModel
                         break;
                     case "superadmin":
                         //Redireccion superAdmin
-                        App.Current.MainPage = new NavigationPage(new AdminMainPage());
+                        App.Current.MainPage = new NavigationPage(new SuperAdminMainPage());
                         break;
                     case null:
                         //Mostrar error de login
                         break;
                     default:
                         //Deberia ser cliente
-                        App.Current.MainPage = new NavigationPage(new AdminMainPage());
+                        App.Current.MainPage = new NavigationPage(new ClienteMainPage());
                         break;
 
                 }

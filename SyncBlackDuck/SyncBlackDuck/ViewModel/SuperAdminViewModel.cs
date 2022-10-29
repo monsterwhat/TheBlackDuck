@@ -1,40 +1,43 @@
 ﻿using Sync_test;
-using SyncBlackDuck.Services.Login;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel
 {
-    internal class AdminGestUViewModel : INotifyPropertyChanged
+
+    internal class SuperAdminViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public AdminGestUViewModel()
+        public SuperAdminViewModel()
         {
-
+            
         }
 
         // ICommands para las redirecciones de paginas
-        public ICommand BackAdminMain => BackAdminMainP();
+        public ICommand CerrarSesion => CerrarSesionSuperAdmin();
 
         // Metodos Command para hacer los metodos async
-        private Command BackAdminMainP()
+        private Command CerrarSesionSuperAdmin()
         {
-            return new Command(async () => await BackAdminAsync());
+            return new Command(async () => await CSSuperAdminAsync());
         }
-        private Task BackAdminAsync()
+        private Task CSSuperAdminAsync()
         {
             try
             {
-                Application.Current.MainPage = new NavigationPage(new AdminMainPage());
+                // Aqui hay que cerrar la sesion guardada
+                Application.Current.Properties["id"] = 0;
+                App.Current.MainPage = new NavigationPage(new MainPage());
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                Console.WriteLine("Error al cambiar de pagina");
+                Console.WriteLine("Error al cerrar sesion");
                 return Task.CompletedTask;
             }
             return Task.CompletedTask;
