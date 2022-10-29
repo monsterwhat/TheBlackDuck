@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel
 {
-    internal class AdminViewModel : INotifyPropertyChanged
+    internal class AdminMainPageViewModel : INotifyPropertyChanged
     {
         private string user_telefono;
         private user loggedInUser;
@@ -19,14 +19,13 @@ namespace SyncBlackDuck.ViewModel
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
-        public AdminViewModel()
+        public AdminMainPageViewModel()
         {
             _ = StartUp();
         }
         // ICommands para las redirecciones de paginas
         public ICommand GestionUsuarios => GestionUserPage();
         public ICommand CerrarSesion => CerrarSesionAdmin();
-        public ICommand BackAdminMain => BackAdminMainP();
 
 
         // Metodos Command para hacer los metodos async
@@ -37,10 +36,6 @@ namespace SyncBlackDuck.ViewModel
         private Command CerrarSesionAdmin()
         {
             return new Command(async () => await CSAdminAsync());
-        }
-        private Command BackAdminMainP()
-        {
-            return new Command(async () => await BackAdminAsync());
         }
         private async Task StartUp() => await Task.Run(() => Inicio());
 
@@ -72,20 +67,6 @@ namespace SyncBlackDuck.ViewModel
             {
                 Console.WriteLine(e);
                 Console.WriteLine("Error al cerrar sesion");
-                return Task.CompletedTask;
-            }
-            return Task.CompletedTask;
-        }
-        private Task BackAdminAsync()
-        {
-            try
-            {
-                Application.Current.MainPage = new NavigationPage(new AdminMainPage());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                Console.WriteLine("Error al cambiar de pagina");
                 return Task.CompletedTask;
             }
             return Task.CompletedTask;
