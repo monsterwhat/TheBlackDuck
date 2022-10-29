@@ -108,6 +108,7 @@ namespace SyncBlackDuck.ViewModel
             }
             catch (Exception e)
             {
+                App.Current.MainPage.DisplayAlert("Error de Login!", "Hay un error en el login", "Ok");
                 Console.WriteLine(e);
                 Console.WriteLine("Error en LoginAsync");
                 return Task.CompletedTask;
