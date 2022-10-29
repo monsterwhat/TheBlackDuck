@@ -6,7 +6,7 @@
              x:Class="SyncBlackDuck.Views.AdminViews.AdminGestionUsuarios">
 
     <ContentPage.BindingContext>
-        <viewModel:AdminGestUViewModel />
+        <viewModel:AdminViewModel />
     </ContentPage.BindingContext>
 
     <StackLayout BackgroundColor="#393E46" >
