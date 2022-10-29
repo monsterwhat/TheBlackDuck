@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
     xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel">
 
     <ContentPage.BindingContext>
@@ -12,13 +13,17 @@
 
     <StackLayout BackgroundColor="#393E46">
 
-        <StackLayout Margin="0,90,0,0">
-            <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
+        <StackLayout Margin="50">
+            
         </StackLayout>
+        <StackLayout Margin="0,25,0,0" >
+            <syncfusion:SfDataGrid x:Name="dataGrid" ItemsSource="{Binding userInfoCollection}"/>
+        </StackLayout>
+        
         <StackLayout Margin="40,40,40,40">
             <buttons:SfButton
                 Margin="0,30,0,0"
-                BackgroundColor="#222831"
+                BackgroundColor="#270F0F"
                 Command="{Binding Path=BackAdminMain}"
                 CornerRadius="7"
                 FontSize="19"

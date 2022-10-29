@@ -1,8 +1,11 @@
 ﻿using Sync_test;
+using SyncBlackDuck.Model.Objetos;
+using SyncBlackDuck.Services.Implementaciones;
+using SyncBlackDuck.Services.Login;
 using SyncBlackDuck.Views.AdminViews;
 using System;
-using SyncBlackDuck.Model.Objetos;
-using SyncBlackDuck.Services.Login;
+using System.Collections;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -14,6 +17,7 @@ namespace SyncBlackDuck.ViewModel
     {
         private string user_telefono;
         private user loggedInUser;
+        private userImpl userImpl;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
@@ -21,7 +25,9 @@ namespace SyncBlackDuck.ViewModel
 
         public AdminViewModel()
         {
-            _ = StartUp();
+            // PARA EL DATATABLE TEMPORAL
+            user = new ObservableCollection<user>();
+            this.GenerarUsuarios();
         }
         // ICommands para las redirecciones de paginas
         public ICommand GestionUsuarios => GestionUserPage();
@@ -41,8 +47,6 @@ namespace SyncBlackDuck.ViewModel
         {
             return new Command(async () => await BackAdminAsync());
         }
-        private async Task StartUp() => await Task.Run(() => Inicio());
-
         private Task GestionUserAsync()
         {
             try
@@ -89,23 +93,34 @@ namespace SyncBlackDuck.ViewModel
             }
             return Task.CompletedTask;
         }
-        private void Inicio()
-        {
-            try
-            {
-                if (Application.Current.Properties.ContainsKey("Id"))
-                {
-                    string Session = Application.Current.Properties["Id"] as string;
-                    user_telefono = Session;
-                    loginService login = new loginService();
-                    loggedInUser = login.loginByPhone(Int32.Parse(user_telefono));
-                }
-            }catch(Exception e)
-            {
-                Console.WriteLine(e);
-                Console.WriteLine("Error en Inicio");
-            }
 
+        // TEMPORAL PARA VISUALIZAR DATOS EN EL DATAGRID
+        private ArrayList listaUsuarios;
+
+        private ObservableCollection<user> user;
+        public ObservableCollection<user> userInfoCollection
+        {
+            get { return user; }
+            set { this.user = value; }
+        }
+
+        private void GenerarUsuarios()
+        {
+
+            listaUsuarios = new ArrayList();
+            
+            user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+
+            /*
+            listaUsuarios = userImpl.verTodo();
+            foreach (user item in listaUsuarios)
+            {
+                user.Add(item);
+
+            }
+            */
         }
     }
 }

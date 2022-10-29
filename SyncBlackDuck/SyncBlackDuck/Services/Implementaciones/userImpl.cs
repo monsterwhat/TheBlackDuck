@@ -94,7 +94,6 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                mysql.Open();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 ArrayList list = new ArrayList();
