@@ -1,12 +1,11 @@
 ﻿using Sync_test;
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
-using SyncBlackDuck.Services.Login;
 using SyncBlackDuck.Views.AdminViews;
 using Syncfusion.SfDataGrid.XForms;
-using Syncfusion.XForms.Themes;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -16,21 +15,35 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel
 {
-    internal class AdminViewModel : INotifyPropertyChanged
+    internal class AdminViewModel : userImpl, INotifyPropertyChanged
     {
         private string user_telefono;
         private user loggedInUser;
-        private userImpl userImpl;
-        
+        private userImpl userController;
+        private List<user> listaUsuarios = new List<user>();
+        private user usuarioSeleccionado;
+
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public AdminViewModel(userImpl userController)
+        {
+            this.userController = userController;
+        }
+
+
+        private void OnPropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
-        public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }     
+        public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
         public AdminViewModel()
         {
-            // PARA EL DATATABLE TEMPORAL
-            user = new ObservableCollection<user>();
-            this.GenerarUsuarios();
+            GenerarUsuarios();
         }
+
         // ICommands para las redirecciones de paginas
         public ICommand GestionUsuarios => GestionUserPage();
         public ICommand CerrarSesion => CerrarSesionAdmin();
@@ -95,46 +108,62 @@ namespace SyncBlackDuck.ViewModel
             }
             return Task.CompletedTask;
         }
-
-        // TEMPORAL PARA VISUALIZAR DATOS EN EL DATAGRID
-        private ArrayList listaUsuarios;
-
-        private ObservableCollection<user> user;
-        public ObservableCollection<user> userInfoCollection
-        {
-            get { return user; }
-            set { this.user = value; }
-        }
-
         private void GenerarUsuarios()
         {
-
-            listaUsuarios = new ArrayList();
-            
-            user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1002, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1003, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1004, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1005, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1006, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1007, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1008, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1009, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1010, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1011, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-            user.Add(new user(1012, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
-
-            /*
-            listaUsuarios = userImpl.verTodo();
-            foreach (user item in listaUsuarios)
+            try
             {
-                user.Add(item);
-
+                if (userController.verTodo() != null)
+                {
+                listaUsuarios = userController.verTodo();
+                }
+                else
+                {
+                    Console.WriteLine("Error lista usuarios");
+                }
             }
-            */
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
-     
+
+        public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
+
+        public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
 
 
+        private Command agregarUsuario;
+        public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
+
+        private void PerformAgregarUsuario()
+        {
+        }
+
+        private Command modificarUsuario;
+        public ICommand ModificarUsuario => modificarUsuario ??= new Command(PerformModificarUsuario);
+
+        private void PerformModificarUsuario()
+        {
+        }
+
+        private Command borrarUsuario;
+        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
+
+        private void PerformBorrarUsuario()
+        {
+        }
+
+        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        {
+            if (!Equals(field, newValue))
+            {
+                field = newValue;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                return true;
+            }
+
+            return false;
+        }
     }
 }

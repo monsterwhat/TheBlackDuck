@@ -1,4 +1,5 @@
 ﻿using SyncBlackDuck.Services;
+using SyncBlackDuck.ViewModel;
 using System;
 using Xamarin.Forms;
 

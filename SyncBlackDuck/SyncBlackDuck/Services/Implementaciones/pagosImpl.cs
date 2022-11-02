@@ -3,6 +3,7 @@ using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Interfaces;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace SyncBlackDuck.Services.Implementaciones
 {
@@ -82,11 +83,11 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Carga todos los valores de la tabla en un ArrayList de objetos pago
-        public ArrayList verTodo()
+        public List<pagos> verTodo()
         {
             try
             {
-                ArrayList lista = new ArrayList();
+                List<pagos> lista = new List<pagos>();
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
                 mysql.Open();

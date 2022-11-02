@@ -5,6 +5,7 @@ using SyncBlackDuck.Views.ClientViews;
 using SyncBlackDuck.Views.SuperAdminViews;
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -28,7 +29,7 @@ namespace SyncBlackDuck.ViewModel
 
         public LoginViewModel()
         {
-           AsyncSession();
+           AsyncCommand();
         }
 
         //Binding del boton login en la vista
@@ -38,6 +39,11 @@ namespace SyncBlackDuck.ViewModel
         private Command LoginCommand()
         {
             return new Command(async () => await LoginAsync());
+        }
+
+        private Command AsyncCommand()
+        {
+            return new Command(async () => await AsyncSession());
         }
 
         //Metodo Async para guardar la informacion del usuario
@@ -54,7 +60,7 @@ namespace SyncBlackDuck.ViewModel
                     if (userId != null || !userId.Equals(0))
                     {
                         loggedInUser = loginByPhone(int.Parse(userId));
-                        LoginCommand();
+                        new Command(async () => await LoginAsync());
                         /* Aqui si encuentra el usuario, deberia redireccionar al
                            main page de cada usuario por medio de un if, que revise
                            el tipo de rol y a partir de este, lo mande a su respectivo
@@ -65,11 +71,9 @@ namespace SyncBlackDuck.ViewModel
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e);
                 Console.WriteLine("Error en AsyncSession");
                 return Task.CompletedTask;
-
             }
         }
         //Metodo Async para iniciar sesion
@@ -81,17 +85,18 @@ namespace SyncBlackDuck.ViewModel
                 {
                     loggedInUser = loginByRank(Telefono, Password);
                     Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
-
                 }
 
                 switch (loggedInUser.User_rol)
                 {
                     case "admin":
                         //Redireccion admin
+                        App.Current.Quit();
                         App.Current.MainPage = new NavigationPage(new AdminMainPage());
                         break;
                     case "superadmin":
                         //Redireccion superAdmin
+                        App.Current.Quit();
                         App.Current.MainPage = new NavigationPage(new SuperAdminMainPage());
                         break;
                     case null:
@@ -99,6 +104,7 @@ namespace SyncBlackDuck.ViewModel
                         break;
                     default:
                         //Deberia ser cliente
+                        App.Current.Quit();
                         App.Current.MainPage = new NavigationPage(new ClienteMainPage());
                         break;
 

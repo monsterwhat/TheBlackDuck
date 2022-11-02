@@ -1,4 +1,5 @@
-﻿using Syncfusion.SfDataGrid.XForms;
+﻿using SyncBlackDuck.ViewModel;
+using Syncfusion.SfDataGrid.XForms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

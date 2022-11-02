@@ -23,7 +23,10 @@
             <syncfusion:SfDataGrid x:Name="dataGrid" 
                                    ColumnSizer="Auto"
                                    AllowSorting="True"
-                                   ItemsSource="{Binding userInfoCollection}">
+                                   ItemsSource="{Binding ListaUsuarios}"
+                                   SelectedItem="{Binding UsuarioSeleccionado}"
+                                   >
+                                   
                 <syncfusion:SfDataGrid.GridStyle>
                     <syncfusion:DefaultStyle AlternatingRowColor="#DFDFDF"
                                              HeaderBackgroundColor="#222831"
