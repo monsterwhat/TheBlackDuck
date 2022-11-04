@@ -1,11 +1,10 @@
-﻿using Sync_test;
-using SyncBlackDuck.Model.Objetos;
+﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Login;
+using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.ClientViews;
 using SyncBlackDuck.Views.SuperAdminViews;
 using System;
 using System.ComponentModel;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
