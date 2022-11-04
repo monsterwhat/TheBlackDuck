@@ -16,12 +16,10 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                mysql.Open();
                 MySqlCommand command = new MySqlCommand("DELETE FROM user WHERE idUser = @idUser", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.ExecuteNonQuery();
 
-                mysql.Close();
                 return true;
             }
             catch (Exception e)
@@ -39,7 +37,6 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                mysql.Open();
                 MySqlCommand command = new MySqlCommand("INSERT INTO user (idUser, userName, userPassword, userTime, userTelefono, userRol) VALUES (@idUser, @userName, @userPassword, @userTime, @userTelefono, @userRol)", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.Parameters.AddWithValue("@userName", item.User_name);
@@ -49,7 +46,6 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
                 command.ExecuteNonQuery();
 
-                mysql.Close();
                 return true;
             }
             catch (Exception e)
@@ -67,7 +63,6 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                mysql.Open();
                 MySqlCommand command = new MySqlCommand("UPDATE user SET userName = @userName, userPassword = @userPassword, userTime = @userTime, userTelefono = @userTelefono, userRol = @userRol WHERE idUser = @idUser", mysql);
                 command.Parameters.AddWithValue("@userName", item.User_name);
                 command.Parameters.AddWithValue("@userPassword", item.User_name);
@@ -76,7 +71,6 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
                 command.ExecuteNonQuery();
 
-                mysql.Close();
                 return true;
 
             }
@@ -110,9 +104,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                         User_rol = reader.GetString(5)
                     };
                     list.Add(user);
-                    Console.WriteLine(user.ToString());
                 }
-                mysql.Close();
                 return list;
             }
             catch (Exception e)

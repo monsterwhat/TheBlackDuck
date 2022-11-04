@@ -2,11 +2,8 @@
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using SyncBlackDuck.Views.AdminViews;
-using Syncfusion.SfDataGrid.XForms;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -19,17 +16,11 @@ namespace SyncBlackDuck.ViewModel
     {
         private string user_telefono;
         private user loggedInUser;
-        private userImpl userController;
-        private List<user> listaUsuarios = new List<user>();
+        private userImpl userController = new userImpl();
         private user usuarioSeleccionado;
+        public List<user> listaUsuarios = new List<user>();
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public AdminViewModel(userImpl userController)
-        {
-            this.userController = userController;
-        }
-
 
         private void OnPropertyChanged(string property)
         {
@@ -39,9 +30,12 @@ namespace SyncBlackDuck.ViewModel
 
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
+        public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
+        public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
+
         public AdminViewModel()
         {
-            GenerarUsuarios();
+
         }
 
         // ICommands para las redirecciones de paginas
@@ -112,25 +106,24 @@ namespace SyncBlackDuck.ViewModel
         {
             try
             {
-                if (userController.verTodo() != null)
+                /*
+                listaUsuarios = new List<user>();
+
+                for (int i = 0; i < 20; i++)
                 {
-                listaUsuarios = userController.verTodo();
+                    user user = new user() { User_id = 1, User_name = "Al", User_password = "1234", User_rol = "admin", User_telefono = 99999999, User_time = DateTime.Now };
+                    listaUsuarios.Add(user);
                 }
-                else
-                {
-                    Console.WriteLine("Error lista usuarios");
-                }
+                //listaUsuarios = new List<user>(userController.verTodo());
+                */
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
-
         }
 
-        public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
 
-        public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
 
 
         private Command agregarUsuario;
