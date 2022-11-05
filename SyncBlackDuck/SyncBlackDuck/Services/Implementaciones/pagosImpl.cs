@@ -2,7 +2,6 @@
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Interfaces;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace SyncBlackDuck.Services.Implementaciones
@@ -65,7 +64,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command2.Parameters.AddWithValue("@estado", item.Pagos_estado);
                 command2.Parameters.AddWithValue("@fechaPago", item.Pagos_fecha);
                 command2.ExecuteNonQuery();
-                
+
                 return true;
             }
             catch (Exception e)
@@ -85,6 +84,65 @@ namespace SyncBlackDuck.Services.Implementaciones
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM pagos", mysql);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    pagos pago = new pagos
+                    {
+                        Pagos_id = reader.GetInt32(0),
+                        Pagos_fecha = reader.GetDateTime(1),
+                        Pagos_estado = reader.GetInt32(2)
+                    };
+                    lista.Add(pago);
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en Ver pagos: " + e.Message);
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
+        public List<pagos> verPendientes()
+        {
+            try
+            {
+                List<pagos> lista = new List<pagos>();
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.getConnection();
+                MySqlCommand command = new MySqlCommand("SELECT * FROM pagos WHERE pagos_estado = 0", mysql);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    pagos pago = new pagos
+                    {
+                        Pagos_id = reader.GetInt32(0),
+                        Pagos_fecha = reader.GetDateTime(1),
+                        Pagos_estado = reader.GetInt32(2)
+                    };
+                    lista.Add(pago);
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en Ver pagos: " + e.Message);
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
+        public List<pagos> verPagados()
+        {
+
+            try
+            {
+                List<pagos> lista = new List<pagos>();
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.getConnection();
+                MySqlCommand command = new MySqlCommand("SELECT * FROM pagos WHERE pagos_estado = 1", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {

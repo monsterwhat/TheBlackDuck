@@ -1,42 +1,29 @@
 ﻿using Sync_test;
 using SyncBlackDuck.Model.Objetos;
-using SyncBlackDuck.Services.Implementaciones;
 using SyncBlackDuck.Views.AdminViews;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel
 {
-    internal class AdminViewModel : userImpl, INotifyPropertyChanged
+    internal class AdminViewModel : INotifyPropertyChanged
     {
         private string user_telefono;
         private user loggedInUser;
-        private userImpl userController = new userImpl();
-        private user usuarioSeleccionado;
-        public List<user> listaUsuarios = new List<user>();
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
-
-        public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
-        public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
-        public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
-        public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
 
         public AdminViewModel()
         {
 
         }
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
+        public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
+
 
         // ICommands para las redirecciones de paginas
         public ICommand GestionUsuarios => GestionUserPage();
@@ -102,61 +89,9 @@ namespace SyncBlackDuck.ViewModel
             }
             return Task.CompletedTask;
         }
-        private void GenerarUsuarios()
-        {
-            try
-            {
-                /*
-                listaUsuarios = new List<user>();
-
-                for (int i = 0; i < 20; i++)
-                {
-                    user user = new user() { User_id = 1, User_name = "Al", User_password = "1234", User_rol = "admin", User_telefono = 99999999, User_time = DateTime.Now };
-                    listaUsuarios.Add(user);
-                }
-                //listaUsuarios = new List<user>(userController.verTodo());
-                */
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-        }
 
 
 
 
-        private Command agregarUsuario;
-        public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
-
-        private void PerformAgregarUsuario()
-        {
-        }
-
-        private Command modificarUsuario;
-        public ICommand ModificarUsuario => modificarUsuario ??= new Command(PerformModificarUsuario);
-
-        private void PerformModificarUsuario()
-        {
-        }
-
-        private Command borrarUsuario;
-        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
-
-        private void PerformBorrarUsuario()
-        {
-        }
-
-        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
-        {
-            if (!Equals(field, newValue))
-            {
-                field = newValue;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                return true;
-            }
-
-            return false;
-        }
     }
 }
