@@ -24,8 +24,29 @@
                                    ColumnSizer="Auto"
                                    AllowSorting="True"
                                    ItemsSource="{Binding ListaUsuarios}"
-                                   SelectedItem="{Binding UsuarioSeleccionado}"
+                                   SelectedItem="{Binding UsuarioSeleccionado,Mode=TwoWay}"
+                                   AllowEditing="true"
+                                   SelectionMode="Single"
+                                   EditTapAction="OnDoubleTap"
+                                   NavigationMode="Cell"
+                                   ImeOptions="NoExtractUi"
+                                   SelectionUnit="Cell"
+                                   LostFocusBehavior="EndEditCurrentCell"
+                                   AllowResizingColumn="True"
+                                   AutoGenerateColumns="false"
+                                   LiveDataUpdateMode="Default"
                                    >
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="User ID" 
+                                   MappingName="User_id" />
+                    <syncfusion:GridTextColumn HeaderText="User Name" 
+                                   MappingName="User_name" />
+                    <syncfusion:GridTextColumn HeaderText="User Telefono" 
+                                   MappingName="User_telefono" />
+                    <syncfusion:GridTextColumn HeaderText="User Password" 
+                                   MappingName="User_password" />
+
+                </syncfusion:SfDataGrid.Columns>
                                    
                 <syncfusion:SfDataGrid.GridStyle>
                     <syncfusion:DefaultStyle AlternatingRowColor="#DFDFDF"

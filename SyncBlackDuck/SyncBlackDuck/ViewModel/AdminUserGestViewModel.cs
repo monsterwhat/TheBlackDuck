@@ -2,6 +2,7 @@
 using SyncBlackDuck.Services.Implementaciones;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -12,13 +13,21 @@ namespace SyncBlackDuck.ViewModel
     internal class AdminUserGestViewModel : userImpl, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private user usuarioSeleccionado;
+        private ObservableCollection<object> _selectedItems;
+        private user usuarioSeleccionado = new user();
         private List<user> listaUsuarios = new List<user>();
+
 
         private void OnPropertyChanged(string property)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+
+        public ObservableCollection<object> SelectedItems
+        {
+            get { return _selectedItems; }
+            set { this._selectedItems = value; OnPropertyChanged("SelectedItems"); }
         }
 
         public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
