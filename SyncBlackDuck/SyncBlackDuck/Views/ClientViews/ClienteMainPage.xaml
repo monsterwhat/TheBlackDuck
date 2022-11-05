@@ -15,11 +15,19 @@
             <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
         </StackLayout>
         <StackLayout Margin="40,40,40,40">
+            <buttons:SfButton
+                Margin="0,30,0,0"
+                BackgroundColor="#222831"
+                Command="{Binding Path=GestionUsuario}"
+                CornerRadius="7"
+                FontSize="19"
+                Text="Ver historial" />
 
-        <buttons:SfButton
+
+            <buttons:SfButton
                 Margin="0,70,0,0"
                 BackgroundColor="#270F0F"
-                Command="{Binding Path=CerrarSesion}"
+                Command="{Binding Path=CSCerrarSesion}"
                 CornerRadius="7"
                 FontSize="19"
                 Text="Cerrar sesion"/>

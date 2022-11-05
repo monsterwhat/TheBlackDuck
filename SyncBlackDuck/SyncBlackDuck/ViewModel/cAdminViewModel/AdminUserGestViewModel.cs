@@ -1,10 +1,12 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
+using SyncBlackDuck.Views.AdminViews;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -17,21 +19,17 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         private user usuarioSeleccionado = new user();
         private List<user> listaUsuarios = new List<user>();
 
-
-        private void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
-
-        public ObservableCollection<object> SelectedItems
-        {
-            get { return _selectedItems; }
-            set { this._selectedItems = value; OnPropertyChanged("SelectedItems"); }
-        }
-
         public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
         public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
+
+        // ICommands para las redirecciones de paginas
+        public ICommand BackAdminMain => BackAdminMainP();
+
+        // Metodos Command para hacer los metodos async
+        private Command BackAdminMainP()
+        {
+            return new Command(async () => await BackAdminAsync());
+        }
 
         public AdminUserGestViewModel()
         {
@@ -50,17 +48,19 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 return null;
             }
         }
-
-        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        private Task BackAdminAsync()
         {
-            if (!Equals(field, newValue))
+            try
             {
-                field = newValue;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                return true;
+                Application.Current.MainPage = new NavigationPage(new AdminMainPage());
             }
-
-            return false;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("Error al cambiar de pagina");
+                return Task.CompletedTask;
+            }
+            return Task.CompletedTask;
         }
 
         private Command agregarUsuario;
@@ -84,11 +84,28 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
         }
 
-        private Command backAdminMain;
-        public ICommand BackAdminMain => backAdminMain ??= new Command(PerformBackAdminMain);
-
-        private void PerformBackAdminMain()
+        private void OnPropertyChanged(string property)
         {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+
+        public ObservableCollection<object> SelectedItems
+        {
+            get { return _selectedItems; }
+            set { this._selectedItems = value; OnPropertyChanged("SelectedItems"); }
+        }
+
+        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        {
+            if (!Equals(field, newValue))
+            {
+                field = newValue;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                return true;
+            }
+
+            return false;
         }
     }
 }

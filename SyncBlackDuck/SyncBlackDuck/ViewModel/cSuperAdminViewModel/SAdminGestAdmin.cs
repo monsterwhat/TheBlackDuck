@@ -1,9 +1,12 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
+using SyncBlackDuck.Views.AdminViews;
+using SyncBlackDuck.Views.SuperAdminViews;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -15,18 +18,20 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         private user usuarioSeleccionado;
         private List<user> listaUsuarios = new List<user>();
 
-        private void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
-
         public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
         public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
-
         public SAdminGestAdmin()
         {
             listaUsuarios = CargarAdministradores();
+        }
+
+        // ICommands para las redirecciones de paginas
+        public ICommand BackSAdminMain => BackSAdminMainP();
+
+        // Metodos Command para hacer los metodos async
+        private Command BackSAdminMainP()
+        {
+            return new Command(async () => await BackSAdminAsync());
         }
 
         private List<user> CargarAdministradores()
@@ -41,17 +46,19 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                 return null;
             }
         }
-
-        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        private Task BackSAdminAsync()
         {
-            if (!Equals(field, newValue))
+            try
             {
-                field = newValue;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                return true;
+                Application.Current.MainPage = new NavigationPage(new SuperAdminMainPage());
             }
-
-            return false;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("Error al cambiar de pagina");
+                return Task.CompletedTask;
+            }
+            return Task.CompletedTask;
         }
 
         private Command agregarUsuario;
@@ -74,12 +81,22 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         private void PerformBorrarUsuario()
         {
         }
-
-        private Command backSuperAdminMain;
-        public ICommand BackSuperAdminMain => backSuperAdminMain ??= new Command(PerformBackSuperAdminMain);
-
-        private void PerformBackSuperAdminMain()
+   
+        private void OnPropertyChanged(string property)
         {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        {
+            if (!Equals(field, newValue))
+            {
+                field = newValue;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                return true;
+            }
+
+            return false;
         }
     }
 }

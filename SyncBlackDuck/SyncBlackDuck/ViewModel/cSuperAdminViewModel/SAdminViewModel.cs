@@ -13,16 +13,12 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
     {
         private string user_telefono;
         private user loggedInUser;
-        public SAdminViewModel()
-        {
-
-        }
+        public SAdminViewModel() { }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
-
 
         // ICommands para las redirecciones de paginas
         public ICommand GestionAdministradores => GestionAdminPage();

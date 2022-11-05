@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    internal class AdminViewModel : INotifyPropertyChanged
+    internal class AdminViewModel 
     {
         private string user_telefono;
         private user loggedInUser;
@@ -18,8 +18,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
 
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }

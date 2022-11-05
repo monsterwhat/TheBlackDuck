@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="SyncBlackDuck.Views.SuperAdminViews.SuperAdminGestAdmin"
+    x:Class="SyncBlackDuck.Views.ClientViews.ClienteGestUPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cSuperAdminViewModel">
+    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cClientViewModel">
 
     <ContentPage.BindingContext>
-        <viewModel:SAdminGestAdmin />
+        <viewModel:ClientGestViewModel />
     </ContentPage.BindingContext>
 
     <StackLayout BackgroundColor="#393E46">
@@ -17,15 +17,36 @@
             <Label FontSize="20"
                    TextColor="White"
                    HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center" >Gestion de Usuarios</Label>
+                   VerticalTextAlignment="Center" >Historial de pagos</Label>
         </StackLayout>
         <StackLayout Margin="0,0,0,0" >
             <syncfusion:SfDataGrid x:Name="dataGrid" 
                                    ColumnSizer="Auto"
                                    AllowSorting="True"
-                                   ItemsSource="{Binding ListaUsuarios}"
-                                   SelectedItem="{Binding UsuarioSeleccionado}"
+                                   ItemsSource="{Binding ListaUsuario}"
+                                   SelectedItem="{Binding UsuarioSeleccionado,Mode=TwoWay}"
+                                   AllowEditing="true"
+                                   SelectionMode="Single"
+                                   EditTapAction="OnDoubleTap"
+                                   NavigationMode="Cell"
+                                   ImeOptions="NoExtractUi"
+                                   SelectionUnit="Cell"
+                                   LostFocusBehavior="EndEditCurrentCell"
+                                   AllowResizingColumn="True"
+                                   AutoGenerateColumns="false"
+                                   LiveDataUpdateMode="Default"
                                    >
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="User ID" 
+                                   MappingName="User_id" />
+                    <syncfusion:GridTextColumn HeaderText="User Name" 
+                                   MappingName="User_name" />
+                    <syncfusion:GridTextColumn HeaderText="User Telefono" 
+                                   MappingName="User_telefono" />
+                    <syncfusion:GridTextColumn HeaderText="User Password" 
+                                   MappingName="User_password" />
+
+                </syncfusion:SfDataGrid.Columns>
 
                 <syncfusion:SfDataGrid.GridStyle>
                     <syncfusion:DefaultStyle AlternatingRowColor="#DFDFDF"
@@ -39,43 +60,13 @@
                 </syncfusion:SfDataGrid.GridStyle>
             </syncfusion:SfDataGrid>
 
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center"
-                         Margin="10,-20,10,0">
-                <buttons:SfButton
-                Margin="0,30,0,0"
-                BackgroundColor="#00ADB5"
-                Command="{Binding Path=AgregarUsuario}"
-                CornerRadius="7"
-                FontSize="14"
-                Text="Agregar usuario" />
-
-                <buttons:SfButton
-                Margin="0,30,0,0"
-                BackgroundColor="#00ADB5"
-                Command="{Binding Path=ModificarUsuario}"
-                CornerRadius="7"
-                FontSize="14"
-                Text="Modificar usuario" />
-
-                <buttons:SfButton
-                Margin="0,30,0,0"
-                BackgroundColor="red"
-                Command="{Binding Path=BorrarUsuario}"
-                CornerRadius="7"
-                FontSize="14"
-                Text="Borrar usuario" />
-
-            </StackLayout>
-
         </StackLayout>
 
         <StackLayout Margin="10,20,20,20">
             <buttons:SfButton
                 Margin="0,30,250,0"
                 BackgroundColor="#00ADB5"
-                Command="{Binding Path=BackSAdminMain}"
+                Command="{Binding Path=BackClientMain}"
                 CornerRadius="7"
                 FontSize="15"
                 Text="Regresar" />
