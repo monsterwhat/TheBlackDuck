@@ -4,17 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace SyncBlackDuck.ViewModel
+namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    internal class AdminPagosGestViewModel : pagosImpl, INotifyPropertyChanged
+    internal class AdminUserGestViewModel : userImpl, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private user usuarioSeleccionado;
-        private List<pagos> listaPagos = new List<pagos>();
+        private List<user> listaUsuarios = new List<user>();
 
         private void OnPropertyChanged(string property)
         {
@@ -22,19 +21,19 @@ namespace SyncBlackDuck.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
 
-        public List<pagos> ListaPagos { get { return listaPagos; } set { listaPagos = value; OnPropertyChanged(nameof(ListaPagos)); } }
+        public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
         public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
 
-        public AdminPagosGestViewModel()
+        public AdminUserGestViewModel()
         {
-            listaPagos = CargarPagos();
+            listaUsuarios = CargarClientes();
         }
 
-        private List<pagos> CargarPagos()
+        private List<user> CargarClientes()
         {
             try
             {
-                return verTodo();
+                return verClientes();
             }
             catch (Exception e)
             {
@@ -55,5 +54,32 @@ namespace SyncBlackDuck.ViewModel
             return false;
         }
 
+        private Command agregarUsuario;
+        public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
+
+        private void PerformAgregarUsuario()
+        {
+        }
+
+        private Command modificarUsuario;
+        public ICommand ModificarUsuario => modificarUsuario ??= new Command(PerformModificarUsuario);
+
+        private void PerformModificarUsuario()
+        {
+        }
+
+        private Command borrarUsuario;
+        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
+
+        private void PerformBorrarUsuario()
+        {
+        }
+
+        private Command backAdminMain;
+        public ICommand BackAdminMain => backAdminMain ??= new Command(PerformBackAdminMain);
+
+        private void PerformBackAdminMain()
+        {
+        }
     }
 }

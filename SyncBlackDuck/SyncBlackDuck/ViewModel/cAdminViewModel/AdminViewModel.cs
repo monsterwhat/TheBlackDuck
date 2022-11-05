@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace SyncBlackDuck.ViewModel
+namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
     internal class AdminViewModel : INotifyPropertyChanged
     {
@@ -18,7 +18,7 @@ namespace SyncBlackDuck.ViewModel
         {
 
         }
-        
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
@@ -27,7 +27,7 @@ namespace SyncBlackDuck.ViewModel
 
         // ICommands para las redirecciones de paginas
         public ICommand GestionUsuarios => GestionUserPage();
-        public ICommand CerrarSesion => CerrarSesionAdmin();
+        public ICommand CSCerrarSesion => CerrarSesion();
         public ICommand BackAdminMain => BackAdminMainP();
 
         // Metodos Command para hacer los metodos async
@@ -35,9 +35,9 @@ namespace SyncBlackDuck.ViewModel
         {
             return new Command(async () => await GestionUserAsync());
         }
-        private Command CerrarSesionAdmin()
+        private Command CerrarSesion()
         {
-            return new Command(async () => await CSAdminAsync());
+            return new Command(async () => await CerrarSesionAsync());
         }
         private Command BackAdminMainP()
         {
@@ -48,7 +48,7 @@ namespace SyncBlackDuck.ViewModel
             try
             {
                 // Redireccion usuarios
-                App.Current.MainPage = new NavigationPage(new AdminGestUsuarios());
+                Application.Current.MainPage = new NavigationPage(new AdminGestUsuarios());
             }
             catch (Exception e)
             {
@@ -59,13 +59,13 @@ namespace SyncBlackDuck.ViewModel
             return Task.CompletedTask;
         }
 
-        private Task CSAdminAsync()
+        private Task CerrarSesionAsync()
         {
             try
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                App.Current.MainPage = new NavigationPage(new MainPage());
+                Application.Current.MainPage = new NavigationPage(new MainPage());
             }
             catch (Exception e)
             {
@@ -89,9 +89,6 @@ namespace SyncBlackDuck.ViewModel
             }
             return Task.CompletedTask;
         }
-
-
-
 
     }
 }

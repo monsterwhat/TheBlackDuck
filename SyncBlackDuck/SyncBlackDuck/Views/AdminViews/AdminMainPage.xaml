@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel">
+    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cAdminViewModel">
 
     <ContentPage.BindingContext>
         <viewModel:AdminViewModel />
@@ -27,7 +27,7 @@
             <buttons:SfButton
                 Margin="0,70,0,0"
                 BackgroundColor="#270F0F"
-                Command="{Binding Path=CerrarSesion}"
+                Command="{Binding Path=CSCerrarSesion}"
                 CornerRadius="7"
                 FontSize="19"
                 Text="Cerrar sesion" />

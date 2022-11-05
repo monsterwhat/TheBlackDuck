@@ -7,32 +7,32 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace SyncBlackDuck.ViewModel
+namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
-
-    internal class SuperAdminViewModel : INotifyPropertyChanged
+    internal class ClientViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public SuperAdminViewModel()
+        public ClientViewModel()
         {
-            
+
         }
 
         // ICommands para las redirecciones de paginas
-        public ICommand CerrarSesion => CerrarSesionSuperAdmin();
+        public ICommand CerrarSesion => CerrarSesionCliente();
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         // Metodos Command para hacer los metodos async
-        private Command CerrarSesionSuperAdmin()
+        private Command CerrarSesionCliente()
         {
-            return new Command(async () => await CSSuperAdminAsync());
+            return new Command(async () => await CSClienteAsync());
         }
-        private Task CSSuperAdminAsync()
+        private Task CSClienteAsync()
         {
             try
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                App.Current.MainPage = new NavigationPage(new MainPage());
+                Application.Current.MainPage = new NavigationPage(new MainPage());
             }
             catch (Exception e)
             {
@@ -43,4 +43,5 @@ namespace SyncBlackDuck.ViewModel
             return Task.CompletedTask;
         }
     }
+
 }

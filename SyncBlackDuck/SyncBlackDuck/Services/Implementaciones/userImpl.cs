@@ -146,7 +146,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<user> verAdmins()
+        public List<user> verAdministradores()
         {
             try
             {
