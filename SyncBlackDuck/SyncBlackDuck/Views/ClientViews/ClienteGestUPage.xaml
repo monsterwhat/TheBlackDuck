@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cClientViewModel">
+    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cClientViewModel"
+    NavigationPage.HasNavigationBar="false">
 
     <ContentPage.BindingContext>
         <viewModel:ClientGestViewModel />
@@ -62,14 +63,14 @@
 
         </StackLayout>
 
-        <StackLayout Margin="10,20,20,20">
+        <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
             <buttons:SfButton
                 Margin="0,30,250,0"
                 BackgroundColor="#00ADB5"
                 Command="{Binding Path=BackClientMain}"
                 CornerRadius="7"
                 FontSize="15"
-                Text="Regresar" />
+                Text="Regresar"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
