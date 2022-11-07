@@ -19,22 +19,23 @@
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center" > Gestion de Usuarios </Label>
         </StackLayout>
+        
         <StackLayout Margin="0,0,0,0" >
             <syncfusion:SfDataGrid x:Name="dataGrid" 
                                    ColumnSizer="Auto"
                                    AllowSorting="True"
-                                   ItemsSource="{Binding ListaUsuarios}"
-                                   SelectedItem="{Binding UsuarioSeleccionado,Mode=TwoWay}"
+                                   ItemsSource="{Binding usuariosInfoCollection}"
+                                   SelectedItems="{Binding SelectedItems}"
                                    AllowEditing="true"
                                    SelectionMode="Single"
                                    EditTapAction="OnDoubleTap"
                                    NavigationMode="Cell"
                                    ImeOptions="NoExtractUi"
-                                   SelectionUnit="Cell"
                                    LostFocusBehavior="EndEditCurrentCell"
                                    AllowResizingColumn="True"
                                    AutoGenerateColumns="false"
                                    LiveDataUpdateMode="Default"
+                                   AllowSwiping="True"
                                    >
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn AllowEditing="false" HeaderText="User ID" 
@@ -47,7 +48,7 @@
                                    MappingName="User_password" />
 
                 </syncfusion:SfDataGrid.Columns>
-                                   
+
                 <syncfusion:SfDataGrid.GridStyle>
                     <syncfusion:DefaultStyle AlternatingRowColor="#DFDFDF"
                                              HeaderBackgroundColor="#222831"
@@ -58,6 +59,24 @@
                                              SelectionForegroundColor="Black"
                                              GridLinesVisibility="None"/>
                 </syncfusion:SfDataGrid.GridStyle>
+
+                <syncfusion:SfDataGrid.RightSwipeTemplate>
+
+                    <DataTemplate>
+                        <ContentView BindingContextChanged="ContentView_BindingContextChanged" 
+                                     BackgroundColor="#1AAA87"
+                                     >
+
+                            <Label FontSize="15" 
+                                   HorizontalTextAlignment ="Center" 
+                                   Text ="Deleted" 
+                                   TextColor ="White"                  
+                                   VerticalTextAlignment ="Center"  
+                                   LineBreakMode ="NoWrap" />
+                        </ContentView>
+                    </DataTemplate>
+                </syncfusion:SfDataGrid.RightSwipeTemplate>
+
             </syncfusion:SfDataGrid>
 
             <StackLayout Orientation="Horizontal"
@@ -75,10 +94,11 @@
                 <buttons:SfButton
                 Margin="0,30,0,0"
                 BackgroundColor="#00ADB5"
-                Command="{Binding Path=ModificarUsuario}"
+                Command="{Binding Path=Salvar}"
                 CornerRadius="7"
                 FontSize="14"
-                Text="Modificar usuario" />
+                Text="Salvar"
+                />
                 
                 <buttons:SfButton
                 Margin="0,30,0,0"

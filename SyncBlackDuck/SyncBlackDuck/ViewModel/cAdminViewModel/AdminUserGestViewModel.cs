@@ -1,10 +1,14 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using SyncBlackDuck.Views.AdminViews;
+using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,15 +16,51 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    internal class AdminUserGestViewModel : userImpl, INotifyPropertyChanged
+    internal class AdminUserGestViewModel : userImpl, INotifyPropertyChanged, IEditableObject
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private ObservableCollection<object> _selectedItems;
-        private user usuarioSeleccionado = new user();
         private List<user> listaUsuarios = new List<user>();
-
-        public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
-        public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
+        /// <summary>
+        /// Notificador de cambios
+        /// </summary>
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+        /// <summary>
+        /// Lista de usuarios con notificaciones
+        /// </summary>
+        private ObservableCollection<user> usuariosInfo;
+        public ObservableCollection<user> usuariosInfoCollection {
+            get { return usuariosInfo; }
+            set { this.usuariosInfo = value;
+                RaisePropertyChanged("user");
+            }
+        }
+        /// <summary>
+        /// Cambios en la lista con notificaciones
+        /// </summary>
+        private ObservableCollection<object> selectedItems;
+        public ObservableCollection<object> SelectedItems
+        {
+            get { return selectedItems; }
+            set
+            {
+                this.selectedItems = value;
+                //Se podria salvar para aplicar cambios en la BD....
+                RaisePropertyChanged("SelectedItems");
+            }
+        }
+        /// <summary>
+        /// Inicializamos los observadores y cargamos la lista de clientes.
+        /// </summary>
+        public AdminUserGestViewModel()
+        {
+            usuariosInfo = new ObservableCollection<user>();
+            selectedItems = new ObservableCollection<object>();
+            CargarClientes();
+        }
 
         // ICommands para las redirecciones de paginas
         public ICommand BackAdminMain => BackAdminMainP();
@@ -30,22 +70,24 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             return new Command(async () => await BackAdminAsync());
         }
-
-        public AdminUserGestViewModel()
-        {
-            listaUsuarios = CargarClientes();
-        }
-
-        private List<user> CargarClientes()
+        /// <summary>
+        /// Metodo para cargar los clientes en el observable collection
+        /// </summary>
+        private void CargarClientes()
         {
             try
             {
-                return verClientes();
+                //Cargamos la lista
+                listaUsuarios = verClientes();
+                //Iteramos para insertar en el observable collection
+                for (int i = 0; i < listaUsuarios.Count; i++)
+                {
+                    usuariosInfo.Add(listaUsuarios.ElementAt(i));
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return null;
             }
         }
         private Task BackAdminAsync()
@@ -68,13 +110,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         private void PerformAgregarUsuario()
         {
-        }
-
-        private Command modificarUsuario;
-        public ICommand ModificarUsuario => modificarUsuario ??= new Command(PerformModificarUsuario);
-
-        private void PerformModificarUsuario()
-        {
+            
         }
 
         private Command borrarUsuario;
@@ -82,30 +118,75 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         private void PerformBorrarUsuario()
         {
+            
         }
 
-        private void OnPropertyChanged(string property)
+        private Command salvar;
+        public ICommand Salvar => salvar ??= new Command(PerformSalvar);
+
+        private void PerformSalvar()
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            
         }
 
-        public ObservableCollection<object> SelectedItems
+        private Dictionary<string, object> storedValues;
+
+
+        public void BeginEdit()
         {
-            get { return _selectedItems; }
-            set { this._selectedItems = value; OnPropertyChanged("SelectedItems"); }
+            this.storedValues = this.BackUp();
         }
 
-        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        public void CancelEdit()
         {
-            if (!Equals(field, newValue))
+            if (this.storedValues == null)
+                return;
+
+            foreach (var item in this.storedValues)
             {
-                field = newValue;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                return true;
+                var itemProperties = this.GetType().GetTypeInfo().DeclaredProperties;
+                var pDesc = itemProperties.FirstOrDefault(p => p.Name == item.Key);
+                if (pDesc != null)
+                    pDesc.SetValue(this, item.Value);
             }
-
-            return false;
         }
+
+        public void EndEdit()
+        {
+            if (this.storedValues != null)
+            {
+                this.storedValues.Clear();
+                this.storedValues = null;
+            }
+            Debug.WriteLine("End Edit Called");
+        }
+
+        protected Dictionary<string, object> BackUp()
+        {
+            var dictionary = new Dictionary<string, object>();
+            var itemProperties = this.GetType().GetTypeInfo().DeclaredProperties;
+            foreach (var pDescriptor in itemProperties)
+            {
+                if (pDescriptor.CanWrite)
+                    dictionary.Add(pDescriptor.Name, pDescriptor.GetValue(this));
+            }
+            return dictionary;
+        }
+
+        private void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
+        {
+            // Editing prevented for the cell at RowColumnIndex(2,2).
+            if (args.RowColumnIndex == new Syncfusion.GridCommon.ScrollAxis.RowColumnIndex(2, 2))
+                args.Cancel = true;
+        }
+
+        private void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
+        {
+            // Editing prevented for the cell at RowColumnIndex(1,3).
+            if (args.RowColumnIndex == new Syncfusion.GridCommon.ScrollAxis.RowColumnIndex(1, 3))
+                args.Cancel = true;
+        }
+
+
     }
 }
