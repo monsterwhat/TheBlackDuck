@@ -16,7 +16,7 @@ namespace SyncBlackDuck.Views.AdminViews
 
         private void ContentView_BindingContextChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

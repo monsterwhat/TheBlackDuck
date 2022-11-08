@@ -15,100 +15,102 @@
     <StackLayout BackgroundColor="#393E46">
 
         <StackLayout Margin="50">
-            <Label FontSize="20"
-                   TextColor="White"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center" > Gestion de Usuarios </Label>
+            <Label
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                TextColor="White"
+                VerticalTextAlignment="Center">
+                Gestion de Usuarios
+            </Label>
         </StackLayout>
-        
-        <StackLayout Margin="0,0,0,0" >
-            <syncfusion:SfDataGrid x:Name="dataGrid" 
-                                   ColumnSizer="Auto"
-                                   AllowSorting="True"
-                                   ItemsSource="{Binding usuariosInfoCollection}"
-                                   SelectedItems="{Binding SelectedItems}"
-                                   AllowEditing="true"
-                                   SelectionMode="Single"
-                                   EditTapAction="OnDoubleTap"
-                                   NavigationMode="Cell"
-                                   ImeOptions="NoExtractUi"
-                                   LostFocusBehavior="EndEditCurrentCell"
-                                   AllowResizingColumn="True"
-                                   AutoGenerateColumns="false"
-                                   LiveDataUpdateMode="Default"
-                                   AllowSwiping="True"
-                                   >
+
+        <StackLayout Margin="0,0,0,0">
+            <syncfusion:SfDataGrid
+                x:Name="dataGrid"
+                AllowEditing="true"
+                AllowResizingColumn="True"
+                AllowSorting="True"
+                AllowSwiping="True"
+                AutoGenerateColumns="false"
+                ColumnSizer="Auto"
+                EditTapAction="OnDoubleTap"
+                ImeOptions="NoExtractUi"
+                ItemsSource="{Binding usuariosInfoCollection}"
+                LiveDataUpdateMode="Default"
+                LostFocusBehavior="EndEditCurrentCell"
+                NavigationMode="Cell"
+                SelectedItem="{Binding SelectedItem}"
+                SelectionMode="Multiple">
                 <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="User ID" 
-                                   MappingName="User_id" />
-                    <syncfusion:GridTextColumn HeaderText="User Name" 
-                                   MappingName="User_name" />
-                    <syncfusion:GridTextColumn HeaderText="User Telefono" 
-                                   MappingName="User_telefono" />
-                    <syncfusion:GridTextColumn HeaderText="User Password" 
-                                   MappingName="User_password" />
+                    <syncfusion:GridTextColumn
+                        AllowEditing="false"
+                        HeaderText="User ID"
+                        MappingName="User_id" />
+                    <syncfusion:GridTextColumn HeaderText="User Name" MappingName="User_name" />
+                    <syncfusion:GridTextColumn HeaderText="User Telefono" MappingName="User_telefono" />
+                    <syncfusion:GridTextColumn HeaderText="User Password" MappingName="User_password" />
 
                 </syncfusion:SfDataGrid.Columns>
 
                 <syncfusion:SfDataGrid.GridStyle>
-                    <syncfusion:DefaultStyle AlternatingRowColor="#DFDFDF"
-                                             HeaderBackgroundColor="#222831"
-                                             HeaderForegroundColor="White"
-                                             RowBackgroundColor="White"
-                                             RowForegroundColor="Black"
-                                             SelectionBackgroundColor="#00ADB5"
-                                             SelectionForegroundColor="Black"
-                                             GridLinesVisibility="None"/>
+                    <syncfusion:DefaultStyle
+                        AlternatingRowColor="#DFDFDF"
+                        GridLinesVisibility="None"
+                        HeaderBackgroundColor="#222831"
+                        HeaderForegroundColor="White"
+                        RowBackgroundColor="White"
+                        RowForegroundColor="Black"
+                        SelectionBackgroundColor="#00ADB5"
+                        SelectionForegroundColor="Black" />
                 </syncfusion:SfDataGrid.GridStyle>
 
                 <syncfusion:SfDataGrid.RightSwipeTemplate>
 
                     <DataTemplate>
-                        <ContentView BindingContextChanged="ContentView_BindingContextChanged" 
-                                     BackgroundColor="#1AAA87"
-                                     >
+                        <ContentView BackgroundColor="#1AAA87" BindingContextChanged="ContentView_BindingContextChanged">
 
-                            <Label FontSize="15" 
-                                   HorizontalTextAlignment ="Center" 
-                                   Text ="Deleted" 
-                                   TextColor ="White"                  
-                                   VerticalTextAlignment ="Center"  
-                                   LineBreakMode ="NoWrap" />
+                            <Label
+                                FontSize="15"
+                                HorizontalTextAlignment="Center"
+                                LineBreakMode="NoWrap"
+                                Text="Deleted"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
                         </ContentView>
                     </DataTemplate>
                 </syncfusion:SfDataGrid.RightSwipeTemplate>
 
             </syncfusion:SfDataGrid>
 
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center"
-                         Margin="10,-20,10,0">
+            <StackLayout
+                Margin="10,-20,10,0"
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
                 <buttons:SfButton
-                Margin="0,30,0,0"
-                BackgroundColor="#00ADB5"
-                Command="{Binding Path=AgregarUsuario}"
-                CornerRadius="7"
-                FontSize="14"
-                Text="Agregar usuario" />
-                
+                    Margin="0,30,0,0"
+                    BackgroundColor="#00ADB5"
+                    Command="{Binding Path=AgregarUsuario}"
+                    CornerRadius="7"
+                    FontSize="14"
+                    Text="Agregar usuario" />
+
                 <buttons:SfButton
-                Margin="0,30,0,0"
-                BackgroundColor="#00ADB5"
-                Command="{Binding Path=Salvar}"
-                CornerRadius="7"
-                FontSize="14"
-                Text="Salvar"
-                />
-                
+                    Margin="0,30,0,0"
+                    BackgroundColor="#00ADB5"
+                    Command="{Binding Path=Salvar}"
+                    CornerRadius="7"
+                    FontSize="14"
+                    Text="Salvar" />
+
                 <buttons:SfButton
-                Margin="0,30,0,0"
-                BackgroundColor="red"
-                Command="{Binding Path=BorrarUsuario}"
-                CornerRadius="7"
-                FontSize="14"
-                Text="Borrar usuario" />
-                
+                    Margin="0,30,0,0"
+                    BackgroundColor="red"
+                    Command="{Binding Path=BorrarUsuario}"
+                    CornerRadius="7"
+                    FontSize="14"
+                    Text="Borrar usuario" />
+
             </StackLayout>
 
         </StackLayout>
