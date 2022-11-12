@@ -9,6 +9,12 @@ namespace SyncBlackDuck.Services.Implementaciones
     internal class userImpl : Connection, ICRUD<user>
     {
         //Elimina un usuario de la tabla user
+
+        public userImpl()
+        {
+
+        }
+
         public bool eliminar(user item)
         {
             try

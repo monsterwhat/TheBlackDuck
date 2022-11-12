@@ -16,5 +16,12 @@ namespace SyncBlackDuck.Views.SuperAdminViews
         {
             InitializeComponent();
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            BindingContext = null;
+            GC.Collect();
+        }
     }
 }

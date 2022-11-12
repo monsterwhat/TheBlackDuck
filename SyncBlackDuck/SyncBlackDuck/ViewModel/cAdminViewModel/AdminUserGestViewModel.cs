@@ -6,17 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Diagnostics.Tracing;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    internal class AdminUserGestViewModel : userImpl, INotifyPropertyChanged, IEditableObject
+    internal class AdminUserGestViewModel : userImpl, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private List<user> listaUsuarios = new List<user>();
@@ -30,169 +27,161 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
 
-    /// <summary>
-    /// Lista de usuarios con notificaciones
-    /// </summary>
-    private ObservableCollection<user> usuariosInfo;
-    public ObservableCollection<user> usuariosInfoCollection
-    {
-        get { return usuariosInfo; }
-        set
+        /// <summary>
+        /// Lista de usuarios con notificaciones
+        /// </summary>
+        private ObservableCollection<user> usuariosInfo;
+        public ObservableCollection<user> usuariosInfoCollection
         {
-            this.usuariosInfo = value;
-            RaisePropertyChanged("userCollection");
-        }
-    }
-    /// <summary>
-    /// Cambios en la lista con notificaciones
-    /// </summary>
-    private Object selectedItem;
-    public Object SelectedItem
-    {
-        get { return selectedItem; }
-        set
-        {
-            this.selectedItem = value;
-            //Se podria salvar para aplicar cambios en la BD....
-            RaisePropertyChanged("SelectedItems");
-        }
-    }
-
-    /// <summary>
-    /// Inicializamos los observadores y cargamos la lista de clientes.
-    /// </summary>
-    public AdminUserGestViewModel()
-    {
-        usuariosInfo = new ObservableCollection<user>();
-        selectedItem = new Object();
-        CargarClientes();
-    }
-
-    // ICommands para las redirecciones de paginas
-    public ICommand BackAdminMain => BackAdminMainP();
-
-    // Metodos Command para hacer los metodos async
-    private Command BackAdminMainP()
-    {
-        return new Command(async () => await BackAdminAsync());
-    }
-    /// <summary>
-    /// Metodo para cargar los clientes en el observable collection
-    /// </summary>
-    private void CargarClientes()
-    {
-        try
-        {
-            //Cargamos la lista
-            listaUsuarios = verClientes();
-            //Iteramos para insertar en el observable collection
-            for (int i = 0; i < listaUsuarios.Count; i++)
+            get { return usuariosInfo; }
+            set
             {
-                usuariosInfo.Add(listaUsuarios.ElementAt(i));
+                if (this.usuariosInfo != value)
+                {
+                    Console.WriteLine(value);
+                    Console.WriteLine("se modifico el OC de userCollection");
+                    this.usuariosInfo = value;
+                }
+                RaisePropertyChanged("userCollection");
             }
         }
-        catch (Exception e)
+
+        /// <summary>
+        /// Cambios en la lista con notificaciones
+        /// </summary>
+        private Object selectedItem;
+        public Object SelectedItem
         {
-            Console.WriteLine(e);
+            get { return selectedItem; }
+            set
+            {
+                Console.WriteLine(value);
+                if (this.selectedItem != value)
+                {
+                    this.selectedItem = value;
+                    //Se podria salvar para aplicar cambios en la BD....
+                    //Actualizar(value); //Donde value es el usuario (objeto) seleccionado.
+                    //Despues de actualizar necesitamos recargar la tabla(?)
+                }
+                RaisePropertyChanged("SelectedItems");
+            }
         }
-    }
-    private Task BackAdminAsync()
-    {
-        try
+
+        /// <summary>
+        /// Inicializamos los observadores y cargamos la lista de clientes.
+        /// </summary>
+        public AdminUserGestViewModel()
         {
-            Application.Current.MainPage = new NavigationPage(new AdminMainPage());
+            //UsuariosInfo es la lista de usuarios
+            usuariosInfo = new ObservableCollection<user>();
+            //SectedItem es el Usuario.
+            selectedItem = new Object();
+            //Cargamos la lista de clientes;
+            CargarClientes();
+            
+
         }
-        catch (Exception e)
+
+        public class DatagridControlls
         {
-            Console.WriteLine(e);
-            Console.WriteLine("Error al cambiar de pagina");
+            public DatagridControlls()
+            {
+                
+            }
+
+            public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
+            {
+                Console.WriteLine("CurrentCellBeginEdit");
+                Console.WriteLine("Row index: " + args.RowColumnIndex);
+                Console.WriteLine("Column: " + args.Column);
+            }
+
+            public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
+            {
+                Console.WriteLine("CurrentCellEndEdit");
+                Console.WriteLine("Row index: " + args.RowColumnIndex);
+                Console.WriteLine("Column: " + args.OldValue);
+                Console.WriteLine("Column: " + args.NewValue);
+
+            }
+        }
+
+
+        // ICommands para las redirecciones de paginas
+        public ICommand BackAdminMain => BackAdminMainP();
+
+        // Metodos Command para hacer los metodos async
+        private Command BackAdminMainP()
+        {
+            return new Command(async () => await BackAdminAsync());
+        }
+        /// <summary>
+        /// Metodo para cargar los clientes en el observable collection
+        /// </summary>
+        private void CargarClientes()
+        {
+            try
+            {
+                //Cargamos la lista
+                listaUsuarios = verClientes();
+                //Iteramos para insertar en el observable collection
+                for (int i = 0; i < listaUsuarios.Count; i++)
+                {
+                    usuariosInfo.Add(listaUsuarios.ElementAt(i));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+        private Task BackAdminAsync()
+        {
+            try
+            {
+                Application.Current.MainPage = new NavigationPage(new AdminMainPage());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("Error al cambiar de pagina");
+                return Task.CompletedTask;
+            }
             return Task.CompletedTask;
         }
-        return Task.CompletedTask;
-    }
 
-    private Command agregarUsuario;
-    public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
+        private Command agregarUsuario;
+        public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
 
-    private void PerformAgregarUsuario()
-    {
-
-    }
-
-    private Command borrarUsuario;
-    public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
-
-    private void PerformBorrarUsuario()
-    {
-
-    }
-
-    private Command salvar;
-    public ICommand Salvar => salvar ??= new Command(PerformSalvar);
-
-    private void PerformSalvar()
-    {
-
-    }
-
-    private Dictionary<string, object> storedValues;
-
-
-    public void BeginEdit()
-    {
-        this.storedValues = this.BackUp();
-    }
-
-    public void CancelEdit()
-    {
-        if (this.storedValues == null)
-            return;
-
-        foreach (var item in this.storedValues)
+        private void PerformAgregarUsuario()
         {
-            var itemProperties = this.GetType().GetTypeInfo().DeclaredProperties;
-            var pDesc = itemProperties.FirstOrDefault(p => p.Name == item.Key);
-            if (pDesc != null)
-                pDesc.SetValue(this, item.Value);
-        }
-    }
 
-    public void EndEdit()
-    {
-        if (this.storedValues != null)
+        }
+
+        private Command borrarUsuario;
+        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
+
+        private void PerformBorrarUsuario()
         {
-            this.storedValues.Clear();
-            this.storedValues = null;
-        }
-        Debug.WriteLine("End Edit Called");
-    }
 
-    protected Dictionary<string, object> BackUp()
-    {
-        var dictionary = new Dictionary<string, object>();
-        var itemProperties = this.GetType().GetTypeInfo().DeclaredProperties;
-        foreach (var pDescriptor in itemProperties)
+        }
+
+        private Command salvar;
+        public ICommand Salvar => salvar ??= new Command(PerformSalvar);
+
+        private void PerformSalvar()
         {
-            if (pDescriptor.CanWrite)
-                dictionary.Add(pDescriptor.Name, pDescriptor.GetValue(this));
+
         }
-        return dictionary;
+
+        public void EndEditCell(object sender, GridCurrentCellEndEditEventArgs args)
+        {
+            Console.WriteLine("CurrentCellEndEdit");
+            Console.WriteLine("Row index: " + args.RowColumnIndex);
+            Console.WriteLine("Column: " + args.OldValue);
+            Console.WriteLine("Column: " + args.NewValue);
+
+        }
+
     }
-
-    private void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
-    {
-        // Editing prevented for the cell at RowColumnIndex(2,2).
-        if (args.RowColumnIndex == new Syncfusion.GridCommon.ScrollAxis.RowColumnIndex(2, 2))
-            args.Cancel = true;
-    }
-
-    private void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
-    {
-        // Editing prevented for the cell at RowColumnIndex(1,3).
-        if (args.RowColumnIndex == new Syncfusion.GridCommon.ScrollAxis.RowColumnIndex(1, 3))
-            args.Cancel = true;
-    }
-
-
-}
 }

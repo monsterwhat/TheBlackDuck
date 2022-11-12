@@ -48,8 +48,10 @@ namespace SyncBlackDuck.Model.Objetos
             get { return user_id; }
             set
             {
-                this.user_id = value;
-                Console.WriteLine(value);
+                if(this.user_id != value)
+                {
+                    this.user_id = value;
+                }
                 RaisePropertyChanged("user_id");
             }
         }
@@ -58,8 +60,10 @@ namespace SyncBlackDuck.Model.Objetos
             get { return user_name; }
             set
             {
-                user_name = value;
-                Console.WriteLine(value);
+                if(this.user_name != value) 
+                {
+                    this.user_name = value;
+                }
                 RaisePropertyChanged("user_name");
             }
         }
@@ -67,8 +71,10 @@ namespace SyncBlackDuck.Model.Objetos
         {
             get { return user_password; }
             set {
-                user_password = value;
-                Console.WriteLine(value);
+                if(this.user_password != value) 
+                {
+                    this.user_password = value;
+                }
                 RaisePropertyChanged("user_password");
             }
         }
@@ -76,8 +82,10 @@ namespace SyncBlackDuck.Model.Objetos
         public DateTime User_time {
             get { return user_time; }
             set {
-                user_time = value;
-                Console.WriteLine(value);
+                if(this.user_time != value) 
+                {
+                    this.user_time = value;
+                }
                 RaisePropertyChanged("user_time");
             }
         }
@@ -86,8 +94,10 @@ namespace SyncBlackDuck.Model.Objetos
             get { return user_telefono; }
             set
             {
-                user_telefono = value;
-                Console.WriteLine(value);
+                if(this.user_telefono != value)
+                {
+                    this.user_telefono = value;
+                }
                 RaisePropertyChanged("user_telefono");
             }
         }
@@ -96,8 +106,10 @@ namespace SyncBlackDuck.Model.Objetos
             get { return user_rol; }
             set
             {
-                user_rol = value;
-                Console.WriteLine(value);
+                if(this.user_rol != value)
+                {
+                    this.user_rol = value;
+                }
                 RaisePropertyChanged("user_rol");
             }
         }

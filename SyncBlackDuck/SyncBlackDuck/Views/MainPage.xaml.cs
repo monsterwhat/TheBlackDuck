@@ -11,5 +11,12 @@ namespace Sync_test
         {
             InitializeComponent();
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            BindingContext = null;
+            GC.Collect();
+        }
     }
 }

@@ -16,5 +16,12 @@ namespace SyncBlackDuck.Views.ClientViews
         {
             InitializeComponent();
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            BindingContext = null;
+            GC.Collect();
+        }
     }
 }

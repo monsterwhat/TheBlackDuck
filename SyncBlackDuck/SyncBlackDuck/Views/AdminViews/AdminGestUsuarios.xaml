@@ -67,7 +67,7 @@
                 <syncfusion:SfDataGrid.RightSwipeTemplate>
 
                     <DataTemplate>
-                        <ContentView BackgroundColor="#1AAA87" BindingContextChanged="ContentView_BindingContextChanged">
+                        <ContentView BackgroundColor="#1AAA87">
 
                             <Label
                                 FontSize="15"
