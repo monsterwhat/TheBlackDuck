@@ -6,10 +6,6 @@
              x:Class="SyncBlackDuck.Views.ClientViews.ClienteMainPage"
              NavigationPage.HasNavigationBar="false">
 
-    <ContentPage.BindingContext>
-        <viewModel:ClientViewModel/>
-    </ContentPage.BindingContext>
-
     <StackLayout BackgroundColor="#393E46" >
         <Label Margin="15,15,0,0" TextColor="white" FontSize="15" >Cliente</Label>
         <StackLayout Margin="0,90,0,0">

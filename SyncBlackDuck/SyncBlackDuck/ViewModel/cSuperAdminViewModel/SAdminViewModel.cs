@@ -9,11 +9,13 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
-    internal class SAdminViewModel : INotifyPropertyChanged
+    public partial class SAdminViewModel : SAdminBaseVM, INotifyPropertyChanged
     {
         private string user_telefono;
         private user loggedInUser;
-        public SAdminViewModel() { }
+        public SAdminViewModel(INavigation navigation) {
+            Navigation = navigation;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

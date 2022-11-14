@@ -9,6 +9,12 @@ namespace SyncBlackDuck.Services.Implementaciones
     internal class pagosImpl : Connection, ICRUD<pagos>
     {
         //Elimina un registro de la tabla pagos
+
+        public pagosImpl()
+        {
+
+        }
+
         public bool eliminar(pagos item)
         {
             try

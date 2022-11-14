@@ -7,10 +7,7 @@
     xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
     xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cSuperAdminViewModel"
     NavigationPage.HasNavigationBar="false">
-    
-    <ContentPage.BindingContext>
-        <viewModel:SAdminGestAdmin />
-    </ContentPage.BindingContext>
+   
 
     <StackLayout BackgroundColor="#393E46">
 

@@ -13,23 +13,19 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    internal class AdminUserGestViewModel : userImpl, INotifyPropertyChanged
+    public partial class AdminUserGestViewModel : AdminBaseVM, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private List<user> listaUsuarios = new List<user>();
+        private userImpl userController = new userImpl();
 
-        /// <summary>
-        /// Notificador de cambios
-        /// </summary>
+
         private void RaisePropertyChanged(string property)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
 
-        /// <summary>
-        /// Lista de usuarios con notificaciones
-        /// </summary>
         private ObservableCollection<user> usuariosInfo;
         public ObservableCollection<user> usuariosInfoCollection
         {
@@ -45,10 +41,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 RaisePropertyChanged("userCollection");
             }
         }
-
-        /// <summary>
-        /// Cambios en la lista con notificaciones
-        /// </summary>
+        
         private Object selectedItem;
         public Object SelectedItem
         {
@@ -67,20 +60,20 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
         }
 
-        /// <summary>
-        /// Inicializamos los observadores y cargamos la lista de clientes.
-        /// </summary>
-        public AdminUserGestViewModel()
+        public AdminUserGestViewModel(INavigation navigation, SfDataGrid datagrid)
         {
             //UsuariosInfo es la lista de usuarios
+            Navigation = navigation;
             usuariosInfo = new ObservableCollection<user>();
             //SectedItem es el Usuario.
             selectedItem = new Object();
             //Cargamos la lista de clientes;
             CargarClientes();
-            
 
+            DatagridControlls grid = new DatagridControlls();
+            datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
         }
+
 
         public class DatagridControlls
         {
@@ -123,7 +116,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             try
             {
                 //Cargamos la lista
-                listaUsuarios = verClientes();
+                listaUsuarios = userController.verClientes();
                 //Iteramos para insertar en el observable collection
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {

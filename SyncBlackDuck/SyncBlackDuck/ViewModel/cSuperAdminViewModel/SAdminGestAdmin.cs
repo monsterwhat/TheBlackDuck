@@ -2,6 +2,7 @@
 using SyncBlackDuck.Services.Implementaciones;
 using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.SuperAdminViews;
+using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,16 +13,18 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
-    internal class SAdminGestAdmin : userImpl, INotifyPropertyChanged
+    public partial class SAdminGestAdmin : SAdminBaseVM, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private user usuarioSeleccionado;
         private List<user> listaUsuarios = new List<user>();
+        private userImpl userController = new userImpl();
 
         public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
         public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
-        public SAdminGestAdmin()
+        public SAdminGestAdmin(INavigation navigation, SfDataGrid datagrid)
         {
+            Navigation = navigation;
             listaUsuarios = CargarAdministradores();
         }
 
@@ -38,7 +41,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             try
             {
-                return verAdministradores();
+                return userController.verAdministradores();
             }
             catch (Exception e)
             {

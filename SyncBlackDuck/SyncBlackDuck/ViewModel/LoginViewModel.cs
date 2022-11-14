@@ -1,4 +1,5 @@
-﻿using SyncBlackDuck.Model.Objetos;
+﻿using Sync_test;
+using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Login;
 using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.ClientViews;
@@ -12,28 +13,28 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel
 {
-    internal class LoginViewModel : loginService, INotifyPropertyChanged
+    public class LoginViewModel : ContentPage
     {
         private int telefono;
         private string password;
         //Creamos el Objeto Usuario
         private user loggedInUser;
         private string userId;
-
-        public event PropertyChangedEventHandler PropertyChanged;
+        private loginService loginController = new loginService();
+        public INavigation Navigation;
 
         //Getters y setters para los bindings de la vista
         public int Telefono { get => telefono; set => telefono = value; }
         public string Password { get => password; set => password = value; }
 
-        public LoginViewModel()
+        public LoginViewModel(INavigation navigation)
         {
-           AsyncCommand();
+            Navigation = navigation;
+            AsyncCommand();
         }
 
         //Binding del boton login en la vista
         public ICommand Login => LoginCommand();
-
 
         private Command LoginCommand()
         {
@@ -58,7 +59,7 @@ namespace SyncBlackDuck.ViewModel
                     userId = id;
                     if (userId != null || !userId.Equals(0))
                     {
-                        loggedInUser = loginByPhone(int.Parse(userId));
+                        loggedInUser = loginController.loginByPhone(int.Parse(userId));
                         new Command(async () => await LoginAsync());
                         /* Aqui si encuentra el usuario, deberia redireccionar al
                            main page de cada usuario por medio de un if, que revise
@@ -82,7 +83,7 @@ namespace SyncBlackDuck.ViewModel
             {
                 if(loggedInUser == null)
                 {
-                    loggedInUser = loginByRank(Telefono, Password);
+                    loggedInUser = loginController.loginByRank(Telefono, Password);
                     Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
                 }
 
@@ -90,21 +91,18 @@ namespace SyncBlackDuck.ViewModel
                 {
                     case "admin":
                         //Redireccion admin
-                        App.Current.Quit();
-                        App.Current.MainPage = new NavigationPage(new AdminMainPage());
+                         Navigation.PushAsync(new AdminMainPage());
                         break;
                     case "superadmin":
                         //Redireccion superAdmin
-                        App.Current.Quit();
-                        App.Current.MainPage = new NavigationPage(new SuperAdminMainPage());
+                         Navigation.PushAsync(new SuperAdminMainPage());
                         break;
                     case null:
                         //Mostrar error de login
                         break;
                     default:
                         //Deberia ser cliente
-                        App.Current.Quit();
-                        App.Current.MainPage = new NavigationPage(new ClienteMainPage());
+                         Navigation.PushAsync(new ClienteMainPage());
                         break;
 
                 }

@@ -2,6 +2,7 @@
 using SyncBlackDuck.Services.Implementaciones;
 using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.ClientViews;
+using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,18 +15,20 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
- internal class ClientGestViewModel : userImpl, INotifyPropertyChanged
+ public partial class ClientGestViewModel : ClienteBaseVM, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private ObservableCollection<object> _selectedItems;
         private user usuarioSeleccionado = new user();
         private List<user> listaUsuario = new List<user>();
+        private userImpl userController = new userImpl();
 
         public List<user> ListaUsuario { get { return listaUsuario; } set { listaUsuario = value; OnPropertyChanged(nameof(ListaUsuario)); } }
         public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
 
-        public ClientGestViewModel()
+        public ClientGestViewModel(INavigation navigation, SfDataGrid datagrid)
         {
+            Navigation = navigation;
             listaUsuario = cargarCliente();
         }
 
@@ -45,7 +48,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
            los datos del cliente especifico conectado */
             try
             {
-                return verClientes();
+                return userController.verClientes();
             }
             catch (Exception e)
             {

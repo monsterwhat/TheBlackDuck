@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SyncBlackDuck.ViewModel.cSuperAdminViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace SyncBlackDuck.Views.SuperAdminViews
         public SuperAdminMainPage()
         {
             InitializeComponent();
+            BindingContext = new SAdminViewModel(Navigation);
         }
 
         protected override void OnDisappearing()

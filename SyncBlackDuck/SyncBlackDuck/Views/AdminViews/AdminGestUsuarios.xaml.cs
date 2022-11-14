@@ -13,11 +13,7 @@ namespace SyncBlackDuck.Views.AdminViews
         public AdminGestUsuarios()
         {
             InitializeComponent();
-            BindingContext = new AdminUserGestViewModel();
-            DatagridControlls grid = new DatagridControlls();
-            this.dataGrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
-            this.dataGrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
-
+            BindingContext = new AdminUserGestViewModel(Navigation,this.dataGrid);
         }
 
         public class DatagridControlls
@@ -27,24 +23,12 @@ namespace SyncBlackDuck.Views.AdminViews
 
             }
 
-            public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
-            {
-                /*
-                Console.WriteLine("CurrentCellBeginEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.Column);
-                */
-            }
-
             public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
             {
                 Console.WriteLine("CurrentCellEndEdit");
                 Console.WriteLine("Row index: " + args.RowColumnIndex);
                 Console.WriteLine("Column: " + args.OldValue);
                 Console.WriteLine("Column: " + args.NewValue);
-
-                //userImpl userController = new userImpl();
-                //userController.
             }
         }
 

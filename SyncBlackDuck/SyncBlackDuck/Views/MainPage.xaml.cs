@@ -10,6 +10,7 @@ namespace Sync_test
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new LoginViewModel(Navigation);
         }
 
         protected override void OnDisappearing()

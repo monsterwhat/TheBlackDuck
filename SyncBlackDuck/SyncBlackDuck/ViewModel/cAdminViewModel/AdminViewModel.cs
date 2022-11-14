@@ -9,14 +9,14 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    internal class AdminViewModel 
+    public partial class AdminViewModel : AdminBaseVM, INotifyPropertyChanged
     {
         private string user_telefono;
         private user loggedInUser;
-
-        public AdminViewModel()
+        
+        public AdminViewModel(INavigation navigation)
         {
-
+            Navigation = navigation;
         }
 
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
@@ -46,7 +46,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             try
             {
                 // Redireccion usuarios
-                Application.Current.MainPage = new NavigationPage(new AdminGestUsuarios());
+                Navigation.PushAsync(new AdminGestUsuarios());
             }
             catch (Exception e)
             {
@@ -63,7 +63,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                Navigation.PushAsync(new MainPage());
             }
             catch (Exception e)
             {
@@ -77,7 +77,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                Application.Current.MainPage = new NavigationPage(new AdminMainPage());
+                Navigation.PushAsync(new AdminMainPage());
             }
             catch (Exception e)
             {

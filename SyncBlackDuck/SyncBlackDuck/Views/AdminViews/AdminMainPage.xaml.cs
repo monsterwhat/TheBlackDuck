@@ -1,4 +1,5 @@
 ﻿using SyncBlackDuck.ViewModel;
+using SyncBlackDuck.ViewModel.cAdminViewModel;
 using Syncfusion.SfDataGrid.XForms;
 using System;
 using Xamarin.Forms;
@@ -12,6 +13,7 @@ namespace SyncBlackDuck.Views.AdminViews
         public AdminMainPage()
         {
             InitializeComponent();
+            BindingContext = new AdminViewModel(Navigation);
         }
 
         protected override void OnDisappearing()

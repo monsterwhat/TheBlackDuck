@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SyncBlackDuck.ViewModel.cClientViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace SyncBlackDuck.Views.ClientViews
         public ClienteGestUPage()
         {
             InitializeComponent();
+            BindingContext = new ClientGestViewModel(Navigation, this.dataGrid);
         }
 
         protected override void OnDisappearing()

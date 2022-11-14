@@ -7,6 +7,9 @@ namespace SyncBlackDuck.Services.Login
 
     public class loginService : Connection
     {
+
+        public loginService() { }
+        
         public user loginByRank(int t, string p)
         {
             try

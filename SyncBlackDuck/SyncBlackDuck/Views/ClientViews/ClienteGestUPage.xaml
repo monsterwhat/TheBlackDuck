@@ -8,10 +8,6 @@
     xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cClientViewModel"
     NavigationPage.HasNavigationBar="false">
 
-    <ContentPage.BindingContext>
-        <viewModel:ClientGestViewModel />
-    </ContentPage.BindingContext>
-
     <StackLayout BackgroundColor="#393E46">
 
         <StackLayout Margin="50">

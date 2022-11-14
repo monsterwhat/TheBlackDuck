@@ -9,12 +9,14 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
-    internal class ClientViewModel
+    public partial class ClientViewModel : ClienteBaseVM
     {
         private string user_telefono;
         private user loggedInUser;
 
-        public ClientViewModel() { }
+        public ClientViewModel(INavigation navigation) {
+            Navigation = navigation;
+        }
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
