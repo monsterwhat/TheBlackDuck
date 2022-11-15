@@ -1,4 +1,4 @@
-﻿using SyncBlackDuck;
+﻿using Sync_test;
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Login;
 using SyncBlackDuck.Views.ClientViews;
@@ -88,7 +88,7 @@ namespace SyncBlackDuck.ViewModel
                 {
                     case "admin":
                         //Redireccion admin
-                        App.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminMainPage());
+                        App.Current.MainPage = new NavigationPage(new AdminMainPage());
                         break;
                     case "superadmin":
                         //Redireccion superAdmin
