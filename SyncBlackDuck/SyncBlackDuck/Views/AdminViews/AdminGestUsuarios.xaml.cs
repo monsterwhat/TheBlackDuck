@@ -16,23 +16,6 @@ namespace SyncBlackDuck.Views.AdminViews
             BindingContext = new AdminUserGestViewModel(Navigation,this.dataGrid);
         }
 
-        public class DatagridControlls
-        {
-            public DatagridControlls()
-            {
-
-            }
-
-            public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellEndEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.OldValue);
-                Console.WriteLine("Column: " + args.NewValue);
-            }
-        }
-
-
         protected override void OnDisappearing()
         {
             base.OnDisappearing();

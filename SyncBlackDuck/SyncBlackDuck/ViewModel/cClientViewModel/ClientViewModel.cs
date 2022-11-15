@@ -11,14 +11,16 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
     public partial class ClientViewModel : ClienteBaseVM
     {
-        private string user_telefono;
+        private int user_Telefono;
         private user loggedInUser;
 
         public ClientViewModel(INavigation navigation) {
             Navigation = navigation;
         }
-        public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
+        public int User_Telefono { get => user_Telefono; set => user_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
+
+        #region Commands
 
         // ICommands para las redirecciones de paginas
         public ICommand GestionUsuario => GestionUsuarioPage();
@@ -43,7 +45,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             try
             {
                 // Redireccion usuarios
-                Application.Current.MainPage = new NavigationPage(new ClienteGestUPage());
+                Navigation.PushAsync(new ClienteGestUPage());
             }
             catch (Exception e)
             {
@@ -60,7 +62,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                Navigation.PushAsync(new MainPage());
             }
             catch (Exception e)
             {
@@ -74,7 +76,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         {
             try
             {
-                Application.Current.MainPage = new NavigationPage(new ClienteMainPage());
+                Navigation.PushAsync(new ClienteMainPage());
             }
             catch (Exception e)
             {
@@ -84,6 +86,8 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             }
             return Task.CompletedTask;
         }
+
+        #endregion Commands
 
     }
 }

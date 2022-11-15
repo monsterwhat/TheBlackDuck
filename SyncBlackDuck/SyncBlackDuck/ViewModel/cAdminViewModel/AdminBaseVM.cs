@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SyncBlackDuck.Model.Objetos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
     public class AdminBaseVM : INotifyPropertyChanged
     {
+        public user loggedInUser = new user();
         public event PropertyChangedEventHandler PropertyChanged;
         public INavigation Navigation;
 
@@ -17,8 +19,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
-        
+
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+
 
     }
 }

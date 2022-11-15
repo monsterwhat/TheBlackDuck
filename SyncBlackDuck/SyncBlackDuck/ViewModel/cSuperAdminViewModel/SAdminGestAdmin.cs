@@ -1,54 +1,113 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
-using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.SuperAdminViews;
 using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
-    public partial class SAdminGestAdmin : SAdminBaseVM, INotifyPropertyChanged
+    public partial class SAdminGestAdmin : SAdminBaseVM
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        private user usuarioSeleccionado;
+        private user usuarioSeleccionado = new user();
         private List<user> listaUsuarios = new List<user>();
         private userImpl userController = new userImpl();
-
-        public List<user> ListaUsuarios { get { return listaUsuarios; } set { listaUsuarios = value; OnPropertyChanged(nameof(ListaUsuarios)); } }
-        public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
         public SAdminGestAdmin(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
-            listaUsuarios = CargarAdministradores();
+            usuariosInfo = new ObservableCollection<user>();
+            selectedItem = new Object();
+            CargarAdministradores();
+            DatagridControlls grid = new DatagridControlls();
+            datagrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
+            datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
         }
 
-        // ICommands para las redirecciones de paginas
+        #region Listas
+
+        private ObservableCollection<user> usuariosInfo;
+        public ObservableCollection<user> usuariosInfoCollection
+        {
+            get { return usuariosInfo; }
+            set
+            {
+                if (this.usuariosInfo != value)
+                {
+                    Console.WriteLine(value);
+                    Console.WriteLine("se modifico el OC de userCollection");
+                    this.usuariosInfo = value;
+                }
+            }
+        }
+
+        private Object selectedItem;
+        public Object SelectedItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                Console.WriteLine(value);
+                if (this.selectedItem != value)
+                {
+                    this.selectedItem = value;
+                    //Se podria salvar para aplicar cambios en la BD....
+                    //Actualizar(value); //Donde value es el usuario (objeto) seleccionado.
+                    //Despues de actualizar necesitamos recargar la tabla(?)
+                }
+            }
+        }
+
+        #endregion Listas
+
+        #region DatagridControlls
+
+        public class DatagridControlls
+        {
+            public DatagridControlls()
+            {
+
+            }
+
+            public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
+            {
+                Console.WriteLine("CurrentCellBeginEdit");
+                Console.WriteLine("Row index: " + args.RowColumnIndex);
+                Console.WriteLine("Column: " + args.Column);
+            }
+
+            public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
+            {
+                Console.WriteLine("CurrentCellEndEdit");
+                Console.WriteLine("Row index: " + args.RowColumnIndex);
+                Console.WriteLine("Column: " + args.OldValue);
+                Console.WriteLine("Column: " + args.NewValue);
+
+            }
+            public void EndEditCell(object sender, GridCurrentCellEndEditEventArgs args)
+            {
+                Console.WriteLine("CurrentCellEndEdit");
+                Console.WriteLine("Row index: " + args.RowColumnIndex);
+                Console.WriteLine("Column: " + args.OldValue);
+                Console.WriteLine("Column: " + args.NewValue);
+
+            }
+        }
+
+        #endregion DatagridControlls
+
+        #region Commands
         public ICommand BackSAdminMain => BackSAdminMainP();
 
-        // Metodos Command para hacer los metodos async
         private Command BackSAdminMainP()
         {
             return new Command(async () => await BackSAdminAsync());
         }
 
-        private List<user> CargarAdministradores()
-        {
-            try
-            {
-                return userController.verAdministradores();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return null;
-            }
-        }
         private Task BackSAdminAsync()
         {
             try
@@ -84,22 +143,23 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         private void PerformBorrarUsuario()
         {
         }
-   
-        private void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
-        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
-        {
-            if (!Equals(field, newValue))
-            {
-                field = newValue;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                return true;
-            }
 
-            return false;
+        #endregion Commands
+
+        private void CargarAdministradores()
+        {
+            try
+            {
+                listaUsuarios = userController.verAdministradores();
+                for (int i = 0; i < listaUsuarios.Count; i++)
+                {
+                    usuariosInfo.Add(listaUsuarios.ElementAt(i));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }

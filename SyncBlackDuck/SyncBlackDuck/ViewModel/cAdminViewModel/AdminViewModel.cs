@@ -9,19 +9,19 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    public partial class AdminViewModel : AdminBaseVM, INotifyPropertyChanged
+    public partial class AdminViewModel : AdminBaseVM
     {
-        private string user_telefono;
+        private int user_Telefono;
         private user loggedInUser;
         
-        public AdminViewModel(INavigation navigation)
-        {
+        public AdminViewModel(INavigation navigation){
             Navigation = navigation;
         }
 
-        public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
+        public int User_Telefono { get => user_Telefono; set => user_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
+        #region Commands
 
         // ICommands para las redirecciones de paginas
         public ICommand GestionUsuarios => GestionUserPage();
@@ -87,6 +87,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             return Task.CompletedTask;
         }
+
+        #endregion Commands
 
     }
 }

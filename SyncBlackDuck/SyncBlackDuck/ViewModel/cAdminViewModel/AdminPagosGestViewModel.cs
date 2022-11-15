@@ -15,43 +15,105 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
     public partial class AdminPagosGestViewModel : AdminBaseVM
     {
-        private user usuarioSeleccionado;
         private List<pagos> listaPagos = new List<pagos>();
         private pagosImpl pagosController = new pagosImpl();
 
-        public AdminPagosGestViewModel(INavigation navigation)
+        public AdminPagosGestViewModel(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
             pagosInfo = new ObservableCollection<pagos>();
-            listaPagos = CargarPagos();
+            selectedItem = new Object();
+            CargarPagos();
+            DatagridControlls grid = new DatagridControlls();
+            datagrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
+            datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
         }
+
+        #region Listas
 
         private ObservableCollection<pagos> pagosInfo;
         public ObservableCollection<pagos> PagosInfoCollection
         {
             get { return pagosInfo; }
-            set{ this.pagosInfo = value; }
+            set
+            {
+                if (this.pagosInfo != value)
+                {
+                    Console.WriteLine(value);
+                    Console.WriteLine("se modifico el OC de pagosCollection");
+                    this.pagosInfo = value;
+                }
+            }
         }
-        
-        public List<pagos> ListaPagos { get { return listaPagos; } set { listaPagos = value; OnPropertyChanged(nameof(ListaPagos)); } }
-        public user UsuarioSeleccionado { get { return usuarioSeleccionado; } set { usuarioSeleccionado = value; OnPropertyChanged(nameof(usuarioSeleccionado)); } }
 
-        private List<pagos> CargarPagos()
+        private Object selectedItem;
+        public Object SelectedItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                Console.WriteLine(value);
+                if (this.selectedItem != value)
+                {
+                    this.selectedItem = value;
+                    //Se podria salvar para aplicar cambios en la BD....
+                    //Actualizar(value); //Donde value es el usuario (objeto) seleccionado.
+                    //Despues de actualizar necesitamos recargar la tabla(?)
+                }
+            }
+        }
+
+        #endregion Lista
+
+        #region DatagridControlls
+
+        public class DatagridControlls
+        {
+            public DatagridControlls()
+            {
+
+            }
+
+            public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
+            {
+                Console.WriteLine("CurrentCellBeginEdit");
+                Console.WriteLine("Row index: " + args.RowColumnIndex);
+                Console.WriteLine("Column: " + args.Column);
+            }
+
+            public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
+            {
+                Console.WriteLine("CurrentCellEndEdit");
+                Console.WriteLine("Row index: " + args.RowColumnIndex);
+                Console.WriteLine("Column: " + args.OldValue);
+                Console.WriteLine("Column: " + args.NewValue);
+
+            }
+            public void EndEditCell(object sender, GridCurrentCellEndEditEventArgs args)
+            {
+                Console.WriteLine("CurrentCellEndEdit");
+                Console.WriteLine("Row index: " + args.RowColumnIndex);
+                Console.WriteLine("Column: " + args.OldValue);
+                Console.WriteLine("Column: " + args.NewValue);
+
+            }
+        }
+
+        #endregion DatagridControlls
+
+        private void CargarPagos()
         {
             try
             {
-                listaPagos = pagosController.verTodo();
+                listaPagos = pagosController.verPendientes();
                 for (int i = 0; i < listaPagos.Count; i++)
                 {
                     pagosInfo.Add(listaPagos.ElementAt(i));
                 }
-
-                return pagosController.verTodo();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return null;
             }
         }
     }

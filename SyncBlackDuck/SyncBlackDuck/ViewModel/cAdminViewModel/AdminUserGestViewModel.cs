@@ -13,18 +13,23 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    public partial class AdminUserGestViewModel : AdminBaseVM, INotifyPropertyChanged
+    public partial class AdminUserGestViewModel : AdminBaseVM
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private List<user> listaUsuarios = new List<user>();
         private userImpl userController = new userImpl();
 
-
-        private void RaisePropertyChanged(string property)
+        public AdminUserGestViewModel(INavigation navigation, SfDataGrid datagrid)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            Navigation = navigation;
+            usuariosInfo = new ObservableCollection<user>();
+            selectedItem = new Object();
+            CargarClientes();
+            DatagridControlls grid = new DatagridControlls();
+            datagrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
+            datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
         }
+
+        #region Listas
 
         private ObservableCollection<user> usuariosInfo;
         public ObservableCollection<user> usuariosInfoCollection
@@ -38,7 +43,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     Console.WriteLine("se modifico el OC de userCollection");
                     this.usuariosInfo = value;
                 }
-                RaisePropertyChanged("userCollection");
             }
         }
         
@@ -55,25 +59,12 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     //Se podria salvar para aplicar cambios en la BD....
                     //Actualizar(value); //Donde value es el usuario (objeto) seleccionado.
                     //Despues de actualizar necesitamos recargar la tabla(?)
-                }
-                RaisePropertyChanged("SelectedItems");
-            }
+                }            }
         }
 
-        public AdminUserGestViewModel(INavigation navigation, SfDataGrid datagrid)
-        {
-            //UsuariosInfo es la lista de usuarios
-            Navigation = navigation;
-            usuariosInfo = new ObservableCollection<user>();
-            //SectedItem es el Usuario.
-            selectedItem = new Object();
-            //Cargamos la lista de clientes;
-            CargarClientes();
+        #endregion Listas
 
-            DatagridControlls grid = new DatagridControlls();
-            datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
-        }
-
+        #region DatagridControlls
 
         public class DatagridControlls
         {
@@ -97,42 +88,29 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 Console.WriteLine("Column: " + args.NewValue);
 
             }
+            public void EndEditCell(object sender, GridCurrentCellEndEditEventArgs args)
+            {
+                Console.WriteLine("CurrentCellEndEdit");
+                Console.WriteLine("Row index: " + args.RowColumnIndex);
+                Console.WriteLine("Column: " + args.OldValue);
+                Console.WriteLine("Column: " + args.NewValue);
+
+            }
         }
 
+        #endregion DatagridControlls
 
-        // ICommands para las redirecciones de paginas
+        #region Commands
         public ICommand BackAdminMain => BackAdminMainP();
-
-        // Metodos Command para hacer los metodos async
-        private Command BackAdminMainP()
-        {
+        private Command BackAdminMainP(){
             return new Command(async () => await BackAdminAsync());
         }
-        /// <summary>
-        /// Metodo para cargar los clientes en el observable collection
-        /// </summary>
-        private void CargarClientes()
-        {
-            try
-            {
-                //Cargamos la lista
-                listaUsuarios = userController.verClientes();
-                //Iteramos para insertar en el observable collection
-                for (int i = 0; i < listaUsuarios.Count; i++)
-                {
-                    usuariosInfo.Add(listaUsuarios.ElementAt(i));
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-        }
+
         private Task BackAdminAsync()
         {
             try
             {
-                Application.Current.MainPage = new NavigationPage(new AdminMainPage());
+                Navigation.PopAsync();
             }
             catch (Exception e)
             {
@@ -166,15 +144,22 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
 
         }
+        #endregion commands
 
-        public void EndEditCell(object sender, GridCurrentCellEndEditEventArgs args)
+        private void CargarClientes()
         {
-            Console.WriteLine("CurrentCellEndEdit");
-            Console.WriteLine("Row index: " + args.RowColumnIndex);
-            Console.WriteLine("Column: " + args.OldValue);
-            Console.WriteLine("Column: " + args.NewValue);
-
+            try
+            {
+                listaUsuarios = userController.verClientes();
+                for (int i = 0; i < listaUsuarios.Count; i++)
+                {
+                    usuariosInfo.Add(listaUsuarios.ElementAt(i));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
-
     }
 }

@@ -9,25 +9,21 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
-    public partial class SAdminViewModel : SAdminBaseVM, INotifyPropertyChanged
+    public partial class SAdminViewModel : SAdminBaseVM
     {
         private string user_telefono;
         private user loggedInUser;
         public SAdminViewModel(INavigation navigation) {
             Navigation = navigation;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
-        // ICommands para las redirecciones de paginas
+        #region Commands
         public ICommand GestionAdministradores => GestionAdminPage();
         public ICommand CSCerrarSesion => CerrarSesion();
         public ICommand BackAdminMain => BackAdminMainP();
 
-        // Metodos Command para hacer los metodos async
         private Command GestionAdminPage()
         {
             return new Command(async () => await GestionAdminPageAsync());
@@ -45,7 +41,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             try
             {
                 // Redireccion usuarios
-                Application.Current.MainPage = new NavigationPage(new SuperAdminGestAdmin());
+                Navigation.PushAsync(new SuperAdminGestAdmin());
             }
             catch (Exception e)
             {
@@ -62,7 +58,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                Navigation.PopAsync();
             }
             catch (Exception e)
             {
@@ -76,7 +72,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             try
             {
-                Application.Current.MainPage = new NavigationPage(new SuperAdminMainPage());
+                Navigation.PushAsync(new SuperAdminMainPage());
             }
             catch (Exception e)
             {
@@ -86,6 +82,8 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             }
             return Task.CompletedTask;
         }
+
+        #endregion commands
 
     }
 }

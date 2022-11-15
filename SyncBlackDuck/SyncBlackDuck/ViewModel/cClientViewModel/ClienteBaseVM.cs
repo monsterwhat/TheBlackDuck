@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SyncBlackDuck.Model.Objetos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,8 +10,8 @@ using Xamarin.Forms;
 namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
     public class ClienteBaseVM : INotifyPropertyChanged
-
     {
+        public user loggedInUser = new user();
         public event PropertyChangedEventHandler PropertyChanged;
         public INavigation Navigation;
 
@@ -18,5 +19,11 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        protected void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+
     }
 }
