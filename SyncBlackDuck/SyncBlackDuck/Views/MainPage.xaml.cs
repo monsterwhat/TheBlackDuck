@@ -2,7 +2,7 @@
 using System;
 using Xamarin.Forms;
 
-namespace Sync_test
+namespace SyncBlackDuck.Views
 {
     public partial class MainPage : ContentPage
     {

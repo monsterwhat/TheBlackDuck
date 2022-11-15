@@ -1,5 +1,10 @@
-﻿using Sync_test;
+﻿using SyncBlackDuck;
 using SyncBlackDuck.Services;
+<<<<<<< Updated upstream
+=======
+using SyncBlackDuck.Views;
+using SyncBlackDuck.Views.AdminViews;
+>>>>>>> Stashed changes
 using System;
 using System.Collections.Generic;
 using System.Reflection;
