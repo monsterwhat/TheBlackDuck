@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace SyncBlackDuck.Services.Interfaces
 {
@@ -9,7 +8,7 @@ namespace SyncBlackDuck.Services.Interfaces
         public Boolean insertar(T item);
         public Boolean modificar(T item);
         public Boolean eliminar(T item);
-        public List<T> verTodo();
+        public ArrayList verTodo();
 
     }
 }

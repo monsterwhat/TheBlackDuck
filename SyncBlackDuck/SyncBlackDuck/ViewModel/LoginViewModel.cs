@@ -1,7 +1,6 @@
 ﻿using SyncBlackDuck;
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Login;
-using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.ClientViews;
 using SyncBlackDuck.Views.SuperAdminViews;
 using System;
@@ -13,37 +12,32 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel
 {
-    public class LoginViewModel : ContentPage
+    internal class LoginViewModel : loginService, INotifyPropertyChanged
     {
         private int telefono;
         private string password;
         //Creamos el Objeto Usuario
         private user loggedInUser;
         private string userId;
-        private loginService loginController = new loginService();
-        public INavigation Navigation;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         //Getters y setters para los bindings de la vista
         public int Telefono { get => telefono; set => telefono = value; }
         public string Password { get => password; set => password = value; }
 
-        public LoginViewModel(INavigation navigation)
+        public LoginViewModel()
         {
-            Navigation = navigation;
-            AsyncCommand();
+           AsyncSession();
         }
 
         //Binding del boton login en la vista
         public ICommand Login => LoginCommand();
 
+
         private Command LoginCommand()
         {
             return new Command(async () => await LoginAsync());
-        }
-
-        private Command AsyncCommand()
-        {
-            return new Command(async () => await AsyncSession());
         }
 
         //Metodo Async para guardar la informacion del usuario
@@ -59,8 +53,8 @@ namespace SyncBlackDuck.ViewModel
                     userId = id;
                     if (userId != null || !userId.Equals(0))
                     {
-                        loggedInUser = loginController.loginByPhone(int.Parse(userId));
-                        new Command(async () => await LoginAsync());
+                        loggedInUser = loginByPhone(int.Parse(userId));
+                        LoginCommand();
                         /* Aqui si encuentra el usuario, deberia redireccionar al
                            main page de cada usuario por medio de un if, que revise
                            el tipo de rol y a partir de este, lo mande a su respectivo
@@ -71,9 +65,11 @@ namespace SyncBlackDuck.ViewModel
             }
             catch (Exception e)
             {
+
                 Console.WriteLine(e);
                 Console.WriteLine("Error en AsyncSession");
                 return Task.CompletedTask;
+
             }
         }
         //Metodo Async para iniciar sesion
@@ -83,30 +79,27 @@ namespace SyncBlackDuck.ViewModel
             {
                 if(loggedInUser == null)
                 {
-                    loggedInUser = loginController.loginByRank(Telefono, Password);
+                    loggedInUser = loginByRank(Telefono, Password);
                     Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
+
                 }
 
                 switch (loggedInUser.User_rol)
                 {
                     case "admin":
                         //Redireccion admin
-<<<<<<< HEAD
                         App.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminMainPage());
-=======
-                         Navigation.PushAsync(new AdminMainPage());
->>>>>>> 83800c75de0d329474ac5128b2ca3a67fa77f28e
                         break;
                     case "superadmin":
                         //Redireccion superAdmin
-                         Navigation.PushAsync(new SuperAdminMainPage());
+                        App.Current.MainPage = new NavigationPage(new SuperAdminMainPage());
                         break;
                     case null:
                         //Mostrar error de login
                         break;
                     default:
                         //Deberia ser cliente
-                         Navigation.PushAsync(new ClienteMainPage());
+                        App.Current.MainPage = new NavigationPage(new ClienteMainPage());
                         break;
 
                 }
@@ -115,7 +108,7 @@ namespace SyncBlackDuck.ViewModel
             }
             catch (Exception e)
             {
-                App.Current.MainPage.DisplayAlert("Credenciales Incorrectas", "Numero de telefono o contraseña incorrecta", "Ok");
+                App.Current.MainPage.DisplayAlert("Error de Login!", "Hay un error en el login", "Ok");
                 Console.WriteLine(e);
                 Console.WriteLine("Error en LoginAsync");
                 return Task.CompletedTask;

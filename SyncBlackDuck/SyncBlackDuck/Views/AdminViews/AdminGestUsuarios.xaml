@@ -5,119 +5,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cAdminViewModel"
-    NavigationPage.HasNavigationBar="false">
+    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel">
+
+    <ContentPage.BindingContext>
+        <viewModel:AdminViewModel />
+    </ContentPage.BindingContext>
 
     <StackLayout BackgroundColor="#393E46">
 
         <StackLayout Margin="50">
-            <Label
-                FontSize="20"
-                HorizontalTextAlignment="Center"
-                TextColor="White"
-                VerticalTextAlignment="Center">
-                Gestion de Usuarios
-            </Label>
+            
         </StackLayout>
-
-        <StackLayout Margin="0,0,0,0">
-            <syncfusion:SfDataGrid
-                x:Name="dataGrid"
-                AllowEditing="true"
-                AllowResizingColumn="True"
-                AllowSorting="True"
-                AllowSwiping="True"
-                AutoGenerateColumns="false"
-                ColumnSizer="Auto"
-                EditTapAction="OnDoubleTap"
-                ImeOptions="NoExtractUi"
-                ItemsSource="{Binding usuariosInfoCollection}"
-                LiveDataUpdateMode="Default"
-                LostFocusBehavior="EndEditCurrentCell"
-                NavigationMode="Cell"
-                SelectedItem="{Binding SelectedItem}"
-                SelectionMode="Multiple">
-                <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:GridTextColumn
-                        AllowEditing="false"
-                        HeaderText="User ID"
-                        MappingName="User_id" />
-                    <syncfusion:GridTextColumn HeaderText="User Name" MappingName="User_name" />
-                    <syncfusion:GridTextColumn HeaderText="User Telefono" MappingName="User_telefono" />
-                    <syncfusion:GridTextColumn HeaderText="User Password" MappingName="User_password" />
-
-                </syncfusion:SfDataGrid.Columns>
-
-                <syncfusion:SfDataGrid.GridStyle>
-                    <syncfusion:DefaultStyle
-                        AlternatingRowColor="#DFDFDF"
-                        GridLinesVisibility="None"
-                        HeaderBackgroundColor="#222831"
-                        HeaderForegroundColor="White"
-                        RowBackgroundColor="White"
-                        RowForegroundColor="Black"
-                        SelectionBackgroundColor="#00ADB5"
-                        SelectionForegroundColor="Black" />
-                </syncfusion:SfDataGrid.GridStyle>
-
-                <syncfusion:SfDataGrid.RightSwipeTemplate>
-
-                    <DataTemplate>
-                        <ContentView BackgroundColor="#1AAA87">
-
-                            <Label
-                                FontSize="15"
-                                HorizontalTextAlignment="Center"
-                                LineBreakMode="NoWrap"
-                                Text="Deleted"
-                                TextColor="White"
-                                VerticalTextAlignment="Center" />
-                        </ContentView>
-                    </DataTemplate>
-                </syncfusion:SfDataGrid.RightSwipeTemplate>
-
-            </syncfusion:SfDataGrid>
-
-            <StackLayout
-                Margin="10,-20,10,0"
-                HorizontalOptions="Center"
-                Orientation="Horizontal"
-                VerticalOptions="Center">
-                <buttons:SfButton
-                    Margin="0,30,0,0"
-                    BackgroundColor="#00ADB5"
-                    Command="{Binding Path=AgregarUsuario}"
-                    CornerRadius="7"
-                    FontSize="14"
-                    Text="Agregar usuario" />
-
-                <buttons:SfButton
-                    Margin="0,30,0,0"
-                    BackgroundColor="#00ADB5"
-                    Command="{Binding Path=Salvar}"
-                    CornerRadius="7"
-                    FontSize="14"
-                    Text="Salvar" />
-
-                <buttons:SfButton
-                    Margin="0,30,0,0"
-                    BackgroundColor="red"
-                    Command="{Binding Path=BorrarUsuario}"
-                    CornerRadius="7"
-                    FontSize="14"
-                    Text="Borrar usuario" />
-
-            </StackLayout>
-
+        <StackLayout Margin="0,25,0,0" >
+            <syncfusion:SfDataGrid x:Name="dataGrid" ItemsSource="{Binding userInfoCollection}"/>
         </StackLayout>
-
-        <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
+        
+        <StackLayout Margin="40,40,40,40">
             <buttons:SfButton
-                Margin="0,30,250,0"
-                BackgroundColor="#00ADB5"
+                Margin="0,30,0,0"
+                BackgroundColor="#270F0F"
                 Command="{Binding Path=BackAdminMain}"
                 CornerRadius="7"
-                FontSize="15"
+                FontSize="19"
                 Text="Regresar" />
         </StackLayout>
     </StackLayout>

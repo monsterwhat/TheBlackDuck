@@ -1,30 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cClientViewModel"
+             xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             x:Class="SyncBlackDuck.Views.ClientViews.ClienteMainPage"
-             NavigationPage.HasNavigationBar="false">
+             x:Class="SyncBlackDuck.Views.ClientViews.ClienteMainPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:ClienteViewModel/>
+    </ContentPage.BindingContext>
 
     <StackLayout BackgroundColor="#393E46" >
-        <Label Margin="15,15,0,0" TextColor="white" FontSize="15" >Cliente</Label>
+        <Label TextColor="white" FontSize="15" >Cliente</Label>
         <StackLayout Margin="0,90,0,0">
             <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
         </StackLayout>
         <StackLayout Margin="40,40,40,40">
-            <buttons:SfButton
-                Margin="0,30,0,0"
-                BackgroundColor="#222831"
-                Command="{Binding Path=GestionUsuario}"
-                CornerRadius="7"
-                FontSize="19"
-                Text="Ver historial" />
 
-
-            <buttons:SfButton
+        <buttons:SfButton
                 Margin="0,70,0,0"
                 BackgroundColor="#270F0F"
-                Command="{Binding Path=CSCerrarSesion}"
+                Command="{Binding Path=CerrarSesion}"
                 CornerRadius="7"
                 FontSize="19"
                 Text="Cerrar sesion"/>

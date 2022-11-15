@@ -6,32 +6,38 @@ using SyncBlackDuck.Views.AdminViews;
 using System;
 >>>>>>> Stashed changes
 using SyncBlackDuck.Model.Objetos;
+using SyncBlackDuck.Services.Implementaciones;
+using SyncBlackDuck.Services.Login;
 using SyncBlackDuck.Views.AdminViews;
 using System;
+using System.Collections;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace SyncBlackDuck.ViewModel.cAdminViewModel
+namespace SyncBlackDuck.ViewModel
 {
-    public partial class AdminViewModel : AdminBaseVM
+    internal class AdminViewModel : INotifyPropertyChanged
     {
-        private int user_Telefono;
+        private string user_telefono;
         private user loggedInUser;
-        
-        public AdminViewModel(INavigation navigation){
-            Navigation = navigation;
-        }
+        private userImpl userImpl;
 
-        public int User_Telefono { get => user_Telefono; set => user_Telefono = value; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
-        #region Commands
-
+        public AdminViewModel()
+        {
+            // PARA EL DATATABLE TEMPORAL
+            user = new ObservableCollection<user>();
+            this.GenerarUsuarios();
+        }
         // ICommands para las redirecciones de paginas
         public ICommand GestionUsuarios => GestionUserPage();
-        public ICommand CSCerrarSesion => CerrarSesion();
+        public ICommand CerrarSesion => CerrarSesionAdmin();
         public ICommand BackAdminMain => BackAdminMainP();
 
         // Metodos Command para hacer los metodos async
@@ -39,9 +45,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             return new Command(async () => await GestionUserAsync());
         }
-        private Command CerrarSesion()
+        private Command CerrarSesionAdmin()
         {
-            return new Command(async () => await CerrarSesionAsync());
+            return new Command(async () => await CSAdminAsync());
         }
         private Command BackAdminMainP()
         {
@@ -52,15 +58,11 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             try
             {
                 // Redireccion usuarios
-<<<<<<< HEAD:SyncBlackDuck/SyncBlackDuck/ViewModel/AdminViewModel.cs
 <<<<<<< Updated upstream
                 App.Current.MainPage = new NavigationPage(new AdminGestUsuarios());
 =======
                 App.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminGestionUsuarios());
 >>>>>>> Stashed changes
-=======
-                Navigation.PushAsync(new AdminGestUsuarios());
->>>>>>> 83800c75de0d329474ac5128b2ca3a67fa77f28e:SyncBlackDuck/SyncBlackDuck/ViewModel/cAdminViewModel/AdminViewModel.cs
             }
             catch (Exception e)
             {
@@ -71,17 +73,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-        private Task CerrarSesionAsync()
+        private Task CSAdminAsync()
         {
             try
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-<<<<<<< HEAD:SyncBlackDuck/SyncBlackDuck/ViewModel/AdminViewModel.cs
                 App.Current.MainPage = new NavigationPage(new Views.AdminViews.MainPage());
-=======
-                Navigation.PushAsync(new MainPage());
->>>>>>> 83800c75de0d329474ac5128b2ca3a67fa77f28e:SyncBlackDuck/SyncBlackDuck/ViewModel/cAdminViewModel/AdminViewModel.cs
             }
             catch (Exception e)
             {
@@ -95,11 +93,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-<<<<<<< HEAD:SyncBlackDuck/SyncBlackDuck/ViewModel/AdminViewModel.cs
                 Application.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminMainPage());
-=======
-                Navigation.PushAsync(new AdminMainPage());
->>>>>>> 83800c75de0d329474ac5128b2ca3a67fa77f28e:SyncBlackDuck/SyncBlackDuck/ViewModel/cAdminViewModel/AdminViewModel.cs
             }
             catch (Exception e)
             {
@@ -110,7 +104,33 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-        #endregion Commands
+        // TEMPORAL PARA VISUALIZAR DATOS EN EL DATAGRID
+        private ArrayList listaUsuarios;
 
+        private ObservableCollection<user> user;
+        public ObservableCollection<user> userInfoCollection
+        {
+            get { return user; }
+            set { this.user = value; }
+        }
+
+        private void GenerarUsuarios()
+        {
+
+            listaUsuarios = new ArrayList();
+            
+            user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+            user.Add(new user(1001, "Maria Anders", "12314", DateTime.Now, 88888888, "admin"));
+
+            /*
+            listaUsuarios = userImpl.verTodo();
+            foreach (user item in listaUsuarios)
+            {
+                user.Add(item);
+
+            }
+            */
+        }
     }
 }

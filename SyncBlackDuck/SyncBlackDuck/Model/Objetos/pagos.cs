@@ -1,16 +1,13 @@
 ﻿using System;
-using System.ComponentModel;
 
 namespace SyncBlackDuck.Model.Objetos
 {
-    public class pagos : INotifyPropertyChanged
+    public class pagos
     {
 
         private int pagos_id;
         private DateTime pagos_fecha;
         private int pagos_estado;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public pagos(int pagos_id, DateTime pagos_fecha, int pagos_estado)
         {
