@@ -1,25 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             x:Class="SyncBlackDuck.Views.SuperAdminViews.SuperAdminMainPage">
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
+             xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cSuperAdminViewModel"
+             x:Class="SyncBlackDuck.Views.SuperAdminViews.SuperAdminMainPage"
+             NavigationPage.HasNavigationBar="false">
 
-        <ContentPage.BindingContext>
-            <viewModel:SuperAdminViewModel/>
-        </ContentPage.BindingContext>
-
-        <StackLayout BackgroundColor="#393E46" >
-            <Label TextColor="white" FontSize="15" >Super admin</Label>
+    <StackLayout BackgroundColor="#393E46" >
+            <Label Margin="15,15,0,0" TextColor="white" FontSize="15" >Super admin</Label>
             <StackLayout Margin="0,90,0,0">
                 <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
             </StackLayout>
         <StackLayout Margin="40,40,40,40">
-
+            <buttons:SfButton
+                Margin="0,30,0,0"
+                BackgroundColor="#222831"
+                Command="{Binding Path=GestionAdministradores}"
+                CornerRadius="7"
+                FontSize="19"
+                Text="Gestionar Administradores" />
+            
             <buttons:SfButton
                 Margin="0,70,0,0"
                 BackgroundColor="#270F0F"
-                Command="{Binding Path=CerrarSesion}"
+                Command="{Binding Path=CSCerrarSesion}"
                 CornerRadius="7"
                 FontSize="19"
                 Text="Cerrar sesion"/>

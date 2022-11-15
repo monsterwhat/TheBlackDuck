@@ -1,8 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace SyncBlackDuck.Model.Objetos
 {
-    public class user
+    public class user : INotifyPropertyChanged
     {
 
         private int user_id;
@@ -11,6 +12,14 @@ namespace SyncBlackDuck.Model.Objetos
         private DateTime user_time;
         private int user_telefono;
         private string user_rol;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
 
         public user(int user_id, string user_name, string user_password, DateTime user_time, int user_telefono, string user_rol)
         {
@@ -34,13 +43,75 @@ namespace SyncBlackDuck.Model.Objetos
             this.user_rol = user_rol;
         }
 
-        public int User_id { get => user_id; set => user_id = value; }
-        public string User_name { get => user_name; set => user_name = value; }
-        public string User_password { get => user_password; set => user_password = value; }
-        public DateTime User_time { get => user_time; set => user_time = value; }
-        public int User_telefono { get => user_telefono; set => user_telefono = value; }
-        public string User_rol { get => user_rol; set => user_rol = value; }
+        public int User_id
+        {
+            get { return user_id; }
+            set
+            {
+                if(this.user_id != value)
+                {
+                    this.user_id = value;
+                }
+                RaisePropertyChanged("user_id");
+            }
+        }
+        public string User_name
+        {
+            get { return user_name; }
+            set
+            {
+                if(this.user_name != value) 
+                {
+                    this.user_name = value;
+                }
+                RaisePropertyChanged("user_name");
+            }
+        }
+        public string User_password
+        {
+            get { return user_password; }
+            set {
+                if(this.user_password != value) 
+                {
+                    this.user_password = value;
+                }
+                RaisePropertyChanged("user_password");
+            }
+        }
 
-
+        public DateTime User_time {
+            get { return user_time; }
+            set {
+                if(this.user_time != value) 
+                {
+                    this.user_time = value;
+                }
+                RaisePropertyChanged("user_time");
+            }
+        }
+        public int User_telefono
+        {
+            get { return user_telefono; }
+            set
+            {
+                if(this.user_telefono != value)
+                {
+                    this.user_telefono = value;
+                }
+                RaisePropertyChanged("user_telefono");
+            }
+        }
+        public string User_rol
+        {
+            get { return user_rol; }
+            set
+            {
+                if(this.user_rol != value)
+                {
+                    this.user_rol = value;
+                }
+                RaisePropertyChanged("user_rol");
+            }
+        }
     }
 }

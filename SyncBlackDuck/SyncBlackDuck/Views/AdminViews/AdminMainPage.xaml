@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <<<<<<< Updated upstream
 <ContentPage
-    x:Class="Sync_test.AdminMainPage"
+    x:Class="SyncBlackDuck.Views.AdminViews.AdminMainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+<<<<<<< HEAD
     xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel">
 
     <ContentPage.BindingContext>
@@ -20,9 +21,13 @@
         <viewModel:AdminViewModel/>
 >>>>>>> Stashed changes
     </ContentPage.BindingContext>
+=======
+    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cAdminViewModel"
+    NavigationPage.HasNavigationBar="false">
+>>>>>>> 83800c75de0d329474ac5128b2ca3a67fa77f28e
 
     <StackLayout BackgroundColor="#393E46">
-        <Label FontSize="15" TextColor="white">Admin</Label>
+        <Label Margin="15,15,0,0" FontSize="15" TextColor="white">Admin</Label>
         <StackLayout Margin="0,90,0,0">
             <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
         </StackLayout>
@@ -42,7 +47,7 @@
             <buttons:SfButton
                 Margin="0,70,0,0"
                 BackgroundColor="#270F0F"
-                Command="{Binding Path=CerrarSesion}"
+                Command="{Binding Path=CSCerrarSesion}"
                 CornerRadius="7"
                 FontSize="19"
                 Text="Cerrar sesion" />

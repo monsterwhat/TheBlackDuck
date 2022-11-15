@@ -31,10 +31,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\SuperAdminViews\SuperAdminGestAdminPage.xaml.cs">
+      <DependentUpon>SuperAdminGestAdminPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\AdminViews\AdminGestUsuarios.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AdminViews\AdminMainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ClientViews\ClienteGestUPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ClientViews\ClienteMainPage.xaml">
@@ -42,6 +51,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SuperAdminViews\SuperAdminGestAdminPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SuperAdminViews\SuperAdminMainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

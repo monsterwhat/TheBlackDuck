@@ -12,10 +12,6 @@
     NavigationPage.HasNavigationBar="False">
 >>>>>>> Stashed changes
 
-    <ContentPage.BindingContext>
-        <viewModel:LoginViewModel />
-    </ContentPage.BindingContext>
-
     <StackLayout BackgroundColor="#393E46">
 
         <StackLayout Margin="0,90,0,0">
