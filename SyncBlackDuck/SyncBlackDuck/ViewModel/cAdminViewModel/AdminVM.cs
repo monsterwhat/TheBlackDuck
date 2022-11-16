@@ -44,8 +44,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             try
             {
                 // Redireccion usuarios
-                App.Current.MainPage = new NavigationPage(new AdminGestClientPage());
-                App.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminGestClientPage());
                 Navigation.PushAsync(new AdminGestClientPage());
             }
             catch (Exception e)
@@ -63,8 +61,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                App.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminMainPage());
-                Navigation.PushAsync(new AdminMainPage());
+                Navigation.PopToRootAsync();
             }
             catch (Exception e)
             {
@@ -78,7 +75,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                Application.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminMainPage());
                 Navigation.PushAsync(new AdminMainPage());
             }
             catch (Exception e)

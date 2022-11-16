@@ -62,7 +62,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                Navigation.PushAsync(new ClienteMainPage());
+                Navigation.PopAsync();
             }
             catch (Exception e)
             {

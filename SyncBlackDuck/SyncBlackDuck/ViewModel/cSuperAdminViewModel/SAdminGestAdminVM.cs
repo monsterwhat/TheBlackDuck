@@ -112,7 +112,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             try
             {
-                Application.Current.MainPage = new NavigationPage(new SuperAdminMainPage());
+                Navigation.PopAsync();
             }
             catch (Exception e)
             {
