@@ -1,10 +1,7 @@
-<<<<<<< Updated upstream
 ﻿using Sync_test;
-=======
 ﻿using SyncBlackDuck;
 using SyncBlackDuck.Views.AdminViews;
 using System;
->>>>>>> Stashed changes
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Views.AdminViews;
 using System;
@@ -52,15 +49,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             try
             {
                 // Redireccion usuarios
-<<<<<<< HEAD:SyncBlackDuck/SyncBlackDuck/ViewModel/AdminViewModel.cs
-<<<<<<< Updated upstream
                 App.Current.MainPage = new NavigationPage(new AdminGestUsuarios());
-=======
                 App.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminGestionUsuarios());
->>>>>>> Stashed changes
-=======
                 Navigation.PushAsync(new AdminGestUsuarios());
->>>>>>> 83800c75de0d329474ac5128b2ca3a67fa77f28e:SyncBlackDuck/SyncBlackDuck/ViewModel/cAdminViewModel/AdminViewModel.cs
             }
             catch (Exception e)
             {
@@ -77,11 +68,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-<<<<<<< HEAD:SyncBlackDuck/SyncBlackDuck/ViewModel/AdminViewModel.cs
                 App.Current.MainPage = new NavigationPage(new Views.AdminViews.MainPage());
-=======
                 Navigation.PushAsync(new MainPage());
->>>>>>> 83800c75de0d329474ac5128b2ca3a67fa77f28e:SyncBlackDuck/SyncBlackDuck/ViewModel/cAdminViewModel/AdminViewModel.cs
             }
             catch (Exception e)
             {
@@ -95,11 +83,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-<<<<<<< HEAD:SyncBlackDuck/SyncBlackDuck/ViewModel/AdminViewModel.cs
                 Application.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminMainPage());
-=======
                 Navigation.PushAsync(new AdminMainPage());
->>>>>>> 83800c75de0d329474ac5128b2ca3a67fa77f28e:SyncBlackDuck/SyncBlackDuck/ViewModel/cAdminViewModel/AdminViewModel.cs
             }
             catch (Exception e)
             {

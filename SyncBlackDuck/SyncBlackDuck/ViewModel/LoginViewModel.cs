@@ -91,11 +91,8 @@ namespace SyncBlackDuck.ViewModel
                 {
                     case "admin":
                         //Redireccion admin
-<<<<<<< HEAD
                         App.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminMainPage());
-=======
                          Navigation.PushAsync(new AdminMainPage());
->>>>>>> 83800c75de0d329474ac5128b2ca3a67fa77f28e
                         break;
                     case "superadmin":
                         //Redireccion superAdmin
