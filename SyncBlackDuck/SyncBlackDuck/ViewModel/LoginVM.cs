@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel
 {
-    public class LoginViewModel : ContentPage
+    public class LoginVM : ContentPage
     {
         private int telefono;
         private string password;
@@ -27,7 +27,7 @@ namespace SyncBlackDuck.ViewModel
         public int Telefono { get => telefono; set => telefono = value; }
         public string Password { get => password; set => password = value; }
 
-        public LoginViewModel(INavigation navigation)
+        public LoginVM(INavigation navigation)
         {
             Navigation = navigation;
             AsyncCommand();

@@ -12,12 +12,12 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
-    public partial class SAdminGestAdmin : SAdminBaseVM
+    public partial class SAdminGestAdminVM : SAdminBaseVM
     {
         private user usuarioSeleccionado = new user();
         private List<user> listaUsuarios = new List<user>();
         private userImpl userController = new userImpl();
-        public SAdminGestAdmin(INavigation navigation, SfDataGrid datagrid)
+        public SAdminGestAdminVM(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
             usuariosInfo = new ObservableCollection<user>();

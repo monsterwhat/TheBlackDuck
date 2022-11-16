@@ -4,14 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel"
     NavigationPage.HasNavigationBar="false">
 
-    <ContentPage.BindingContext>
-        <viewModel:AdminViewModel />
-
-    </ContentPage.BindingContext>
-    
     <StackLayout BackgroundColor="#393E46">
         <Label Margin="15,15,0,0" FontSize="15" TextColor="white">Admin</Label>
         <StackLayout Margin="0,90,0,0">

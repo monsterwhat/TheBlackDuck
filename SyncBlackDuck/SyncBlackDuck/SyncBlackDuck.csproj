@@ -18,14 +18,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySqlConnector" Version="2.1.13" />
-    <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.52" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="20.3.0.52" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="20.3.0.52" />
-    <PackageReference Include="Syncfusion.Xamarin.DataSource" Version="20.3.0.52" />
-    <PackageReference Include="Syncfusion.Xamarin.SfDataForm" Version="20.3.0.52" />
-    <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="20.3.0.52" />
-    <PackageReference Include="Uno.UI" Version="4.5.14" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="7.0.0" />
+    <PackageReference Include="MySqlConnector" Version="2.2.0" />
+    <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.57" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="20.3.0.57" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="20.3.0.57" />
+    <PackageReference Include="Syncfusion.Xamarin.DataSource" Version="20.3.0.57" />
+    <PackageReference Include="Syncfusion.Xamarin.SfDataForm" Version="20.3.0.57" />
+    <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="20.3.0.57" />
+    <PackageReference Include="Uno.UI" Version="4.6.19" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
@@ -37,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AdminViews\AdminGestUsuarios.xaml">
+    <EmbeddedResource Update="Views\AdminViews\AdminGestClientPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AdminViews\AdminMainPage.xaml">

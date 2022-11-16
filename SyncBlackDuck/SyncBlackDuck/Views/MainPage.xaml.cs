@@ -1,5 +1,4 @@
-﻿using SyncBlackDuck.Services;
-using SyncBlackDuck.ViewModel;
+﻿using SyncBlackDuck.ViewModel;
 using System;
 using Xamarin.Forms;
 
@@ -10,7 +9,7 @@ namespace SyncBlackDuck.Views
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new LoginViewModel(Navigation);
+            BindingContext = new LoginVM(Navigation);
         }
 
         protected override void OnDisappearing()

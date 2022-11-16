@@ -1,24 +1,28 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using SyncBlackDuck.Views.AdminViews;
+using SyncBlackDuck.Views.ClientViews;
 using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace SyncBlackDuck.ViewModel.cAdminViewModel
+namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
-    public partial class AdminUserGestViewModel : AdminBaseVM
+ public partial class ClientGestVM : ClienteBaseVM
     {
+        private user usuarioSeleccionado = new user();
         private List<user> listaUsuarios = new List<user>();
         private userImpl userController = new userImpl();
 
-        public AdminUserGestViewModel(INavigation navigation, SfDataGrid datagrid)
+        public ClientGestVM(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
             usuariosInfo = new ObservableCollection<user>();
@@ -45,7 +49,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 }
             }
         }
-        
+
         private Object selectedItem;
         public Object SelectedItem
         {
@@ -59,7 +63,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     //Se podria salvar para aplicar cambios en la BD....
                     //Actualizar(value); //Donde value es el usuario (objeto) seleccionado.
                     //Despues de actualizar necesitamos recargar la tabla(?)
-                }            }
+                }
+            }
         }
 
         #endregion Listas
@@ -70,7 +75,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             public DatagridControlls()
             {
-                
+
             }
 
             public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
@@ -101,12 +106,15 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         #endregion DatagridControlls
 
         #region Commands
-        public ICommand BackAdminMain => BackAdminMainP();
-        private Command BackAdminMainP(){
-            return new Command(async () => await BackAdminAsync());
+
+        public ICommand BackClientMain => BackClientMainP();
+
+        private Command BackClientMainP()
+        {
+            return new Command(async () => await BackClientAsync());
         }
 
-        private Task BackAdminAsync()
+        private Task BackClientAsync()
         {
             try
             {
@@ -121,31 +129,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-        private Command agregarUsuario;
-        public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
-
-        private void PerformAgregarUsuario()
-        {
-
-        }
-
-        private Command borrarUsuario;
-        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
-
-        private void PerformBorrarUsuario()
-        {
-
-        }
-
-        private Command salvar;
-        public ICommand Salvar => salvar ??= new Command(PerformSalvar);
-
-        private void PerformSalvar()
-        {
-
-        }
-        #endregion commands
-
+        #endregion Commands
+        
         private void CargarClientes()
         {
             try
@@ -161,5 +146,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 Console.WriteLine(e);
             }
         }
+
+
+
     }
 }

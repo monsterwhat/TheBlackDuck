@@ -1,33 +1,29 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
-using SyncBlackDuck.Views.AdminViews;
-using SyncBlackDuck.Views.ClientViews;
 using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace SyncBlackDuck.ViewModel.cClientViewModel
+namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
- public partial class ClientGestViewModel : ClienteBaseVM
+    public partial class AdminPagosGestVM : AdminBaseVM
     {
-        private user usuarioSeleccionado = new user();
-        private List<user> listaUsuarios = new List<user>();
-        private userImpl userController = new userImpl();
+        private List<pagos> listaPagos = new List<pagos>();
+        private pagosImpl pagosController = new pagosImpl();
 
-        public ClientGestViewModel(INavigation navigation, SfDataGrid datagrid)
+        public AdminPagosGestVM(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
-            usuariosInfo = new ObservableCollection<user>();
+            pagosInfo = new ObservableCollection<pagos>();
             selectedItem = new Object();
-            CargarClientes();
+            CargarPagos();
             DatagridControlls grid = new DatagridControlls();
             datagrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
             datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
@@ -35,17 +31,17 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 
         #region Listas
 
-        private ObservableCollection<user> usuariosInfo;
-        public ObservableCollection<user> usuariosInfoCollection
+        private ObservableCollection<pagos> pagosInfo;
+        public ObservableCollection<pagos> PagosInfoCollection
         {
-            get { return usuariosInfo; }
+            get { return pagosInfo; }
             set
             {
-                if (this.usuariosInfo != value)
+                if (this.pagosInfo != value)
                 {
                     Console.WriteLine(value);
-                    Console.WriteLine("se modifico el OC de userCollection");
-                    this.usuariosInfo = value;
+                    Console.WriteLine("se modifico el OC de pagosCollection");
+                    this.pagosInfo = value;
                 }
             }
         }
@@ -67,7 +63,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             }
         }
 
-        #endregion Listas
+        #endregion Lista
 
         #region DatagridControlls
 
@@ -105,40 +101,14 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 
         #endregion DatagridControlls
 
-        #region Commands
-
-        public ICommand BackClientMain => BackClientMainP();
-
-        private Command BackClientMainP()
-        {
-            return new Command(async () => await BackClientAsync());
-        }
-
-        private Task BackClientAsync()
+        private void CargarPagos()
         {
             try
             {
-                Navigation.PopAsync();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                Console.WriteLine("Error al cambiar de pagina");
-                return Task.CompletedTask;
-            }
-            return Task.CompletedTask;
-        }
-
-        #endregion Commands
-        
-        private void CargarClientes()
-        {
-            try
-            {
-                listaUsuarios = userController.verClientes();
-                for (int i = 0; i < listaUsuarios.Count; i++)
+                listaPagos = pagosController.verPendientes();
+                for (int i = 0; i < listaPagos.Count; i++)
                 {
-                    usuariosInfo.Add(listaUsuarios.ElementAt(i));
+                    pagosInfo.Add(listaPagos.ElementAt(i));
                 }
             }
             catch (Exception e)
@@ -146,8 +116,5 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
                 Console.WriteLine(e);
             }
         }
-
-
-
     }
 }

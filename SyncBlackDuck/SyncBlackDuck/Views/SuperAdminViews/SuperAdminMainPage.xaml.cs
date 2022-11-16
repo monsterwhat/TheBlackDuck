@@ -16,7 +16,7 @@ namespace SyncBlackDuck.Views.SuperAdminViews
         public SuperAdminMainPage()
         {
             InitializeComponent();
-            BindingContext = new SAdminViewModel(Navigation);
+            BindingContext = new SAdminVM(Navigation);
         }
 
         protected override void OnDisappearing()

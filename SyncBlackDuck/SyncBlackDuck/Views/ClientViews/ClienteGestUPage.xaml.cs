@@ -16,7 +16,7 @@ namespace SyncBlackDuck.Views.ClientViews
         public ClienteGestUPage()
         {
             InitializeComponent();
-            BindingContext = new ClientGestViewModel(Navigation, this.dataGrid);
+            BindingContext = new ClientGestVM(Navigation, this.dataGrid);
         }
 
         protected override void OnDisappearing()

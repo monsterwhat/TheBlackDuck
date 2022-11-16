@@ -16,7 +16,7 @@ namespace SyncBlackDuck.Views.SuperAdminViews
         public SuperAdminGestAdmin()
         {
             InitializeComponent();
-            BindingContext = new SAdminGestAdmin(Navigation, this.dataGrid);
+            BindingContext = new SAdminGestAdminVM(Navigation, this.dataGrid);
         }
 
         protected override void OnDisappearing()

@@ -1,40 +1,32 @@
-﻿using Sync_test;
 ﻿using SyncBlackDuck;
-using SyncBlackDuck.Views.AdminViews;
-using System;
 using SyncBlackDuck.Model.Objetos;
-using SyncBlackDuck.Views.AdminViews;
+using SyncBlackDuck.Views.SuperAdminViews;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace SyncBlackDuck.ViewModel.cAdminViewModel
+namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
-    public partial class AdminViewModel : AdminBaseVM
+    public partial class SAdminVM : SAdminBaseVM
     {
-        private int user_Telefono;
+        private string user_telefono;
         private user loggedInUser;
-        
-        public AdminViewModel(INavigation navigation){
+        public SAdminVM(INavigation navigation) {
             Navigation = navigation;
         }
-
-        public int User_Telefono { get => user_Telefono; set => user_Telefono = value; }
+        public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
         #region Commands
-
-        // ICommands para las redirecciones de paginas
-        public ICommand GestionUsuarios => GestionUserPage();
+        public ICommand GestionAdministradores => GestionAdminPage();
         public ICommand CSCerrarSesion => CerrarSesion();
         public ICommand BackAdminMain => BackAdminMainP();
 
-        // Metodos Command para hacer los metodos async
-        private Command GestionUserPage()
+        private Command GestionAdminPage()
         {
-            return new Command(async () => await GestionUserAsync());
+            return new Command(async () => await GestionAdminPageAsync());
         }
         private Command CerrarSesion()
         {
@@ -44,14 +36,12 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             return new Command(async () => await BackAdminAsync());
         }
-        private Task GestionUserAsync()
+        private Task GestionAdminPageAsync()
         {
             try
             {
                 // Redireccion usuarios
-                App.Current.MainPage = new NavigationPage(new AdminGestUsuarios());
-                App.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminGestionUsuarios());
-                Navigation.PushAsync(new AdminGestUsuarios());
+                Navigation.PushAsync(new SuperAdminGestAdmin());
             }
             catch (Exception e)
             {
@@ -68,8 +58,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                App.Current.MainPage = new NavigationPage(new Views.AdminViews.MainPage());
-                Navigation.PushAsync(new MainPage());
+                Navigation.PopAsync();
             }
             catch (Exception e)
             {
@@ -83,8 +72,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                Application.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminMainPage());
-                Navigation.PushAsync(new AdminMainPage());
+                Navigation.PushAsync(new SuperAdminMainPage());
             }
             catch (Exception e)
             {
@@ -95,7 +83,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-        #endregion Commands
+        #endregion commands
 
     }
 }
+

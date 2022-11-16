@@ -1,52 +1,56 @@
-﻿using Sync_test;
+﻿using SyncBlackDuck;
 using SyncBlackDuck.Model.Objetos;
-using SyncBlackDuck.Views.SuperAdminViews;
+using SyncBlackDuck.Views.AdminViews;
+using SyncBlackDuck.Views.ClientViews;
 using System;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
+namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
-    public partial class SAdminViewModel : SAdminBaseVM
+    public partial class ClientVM : ClienteBaseVM
     {
-        private string user_telefono;
+        private int user_Telefono;
         private user loggedInUser;
-        public SAdminViewModel(INavigation navigation) {
+
+        public ClientVM(INavigation navigation) {
             Navigation = navigation;
         }
-        public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
+        public int User_Telefono { get => user_Telefono; set => user_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
         #region Commands
-        public ICommand GestionAdministradores => GestionAdminPage();
-        public ICommand CSCerrarSesion => CerrarSesion();
-        public ICommand BackAdminMain => BackAdminMainP();
 
-        private Command GestionAdminPage()
+        // ICommands para las redirecciones de paginas
+        public ICommand GestionUsuario => GestionUsuarioPage();
+        public ICommand CSCerrarSesion => CerrarSesion();
+        public ICommand BackClientMain => BackClientMainP();
+
+        // Metodos Command para hacer los metodos async
+        private Command GestionUsuarioPage()
         {
-            return new Command(async () => await GestionAdminPageAsync());
+            return new Command(async () => await GestionUsuarioAsync());
         }
         private Command CerrarSesion()
         {
             return new Command(async () => await CerrarSesionAsync());
         }
-        private Command BackAdminMainP()
+        private Command BackClientMainP()
         {
-            return new Command(async () => await BackAdminAsync());
+            return new Command(async () => await BackClientAsync());
         }
-        private Task GestionAdminPageAsync()
+        private Task GestionUsuarioAsync()
         {
             try
             {
                 // Redireccion usuarios
-                Navigation.PushAsync(new SuperAdminGestAdmin());
+                Navigation.PushAsync(new ClienteGestUPage());
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                Console.WriteLine("Error al cerrar sesion");
+                Console.WriteLine("Error al cambiar de pagina");
                 return Task.CompletedTask;
             }
             return Task.CompletedTask;
@@ -58,7 +62,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                Navigation.PopAsync();
+                Navigation.PushAsync(new ClienteMainPage());
             }
             catch (Exception e)
             {
@@ -68,11 +72,11 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             }
             return Task.CompletedTask;
         }
-        private Task BackAdminAsync()
+        private Task BackClientAsync()
         {
             try
             {
-                Navigation.PushAsync(new SuperAdminMainPage());
+                Navigation.PushAsync(new ClienteMainPage());
             }
             catch (Exception e)
             {
@@ -83,8 +87,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             return Task.CompletedTask;
         }
 
-        #endregion commands
+        #endregion Commands
 
     }
 }
-

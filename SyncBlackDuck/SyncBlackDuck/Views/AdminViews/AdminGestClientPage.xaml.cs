@@ -1,4 +1,4 @@
-﻿using SyncBlackDuck.ViewModel.cClientViewModel;
+﻿using SyncBlackDuck.ViewModel.cAdminViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SyncBlackDuck.Views.ClientViews
+namespace SyncBlackDuck.Views.AdminViews
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ClienteMainPage : ContentPage
-    {
-        public ClienteMainPage()
-        {
-            InitializeComponent();
-            BindingContext = new ClientVM(Navigation);
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class AdminGestClientPage : ContentPage
+	{
+		public AdminGestClientPage ()
+		{
+			InitializeComponent ();
+            BindingContext = new AdminUserGestVM(Navigation, this.dataGrid);
         }
-
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
