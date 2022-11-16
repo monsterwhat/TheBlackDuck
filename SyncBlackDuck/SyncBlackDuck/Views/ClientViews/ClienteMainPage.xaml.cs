@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SyncBlackDuck.ViewModel.cClientViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace SyncBlackDuck.Views.ClientViews
         public ClienteMainPage()
         {
             InitializeComponent();
+            BindingContext = new ClientViewModel(Navigation);
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            BindingContext = null;
+            GC.Collect();
         }
     }
 }

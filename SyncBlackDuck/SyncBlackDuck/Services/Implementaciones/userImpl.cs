@@ -2,25 +2,29 @@
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Interfaces;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace SyncBlackDuck.Services.Implementaciones
 {
     internal class userImpl : Connection, ICRUD<user>
     {
         //Elimina un usuario de la tabla user
+
+        public userImpl()
+        {
+
+        }
+
         public bool eliminar(user item)
         {
             try
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                mysql.Open();
                 MySqlCommand command = new MySqlCommand("DELETE FROM user WHERE idUser = @idUser", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.ExecuteNonQuery();
 
-                mysql.Close();
                 return true;
             }
             catch (Exception e)
@@ -38,7 +42,6 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                mysql.Open();
                 MySqlCommand command = new MySqlCommand("INSERT INTO user (idUser, userName, userPassword, userTime, userTelefono, userRol) VALUES (@idUser, @userName, @userPassword, @userTime, @userTelefono, @userRol)", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.Parameters.AddWithValue("@userName", item.User_name);
@@ -48,7 +51,6 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
                 command.ExecuteNonQuery();
 
-                mysql.Close();
                 return true;
             }
             catch (Exception e)
@@ -66,7 +68,6 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                mysql.Open();
                 MySqlCommand command = new MySqlCommand("UPDATE user SET userName = @userName, userPassword = @userPassword, userTime = @userTime, userTelefono = @userTelefono, userRol = @userRol WHERE idUser = @idUser", mysql);
                 command.Parameters.AddWithValue("@userName", item.User_name);
                 command.Parameters.AddWithValue("@userPassword", item.User_name);
@@ -75,7 +76,6 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
                 command.ExecuteNonQuery();
 
-                mysql.Close();
                 return true;
 
             }
@@ -88,7 +88,7 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Carga todos los usuarios de la tabla user
-        public ArrayList verTodo()
+        public List<user> verTodo()
         {
             try
             {
@@ -96,24 +96,121 @@ namespace SyncBlackDuck.Services.Implementaciones
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
-                ArrayList list = new ArrayList();
+                List<user> list = new List<user>();
                 while (reader.Read())
                 {
-                    user user = new user();
-                    user.User_id = reader.GetInt32(0);
-                    user.User_name = reader.GetString(1);
-                    user.User_password = reader.GetString(2);
-                    user.User_time = reader.GetDateTime(3);
-                    user.User_telefono = reader.GetInt32(4);
-                    user.User_rol = reader.GetString(5);
+                    user user = new user
+                    {
+                        User_id = reader.GetInt32(0),
+                        User_name = reader.GetString(1),
+                        User_password = reader.GetString(2),
+                        User_time = reader.GetDateTime(3),
+                        User_telefono = reader.GetInt32(4),
+                        User_rol = reader.GetString(5)
+                    };
                     list.Add(user);
                 }
-                mysql.Close();
                 return list;
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error en SelectAll de Administradores");
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
+        public List<user> verClientes()
+        {
+            try
+            {
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.getConnection();
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'cliente'", mysql);
+                MySqlDataReader reader = command.ExecuteReader();
+                List<user> list = new List<user>();
+                while (reader.Read())
+                {
+                    user user = new user
+                    {
+                        User_id = reader.GetInt32(0),
+                        User_name = reader.GetString(1),
+                        User_password = reader.GetString(2),
+                        User_time = reader.GetDateTime(3),
+                        User_telefono = reader.GetInt32(4),
+                        User_rol = reader.GetString(5)
+                    };
+                    list.Add(user);
+                }
+                return list;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en SelectAll de Clientes");
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
+        public List<user> verAdministradores()
+        {
+            try
+            {
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.getConnection();
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'admin'", mysql);
+                MySqlDataReader reader = command.ExecuteReader();
+                List<user> list = new List<user>();
+                while (reader.Read())
+                {
+                    user user = new user
+                    {
+                        User_id = reader.GetInt32(0),
+                        User_name = reader.GetString(1),
+                        User_password = reader.GetString(2),
+                        User_time = reader.GetDateTime(3),
+                        User_telefono = reader.GetInt32(4),
+                        User_rol = reader.GetString(5)
+                    };
+                    list.Add(user);
+                }
+                return list;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en SelectAll de Administradores");
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
+        public List<user> verSuperAdmins()
+        {
+            try
+            {
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.getConnection();
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'superadmin'", mysql);
+                MySqlDataReader reader = command.ExecuteReader();
+                List<user> list = new List<user>();
+                while (reader.Read())
+                {
+                    user user = new user
+                    {
+                        User_id = reader.GetInt32(0),
+                        User_name = reader.GetString(1),
+                        User_password = reader.GetString(2),
+                        User_time = reader.GetDateTime(3),
+                        User_telefono = reader.GetInt32(4),
+                        User_rol = reader.GetString(5)
+                    };
+                    list.Add(user);
+                }
+                return list;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en SelectAll de SuperAdmin");
                 Console.WriteLine(e);
                 return null;
             }

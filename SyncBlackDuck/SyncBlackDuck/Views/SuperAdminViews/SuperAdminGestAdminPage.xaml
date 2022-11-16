@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SyncBlackDuck.Views.SuperAdminViews.SuperAdminGestAdmin"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cSuperAdminViewModel"
+    NavigationPage.HasNavigationBar="false">
+   
+
+    <StackLayout BackgroundColor="#393E46">
+
+        <StackLayout Margin="50">
+            <Label FontSize="20"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center" >Gestion de Usuarios</Label>
+        </StackLayout>
+        <StackLayout Margin="0,0,0,0" >
+            <syncfusion:SfDataGrid x:Name="dataGrid" 
+                                   ColumnSizer="Auto"
+                                   AllowSorting="True"
+                                   ItemsSource="{Binding ListaUsuarios}"
+                                   SelectedItem="{Binding UsuarioSeleccionado}"
+                                   >
+
+                <syncfusion:SfDataGrid.GridStyle>
+                    <syncfusion:DefaultStyle AlternatingRowColor="#DFDFDF"
+                                             HeaderBackgroundColor="#222831"
+                                             HeaderForegroundColor="White"
+                                             RowBackgroundColor="White"
+                                             RowForegroundColor="Black"
+                                             SelectionBackgroundColor="#00ADB5"
+                                             SelectionForegroundColor="Black"
+                                             GridLinesVisibility="None"/>
+                </syncfusion:SfDataGrid.GridStyle>
+            </syncfusion:SfDataGrid>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Margin="10,-20,10,0">
+                <buttons:SfButton
+                Margin="0,30,0,0"
+                BackgroundColor="#00ADB5"
+                Command="{Binding Path=AgregarUsuario}"
+                CornerRadius="7"
+                FontSize="14"
+                Text="Agregar usuario" />
+
+                <buttons:SfButton
+                Margin="0,30,0,0"
+                BackgroundColor="#00ADB5"
+                Command="{Binding Path=ModificarUsuario}"
+                CornerRadius="7"
+                FontSize="14"
+                Text="Modificar usuario" />
+
+                <buttons:SfButton
+                Margin="0,30,0,0"
+                BackgroundColor="red"
+                Command="{Binding Path=BorrarUsuario}"
+                CornerRadius="7"
+                FontSize="14"
+                Text="Borrar usuario" />
+
+            </StackLayout>
+
+        </StackLayout>
+
+        <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
+            <buttons:SfButton
+                Margin="0,30,250,0"
+                BackgroundColor="#00ADB5"
+                Command="{Binding Path=BackSAdminMain}"
+                CornerRadius="7"
+                FontSize="15"
+                Text="Regresar" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
