@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
 ﻿using Sync_test;
+=======
+﻿using SyncBlackDuck;
+using SyncBlackDuck.Views.AdminViews;
+using System;
+>>>>>>> Stashed changes
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using SyncBlackDuck.Services.Login;
@@ -52,7 +58,11 @@ namespace SyncBlackDuck.ViewModel
             try
             {
                 // Redireccion usuarios
+<<<<<<< Updated upstream
                 App.Current.MainPage = new NavigationPage(new AdminGestUsuarios());
+=======
+                App.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminGestionUsuarios());
+>>>>>>> Stashed changes
             }
             catch (Exception e)
             {
@@ -69,7 +79,7 @@ namespace SyncBlackDuck.ViewModel
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                App.Current.MainPage = new NavigationPage(new MainPage());
+                App.Current.MainPage = new NavigationPage(new Views.AdminViews.MainPage());
             }
             catch (Exception e)
             {
@@ -83,7 +93,7 @@ namespace SyncBlackDuck.ViewModel
         {
             try
             {
-                Application.Current.MainPage = new NavigationPage(new AdminMainPage());
+                Application.Current.MainPage = new NavigationPage(new Views.AdminViews.AdminMainPage());
             }
             catch (Exception e)
             {

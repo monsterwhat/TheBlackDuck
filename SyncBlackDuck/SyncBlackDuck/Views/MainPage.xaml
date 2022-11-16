@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Sync_test.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel"
+<<<<<<< Updated upstream
     NavigationPage.HasNavigationBar="false">
+=======
+    x:Class="SyncBlackDuck.Views.MainPage"
+    NavigationPage.HasNavigationBar="False">
+>>>>>>> Stashed changes
 
     <ContentPage.BindingContext>
         <viewModel:LoginViewModel />

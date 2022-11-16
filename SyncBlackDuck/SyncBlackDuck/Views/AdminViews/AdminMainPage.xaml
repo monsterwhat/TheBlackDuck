@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<<<<<<< Updated upstream
 <ContentPage
     x:Class="Sync_test.AdminMainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -8,6 +9,16 @@
 
     <ContentPage.BindingContext>
         <viewModel:AdminViewModel />
+=======
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="SyncBlackDuck.Views.AdminViews">
+
+    <ContentPage.BindingContext>
+        <viewModel:AdminViewModel/>
+>>>>>>> Stashed changes
     </ContentPage.BindingContext>
 
     <StackLayout BackgroundColor="#393E46">
@@ -22,7 +33,11 @@
                 Command="{Binding Path=GestionUsuarios}"
                 CornerRadius="7"
                 FontSize="19"
+<<<<<<< Updated upstream
                 Text="Gestionar Usuarios" />
+=======
+                Text="Gestionar Usuarios"/>
+>>>>>>> Stashed changes
 
             <buttons:SfButton
                 Margin="0,70,0,0"
