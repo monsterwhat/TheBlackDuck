@@ -21,6 +21,11 @@ namespace SyncBlackDuck.Model.Objetos
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
 
+
+        public user()
+        {
+        }
+
         public user(int user_id, string user_name, string user_password, DateTime user_time, int user_telefono, string user_rol)
         {
             this.user_id = user_id;
@@ -35,12 +40,8 @@ namespace SyncBlackDuck.Model.Objetos
         public user(string user_name, DateTime pagos_fecha, int pagos_estado)
         {
             this.user_name = user_name;
-            this.Pagos_fecha = pagos_fecha;
-            this.Pagos_fecha = pagos_fecha;
-        }
-
-        public user()
-        {
+            Pagos_fecha = pagos_fecha;
+            Pagos_estado = pagos_estado;
         }
 
         public user(int user_id, string user_name, int user_telefono, string user_rol)

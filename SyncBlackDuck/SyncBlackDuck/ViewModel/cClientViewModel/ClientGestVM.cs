@@ -136,7 +136,8 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         {
             try
             {
-                listaUsuarios = userController.verClienteEspecifico(Int32.Parse((string)Application.Current.Properties["id"]));
+                var tel = Application.Current.Properties["id"] as string;
+                listaUsuarios = userController.verClienteEspecifico(int.Parse(tel));
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {
                     usuariosInfo.Add(listaUsuarios.ElementAt(i));

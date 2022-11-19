@@ -38,11 +38,11 @@
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn
                         AllowEditing="false"
-                        HeaderText="User ID"
+                        HeaderText="Id Usuario"
                         MappingName="User_id" />
-                    <syncfusion:GridTextColumn HeaderText="User Name" MappingName="User_name" />
-                    <syncfusion:GridTextColumn HeaderText="User Telefono" MappingName="User_telefono" />
-                    <syncfusion:GridTextColumn HeaderText="User Password" MappingName="User_password" />
+                    <syncfusion:GridTextColumn HeaderText="Nombre de usuario" MappingName="User_name" />
+                    <syncfusion:GridTextColumn HeaderText="Numero de telefono" MappingName="User_telefono" />
+                    <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password" />
 
                 </syncfusion:SfDataGrid.Columns>
 

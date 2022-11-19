@@ -21,6 +21,7 @@ namespace SyncBlackDuck.Model.Objetos
 
         public pagos()
         {
+
         }
 
         public int Pagos_id { get => pagos_id; set => pagos_id = value; }

@@ -34,15 +34,14 @@
                                    LiveDataUpdateMode="Default"
                                    >
                 <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="User ID" 
+                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Nombre de usuario" 
                                    MappingName="User_id" />
-                    <syncfusion:GridTextColumn HeaderText="User Name" 
+                    <syncfusion:GridTextColumn HeaderText="Fecha de pago" 
                                    MappingName="User_name" />
-                    <syncfusion:GridTextColumn HeaderText="User Telefono" 
+                    <syncfusion:GridTextColumn HeaderText="Estado de pago" 
                                    MappingName="User_telefono" />
-                    <syncfusion:GridTextColumn HeaderText="User Password" 
-                                   MappingName="User_password" />
-
+                    <!-- Aqui muestra 1 o 0 dependiendo del estado de pago, debe pasarse a "Pagado" o "Pendiente" -->
+                    
                 </syncfusion:SfDataGrid.Columns>
 
                 <syncfusion:SfDataGrid.GridStyle>

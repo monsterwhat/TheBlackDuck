@@ -184,34 +184,34 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<user> verClienteEspecifico(int uId)
-    {
-        try
+        public List<user> verClienteEspecifico(int tel)
         {
-            Connection conn = new Connection();
-            MySqlConnection mysql = conn.getConnection();
-            MySqlCommand command = new MySqlCommand("SELECT u.user_name, p.pagos_fecha, p.pagos_estado FROM user u, pagos p WHERE u.user_id = 4 AND u.user_id = p.user_id;", mysql);
-            command.Parameters.AddWithValue("@id", uId);
-            MySqlDataReader reader = command.ExecuteReader();
-            List<user> list = new List<user>();
-            while (reader.Read())
+            try
             {
-                user user = new user
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.getConnection();
+                MySqlCommand command = new MySqlCommand("SELECT u.user_name, p.pagos_fecha, p.pagos_estado FROM user u, pagos p WHERE u.user_telefono = @tel AND u.user_id = p.user_id;", mysql);
+                command.Parameters.AddWithValue("@tel", tel);
+                MySqlDataReader reader = command.ExecuteReader();
+                List<user> list = new List<user>();
+                while (reader.Read())
                 {
-                    User_name = reader.GetString(0),
-                    Pagos_fecha = reader.GetDateTime(1),
-                    Pagos_estado = reader.GetInt32(2),
+                    user user = new user
+                    {
+                        User_name = reader.GetString(0),
+                        Pagos_fecha = reader.GetDateTime(1),
+                        Pagos_estado = reader.GetInt32(2)
                 };
-                list.Add(user);
+                    list.Add(user);
+                }
+                return list;
             }
-            return list;
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en devolver datos del usuario");
+                Console.WriteLine(e);
+                return null;
+            }
         }
-        catch (Exception e)
-        {
-            Console.WriteLine("Error en devolver datos del usuario");
-            Console.WriteLine(e);
-            return null;
-        }
-    }
     }
 }
