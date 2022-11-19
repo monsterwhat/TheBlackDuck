@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    public partial class AdminPagosGestVM : AdminBaseVM
+    public partial class AdminPagosGestVM : AdminBaseVM, INotifyPropertyChanged
     {
         private List<pagos> listaPagos = new List<pagos>();
         private pagosImpl pagosController = new pagosImpl();

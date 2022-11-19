@@ -2,6 +2,7 @@
 using SyncBlackDuck.Services.Implementaciones;
 using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.ClientViews;
+using Syncfusion.Data.Extensions;
 using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
@@ -135,7 +136,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         {
             try
             {
-                listaUsuarios = userController.verClientes();
+                listaUsuarios = userController.verClienteEspecifico(Int32.Parse((string)Application.Current.Properties["id"]));
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {
                     usuariosInfo.Add(listaUsuarios.ElementAt(i));
@@ -146,8 +147,6 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
                 Console.WriteLine(e);
             }
         }
-
-
 
     }
 }

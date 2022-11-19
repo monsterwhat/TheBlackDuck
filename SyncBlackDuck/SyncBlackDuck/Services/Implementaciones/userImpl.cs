@@ -184,36 +184,34 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<user> verSuperAdmins()
+        public List<user> verClienteEspecifico(int uId)
+    {
+        try
         {
-            try
+            Connection conn = new Connection();
+            MySqlConnection mysql = conn.getConnection();
+            MySqlCommand command = new MySqlCommand("SELECT u.user_name, p.pagos_fecha, p.pagos_estado FROM user u, pagos p WHERE u.user_id = 4 AND u.user_id = p.user_id;", mysql);
+            command.Parameters.AddWithValue("@id", uId);
+            MySqlDataReader reader = command.ExecuteReader();
+            List<user> list = new List<user>();
+            while (reader.Read())
             {
-                Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'superadmin'", mysql);
-                MySqlDataReader reader = command.ExecuteReader();
-                List<user> list = new List<user>();
-                while (reader.Read())
+                user user = new user
                 {
-                    user user = new user
-                    {
-                        User_id = reader.GetInt32(0),
-                        User_name = reader.GetString(1),
-                        User_password = reader.GetString(2),
-                        User_time = reader.GetDateTime(3),
-                        User_telefono = reader.GetInt32(4),
-                        User_rol = reader.GetString(5)
-                    };
-                    list.Add(user);
-                }
-                return list;
+                    User_name = reader.GetString(0),
+                    Pagos_fecha = reader.GetDateTime(1),
+                    Pagos_estado = reader.GetInt32(2),
+                };
+                list.Add(user);
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error en SelectAll de SuperAdmin");
-                Console.WriteLine(e);
-                return null;
-            }
+            return list;
         }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error en devolver datos del usuario");
+            Console.WriteLine(e);
+            return null;
+        }
+    }
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace SyncBlackDuck.Model.Objetos
 {
-    public class user : INotifyPropertyChanged
+    public class user : pagos, INotifyPropertyChanged
     {
 
         private int user_id;
@@ -29,6 +29,14 @@ namespace SyncBlackDuck.Model.Objetos
             this.user_time = user_time;
             this.user_telefono = user_telefono;
             this.user_rol = user_rol;
+        }
+
+        // Constructor para visualizar datos de cliente logueado
+        public user(string user_name, DateTime pagos_fecha, int pagos_estado)
+        {
+            this.user_name = user_name;
+            this.Pagos_fecha = pagos_fecha;
+            this.Pagos_fecha = pagos_fecha;
         }
 
         public user()

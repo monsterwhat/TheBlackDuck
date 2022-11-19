@@ -1,6 +1,7 @@
 ﻿using SyncBlackDuck.ViewModel.cAdminViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,13 @@ namespace SyncBlackDuck.Views.AdminViews
         {
             base.OnDisappearing();
             BindingContext = null;
+            GC.Collect();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BindingContext = new AdminUserGestVM(Navigation, this.dataGrid);
             GC.Collect();
         }
     }

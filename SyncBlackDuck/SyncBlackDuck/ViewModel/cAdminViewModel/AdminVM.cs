@@ -1,18 +1,21 @@
-﻿using SyncBlackDuck.Views.AdminViews;
+﻿using SyncBlackDuck.Model.Objetos;
+using SyncBlackDuck.Views;
+using SyncBlackDuck.Views.AdminViews;
 using System;
-using SyncBlackDuck.Model.Objetos;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    public partial class AdminVM : AdminBaseVM
+    public partial class AdminVM : AdminBaseVM, INotifyPropertyChanged
     {
         private int user_Telefono;
         private user loggedInUser;
-        
-        public AdminVM(INavigation navigation){
+
+        public AdminVM(INavigation navigation)
+        {
             Navigation = navigation;
         }
 
@@ -22,8 +25,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         #region Commands
 
         // ICommands para las redirecciones de paginas
-        public ICommand GestionUsuarios => GestionUserPage();
-        public ICommand CSCerrarSesion => CerrarSesion();
+        public ICommand ADGestionUsuarios => GestionUserPage();
+        public ICommand ADCSCerrarSesion => ADCerrarSesion();
         public ICommand BackAdminMain => BackAdminMainP();
 
         // Metodos Command para hacer los metodos async
@@ -31,9 +34,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             return new Command(async () => await GestionUserAsync());
         }
-        private Command CerrarSesion()
+        private Command ADCerrarSesion()
         {
-            return new Command(async () => await CerrarSesionAsync());
+            return new Command(async () => await ADCerrarSesionAsync());
         }
         private Command BackAdminMainP()
         {
@@ -55,13 +58,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-        private Task CerrarSesionAsync()
+        private Task ADCerrarSesionAsync()
         {
             try
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                Navigation.PopToRootAsync();
+                Navigation.PopAsync();
             }
             catch (Exception e)
             {
@@ -75,7 +78,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                Navigation.PushAsync(new AdminMainPage());
+                Navigation.PopAsync();
             }
             catch (Exception e)
             {

@@ -1,4 +1,5 @@
 ﻿using SyncBlackDuck.ViewModel;
+using SyncBlackDuck.ViewModel.cAdminViewModel;
 using System;
 using Xamarin.Forms;
 
@@ -16,6 +17,13 @@ namespace SyncBlackDuck.Views
         {
             base.OnDisappearing();
             BindingContext = null;
+            GC.Collect();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BindingContext = new LoginVM(Navigation);
             GC.Collect();
         }
     }

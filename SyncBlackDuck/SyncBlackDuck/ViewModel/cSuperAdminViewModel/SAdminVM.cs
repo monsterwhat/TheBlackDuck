@@ -1,5 +1,6 @@
 ﻿using SyncBlackDuck;
 using SyncBlackDuck.Model.Objetos;
+using SyncBlackDuck.Views;
 using SyncBlackDuck.Views.SuperAdminViews;
 using System;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         private string user_telefono;
         private user loggedInUser;
         public SAdminVM(INavigation navigation) {
+
             Navigation = navigation;
         }
         public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
@@ -21,16 +23,16 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
         #region Commands
         public ICommand GestionAdministradores => GestionAdminPage();
-        public ICommand CSCerrarSesion => CerrarSesion();
+        public ICommand SACSCerrarSesion => SACerrarSesion();
         public ICommand BackAdminMain => BackAdminMainP();
 
         private Command GestionAdminPage()
         {
             return new Command(async () => await GestionAdminPageAsync());
         }
-        private Command CerrarSesion()
+        private Command SACerrarSesion()
         {
-            return new Command(async () => await CerrarSesionAsync());
+            return new Command(async () => await SACerrarSesionAsync());
         }
         private Command BackAdminMainP()
         {
@@ -52,13 +54,13 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             return Task.CompletedTask;
         }
 
-        private Task CerrarSesionAsync()
+        private Task SACerrarSesionAsync()
         {
             try
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                Navigation.PopAsync();
+                Navigation.PushAsync(new MainPage());
             }
             catch (Exception e)
             {

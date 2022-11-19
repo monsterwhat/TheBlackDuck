@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    public partial class AdminUserGestVM : AdminBaseVM
+    public partial class AdminUserGestVM : AdminBaseVM, INotifyPropertyChanged
     {
         private List<user> listaUsuarios = new List<user>();
         private userImpl userController = new userImpl();
@@ -98,14 +98,15 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
         }
 
-        #endregion DatagridControlls
-
-        #region Commands
+        // ICommands para las redirecciones de paginas
         public ICommand BackAdminMain => BackAdminMainP();
-        private Command BackAdminMainP(){
+
+        // Metodos Command para hacer los metodos async
+        private Command BackAdminMainP()
+        {
             return new Command(async () => await BackAdminAsync());
         }
-
+      
         private Task BackAdminAsync()
         {
             try
@@ -120,6 +121,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             return Task.CompletedTask;
         }
+
+        #endregion DatagridControlls
+
+        #region Commands
 
         private Command agregarUsuario;
         public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);

@@ -18,16 +18,10 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        protected void RaisePropertyChanged(string property)
         {
-            if (!Equals(field, newValue))
-            {
-                field = newValue;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                return true;
-            }
-
-            return false;
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
     }
 }

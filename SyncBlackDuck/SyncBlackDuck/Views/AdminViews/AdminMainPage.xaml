@@ -15,7 +15,7 @@
             <buttons:SfButton
                 Margin="0,30,0,0"
                 BackgroundColor="#222831"
-                Command="{Binding Path=GestionUsuarios}"
+                Command="{Binding Path=ADGestionUsuarios}"
                 CornerRadius="7"
                 FontSize="19"
                 Text="Gestionar Usuarios" />
@@ -24,7 +24,7 @@
             <buttons:SfButton
                 Margin="0,70,0,0"
                 BackgroundColor="#270F0F"
-                Command="{Binding Path=CSCerrarSesion}"
+                Command="{Binding Path=ADCSCerrarSesion}"
                 CornerRadius="7"
                 FontSize="19"
                 Text="Cerrar sesion" />

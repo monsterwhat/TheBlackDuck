@@ -1,4 +1,5 @@
-﻿using SyncBlackDuck.ViewModel.cClientViewModel;
+﻿using SyncBlackDuck.ViewModel.cAdminViewModel;
+using SyncBlackDuck.ViewModel.cClientViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,13 @@ namespace SyncBlackDuck.Views.ClientViews
         {
             base.OnDisappearing();
             BindingContext = null;
+            GC.Collect();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BindingContext = new ClientVM(Navigation);
             GC.Collect();
         }
     }

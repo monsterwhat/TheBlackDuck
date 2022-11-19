@@ -1,5 +1,6 @@
 ﻿using SyncBlackDuck;
 using SyncBlackDuck.Model.Objetos;
+using SyncBlackDuck.Views;
 using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.ClientViews;
 using System;
@@ -23,24 +24,24 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         #region Commands
 
         // ICommands para las redirecciones de paginas
-        public ICommand GestionUsuario => GestionUsuarioPage();
-        public ICommand CSCerrarSesion => CerrarSesion();
+        public ICommand CGestionUsuario => CGestionUsuarioPage();
+        public ICommand CCSCerrarSesion => CCerrarSesion();
         public ICommand BackClientMain => BackClientMainP();
 
         // Metodos Command para hacer los metodos async
-        private Command GestionUsuarioPage()
+        private Command CGestionUsuarioPage()
         {
-            return new Command(async () => await GestionUsuarioAsync());
+            return new Command(async () => await CGestionUsuarioAsync());
         }
-        private Command CerrarSesion()
+        private Command CCerrarSesion()
         {
-            return new Command(async () => await CerrarSesionAsync());
+            return new Command(async () => await CCerrarSesionAsync());
         }
         private Command BackClientMainP()
         {
             return new Command(async () => await BackClientAsync());
         }
-        private Task GestionUsuarioAsync()
+        private Task CGestionUsuarioAsync()
         {
             try
             {
@@ -56,13 +57,13 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             return Task.CompletedTask;
         }
 
-        private Task CerrarSesionAsync()
+        private Task CCerrarSesionAsync()
         {
             try
             {
                 // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                Navigation.PopAsync();
+                Navigation.PushAsync(new MainPage());
             }
             catch (Exception e)
             {
