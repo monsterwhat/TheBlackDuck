@@ -18,7 +18,7 @@
         </StackLayout>
         <StackLayout Margin="0,0,0,0" >
             <syncfusion:SfDataGrid x:Name="dataGrid" 
-                                   ColumnSizer="Auto"
+                                   ColumnSizer="Star"
                                    AllowSorting="True"
                                    ItemsSource="{Binding usuariosInfoCollection}"
                                    SelectedItem="{Binding SelectedItem}"
@@ -31,15 +31,15 @@
                                    LostFocusBehavior="EndEditCurrentCell"
                                    AllowResizingColumn="True"
                                    AutoGenerateColumns="false"
-                                   LiveDataUpdateMode="Default"
-                                   >
+                                   LiveDataUpdateMode="Default">
+                
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Nombre de usuario" 
-                                   MappingName="User_id" />
-                    <syncfusion:GridTextColumn HeaderText="Fecha de pago" 
                                    MappingName="User_name" />
+                    <syncfusion:GridTextColumn HeaderText="Fecha de pago" 
+                                   MappingName="Pagos_fecha" />
                     <syncfusion:GridTextColumn HeaderText="Estado de pago" 
-                                   MappingName="User_telefono" />
+                                   MappingName="Pagos_estado" />
                     <!-- Aqui muestra 1 o 0 dependiendo del estado de pago, debe pasarse a "Pagado" o "Pendiente" -->
                     
                 </syncfusion:SfDataGrid.Columns>

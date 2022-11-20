@@ -12,6 +12,12 @@ namespace SyncBlackDuck.Model.Objetos
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+
         public pagos(int pagos_id, DateTime pagos_fecha, int pagos_estado)
         {
             this.pagos_id = pagos_id;
@@ -23,12 +29,44 @@ namespace SyncBlackDuck.Model.Objetos
         {
 
         }
+        
+        public int Pagos_id
+        {
+            get { return pagos_id; }
+            set
+            {
+                if(this.pagos_id != value)
+                {
+                    this.pagos_id = value;
+                }
+                RaisePropertyChanged("pagos_id");
+            }
+        }
 
-        public int Pagos_id { get => pagos_id; set => pagos_id = value; }
-        public DateTime Pagos_fecha { get => pagos_fecha; set => pagos_fecha = value; }
-        public int Pagos_estado { get => pagos_estado; set => pagos_estado = value; }
+        public DateTime Pagos_fecha
+        {
+            get { return pagos_fecha; }
+            set
+            {
+                if (this.pagos_fecha != value)
+                {
+                    this.pagos_fecha = value;
+                }
+                RaisePropertyChanged("pagos_fecha");
+            }
+        }
 
-
-
+        public int Pagos_estado
+        {
+            get { return pagos_estado; }
+            set
+            {
+                if (this.pagos_estado != value)
+                {
+                    this.pagos_estado = value;
+                }
+                RaisePropertyChanged("pagos_estado");
+            }
+        }
     }
 }

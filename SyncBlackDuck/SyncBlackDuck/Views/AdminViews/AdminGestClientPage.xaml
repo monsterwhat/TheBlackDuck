@@ -26,7 +26,7 @@
                 AllowSorting="True"
                 AllowSwiping="True"
                 AutoGenerateColumns="false"
-                ColumnSizer="Auto"
+                ColumnSizer="Star"
                 EditTapAction="OnDoubleTap"
                 ImeOptions="NoExtractUi"
                 ItemsSource="{Binding usuariosInfoCollection}"
@@ -34,7 +34,9 @@
                 LostFocusBehavior="EndEditCurrentCell"
                 NavigationMode="Cell"
                 SelectedItem="{Binding SelectedItem}"
-                SelectionMode="Multiple">
+                SelectionMode="Multiple"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn
                         AllowEditing="false"

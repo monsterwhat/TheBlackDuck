@@ -20,6 +20,7 @@ namespace SyncBlackDuck.Services.Login
                 command.Parameters.AddWithValue("@val1", t);
                 command.Parameters.AddWithValue("@val2", p);
                 MySqlDataReader reader = command.ExecuteReader();
+                Console.WriteLine(command);
                 //Si se puede leer encontro resultados = si existe el usuario...
                 while (reader.Read())
                 {

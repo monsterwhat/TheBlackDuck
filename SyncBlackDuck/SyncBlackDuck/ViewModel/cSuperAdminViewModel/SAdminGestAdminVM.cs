@@ -101,7 +101,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         #endregion DatagridControlls
 
         #region Commands
-        public ICommand BackSAdminMain => BackSAdminMainP();
+        public ICommand SBackAdminMain => BackSAdminMainP();
 
         private Command BackSAdminMainP()
         {

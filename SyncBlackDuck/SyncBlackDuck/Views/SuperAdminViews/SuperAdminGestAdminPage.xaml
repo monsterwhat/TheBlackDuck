@@ -29,7 +29,7 @@
                 AllowSorting="True"
                 AllowSwiping="True"
                 AutoGenerateColumns="false"
-                ColumnSizer="Auto"
+                ColumnSizer="Star"
                 EditTapAction="OnDoubleTap"
                 ImeOptions="NoExtractUi"
                 ItemsSource="{Binding usuariosInfoCollection}"
@@ -37,13 +37,15 @@
                 LostFocusBehavior="EndEditCurrentCell"
                 NavigationMode="Cell"
                 SelectedItem="{Binding SelectedItem}"
-                SelectionMode="Multiple">
+                SelectionMode="Multiple"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn
                         AllowEditing="false"
-                        HeaderText="Id Usuario"
+                        HeaderText="ID Administrador"
                         MappingName="User_id" />
-                    <syncfusion:GridTextColumn HeaderText="Nombre de usuario" MappingName="User_name" />
+                    <syncfusion:GridTextColumn HeaderText="Nombre de admin" MappingName="User_name" />
                     <syncfusion:GridTextColumn HeaderText="Numero de telefono" MappingName="User_telefono" />
                     <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password" />
 

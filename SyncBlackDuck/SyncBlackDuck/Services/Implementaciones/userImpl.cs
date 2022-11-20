@@ -184,23 +184,24 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<user> verClienteEspecifico(int tel)
+        public List<user> verClienteEspecifico(int cel)
         {
             try
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("SELECT u.user_name, p.pagos_fecha, p.pagos_estado FROM user u, pagos p WHERE u.user_telefono = @tel AND u.user_id = p.user_id;", mysql);
-                command.Parameters.AddWithValue("@tel", tel);
+                command.Parameters.AddWithValue("@tel", cel);
+                Console.WriteLine(command);
                 MySqlDataReader reader = command.ExecuteReader();
                 List<user> list = new List<user>();
                 while (reader.Read())
                 {
-                    user user = new user
+                    user user = new user();
                     {
-                        User_name = reader.GetString(0),
-                        Pagos_fecha = reader.GetDateTime(1),
-                        Pagos_estado = reader.GetInt32(2)
+                        user.User_name = reader.GetString(0);
+                        user.Pagos_fecha = reader.GetDateTime(1);
+                        user.Pagos_estado = reader.GetInt32(2);
                 };
                     list.Add(user);
                 }
