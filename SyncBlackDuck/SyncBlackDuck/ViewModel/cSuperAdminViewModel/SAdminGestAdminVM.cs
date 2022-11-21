@@ -1,6 +1,5 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
-using SyncBlackDuck.Views.SuperAdminViews;
 using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Syncfusion.XForms.PopupLayout;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml;
 
 namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
@@ -17,6 +19,10 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         private user usuarioSeleccionado = new user();
         private List<user> listaUsuarios = new List<user>();
         private userImpl userController = new userImpl();
+        /* public SfPopupLayout PopupLayout = new SfPopupLayout();
+         public Xamarin.Forms.DataTemplate templateView;
+         public Label PopupContent;
+         public PopupStyle PopupStyle { get; set; }*/
         public SAdminGestAdminVM(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
@@ -26,6 +32,13 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             DatagridControlls grid = new DatagridControlls();
             datagrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
             datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
+           /* templateView = new Xamarin.Forms.DataTemplate(() => {
+                PopupContent = new Label();
+                PopupContent.Text = "First text";
+                PopupContent.BackgroundColor = Color.LightSkyBlue;
+                PopupContent.HorizontalTextAlignment = Xamarin.Forms.TextAlignment.Center;
+                return PopupContent;
+            });*/
         }
 
         #region Listas
@@ -128,11 +141,19 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
         private void PerformAgregarUsuario()
         {
+            /* PopupLayout.PopupView.PopupStyle.HeaderTextColor = Color.White;
+             PopupLayout.PopupView.PopupStyle.HeaderBackgroundColor = Color.FromHex("#00ADB5");
+             PopupLayout.PopupView.PopupStyle.HeaderTextAlignment = Xamarin.Forms.TextAlignment.Center;
+             PopupLayout.OverlayMode = OverlayMode.Blur;
+             PopupLayout.PopupView.AnimationMode = AnimationMode.Zoom;
+             PopupLayout.PopupView.ShowCloseButton = false;
+             PopupLayout.PopupView.ContentTemplate = templateView;
+             PopupLayout.Show();*/
         }
-
+  
         private Command modificarUsuario;
         public ICommand ModificarUsuario => modificarUsuario ??= new Command(PerformModificarUsuario);
-
+        
         private void PerformModificarUsuario()
         {
         }
@@ -162,4 +183,5 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             }
         }
     }
+
 }

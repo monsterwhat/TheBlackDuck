@@ -5,12 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cSuperAdminViewModel"
+    xmlns:sfpopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
     NavigationPage.HasNavigationBar="false">
 
 
     <StackLayout BackgroundColor="#393E46">
-
+        
         <StackLayout Margin="50">
             <Label
                 FontSize="20"
@@ -81,11 +81,12 @@
 
             </syncfusion:SfDataGrid>
 
-            <StackLayout
+            <StackLayout           
                 Margin="10,-20,10,0"
                 HorizontalOptions="Center"
                 Orientation="Horizontal"
                 VerticalOptions="Center">
+
                 <buttons:SfButton
                     Margin="0,30,0,0"
                     BackgroundColor="#00ADB5"

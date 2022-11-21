@@ -145,22 +145,25 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Syncfusion.Licensing">
-      <Version>20.3.0.52</Version>
+      <Version>20.3.0.57</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
-      <Version>20.3.0.52</Version>
+      <Version>20.3.0.57</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Core">
-      <Version>20.3.0.52</Version>
+      <Version>20.3.0.57</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.DataSource">
-      <Version>20.3.0.52</Version>
+      <Version>20.3.0.57</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfDataForm">
-      <Version>20.3.0.52</Version>
+      <Version>20.3.0.57</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfDataGrid">
-      <Version>20.3.0.52</Version>
+      <Version>20.3.0.57</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout">
+      <Version>20.3.0.57</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
