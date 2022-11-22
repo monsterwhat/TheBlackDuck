@@ -97,14 +97,6 @@
 
                 <buttons:SfButton
                     Margin="0,30,0,0"
-                    BackgroundColor="#00ADB5"
-                    Command="{Binding Path=Salvar}"
-                    CornerRadius="7"
-                    FontSize="14"
-                    Text="Salvar" />
-
-                <buttons:SfButton
-                    Margin="0,30,0,0"
                     BackgroundColor="red"
                     Command="{Binding Path=BorrarUsuario}"
                     CornerRadius="7"

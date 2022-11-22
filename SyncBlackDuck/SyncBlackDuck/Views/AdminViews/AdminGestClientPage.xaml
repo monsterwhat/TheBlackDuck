@@ -34,14 +34,11 @@
                 LostFocusBehavior="EndEditCurrentCell"
                 NavigationMode="Cell"
                 SelectedItem="{Binding SelectedItem}"
-                SelectionMode="Multiple"
+                SelectionMode="Single"
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill">
                 <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:GridTextColumn
-                        AllowEditing="false"
-                        HeaderText="Id Usuario"
-                        MappingName="User_id" />
+                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Id Usuario" MappingName="User_id" />
                     <syncfusion:GridTextColumn HeaderText="Nombre de usuario" MappingName="User_name" />
                     <syncfusion:GridTextColumn HeaderText="Numero de telefono" MappingName="User_telefono" />
                     <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password" />
@@ -90,14 +87,6 @@
                     CornerRadius="7"
                     FontSize="14"
                     Text="Agregar usuario" />
-
-                <buttons:SfButton
-                    Margin="0,30,0,0"
-                    BackgroundColor="#00ADB5"
-                    Command="{Binding Path=Salvar}"
-                    CornerRadius="7"
-                    FontSize="14"
-                    Text="Salvar" />
 
                 <buttons:SfButton
                     Margin="0,30,0,0"

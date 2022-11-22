@@ -22,6 +22,9 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         private user usuarioSeleccionado = new user();
         private List<user> listaUsuarios = new List<user>();
         private userImpl userController = new userImpl();
+        public int row;
+        public string Dato;
+        public int UserID;
 
         public ClientGestVM(INavigation navigation, SfDataGrid datagrid)
         {
@@ -29,10 +32,32 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             usuariosInfo = new ObservableCollection<user>();
             selectedItem = new Object();
             CargarClientes();
-            DatagridControlls grid = new DatagridControlls();
-            datagrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
-            datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
+            datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
+            datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
         }
+
+        #region CellListeners
+
+        public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
+        {
+            row = args.RowColumnIndex.RowIndex;
+            Dato = args.Column.MappingName;
+            UserID = usuariosInfo.ElementAt(row - 1).User_id;
+        }
+
+        public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
+        {
+            bool Estado = false;
+            if (args.OldValue != args.NewValue)
+            {
+                user UsuarioSelecionado = usuariosInfo.ElementAt(row - 1);
+                Estado = userController.modificar(UsuarioSelecionado);
+            }
+
+        }
+
+        #endregion CellListeners
+
 
         #region Listas
 
@@ -70,41 +95,6 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 
         #endregion Listas
 
-        #region DatagridControlls
-
-        public class DatagridControlls
-        {
-            public DatagridControlls()
-            {
-
-            }
-
-            public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellBeginEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.Column);
-            }
-
-            public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellEndEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.OldValue);
-                Console.WriteLine("Column: " + args.NewValue);
-
-            }
-            public void EndEditCell(object sender, GridCurrentCellEndEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellEndEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.OldValue);
-                Console.WriteLine("Column: " + args.NewValue);
-
-            }
-        }
-
-        #endregion DatagridControlls
 
         #region Commands
 

@@ -9,14 +9,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using Windows.System;
 using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    public partial class AdminPagosGestVM : AdminBaseVM, INotifyPropertyChanged
+    public partial class AdminPagosGestVM : AdminBaseVM
     {
         private List<pagos> listaPagos = new List<pagos>();
         private pagosImpl pagosController = new pagosImpl();
+        public int row;
+        public string Dato;
+        public int PagoID;
 
         public AdminPagosGestVM(INavigation navigation, SfDataGrid datagrid)
         {
@@ -24,10 +28,31 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             pagosInfo = new ObservableCollection<pagos>();
             selectedItem = new Object();
             CargarPagos();
-            DatagridControlls grid = new DatagridControlls();
-            datagrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
-            datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
+            datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
+            datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
         }
+
+        #region CellListeners
+
+        public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
+        {
+            row = args.RowColumnIndex.RowIndex;
+            Dato = args.Column.MappingName;
+            PagoID = pagosInfo.ElementAt(row - 1).Pagos_id;
+        }
+
+        public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
+        {
+            bool Estado = false;
+            if (args.OldValue != args.NewValue)
+            {
+                pagos PagoSelecionado = pagosInfo.ElementAt(row - 1);
+                Estado = pagosController.modificar(PagoSelecionado);
+            }
+
+        }
+
+        #endregion CellListeners
 
         #region Listas
 
@@ -65,41 +90,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #endregion Lista
 
-        #region DatagridControlls
-
-        public class DatagridControlls
-        {
-            public DatagridControlls()
-            {
-
-            }
-
-            public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellBeginEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.Column);
-            }
-
-            public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellEndEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.OldValue);
-                Console.WriteLine("Column: " + args.NewValue);
-
-            }
-            public void EndEditCell(object sender, GridCurrentCellEndEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellEndEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.OldValue);
-                Console.WriteLine("Column: " + args.NewValue);
-
-            }
-        }
-
-        #endregion DatagridControlls
 
         private void CargarPagos()
         {

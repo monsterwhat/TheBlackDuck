@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    public partial class AdminVM : AdminBaseVM, INotifyPropertyChanged
+    public partial class AdminVM : AdminBaseVM
     {
         private int user_Telefono;
         private user loggedInUser;

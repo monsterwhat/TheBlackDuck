@@ -13,21 +13,46 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
-    public partial class AdminUserGestVM : AdminBaseVM, INotifyPropertyChanged
+    public partial class AdminUserGestVM : AdminBaseVM
     {
         private List<user> listaUsuarios = new List<user>();
         private userImpl userController = new userImpl();
-
+        public int SelectedIndex;
+        public SfDataGrid userGrid;
+        public int row;
+        public string Dato;
+        public int UserID;
         public AdminUserGestVM(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
             usuariosInfo = new ObservableCollection<user>();
             selectedItem = new Object();
             CargarClientes();
-            DatagridControlls grid = new DatagridControlls();
-            datagrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
-            datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
+            datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
+            datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
         }
+
+        #region CellListeners
+
+        public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
+        {
+             row = args.RowColumnIndex.RowIndex;
+             Dato = args.Column.MappingName;
+             UserID = usuariosInfo.ElementAt(row - 1).User_id;
+        }
+
+        public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
+        {
+            bool Estado = false;
+            if (args.OldValue != args.NewValue)
+            {
+                user UsuarioSelecionado = usuariosInfo.ElementAt(row - 1);
+                Estado = userController.modificar(UsuarioSelecionado);
+            }
+
+        }
+
+        #endregion CellListeners
 
         #region Listas
 
@@ -59,70 +84,11 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     //Se podria salvar para aplicar cambios en la BD....
                     //Actualizar(value); //Donde value es el usuario (objeto) seleccionado.
                     //Despues de actualizar necesitamos recargar la tabla(?)
-                }            }
+                }            
+            }
         }
 
         #endregion Listas
-
-        #region DatagridControlls
-
-        public class DatagridControlls
-        {
-            public DatagridControlls()
-            {
-                
-            }
-
-            public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellBeginEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.Column);
-            }
-
-            public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellEndEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.OldValue);
-                Console.WriteLine("Column: " + args.NewValue);
-
-            }
-            public void EndEditCell(object sender, GridCurrentCellEndEditEventArgs args)
-            {
-                Console.WriteLine("CurrentCellEndEdit");
-                Console.WriteLine("Row index: " + args.RowColumnIndex);
-                Console.WriteLine("Column: " + args.OldValue);
-                Console.WriteLine("Column: " + args.NewValue);
-
-            }
-        }
-
-        // ICommands para las redirecciones de paginas
-        public ICommand BackAdminMain => BackAdminMainP();
-
-        // Metodos Command para hacer los metodos async
-        private Command BackAdminMainP()
-        {
-            return new Command(async () => await BackAdminAsync());
-        }
-      
-        private Task BackAdminAsync()
-        {
-            try
-            {
-                Navigation.PopAsync();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                Console.WriteLine("Error al cambiar de pagina");
-                return Task.CompletedTask;
-            }
-            return Task.CompletedTask;
-        }
-
-        #endregion DatagridControlls
 
         #region Commands
 
@@ -149,6 +115,32 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
 
         }
+
+
+        // ICommands para las redirecciones de paginas
+        public ICommand BackAdminMain => BackAdminMainP();
+
+        // Metodos Command para hacer los metodos async
+        private Command BackAdminMainP()
+        {
+            return new Command(async () => await BackAdminAsync());
+        }
+
+        private Task BackAdminAsync()
+        {
+            try
+            {
+                Navigation.PopAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("Error al cambiar de pagina");
+                return Task.CompletedTask;
+            }
+            return Task.CompletedTask;
+        }
+
         #endregion commands
 
         private void CargarClientes()

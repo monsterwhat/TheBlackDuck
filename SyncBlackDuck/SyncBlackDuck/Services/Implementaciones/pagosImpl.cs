@@ -21,7 +21,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("DELETE FROM pagos WHERE idPago = @idPago", mysql);
+                MySqlCommand command = new MySqlCommand("DELETE FROM pagos WHERE Pagos_id = @idPago", mysql);
                 command.Parameters.AddWithValue("@idPago", item.Pagos_id);
                 command.ExecuteNonQuery();
 
@@ -42,7 +42,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("INSERT INTO pagos (idPago, fechaPago, estado) VALUES (@idPago, @fechaPago, @estado)", mysql);
+                MySqlCommand command = new MySqlCommand("INSERT INTO pagos (Pagos_id, Pagos_fecha, Pagos_estado) VALUES (@idPago, @fechaPago, @estado)", mysql);
                 command.Parameters.AddWithValue("@idPago", item.Pagos_id);
                 command.Parameters.AddWithValue("@fechaPago", item.Pagos_fecha);
                 command.Parameters.AddWithValue("@estado", item.Pagos_estado);
@@ -65,7 +65,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command2 = new MySqlCommand("UPDATE pagos SET fechaPago = @fechaPago, estado = @estado WHERE idPago = @idPago", mysql);
+                MySqlCommand command2 = new MySqlCommand("UPDATE pagos SET Pagos_fecha = @fechaPago, Pagos_estado = @estado WHERE Pagos_id = @idPago", mysql);
                 command2.Parameters.AddWithValue("@idPago", item.Pagos_id);
                 command2.Parameters.AddWithValue("@estado", item.Pagos_estado);
                 command2.Parameters.AddWithValue("@fechaPago", item.Pagos_fecha);

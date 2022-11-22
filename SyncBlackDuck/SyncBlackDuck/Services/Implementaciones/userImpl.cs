@@ -21,7 +21,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("DELETE FROM user WHERE idUser = @idUser", mysql);
+                MySqlCommand command = new MySqlCommand("DELETE FROM user WHERE User_id = @idUser", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.ExecuteNonQuery();
 
@@ -42,7 +42,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("INSERT INTO user (idUser, userName, userPassword, userTime, userTelefono, userRol) VALUES (@idUser, @userName, @userPassword, @userTime, @userTelefono, @userRol)", mysql);
+                MySqlCommand command = new MySqlCommand("INSERT INTO user (User_id, User_name, User_password, User_time, User_telefono, User_rol) VALUES (@idUser, @userName, @userPassword, @userTime, @userTelefono, @userRol)", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.Parameters.AddWithValue("@userName", item.User_name);
                 command.Parameters.AddWithValue("@userPassword", item.User_password);
@@ -68,10 +68,11 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("UPDATE user SET userName = @userName, userPassword = @userPassword, userTime = @userTime, userTelefono = @userTelefono, userRol = @userRol WHERE idUser = @idUser", mysql);
+                MySqlCommand command = new MySqlCommand("UPDATE user SET User_name = @userName, User_password = @userPassword, User_time = @userTime, User_telefono = @userTelefono, User_rol = @userRol WHERE user_id = @idUser", mysql);
+                command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.Parameters.AddWithValue("@userName", item.User_name);
-                command.Parameters.AddWithValue("@userPassword", item.User_name);
-                command.Parameters.AddWithValue("@userTime", item.User_name);
+                command.Parameters.AddWithValue("@userPassword", item.User_password);
+                command.Parameters.AddWithValue("@userTime", item.User_time);
                 command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
                 command.ExecuteNonQuery();
@@ -81,7 +82,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error en Update de Administradores");
+                Console.WriteLine("Error en Update de Usuario - Administradores");
                 Console.WriteLine(e);
                 return false;
             }

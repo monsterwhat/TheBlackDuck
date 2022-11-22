@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncBlackDuck.UWP", "SyncBlackDuck\SyncBlackDuck.UWP\SyncBlackDuck.UWP.csproj", "{78FAA2DB-B150-4F93-AAC1-58DDA904C040}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncBlackDuck.Android", "SyncBlackDuck\SyncBlackDuck.Android\SyncBlackDuck.Android.csproj", "{1C6739F6-6E92-4E65-B5DD-B09CCBCC3304}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncBlackDuck.iOS", "SyncBlackDuck\SyncBlackDuck.iOS\SyncBlackDuck.iOS.csproj", "{94977792-9700-489A-AD98-E2F276CB0B3C}"
@@ -32,42 +30,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|Any CPU.Build.0 = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|Any CPU.Deploy.0 = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|ARM.ActiveCfg = Debug|ARM
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|ARM.Build.0 = Debug|ARM
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|ARM.Deploy.0 = Debug|ARM
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|iPhone.ActiveCfg = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|iPhone.Build.0 = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|iPhone.Deploy.0 = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|iPhoneSimulator.ActiveCfg = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|iPhoneSimulator.Build.0 = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|iPhoneSimulator.Deploy.0 = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|x64.ActiveCfg = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|x64.Build.0 = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|x64.Deploy.0 = Debug|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|x86.ActiveCfg = Debug|x86
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|x86.Build.0 = Debug|x86
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Debug|x86.Deploy.0 = Debug|x86
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|Any CPU.ActiveCfg = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|Any CPU.Build.0 = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|Any CPU.Deploy.0 = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|ARM.ActiveCfg = Release|ARM
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|ARM.Build.0 = Release|ARM
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|ARM.Deploy.0 = Release|ARM
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|iPhone.ActiveCfg = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|iPhone.Build.0 = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|iPhone.Deploy.0 = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|iPhoneSimulator.ActiveCfg = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|iPhoneSimulator.Build.0 = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|iPhoneSimulator.Deploy.0 = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|x64.ActiveCfg = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|x64.Build.0 = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|x64.Deploy.0 = Release|x64
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|x86.ActiveCfg = Release|x86
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|x86.Build.0 = Release|x86
-		{78FAA2DB-B150-4F93-AAC1-58DDA904C040}.Release|x86.Deploy.0 = Release|x86
 		{1C6739F6-6E92-4E65-B5DD-B09CCBCC3304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C6739F6-6E92-4E65-B5DD-B09CCBCC3304}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C6739F6-6E92-4E65-B5DD-B09CCBCC3304}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
