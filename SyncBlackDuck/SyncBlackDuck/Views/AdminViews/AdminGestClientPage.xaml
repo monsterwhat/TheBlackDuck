@@ -60,15 +60,16 @@
                 <syncfusion:SfDataGrid.RightSwipeTemplate>
 
                     <DataTemplate>
-                        <ContentView BackgroundColor="#1AAA87">
+                        <ContentView BackgroundColor="#DC143C">
 
                             <Label
                                 FontSize="15"
                                 HorizontalTextAlignment="Center"
                                 LineBreakMode="NoWrap"
-                                Text="Deleted"
+                                Text="Delete"
                                 TextColor="White"
-                                VerticalTextAlignment="Center" />
+                                VerticalTextAlignment="Center"
+                                />
                         </ContentView>
                     </DataTemplate>
                 </syncfusion:SfDataGrid.RightSwipeTemplate>
@@ -87,14 +88,6 @@
                     CornerRadius="7"
                     FontSize="14"
                     Text="Agregar usuario" />
-
-                <buttons:SfButton
-                    Margin="0,30,0,0"
-                    BackgroundColor="red"
-                    Command="{Binding Path=BorrarUsuario}"
-                    CornerRadius="7"
-                    FontSize="14"
-                    Text="Borrar usuario" />
 
             </StackLayout>
 
