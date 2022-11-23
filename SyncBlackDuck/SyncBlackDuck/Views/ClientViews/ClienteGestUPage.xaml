@@ -34,12 +34,9 @@
                                    LiveDataUpdateMode="Default">
                 
                 <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Nombre de usuario" 
-                                   MappingName="User_name" />
-                    <syncfusion:GridTextColumn HeaderText="Fecha de pago" 
-                                   MappingName="Pagos_fecha" />
-                    <syncfusion:GridTextColumn HeaderText="Estado de pago" 
-                                   MappingName="Pagos_estado" />
+                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Nombre de usuario" MappingName="User_name" />
+                    <syncfusion:GridTextColumn HeaderText="Fecha de pago" MappingName="Pagos_fecha" />
+                    <syncfusion:GridTextColumn HeaderText="Estado de pago" MappingName="Pagos_estado" />
                     <!-- Aqui muestra 1 o 0 dependiendo del estado de pago, debe pasarse a "Pagado" o "Pendiente" -->
                     
                 </syncfusion:SfDataGrid.Columns>
@@ -60,12 +57,14 @@
 
         <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
             <buttons:SfButton
-                Margin="0,30,250,0"
+                HorizontalOptions="Start"
+                HeightRequest="40"
+                WidthRequest="130"
                 BackgroundColor="#00ADB5"
                 Command="{Binding Path=BackClientMain}"
                 CornerRadius="7"
                 FontSize="15"
-                Text="Regresar"/>
+                Text="Regresar" />
         </StackLayout>
     </StackLayout>
 </ContentPage>

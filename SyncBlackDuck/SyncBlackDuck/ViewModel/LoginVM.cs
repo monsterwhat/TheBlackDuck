@@ -4,6 +4,7 @@ using SyncBlackDuck.Services.Login;
 using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.ClientViews;
 using SyncBlackDuck.Views.SuperAdminViews;
+using Syncfusion.Data.Extensions;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace SyncBlackDuck.ViewModel
 {
     public class LoginVM : ContentPage
     {
-        private int telefono;
+        private string telefono;
         private string password;
         //Creamos el Objeto Usuario
         private user loggedInUser;
@@ -24,9 +25,8 @@ namespace SyncBlackDuck.ViewModel
         public INavigation Navigation;
 
         //Getters y setters para los bindings de la vista
-        public int Telefono { get => telefono; set => telefono = value; }
+        public string Telefono { get => telefono; set => telefono = value; }
         public string Password { get => password; set => password = value; }
-
         public LoginVM(INavigation navigation)
         {
             Navigation = navigation;
@@ -83,7 +83,7 @@ namespace SyncBlackDuck.ViewModel
             {
                 if(loggedInUser == null)
                 {
-                    loggedInUser = loginController.loginByRank(Telefono, Password);
+                    loggedInUser = loginController.loginByRank(int.Parse(Telefono), Password);
                     Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
                 }
 

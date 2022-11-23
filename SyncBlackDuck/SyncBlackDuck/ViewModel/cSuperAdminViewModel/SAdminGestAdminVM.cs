@@ -1,6 +1,8 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using Syncfusion.SfDataGrid.XForms;
+using Syncfusion.SfDataGrid.XForms.DataPager;
+using Syncfusion.XForms.PopupLayout;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,17 +10,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Syncfusion.XForms.PopupLayout;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml;
 
 namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
     public partial class SAdminGestAdminVM : SAdminBaseVM
     {
-        private user usuarioSeleccionado = new user();
         private List<user> listaUsuarios = new List<user>();
         private userImpl userController = new userImpl();
+        user SwipedUser = new user();
+        public int SelectedIndex;
+        public SfDataGrid userGrid;
+        public int Row;
+        public string Dato;
+        public int UserID;
+        SfPopupLayout popupLayout;
+        DataTemplate headerTemplateView;
+        DataTemplate templateView;
+        DataTemplate footerTemplateView;
+        Label footerContent;
+        Label headerContent;
+        Label popupContent;
+        Button footerDelete;
+        Button footerCancel;
         /* public SfPopupLayout PopupLayout = new SfPopupLayout();
          public Xamarin.Forms.DataTemplate templateView;
          public Label PopupContent;
@@ -29,17 +42,104 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             usuariosInfo = new ObservableCollection<user>();
             selectedItem = new Object();
             CargarAdministradores();
-            DatagridControlls grid = new DatagridControlls();
-            datagrid.CurrentCellBeginEdit += grid.DataGrid_CurrentCellBeginEdit;
-            datagrid.CurrentCellEndEdit += grid.DataGrid_CurrentCellEndEdit;
-           /* templateView = new Xamarin.Forms.DataTemplate(() => {
-                PopupContent = new Label();
-                PopupContent.Text = "First text";
-                PopupContent.BackgroundColor = Color.LightSkyBlue;
-                PopupContent.HorizontalTextAlignment = Xamarin.Forms.TextAlignment.Center;
-                return PopupContent;
-            });*/
+            datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
+            datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
+            datagrid.SwipeEnded += DataGrid_SwipeEnded;
+            datagrid.SwipeStarted += DataGrid_SwipeStarted;
+            popupLayout = new SfPopupLayout();
+            /* templateView = new Xamarin.Forms.DataTemplate(() => {
+                 PopupContent = new Label();
+                 PopupContent.Text = "First text";
+                 PopupContent.BackgroundColor = Color.LightSkyBlue;
+                 PopupContent.HorizontalTextAlignment = Xamarin.Forms.TextAlignment.Center;
+                 return PopupContent;
+             });*/
         }
+
+        #region CellListeners
+
+        public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
+        {
+            getDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
+        }
+
+        public Task getDatosCelda(int row, string dato)
+        {
+            Row = row;
+            Dato = dato;
+            UserID = usuariosInfo.ElementAt(Row - 1).User_id;
+            return Task.CompletedTask;
+        }
+
+        public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
+        {
+            bool Estado = false;
+            if (args.OldValue != args.NewValue)
+            {
+                user UsuarioSelecionado = usuariosInfo.ElementAt(Row - 1);
+                Estado = userController.modificar(UsuarioSelecionado);
+                Console.WriteLine("Modificar -> Estado: " + Estado);
+            }
+        }
+
+        public void DataGrid_SwipeStarted(object sender, Syncfusion.SfDataGrid.XForms.SwipeStartedEventArgs args)
+        {
+            SwipedUser = args.RowData as user;
+        }
+
+        public void DataGrid_SwipeEnded(object sender, Syncfusion.SfDataGrid.XForms.SwipeEndedEventArgs args)
+        {
+            double fullswipe;
+            fullswipe = args.SwipeOffset;
+            if (fullswipe.Equals(-200))
+            {
+                {
+                    if (!this.popupLayout.IsOpen)
+                    {
+                        this.popupLayout.IsOpen = true;
+                        this.popupLayout.Show();
+                    }
+                    this.popupLayout.PopupView.HeaderTemplate = headerTemplateView = new DataTemplate(() =>
+                    {
+                        headerContent = new Label();
+                        headerContent.Text = "Confirmacion de Eliminacion";
+                        headerContent.FontAttributes = FontAttributes.Bold;
+                        headerContent.TextColor = Color.White;
+                        headerContent.BackgroundColor = Color.FromRgb(57, 62, 70);
+                        headerContent.FontSize = 16;
+                        headerContent.HorizontalTextAlignment = TextAlignment.Center;
+                        headerContent.VerticalTextAlignment = TextAlignment.Center;
+                        return headerContent;
+                    });
+                    this.popupLayout.PopupView.ContentTemplate = templateView = new DataTemplate(() =>
+                    {
+                        popupContent = new Label();
+                        popupContent.Text = "Desea Eliminar a '" + SwipedUser.User_name + "' ?";
+                        popupContent.TextColor = Color.Black;
+                        popupContent.BackgroundColor = Color.White;
+                        popupContent.HorizontalTextAlignment = TextAlignment.Center;
+                        popupContent.VerticalTextAlignment = TextAlignment.Center;
+                        return popupContent;
+                    });
+                    this.popupLayout.PopupView.FooterTemplate = footerTemplateView = new DataTemplate(() =>
+                    {
+                        StackLayout footerStack = new StackLayout()
+                        {
+                            Margin = new Thickness(20),
+                            Orientation = StackOrientation.Horizontal,
+                            Children = {
+                                new Button {Text = "Eliminar",TextColor = Color.White, FontAttributes = FontAttributes.Bold, BackgroundColor = Color.FromRgb(179, 58, 58),HorizontalOptions = LayoutOptions.FillAndExpand, Command=BorrarUsuario}
+                            }
+                        };
+
+                        return footerStack;
+                    });
+                    this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnRight;
+                }
+            }
+        }
+
+        #endregion
 
         #region Listas
 
@@ -163,7 +263,21 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
         private void PerformBorrarUsuario()
         {
+            bool Eliminado = userController.eliminar(SwipedUser);
+            Console.WriteLine("Elimar userId: " + SwipedUser.User_id + "Estado : " + Eliminado);
+            this.popupLayout.IsOpen = false;
+            this.popupLayout.Dismiss();
         }
+
+        private Command cancelarComando;
+        public ICommand CancelarComando => cancelarComando ??= new Command(Cancelar);
+
+        private void Cancelar()
+        {
+            this.popupLayout.IsOpen = false;
+            this.popupLayout.Dismiss();
+        }
+
 
         #endregion Commands
 

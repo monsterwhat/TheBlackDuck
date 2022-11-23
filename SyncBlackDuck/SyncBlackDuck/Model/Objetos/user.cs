@@ -101,8 +101,7 @@ namespace SyncBlackDuck.Model.Objetos
         public int User_telefono
         {
             get { return user_telefono; }
-            set
-            {
+            set {
                 if(this.user_telefono != value)
                 {
                     this.user_telefono = value;

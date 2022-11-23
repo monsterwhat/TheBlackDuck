@@ -1,7 +1,6 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using Syncfusion.SfDataGrid.XForms;
-using Syncfusion.SfDataGrid.XForms.DataPager;
 using Syncfusion.XForms.PopupLayout;
 using System;
 using System.Collections.Generic;

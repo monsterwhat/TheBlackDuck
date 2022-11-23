@@ -8,7 +8,6 @@
     xmlns:sfpopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
     NavigationPage.HasNavigationBar="false">
 
-
     <StackLayout BackgroundColor="#393E46">
         
         <StackLayout Margin="50">
@@ -17,7 +16,7 @@
                 HorizontalTextAlignment="Center"
                 TextColor="White"
                 VerticalTextAlignment="Center"
-                Text="Gestion de Usuarios">
+                Text="Gestion de Administradores">
             </Label>
         </StackLayout>
 
@@ -37,14 +36,11 @@
                 LostFocusBehavior="EndEditCurrentCell"
                 NavigationMode="Cell"
                 SelectedItem="{Binding SelectedItem}"
-                SelectionMode="Multiple"
+                SelectionMode="Single"
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill">
                 <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:GridTextColumn
-                        AllowEditing="false"
-                        HeaderText="ID Administrador"
-                        MappingName="User_id" />
+                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="ID Administrador" MappingName="User_id" />
                     <syncfusion:GridTextColumn HeaderText="Nombre de admin" MappingName="User_name" />
                     <syncfusion:GridTextColumn HeaderText="Numero de telefono" MappingName="User_telefono" />
                     <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password" />
@@ -66,13 +62,13 @@
                 <syncfusion:SfDataGrid.RightSwipeTemplate>
 
                     <DataTemplate>
-                        <ContentView BackgroundColor="#1AAA87">
+                        <ContentView BackgroundColor="#DC143C">
 
                             <Label
                                 FontSize="15"
                                 HorizontalTextAlignment="Center"
                                 LineBreakMode="NoWrap"
-                                Text="Deleted"
+                                Text="Borrar"
                                 TextColor="White"
                                 VerticalTextAlignment="Center" />
                         </ContentView>
@@ -83,25 +79,20 @@
 
             <StackLayout           
                 Margin="10,-20,10,0"
-                HorizontalOptions="Center"
+                HorizontalOptions="End"
                 Orientation="Horizontal"
                 VerticalOptions="Center">
 
                 <buttons:SfButton
                     Margin="0,30,0,0"
+                    HeightRequest="40"
+                    WidthRequest="130"
                     BackgroundColor="#00ADB5"
+                    HorizontalOptions="EndAndExpand"
                     Command="{Binding Path=AgregarUsuario}"
                     CornerRadius="7"
                     FontSize="14"
                     Text="Agregar usuario" />
-
-                <buttons:SfButton
-                    Margin="0,30,0,0"
-                    BackgroundColor="red"
-                    Command="{Binding Path=BorrarUsuario}"
-                    CornerRadius="7"
-                    FontSize="14"
-                    Text="Borrar usuario" />
 
             </StackLayout>
 
@@ -109,12 +100,14 @@
 
         <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
             <buttons:SfButton
-                Margin="0,30,250,0"
+                HorizontalOptions="Start"
+                HeightRequest="40"
+                WidthRequest="130"
                 BackgroundColor="#00ADB5"
                 Command="{Binding Path=SBackAdminMain}"
                 CornerRadius="7"
                 FontSize="15"
                 Text="Regresar" />
         </StackLayout>
-        </StackLayout>
+    </StackLayout>
 </ContentPage>
