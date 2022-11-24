@@ -172,7 +172,47 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         private void PerformAgregarUsuario()
         {
+            if (!this.popupLayout.IsOpen)
+            {
+                this.popupLayout.IsOpen = true;
+                this.popupLayout.Show();
+            }
+            this.popupLayout.PopupView.HeaderTemplate = headerTemplateView = new DataTemplate(() =>
+            {
+                headerContent = new Label();
+                headerContent.Text = "Confirmacion de Eliminacion";
+                headerContent.FontAttributes = FontAttributes.Bold;
+                headerContent.TextColor = Color.White;
+                headerContent.BackgroundColor = Color.FromRgb(57, 62, 70);
+                headerContent.FontSize = 16;
+                headerContent.HorizontalTextAlignment = TextAlignment.Center;
+                headerContent.VerticalTextAlignment = TextAlignment.Center;
+                return headerContent;
+            });
+            this.popupLayout.PopupView.ContentTemplate = templateView = new DataTemplate(() =>
+            {
+                popupContent = new Label();
+                popupContent.Text = "Desea Eliminar a '" + SwipedUser.User_name + "' ?";
+                popupContent.TextColor = Color.Black;
+                popupContent.BackgroundColor = Color.White;
+                popupContent.HorizontalTextAlignment = TextAlignment.Center;
+                popupContent.VerticalTextAlignment = TextAlignment.Center;
+                return popupContent;
+            });
+            this.popupLayout.PopupView.FooterTemplate = footerTemplateView = new DataTemplate(() =>
+            {
+                StackLayout footerStack = new StackLayout()
+                {
+                    Margin = new Thickness(20),
+                    Orientation = StackOrientation.Horizontal,
+                    Children = {
+                                new Button {Text = "Eliminar",TextColor = Color.White, FontAttributes = FontAttributes.Bold, BackgroundColor = Color.FromRgb(179, 58, 58),HorizontalOptions = LayoutOptions.FillAndExpand, Command=BorrarUsuario}
+                            }
+                };
 
+                return footerStack;
+            });
+            this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnRight;
         }
 
         private Command borrarUsuario;
