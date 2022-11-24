@@ -26,11 +26,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         DataTemplate headerTemplateView;
         DataTemplate templateView;
         DataTemplate footerTemplateView;
-        Label footerContent;
         Label headerContent;
         Label popupContent;
-        Button footerDelete;
-        Button footerCancel;
 
         public AdminUserGestVM(INavigation navigation, SfDataGrid datagrid)
         {
@@ -116,7 +113,12 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                             Margin = new Thickness(20),
                             Orientation = StackOrientation.Horizontal,
                             Children = {
-                                new Button {Text = "Eliminar",TextColor = Color.White, FontAttributes = FontAttributes.Bold, BackgroundColor = Color.FromRgb(179, 58, 58),HorizontalOptions = LayoutOptions.FillAndExpand, Command=BorrarUsuario}
+                                new Button {Text = "Eliminar",
+                                            TextColor = Color.White,
+                                            FontAttributes = FontAttributes.Bold,
+                                            BackgroundColor = Color.FromRgb(179, 58, 58),
+                                            HorizontalOptions = LayoutOptions.FillAndExpand,
+                                            Command=BorrarUsuario}
                             }
                         };
 
