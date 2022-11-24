@@ -1,6 +1,7 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using Syncfusion.SfDataGrid.XForms;
+using Syncfusion.XForms.Buttons;
 using Syncfusion.XForms.PopupLayout;
 using System;
 using System.Collections.Generic;
@@ -179,10 +180,11 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 this.popupLayout.IsOpen = true;
                 this.popupLayout.Show();
             }
+            this.popupLayout.PopupView.ShowCloseButton = false;
             this.popupLayout.PopupView.HeaderTemplate = headerTemplateView = new DataTemplate(() =>
             {
                 headerContent = new Label();
-                headerContent.Text = "Confirmacion de Eliminacion";
+                headerContent.Text = "Agregar Usuario";
                 headerContent.FontAttributes = FontAttributes.Bold;
                 headerContent.TextColor = Color.White;
                 headerContent.BackgroundColor = Color.FromRgb(57, 62, 70);
@@ -193,13 +195,21 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             });
             this.popupLayout.PopupView.ContentTemplate = templateView = new DataTemplate(() =>
             {
-                popupContent = new Label();
-                popupContent.Text = "Desea Eliminar a '" + SwipedUser.User_name + "' ?";
-                popupContent.TextColor = Color.Black;
-                popupContent.BackgroundColor = Color.White;
-                popupContent.HorizontalTextAlignment = TextAlignment.Center;
-                popupContent.VerticalTextAlignment = TextAlignment.Center;
-                return popupContent;
+                StackLayout stackLayout = new StackLayout()
+                {
+                    Margin = new Thickness(20),
+                    Children =
+                    {
+                        new Label(){
+                                    Text = "Ingrese los datos del Usuario",
+                                    TextColor = Color.Black,
+                                    BackgroundColor = Color.White,
+                                    HorizontalTextAlignment = TextAlignment.Center,
+                                    VerticalTextAlignment = TextAlignment.Center}
+                    }
+                };
+
+                return stackLayout;
             });
             this.popupLayout.PopupView.FooterTemplate = footerTemplateView = new DataTemplate(() =>
             {
@@ -208,7 +218,12 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     Margin = new Thickness(20),
                     Orientation = StackOrientation.Horizontal,
                     Children = {
-                                new Button {Text = "Eliminar",TextColor = Color.White, FontAttributes = FontAttributes.Bold, BackgroundColor = Color.FromRgb(179, 58, 58),HorizontalOptions = LayoutOptions.FillAndExpand, Command=BorrarUsuario}
+                                new SfButton { Text = "Guardar",
+                                               TextColor = Color.White,
+                                               FontAttributes = FontAttributes.Bold,
+                                               BackgroundColor = Color.FromHex("#87c38f"),
+                                               HorizontalOptions = LayoutOptions.FillAndExpand,
+                                               //Command=}
                             }
                 };
 

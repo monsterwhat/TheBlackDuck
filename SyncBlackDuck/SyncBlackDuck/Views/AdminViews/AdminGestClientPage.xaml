@@ -74,32 +74,26 @@
                     </DataTemplate>
                 </syncfusion:SfDataGrid.RightSwipeTemplate>
 
-                <StackLayout           
-                Margin="10,-20,10,0"
-                HorizontalOptions="End"
-                Orientation="Horizontal"
-                VerticalOptions="Center">
-
-                    <buttons:SfButton
-                    Margin="0,30,0,0"
-                    HeightRequest="40"
-                    WidthRequest="130"
-                    BackgroundColor="#00ADB5"
-                    HorizontalOptions="EndAndExpand"
-                    Command="{Binding Path=AgregarUsuario}"
-                    CornerRadius="7"
-                    FontSize="14"
-                    Text="Agregar usuario" />
-
-                </StackLayout>
-
             </syncfusion:SfDataGrid>
 
         </StackLayout>
 
-        <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
+        <StackLayout Margin="10,20,20,20" VerticalOptions="FillAndExpand">
             <buttons:SfButton
-                HorizontalOptions="Start"
+                    Margin="0,30,0,0"
+                    HeightRequest="40"
+                    WidthRequest="130"
+                    BackgroundColor="#87c38f"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding Path=AgregarUsuario}"
+                    CornerRadius="7"
+                    FontSize="14"
+                    Text="Agregar usuario" />
+        </StackLayout>
+        
+        <StackLayout Margin="10,20,20,20" VerticalOptions="FillAndExpand">
+            <buttons:SfButton 
+                HorizontalOptions="FillAndExpand"
                 HeightRequest="40"
                 WidthRequest="130"
                 BackgroundColor="#00ADB5"
