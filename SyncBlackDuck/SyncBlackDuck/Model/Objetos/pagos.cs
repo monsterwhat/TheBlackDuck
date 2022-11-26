@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SyncBlackDuck.Model.Objetos
 {
@@ -11,8 +12,7 @@ namespace SyncBlackDuck.Model.Objetos
         private int pagos_estado;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string property)
+        public void RaisePropertyChanged([CallerMemberName] string property = null)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
@@ -39,7 +39,7 @@ namespace SyncBlackDuck.Model.Objetos
                 {
                     this.pagos_id = value;
                 }
-                RaisePropertyChanged("pagos_id");
+                RaisePropertyChanged();
             }
         }
 
@@ -52,7 +52,7 @@ namespace SyncBlackDuck.Model.Objetos
                 {
                     this.pagos_fecha = value;
                 }
-                RaisePropertyChanged("pagos_fecha");
+                RaisePropertyChanged();
             }
         }
 
@@ -65,7 +65,7 @@ namespace SyncBlackDuck.Model.Objetos
                 {
                     this.pagos_estado = value;
                 }
-                RaisePropertyChanged("pagos_estado");
+                RaisePropertyChanged();
             }
         }
     }

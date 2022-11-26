@@ -40,6 +40,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
             datagrid.SwipeEnded += DataGrid_SwipeEnded;
             datagrid.SwipeStarted += DataGrid_SwipeStarted;
+            datagrid.Refresh();
             popupLayout = new SfPopupLayout();
         }
 
@@ -74,7 +75,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             SwipedUser = args.RowData as user;
         }
 
-        public void DataGrid_SwipeEnded(object sender, Syncfusion.SfDataGrid.XForms.SwipeEndedEventArgs args){
+        public void DataGrid_SwipeEnded(object sender, Syncfusion.SfDataGrid.XForms.SwipeEndedEventArgs args)
+        {
             double fullswipe;
             fullswipe = args.SwipeOffset;
             if (fullswipe.Equals(-200))
@@ -148,7 +150,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 }
             }
         }
-        
+
         private Object selectedItem;
         public Object SelectedItem
         {
@@ -162,7 +164,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     //Se podria salvar para aplicar cambios en la BD....
                     //Actualizar(value); //Donde value es el usuario (objeto) seleccionado.
                     //Despues de actualizar necesitamos recargar la tabla(?)
-                }            
+                }
             }
         }
 
@@ -225,6 +227,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                                                HorizontalOptions = LayoutOptions.FillAndExpand,
                                                //Command=}
                             }
+                }
                 };
 
                 return footerStack;

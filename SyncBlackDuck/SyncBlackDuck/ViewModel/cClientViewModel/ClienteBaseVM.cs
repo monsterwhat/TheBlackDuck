@@ -1,10 +1,6 @@
 ﻿using SyncBlackDuck.Model.Objetos;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-
+using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cClientViewModel
@@ -19,7 +15,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        protected void RaisePropertyChanged(string property)
+        public void RaisePropertyChanged(string property)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
