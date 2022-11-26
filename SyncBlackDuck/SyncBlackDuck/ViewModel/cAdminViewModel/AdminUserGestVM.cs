@@ -382,7 +382,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 }
             }
         }
-        
+
         private Object selectedItem;
         public Object SelectedItem
         {
@@ -396,7 +396,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     //Se podria salvar para aplicar cambios en la BD....
                     //Actualizar(value); //Donde value es el usuario (objeto) seleccionado.
                     //Despues de actualizar necesitamos recargar la tabla(?)
-                }            
+                }
             }
         }
 

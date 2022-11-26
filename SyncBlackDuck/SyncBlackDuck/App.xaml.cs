@@ -1,13 +1,5 @@
-﻿using SyncBlackDuck;
-using SyncBlackDuck.Services;
-using SyncBlackDuck.Views;
-using SyncBlackDuck.Views.AdminViews;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using Windows.ApplicationModel.Activation;
+﻿using SyncBlackDuck.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SyncBlackDuck
 {

@@ -1,6 +1,5 @@
 ﻿using MySqlConnector;
 using SyncBlackDuck.Model.Objetos;
-using SyncBlackDuck.ViewModel;
 using System;
 
 namespace SyncBlackDuck.Services.Login

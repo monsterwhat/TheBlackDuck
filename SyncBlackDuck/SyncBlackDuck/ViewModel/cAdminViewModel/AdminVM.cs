@@ -1,8 +1,6 @@
 ﻿using SyncBlackDuck.Model.Objetos;
-using SyncBlackDuck.Views;
 using SyncBlackDuck.Views.AdminViews;
 using System;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;

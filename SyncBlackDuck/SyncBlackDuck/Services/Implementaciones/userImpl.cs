@@ -101,6 +101,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
                 command.ExecuteNonQuery();
 
+                Console.WriteLine(command);
                 return true;
 
             }

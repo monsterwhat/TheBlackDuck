@@ -1,7 +1,5 @@
-﻿using SyncBlackDuck;
-using SyncBlackDuck.Model.Objetos;
+﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Views;
-using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.ClientViews;
 using System;
 using System.Threading.Tasks;

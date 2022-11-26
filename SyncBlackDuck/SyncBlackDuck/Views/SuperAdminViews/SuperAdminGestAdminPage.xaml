@@ -85,9 +85,9 @@
 
                 <buttons:SfButton
                     Margin="0,30,0,0"
-                    HeightRequest="40"
-                    WidthRequest="130"
-                    BackgroundColor="#00ADB5"
+                    HeightRequest="45"
+                    WidthRequest="140"
+                    BackgroundColor="#87c38f"
                     HorizontalOptions="EndAndExpand"
                     Command="{Binding Path=AgregarUsuario}"
                     CornerRadius="7"
@@ -101,8 +101,8 @@
         <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
             <buttons:SfButton
                 HorizontalOptions="Start"
-                HeightRequest="40"
-                WidthRequest="130"
+                HeightRequest="45"
+                WidthRequest="140"
                 BackgroundColor="#00ADB5"
                 Command="{Binding Path=SBackAdminMain}"
                 CornerRadius="7"

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SyncBlackDuck.Model.Objetos
 {
@@ -15,12 +16,11 @@ namespace SyncBlackDuck.Model.Objetos
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void RaisePropertyChanged(string property)
+        public void RaisePropertyChanged([CallerMemberName] string property = null)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
-
 
         public user()
         {
@@ -61,7 +61,7 @@ namespace SyncBlackDuck.Model.Objetos
                 {
                     this.user_id = value;
                 }
-                RaisePropertyChanged("user_id");
+                RaisePropertyChanged();
             }
         }
         public string User_name
@@ -73,7 +73,7 @@ namespace SyncBlackDuck.Model.Objetos
                 {
                     this.user_name = value;
                 }
-                RaisePropertyChanged("user_name");
+                RaisePropertyChanged();
             }
         }
         public string User_password
@@ -84,7 +84,7 @@ namespace SyncBlackDuck.Model.Objetos
                 {
                     this.user_password = value;
                 }
-                RaisePropertyChanged("user_password");
+                RaisePropertyChanged();
             }
         }
 
@@ -95,7 +95,7 @@ namespace SyncBlackDuck.Model.Objetos
                 {
                     this.user_time = value;
                 }
-                RaisePropertyChanged("user_time");
+                RaisePropertyChanged();
             }
         }
         public int User_telefono
@@ -106,7 +106,7 @@ namespace SyncBlackDuck.Model.Objetos
                 {
                     this.user_telefono = value;
                 }
-                RaisePropertyChanged("user_telefono");
+                RaisePropertyChanged();
             }
         }
         public string User_rol
@@ -118,7 +118,7 @@ namespace SyncBlackDuck.Model.Objetos
                 {
                     this.user_rol = value;
                 }
-                RaisePropertyChanged("user_rol");
+                RaisePropertyChanged();
             }
         }
     }
