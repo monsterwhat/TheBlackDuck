@@ -61,6 +61,30 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        public bool insertarNuevo(user item)
+        {
+            try
+            {
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.getConnection();
+                MySqlCommand command = new MySqlCommand("INSERT INTO user (User_name, User_password, User_time, User_telefono, User_rol) VALUES (@userName, @userPassword, @userTime, @userTelefono, @userRol)", mysql);
+                command.Parameters.AddWithValue("@userName", item.User_name);
+                command.Parameters.AddWithValue("@userPassword", item.User_password);
+                command.Parameters.AddWithValue("@userTime", DateTime.Now);
+                command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
+                command.Parameters.AddWithValue("@userRol", item.User_rol);
+                command.ExecuteNonQuery();
+                
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en Insertar Nuevo Usuario");
+                Console.WriteLine(e);
+                return false ;
+            }
+        }
+
         //Modifica un usuario existente.
         public bool modificar(user item)
         {

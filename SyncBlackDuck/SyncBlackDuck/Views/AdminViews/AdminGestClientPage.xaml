@@ -57,23 +57,6 @@
                         SelectionForegroundColor="Black" />
                 </syncfusion:SfDataGrid.GridStyle>
 
-                <syncfusion:SfDataGrid.RightSwipeTemplate>
-
-                    <DataTemplate>
-                        <ContentView BackgroundColor="#DC143C">
-
-                            <Label
-                                FontSize="15"
-                                HorizontalTextAlignment="Center"
-                                LineBreakMode="NoWrap"
-                                Text="Borrar"
-                                TextColor="White"
-                                VerticalTextAlignment="Center"
-                                />
-                        </ContentView>
-                    </DataTemplate>
-                </syncfusion:SfDataGrid.RightSwipeTemplate>
-
             </syncfusion:SfDataGrid>
 
         </StackLayout>
@@ -85,7 +68,7 @@
                     WidthRequest="130"
                     BackgroundColor="#87c38f"
                     HorizontalOptions="FillAndExpand"
-                    Command="{Binding Path=AgregarUsuario}"
+                    Command="{Binding AgregarUsuario}"
                     CornerRadius="7"
                     FontSize="14"
                     Text="Agregar usuario" />
@@ -97,7 +80,7 @@
                 HeightRequest="40"
                 WidthRequest="130"
                 BackgroundColor="#00ADB5"
-                Command="{Binding Path=BackAdminMain}"
+                Command="{Binding BackAdminMain}"
                 CornerRadius="7"
                 FontSize="15"
                 Text="Regresar" />

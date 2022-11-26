@@ -18,7 +18,6 @@ namespace SyncBlackDuck
             // Licencia de Syncfusion
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NzY1MjQ0QDMyMzAyZTMzMmUzMEc1dUZwWlRRSnlXMVhZdnNUNGR5U0R3TlZSaUhTRzhpcUVPN3hyQmZoYjg9");
 
-
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
         }

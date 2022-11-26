@@ -22,15 +22,12 @@ namespace SyncBlackDuck.Views.AdminViews
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            BindingContext = null;
             GC.Collect();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            BindingContext = new AdminUserGestVM(Navigation, this.dataGrid);
-            GC.Collect();
         }
     }
 }
