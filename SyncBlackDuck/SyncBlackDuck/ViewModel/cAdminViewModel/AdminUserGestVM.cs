@@ -78,43 +78,58 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
         {
-            if (CeldaSeleccionada == true)
+            try
             {
-                bool Estado = false;
-                var Tipo = Dato;
-                //Usando mapping name se puede haccer
-                var ValorViejo = args.OldValue;
-                var ValorNuevo = args.NewValue;
-
-                if (!ValorNuevo.Equals(ValorViejo))
+                if (CeldaSeleccionada == true)
                 {
-                    user UsuarioSelecionado = usuariosInfo.ElementAt(Row - 1);
-                    switch (Tipo)
-                    {
-                        case "User_name":
-                            UsuarioSelecionado.User_name = ValorNuevo.ToString();
-                            break;
-                        case "User_password":
-                            UsuarioSelecionado.User_password = ValorNuevo.ToString();
-                            break;
-                        case "User_telefono":
-                            UsuarioSelecionado.User_telefono = Convert.ToInt32(ValorNuevo);
-                            break;
-                        case "User_rol":
-                            UsuarioSelecionado.User_rol = ValorNuevo.ToString();
-                            break;
-                    }
+                    bool Estado = false;
+                    var Tipo = Dato;
+                    //Usando mapping name se puede haccer
+                    var ValorViejo = args.OldValue;
+                    var ValorNuevo = args.NewValue;
 
-                    Estado = userController.modificar(UsuarioSelecionado);
-                    Console.WriteLine("Modificar " + Tipo + " -> Estado: " + Estado);
+                    if (!ValorNuevo.Equals(ValorViejo))
+                    {
+                        user UsuarioSelecionado = usuariosInfo.ElementAt(Row - 1);
+                        switch (Tipo)
+                        {
+                            case "User_name":
+                                UsuarioSelecionado.User_name = ValorNuevo.ToString();
+                                break;
+                            case "User_password":
+                                UsuarioSelecionado.User_password = ValorNuevo.ToString();
+                                break;
+                            case "User_telefono":
+                                UsuarioSelecionado.User_telefono = Convert.ToInt32(ValorNuevo);
+                                break;
+                            case "User_rol":
+                                UsuarioSelecionado.User_rol = ValorNuevo.ToString();
+                                break;
+                        }
+
+                        Estado = userController.modificar(UsuarioSelecionado);
+                        Console.WriteLine("Modificar " + Tipo + " -> Estado: " + Estado);
+                    }
                 }
+                CeldaSeleccionada = false;
             }
-            CeldaSeleccionada = false;
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void DataGrid_SwipeStarted(object sender, Syncfusion.SfDataGrid.XForms.SwipeStartedEventArgs args)
         {
-            SwipedUser = args.RowData as user;
+            try
+            {
+                SwipedUser = args.RowData as user;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public DataTemplate RightSwipeTemplate() =>
@@ -144,126 +159,139 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         public void LoadPopUpAgregar()
         {
-            this.UserInput = false;
-            this.UserTelefono = false;
-            this.UserPassword = false;
-            this.NewUsername = null;
-            this.NewPassword = null;
-            this.NewTelefono = 0;
-
-            if (!this.popupLayout.IsOpen)
+            try
             {
-                this.popupLayout.IsOpen = true;
-                this.popupLayout.Show();
-            }
+                this.UserInput = false;
+                this.UserTelefono = false;
+                this.UserPassword = false;
+                this.NewUsername = null;
+                this.NewPassword = null;
+                this.NewTelefono = 0;
 
-            this.popupLayout.PopupView.HeightRequest = 350;
-            this.popupLayout.PopupView.ShowCloseButton = false;
-            this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnTop;
-
-            var UserInput = new Entry()
-            {
-                TextColor = Color.Black,
-                FontSize = 12,
-                BackgroundColor = Color.White,
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center,
-                PlaceholderColor = Color.Gray,
-                Placeholder = "Nombre de Usuario",
-                Text = "",
-                BindingContext = this
-            };
-
-            UserInput.Completed += UserInput_Completed;
-            UserInput.Unfocused += UserInput_Completed;
-
-            var UserName = new SfTextInputLayout()
-            {
-                Hint = "Nombre de Usuario",
-                ErrorText = "El nombre de usuario no puede estar vacio",
-                Margin = new Thickness(0, 5, 5, 0),
-                InputView = UserInput
-            };
-
-            var PasswordInput = new Entry()
-            {
-                TextColor = Color.Black,
-                BackgroundColor = Color.White,
-                FontSize = 12,
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center,
-                PlaceholderColor = Color.Gray,
-                Placeholder = "Password",
-                Text = "",
-                IsPassword = true,
-                BindingContext = this
-            };
-
-            PasswordInput.Completed += PasswordInput_Completed;
-            PasswordInput.Unfocused += PasswordInput_Completed;
-
-            var UserPassword = new SfTextInputLayout()
-            {
-                Hint = "Password del Usuario",
-                ErrorText = "El Password no puede estar vacio",
-                Margin = new Thickness(0, 5, 5, 0),
-                InputView = PasswordInput
-            };
-
-            var TelefonoInput = new Entry()
-            {
-                TextColor = Color.Black,
-                FontSize = 12,
-                BackgroundColor = Color.White,
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center,
-                PlaceholderColor = Color.Gray,
-                Placeholder = "Telefono del Usuario",
-                Text = "",
-                BindingContext = this,
-                Keyboard = Keyboard.Numeric
-            };
-
-            TelefonoInput.Completed += TelefonoInput_Completed;
-            TelefonoInput.Unfocused += TelefonoInput_Completed;
-
-            var UserCell = new SfTextInputLayout()
-            {
-                Hint = "Telefono del Usuario",
-                ErrorText = "El Telefono del usuario no puede estar vacio",
-                Margin = new Thickness(0, 5, 5, 0),
-                InputView = TelefonoInput
-            };
-
-            var headerTemplateView = new DataTemplate(() =>
-            {
-                headerContent = new Label()
+                if (!this.popupLayout.IsOpen)
                 {
-                    Text = "Agregar Usuario",
-                    FontAttributes = FontAttributes.Bold,
-                    TextColor = Color.White,
-                    BackgroundColor = Color.FromRgb(57, 62, 70),
-                    FontSize = 16,
-                    HorizontalTextAlignment = TextAlignment.Center,
-                    VerticalTextAlignment = TextAlignment.Center
-                };
-                return headerContent;
-            });
+                    this.popupLayout.IsOpen = true;
+                    this.popupLayout.Show();
+                }
 
-            var stackLayout = new DataTemplate(() =>
+                this.popupLayout.PopupView.HeightRequest = 350;
+                this.popupLayout.PopupView.ShowCloseButton = false;
+                this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnTop;
+
+                var UserInput = new Entry()
+                {
+                    TextColor = Color.White,
+                    FontSize = 12,
+                    HorizontalTextAlignment = TextAlignment.Center,
+                    VerticalTextAlignment = TextAlignment.Center,
+                    PlaceholderColor = Color.Gray,
+                    Placeholder = "Nombre de Usuario",
+                    Text = "",
+                    BindingContext = this
+                };
+
+                UserInput.Completed += UserInput_Completed;
+                UserInput.Unfocused += UserInput_Completed;
+
+                var UserName = new SfTextInputLayout()
+                {
+                    Hint = "Nombre de Usuario",
+                    ErrorText = "El nombre de usuario no puede estar vacio",
+                    ErrorColor = Color.FromHex("#B00020"),
+                    FocusedColor = Color.FromHex("#00afb2"),
+                    Margin = new Thickness(0, 5, 20, 5),
+                    InputView = UserInput,
+                    LeadingView = new Image()
+                    {
+                        Source = "https://cdn-icons-png.flaticon.com/512/747/747376.png",
+                        HeightRequest = 20
+                    },
+                };
+
+                var PasswordInput = new Entry()
+                {
+                    TextColor = Color.White,
+                    FontSize = 12,
+                    HorizontalTextAlignment = TextAlignment.Center,
+                    VerticalTextAlignment = TextAlignment.Center,
+                    PlaceholderColor = Color.Gray,
+                    Placeholder = "Password",
+                    Text = "",
+                    IsPassword = true,
+                    BindingContext = this
+                };
+
+                PasswordInput.Completed += PasswordInput_Completed;
+                PasswordInput.Unfocused += PasswordInput_Completed;
+
+                var UserPassword = new SfTextInputLayout()
+                {
+                    Hint = "Password del Usuario",
+                    ErrorText = "El Password no puede estar vacio",
+                    ErrorColor = Color.FromHex("#B00020"),
+                    FocusedColor = Color.FromHex("#00afb2"),
+                    Margin = new Thickness(0, 5, 20, 5),
+                    InputView = PasswordInput,
+                    LeadingView = new Image()
+                    {
+                        Source = "https://cdn-icons-png.flaticon.com/512/2889/2889676.png",
+                        HeightRequest = 20
+                    }
+                };
+
+                var TelefonoInput = new Entry()
+                {
+                    TextColor = Color.White,
+                    FontSize = 12,
+                    HorizontalTextAlignment = TextAlignment.Center,
+                    VerticalTextAlignment = TextAlignment.Center,
+                    PlaceholderColor = Color.Gray,
+                    Placeholder = "Telefono del Usuario",
+                    Text = "",
+                    BindingContext = this,
+                    Keyboard = Keyboard.Numeric
+                };
+
+                TelefonoInput.Completed += TelefonoInput_Completed;
+                TelefonoInput.Unfocused += TelefonoInput_Completed;
+
+                var UserCell = new SfTextInputLayout()
+                {
+                    Hint = "Telefono del Usuario",
+                    ErrorText = "El Telefono del usuario no puede estar vacio",
+                    ErrorColor = Color.FromHex("#B00020"),
+                    FocusedColor = Color.FromHex("#00afb2"),
+                    Margin = new Thickness(0, 5, 5, 5),
+                    InputView = TelefonoInput,
+                    LeadingView = new Image()
+                    {
+                        Source = "https://cdn-icons-png.flaticon.com/512/159/159832.png",
+                        HeightRequest = 20
+                    }
+                };
+
+                var headerTemplateView = new DataTemplate(() =>
+                {
+                    headerContent = new Label()
+                    {
+                        Text = "Agregar Usuario",
+                        FontAttributes = FontAttributes.Bold,
+                        TextColor = Color.White,
+                        BackgroundColor = Color.FromRgb(57, 62, 70),
+                        FontSize = 16,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center
+                    };
+                    return headerContent;
+                });
+
+                var stackLayout = new DataTemplate(() =>
                 {
                     var stack = new StackLayout()
                     {
                         Margin = new Thickness(10),
                         Children =
                     {
-                        new Label(){
-                                    Text = "Ingrese los datos del Usuario",
-                                    TextColor = Color.Black,
-                                    BackgroundColor = Color.White,
-                                    HorizontalTextAlignment = TextAlignment.Center,
-                                    VerticalTextAlignment = TextAlignment.Center
-                        },
                                     UserName,
                                     UserPassword,
                                     UserCell,
@@ -272,74 +300,84 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     return stack;
                 });
 
-            var footerStack = new DataTemplate(() =>
+                var footerStack = new DataTemplate(() =>
+                {
+                    var Stack = new StackLayout()
                     {
-                        var Stack = new StackLayout()
-                        {
-                            Margin = new Thickness(20),
-                            Orientation = StackOrientation.Horizontal,
-                            Children = {
+                        Margin = new Thickness(20),
+                        Orientation = StackOrientation.Horizontal,
+                        Children = {
                                 new SfButton
                                 {   Text = "Guardar",
                                     TextColor = Color.White,
                                     FontAttributes = FontAttributes.Bold,
-                                    BackgroundColor = Color.FromHex("#87c38f"),
+                                    BackgroundColor = Color.FromHex("#00ADB5"),
                                     HorizontalOptions = LayoutOptions.FillAndExpand,
                                     Command=AgregarUsuarioC()
                                     }
                                 }
-                        };
-                        return Stack;
-                    });
+                    };
+                    return Stack;
+                });
 
-            this.popupLayout.PopupView.FooterTemplate = footerStack;
-            this.popupLayout.PopupView.HeaderTemplate = headerTemplateView;
-            this.popupLayout.PopupView.ContentTemplate = stackLayout;
+                this.popupLayout.PopupView.FooterTemplate = footerStack;
+                this.popupLayout.PopupView.HeaderTemplate = headerTemplateView;
+                this.popupLayout.PopupView.ContentTemplate = stackLayout;
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void LoadPopUpEliminar()
         {
-            this.popupLayout.PopupView.HeightRequest = 200;
-            this.popupLayout.PopupView.ShowCloseButton = false;
-            this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnRight;
-
-            if (!this.popupLayout.IsOpen)
+            try
             {
-                this.popupLayout.IsOpen = true;
-                this.popupLayout.Show();
-            }
 
-            var headerTemplateView = new DataTemplate(() =>
-            {
-                headerContent = new Label();
-                headerContent.Text = "Confirmacion de Eliminacion";
-                headerContent.FontAttributes = FontAttributes.Bold;
-                headerContent.TextColor = Color.White;
-                headerContent.BackgroundColor = Color.FromRgb(57, 62, 70);
-                headerContent.FontSize = 16;
-                headerContent.HorizontalTextAlignment = TextAlignment.Center;
-                headerContent.VerticalTextAlignment = TextAlignment.Center;
-                return headerContent;
-            });
+                this.popupLayout.PopupView.HeightRequest = 200;
+                this.popupLayout.PopupView.ShowCloseButton = false;
+                this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnRight;
 
-            var templateView = new DataTemplate(() =>
-            {
-                popupContent = new Label();
-                popupContent.Text = "Desea Eliminar a '" + SwipedUser.User_name + "' ?";
-                popupContent.TextColor = Color.Black;
-                popupContent.BackgroundColor = Color.White;
-                popupContent.HorizontalTextAlignment = TextAlignment.Center;
-                popupContent.VerticalTextAlignment = TextAlignment.Center;
-                return popupContent;
-            });
-
-            var footerTemplateView = new DataTemplate(() =>
-            {
-                StackLayout footerStack = new StackLayout()
+                if (!this.popupLayout.IsOpen)
                 {
-                    Margin = new Thickness(20),
-                    Orientation = StackOrientation.Horizontal,
-                    Children = {
+                    this.popupLayout.IsOpen = true;
+                    this.popupLayout.Show();
+                }
+
+                var headerTemplateView = new DataTemplate(() =>
+                {
+                    headerContent = new Label();
+                    headerContent.Text = "Confirmacion de Eliminacion";
+                    headerContent.FontAttributes = FontAttributes.Bold;
+                    headerContent.TextColor = Color.White;
+                    headerContent.BackgroundColor = Color.FromRgb(57, 62, 70);
+                    headerContent.FontSize = 16;
+                    headerContent.HorizontalTextAlignment = TextAlignment.Center;
+                    headerContent.VerticalTextAlignment = TextAlignment.Center;
+                    return headerContent;
+                });
+
+                var templateView = new DataTemplate(() =>
+                {
+                    popupContent = new Label();
+                    popupContent.Text = "Desea Eliminar a '" + SwipedUser.User_name + "' ?";
+                    popupContent.TextColor = Color.Black;
+                    popupContent.BackgroundColor = Color.White;
+                    popupContent.HorizontalTextAlignment = TextAlignment.Center;
+                    popupContent.VerticalTextAlignment = TextAlignment.Center;
+                    return popupContent;
+                });
+
+                var footerTemplateView = new DataTemplate(() =>
+                {
+                    StackLayout footerStack = new StackLayout()
+                    {
+                        Margin = new Thickness(20),
+                        Orientation = StackOrientation.Horizontal,
+                        Children = {
                                 new Button {Text = "Eliminar",
                                             TextColor = Color.White,
                                             FontAttributes = FontAttributes.Bold,
@@ -347,23 +385,38 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                                             HorizontalOptions = LayoutOptions.FillAndExpand,
                                             Command=BorrarUsuario}
                             }
-                };
+                    };
 
-                return footerStack;
-            });
+                    return footerStack;
+                });
 
-            this.popupLayout.PopupView.ContentTemplate = templateView;
-            this.popupLayout.PopupView.HeaderTemplate = headerTemplateView;
-            this.popupLayout.PopupView.FooterTemplate = footerTemplateView;
+                this.popupLayout.PopupView.ContentTemplate = templateView;
+                this.popupLayout.PopupView.HeaderTemplate = headerTemplateView;
+                this.popupLayout.PopupView.FooterTemplate = footerTemplateView;
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void DataGrid_SwipeEnded(object sender, Syncfusion.SfDataGrid.XForms.SwipeEndedEventArgs args)
         {
-            double fullswipe;
-            fullswipe = args.SwipeOffset;
-            if (fullswipe.Equals(-200))
+            try
             {
-                LoadPopUpEliminar();
+                double fullswipe;
+                fullswipe = args.SwipeOffset;
+                if (fullswipe.Equals(-200))
+                {
+                    LoadPopUpEliminar();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -422,28 +475,52 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         private void UserInput_Completed(object sender, EventArgs e)
         {
-            var text = ((Entry)sender).Text;
-            Console.WriteLine("UserInput_Completed: " + text);
-            this.NewUsername = text;
-            this.UserInput = true;
+            try
+            {
+                var text = ((Entry)sender).Text;
+                Console.WriteLine("UserInput_Completed: " + text);
+                this.NewUsername = text;
+                this.UserInput = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         private void PasswordInput_Completed(object sender, EventArgs e)
         {
+            try
+            {
+                var text = ((Entry)sender).Text;
+                Console.WriteLine("PasswordInput_Completed: " + text);
+                this.NewPassword = text;
+                this.UserPassword = true;
+            }
+            catch (Exception)
+            {
 
-            var text = ((Entry)sender).Text;
-            Console.WriteLine("PasswordInput_Completed: " + text);
-            this.NewPassword = text;
-            this.UserPassword = true;
+                throw;
+            }
+
         }
 
         private void TelefonoInput_Completed(object sender, EventArgs e)
         {
+            try
+            {
+                var text = ((Entry)sender).Text;
+                Console.WriteLine("PasswordInput_Completed: " + text);
+                this.NewTelefono = Int32.Parse(text);
+                this.UserTelefono = true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
-            var text = ((Entry)sender).Text;
-            Console.WriteLine("PasswordInput_Completed: " + text);
-            this.NewTelefono = int.Parse(text);
-            this.UserTelefono = true;
         }
 
         #endregion Inputs
@@ -453,10 +530,19 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         private void PerformBorrarUsuario()
         {
-            bool Eliminado = userController.eliminar(SwipedUser);
-            Console.WriteLine("Elimar userId: " + SwipedUser.User_id + "Estado : " + Eliminado);
-            this.popupLayout.IsOpen = false;
-            this.popupLayout.Dismiss();
+            try
+            {
+                bool Eliminado = userController.eliminar(SwipedUser);
+                Console.WriteLine("Elimar userId: " + SwipedUser.User_id + "Estado : " + Eliminado);
+                this.popupLayout.IsOpen = false;
+                this.popupLayout.Dismiss();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         private Command cancelarComando;
@@ -464,8 +550,17 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         private void Cancelar()
         {
-            this.popupLayout.IsOpen = false;
-            this.popupLayout.Dismiss();
+            try
+            {
+                this.popupLayout.IsOpen = false;
+                this.popupLayout.Dismiss();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public ICommand AgregarUsuariocommand => AgregarUsuarioC();
@@ -516,8 +611,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                     new SfPopupLayout()
                     {
-                        IsOpen = true,
-                        PopupView = ErrorPopUp
+                        PopupView = ErrorPopUp,
+                        IsOpen = true
                     };
                 }
             }
