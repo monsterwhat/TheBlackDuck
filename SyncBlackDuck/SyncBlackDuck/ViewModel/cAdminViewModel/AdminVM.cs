@@ -49,6 +49,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             catch (Exception e)
             {
+                
                 Console.WriteLine(e);
                 Console.WriteLine("Error al cerrar sesion");
                 return Task.CompletedTask;

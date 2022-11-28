@@ -64,8 +64,6 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             {
                 if (this.usuariosInfo != value)
                 {
-                    Console.WriteLine(value);
-                    Console.WriteLine("se modifico el OC de userCollection");
                     this.usuariosInfo = value;
                 }
             }
@@ -77,7 +75,6 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             get { return selectedItem; }
             set
             {
-                Console.WriteLine(value);
                 if (this.selectedItem != value)
                 {
                     this.selectedItem = value;

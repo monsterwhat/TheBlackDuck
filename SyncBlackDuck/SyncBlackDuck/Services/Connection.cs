@@ -18,7 +18,7 @@ namespace SyncBlackDuck.Services
             catch
             { // Metodo para devolver el stacktrace en caso de un error
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
-                Console.WriteLine(t.ToString());
+                Console.WriteLine("Error " + t.ToString());
             }
 
         }
@@ -32,7 +32,7 @@ namespace SyncBlackDuck.Services
             catch
             { // Metodo para devolver el stacktrace en caso de un error
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
-                Console.WriteLine(t.ToString());
+                Console.WriteLine("Error" + t.ToString());
             }
 
         }

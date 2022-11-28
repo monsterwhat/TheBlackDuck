@@ -23,7 +23,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("DELETE FROM pagos WHERE Pagos_id = @idPago", mysql);
                 command.Parameters.AddWithValue("@idPago", item.Pagos_id);
-                command.ExecuteNonQuery();
+                command.ExecuteNonQueryAsync();
 
                 return true;
             }
@@ -46,7 +46,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@idPago", item.Pagos_id);
                 command.Parameters.AddWithValue("@fechaPago", item.Pagos_fecha);
                 command.Parameters.AddWithValue("@estado", item.Pagos_estado);
-                command.ExecuteNonQuery();
+                command.ExecuteNonQueryAsync();
 
                 return true;
             }
@@ -69,7 +69,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command2.Parameters.AddWithValue("@idPago", item.Pagos_id);
                 command2.Parameters.AddWithValue("@estado", item.Pagos_estado);
                 command2.Parameters.AddWithValue("@fechaPago", item.Pagos_fecha);
-                command2.ExecuteNonQuery();
+                command2.ExecuteNonQueryAsync();
 
                 return true;
             }

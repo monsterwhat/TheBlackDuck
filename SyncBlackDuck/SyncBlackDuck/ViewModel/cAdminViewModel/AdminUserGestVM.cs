@@ -1,5 +1,6 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
+using Syncfusion.SfAutoComplete.XForms;
 using Syncfusion.SfDataGrid.XForms;
 using Syncfusion.XForms.Buttons;
 using Syncfusion.XForms.PopupLayout;
@@ -35,6 +36,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public bool UserPassword = false;
         public bool UserTelefono = false;
         public bool userRol = false;
+        public bool CeldaSeleccionada = false;
 
         private string NewUsername;
         private string NewPassword;
@@ -54,37 +56,64 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             datagrid.SwipeOffsetMode = SwipeOffsetMode.Custom;
             datagrid.MaxSwipeOffset = 200;
             datagrid.SwipeStarted += DataGrid_SwipeStarted;
+            datagrid.PullToRefreshCommand = Recargar;
             datagrid.RightSwipeTemplate = RightSwipeTemplate();
         }
+
+
 
         #region CellListeners
 
         public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
         {
+            CeldaSeleccionada = true;
             getDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
         }
-
-        public Task getDatosCelda(int row, string dato)
+        
+        public void getDatosCelda(int row, string dato)
         {
             Row = row;
             Dato = dato;
             UserID = usuariosInfo.ElementAt(Row - 1).User_id;
-            return Task.CompletedTask;
         }
 
         public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
         {
-            bool Estado = false;
-            var ValorViejo = args.OldValue;
-            var ValorNuevo = args.NewValue;
-            
-            if (ValorNuevo != ValorViejo)
+            if(CeldaSeleccionada == true)
             {
-                user UsuarioSelecionado = usuariosInfo.ElementAt(Row - 1);
-                Estado = userController.modificar(UsuarioSelecionado);
-                Console.WriteLine("Modificar -> Estado: " + Estado);
+                bool Estado = false;
+                var Tipo = Dato;
+                //Usando mapping name se puede haccer
+                var ValorViejo = args.OldValue;
+                var ValorNuevo = args.NewValue;
+
+                if (!ValorNuevo.Equals(ValorViejo))
+                {
+                    user UsuarioSelecionado = usuariosInfo.ElementAt(Row - 1);
+                    switch (Tipo)
+                    {
+                        case "User_name":
+                            UsuarioSelecionado.User_name = ValorNuevo.ToString();
+                            break;
+                        case "User_password":
+                            UsuarioSelecionado.User_password = ValorNuevo.ToString();
+                            break;
+                        case "User_telefono":
+                            UsuarioSelecionado.User_telefono = Convert.ToInt32(ValorNuevo);
+                            break;
+                        case "User_rol":
+                            UsuarioSelecionado.User_rol = ValorNuevo.ToString();
+                            break;
+                    }
+                    
+                    Estado = userController.modificar(UsuarioSelecionado);
+                    Console.WriteLine("Modificar " + Tipo + " -> Estado: " + Estado);
+                }
             }
+            CeldaSeleccionada = false;
         }
+
+
 
         public void DataGrid_SwipeStarted(object sender, Syncfusion.SfDataGrid.XForms.SwipeStartedEventArgs args)
         {
@@ -357,7 +386,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public void DataGrid_SwipeEnded(object sender, Syncfusion.SfDataGrid.XForms.SwipeEndedEventArgs args){
             double fullswipe;
             fullswipe = args.SwipeOffset;
-            Console.WriteLine(fullswipe);
             if (fullswipe.Equals(-200))
             {
                 LoadPopUpEliminar();
@@ -376,8 +404,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 if (this.usuariosInfo != value)
                 {
-                    Console.WriteLine(value);
-                    Console.WriteLine("se modifico el OC de userCollection");
                     this.usuariosInfo = value;
                 }
             }
@@ -389,13 +415,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             get { return selectedItem; }
             set
             {
-                Console.WriteLine(value);
                 if (this.selectedItem != value)
                 {
                     this.selectedItem = value;
-                    //Se podria salvar para aplicar cambios en la BD....
-                    //Actualizar(value); //Donde value es el usuario (objeto) seleccionado.
-                    //Despues de actualizar necesitamos recargar la tabla(?)
                 }
             }
         }
@@ -412,6 +434,15 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             LoadPopUpAgregar();
         }
 
+        private Command recargar;
+
+        public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
+
+        private void ExecutePullToRefreshCommand()
+        {
+            CargarClientes();
+        }
+        #region Inputs
         private void UserInput_Completed(object sender, EventArgs e)
         {
             var text = ((Entry)sender).Text;
@@ -446,6 +477,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             this.NewRol = text;
             this.userRol = true;
         }
+
+        #endregion Inputs
 
         private Command borrarUsuario;
         public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
@@ -560,6 +593,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
+                usuariosInfo.Clear();
+                listaUsuarios.Clear();
+                
                 listaUsuarios = userController.verClientes();
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {

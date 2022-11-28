@@ -24,6 +24,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 MySqlCommand command = new MySqlCommand("DELETE FROM user WHERE User_id = @idUser", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.ExecuteNonQuery();
+                conn.Disconnect();
 
                 return true;
             }
@@ -50,6 +51,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
                 command.ExecuteNonQuery();
+                conn.Disconnect();
 
                 return true;
             }
@@ -74,7 +76,8 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
                 command.ExecuteNonQuery();
-                
+                conn.Disconnect();
+
                 return true;
             }
             catch (Exception e)
@@ -100,8 +103,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
                 command.ExecuteNonQuery();
-
-                Console.WriteLine(command);
+                conn.Disconnect();
                 return true;
 
             }
@@ -126,16 +128,17 @@ namespace SyncBlackDuck.Services.Implementaciones
                 while (reader.Read())
                 {
                     user user = new user
-                    {
-                        User_id = reader.GetInt32(0),
-                        User_name = reader.GetString(1),
-                        User_password = reader.GetString(2),
-                        User_time = reader.GetDateTime(3),
-                        User_telefono = reader.GetInt32(4),
-                        User_rol = reader.GetString(5)
-                    };
+                        {
+                            User_id = reader.GetInt32(0),
+                            User_name = reader.GetString(1),
+                            User_password = reader.GetString(2),
+                            User_time = reader.GetDateTime(3),
+                            User_telefono = reader.GetInt32(4),
+                            User_rol = reader.GetString(5)
+                        };
                     list.Add(user);
                 }
+                conn.Disconnect();
                 return list;
             }
             catch (Exception e)
@@ -158,16 +161,17 @@ namespace SyncBlackDuck.Services.Implementaciones
                 while (reader.Read())
                 {
                     user user = new user
-                    {
-                        User_id = reader.GetInt32(0),
-                        User_name = reader.GetString(1),
-                        User_password = reader.GetString(2),
-                        User_time = reader.GetDateTime(3),
-                        User_telefono = reader.GetInt32(4),
-                        User_rol = reader.GetString(5)
-                    };
+                        {
+                            User_id = reader.GetInt32(0),
+                            User_name = reader.GetString(1),
+                            User_password = reader.GetString(2),
+                            User_time = reader.GetDateTime(3),
+                            User_telefono = reader.GetInt32(4),
+                            User_rol = reader.GetString(5)
+                        };
                     list.Add(user);
                 }
+                conn.Disconnect();
                 return list;
             }
             catch (Exception e)
@@ -190,16 +194,17 @@ namespace SyncBlackDuck.Services.Implementaciones
                 while (reader.Read())
                 {
                     user user = new user
-                    {
-                        User_id = reader.GetInt32(0),
-                        User_name = reader.GetString(1),
-                        User_password = reader.GetString(2),
-                        User_time = reader.GetDateTime(3),
-                        User_telefono = reader.GetInt32(4),
-                        User_rol = reader.GetString(5)
-                    };
+                        {
+                            User_id = reader.GetInt32(0),
+                            User_name = reader.GetString(1),
+                            User_password = reader.GetString(2),
+                            User_time = reader.GetDateTime(3),
+                            User_telefono = reader.GetInt32(4),
+                            User_rol = reader.GetString(5)
+                        };
                     list.Add(user);
                 }
+                conn.Disconnect();
                 return list;
             }
             catch (Exception e)
@@ -224,13 +229,14 @@ namespace SyncBlackDuck.Services.Implementaciones
                 while (reader.Read())
                 {
                     user user = new user();
-                    {
-                        user.User_name = reader.GetString(0);
-                        user.Pagos_fecha = reader.GetDateTime(1);
-                        user.Pagos_estado = reader.GetInt32(2);
-                };
+                        {
+                            user.User_name = reader.GetString(0);
+                            user.Pagos_fecha = reader.GetDateTime(1);
+                            user.Pagos_estado = reader.GetInt32(2);
+                        };
                     list.Add(user);
                 }
+                conn.Disconnect();
                 return list;
             }
             catch (Exception e)

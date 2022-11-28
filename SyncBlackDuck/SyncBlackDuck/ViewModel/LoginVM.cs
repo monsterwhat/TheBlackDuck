@@ -29,7 +29,7 @@ namespace SyncBlackDuck.ViewModel
         public string Password { get => password; set => password = value; }
         public LoginVM(INavigation navigation)
         {
-            Navigation = navigation;
+            this.Navigation = navigation;
             AsyncCommand();
         }
 

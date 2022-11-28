@@ -36,16 +36,19 @@
                 SelectedItem="{Binding SelectedItem}"
                 SelectionMode="Single"
                 HorizontalOptions="Fill"
+                AllowPullToRefresh="true"
                 VerticalOptions="Fill">
                 <syncfusion:SfDataGrid.Columns>
+                    
                     <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Id Usuario" MappingName="User_id" />
                     <syncfusion:GridTextColumn HeaderText="Nombre de usuario" MappingName="User_name" />
-                    <syncfusion:GridTextColumn HeaderText="Numero de telefono" MappingName="User_telefono" />
-                    <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password" />
+                    <syncfusion:GridNumericColumn NumberDecimalDigits="0" TextAlignment="center" HeaderText="Numero de telefono" MappingName="User_telefono"/>
+                    <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password"/>
 
                 </syncfusion:SfDataGrid.Columns>
 
-                <syncfusion:SfDataGrid.GridStyle>
+                <syncfusion:SfDataGrid.GridStyle >
+                    
                     <syncfusion:DefaultStyle
                         AlternatingRowColor="#DFDFDF"
                         GridLinesVisibility="None"
@@ -54,7 +57,8 @@
                         RowBackgroundColor="White"
                         RowForegroundColor="Black"
                         SelectionBackgroundColor="#00ADB5"
-                        SelectionForegroundColor="Black" />
+                        SelectionForegroundColor="Black" 
+                        />
                 </syncfusion:SfDataGrid.GridStyle>
 
             </syncfusion:SfDataGrid>
