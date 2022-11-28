@@ -15,11 +15,10 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public void RaisePropertyChanged(string property)
+        protected void RaisePropertyChanged([CallerMemberName] string property = null)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
-
     }
 }

@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
-    xmlns:sfpopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms"
     NavigationPage.HasNavigationBar="false">
 
     <StackLayout BackgroundColor="#393E46">
@@ -42,7 +41,7 @@
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn AllowEditing="false" HeaderText="ID Administrador" MappingName="User_id" />
                     <syncfusion:GridTextColumn HeaderText="Nombre de admin" MappingName="User_name" />
-                    <syncfusion:GridTextColumn HeaderText="Numero de telefono" MappingName="User_telefono" />
+                    <syncfusion:GridNumericColumn NumberDecimalDigits="0" HeaderText="Numero de telefono" TextAlignment="center" MappingName="User_telefono" />
                     <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password" />
 
                 </syncfusion:SfDataGrid.Columns>

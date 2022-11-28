@@ -60,8 +60,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             datagrid.RightSwipeTemplate = RightSwipeTemplate();
         }
 
-
-
         #region CellListeners
 
         public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
@@ -112,8 +110,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             CeldaSeleccionada = false;
         }
-
-
 
         public void DataGrid_SwipeStarted(object sender, Syncfusion.SfDataGrid.XForms.SwipeStartedEventArgs args)
         {
