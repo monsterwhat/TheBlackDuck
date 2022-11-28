@@ -6,13 +6,13 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
              NavigationPage.HasNavigationBar="false">
 
-    <StackLayout BackgroundColor="#393E46">
+    <StackLayout BackgroundColor="#283149">
 
         <StackLayout Margin="50">
             <Label
                 FontSize="20"
                 HorizontalTextAlignment="Center"
-                TextColor="White"
+                TextColor="#DBEDF3"
                 VerticalTextAlignment="Center"
                 Text="Gestion de Usuarios">
             </Label>
@@ -44,21 +44,21 @@
                     <syncfusion:GridTextColumn HeaderText="Nombre de usuario" MappingName="User_name" />
                     <syncfusion:GridNumericColumn NumberDecimalDigits="0" TextAlignment="center" HeaderText="Numero de telefono" MappingName="User_telefono"/>
                     <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password"/>
+                    <syncfusion:GridTextColumn HeaderText="Ver detalles" MappingName="ver_mas"/>
 
                 </syncfusion:SfDataGrid.Columns>
 
                 <syncfusion:SfDataGrid.GridStyle >
                     
                     <syncfusion:DefaultStyle
-                        AlternatingRowColor="#DFDFDF"
+                        AlternatingRowColor="white"
                         GridLinesVisibility="None"
-                        HeaderBackgroundColor="#222831"
-                        HeaderForegroundColor="White"
-                        RowBackgroundColor="White"
-                        RowForegroundColor="Black"
-                        SelectionBackgroundColor="#00ADB5"
-                        SelectionForegroundColor="Black" 
-                        />
+                        HeaderBackgroundColor="#1f273d"
+                        HeaderForegroundColor="#C9D6DF"
+                        RowBackgroundColor="#e0e9ff"
+                        RowForegroundColor="#07090e"
+                        SelectionBackgroundColor="#04adff"
+                        SelectionForegroundColor="#07090e"/>
                 </syncfusion:SfDataGrid.GridStyle>
 
             </syncfusion:SfDataGrid>
@@ -75,7 +75,8 @@
                     Margin="0,30,0,0"
                     HeightRequest="45"
                     WidthRequest="140"
-                    BackgroundColor="#87c38f"
+                    BackgroundColor="#04adff"
+                    TextColor="#DBEDF3"
                     HorizontalOptions="FillAndExpand"
                     Command="{Binding AgregarUsuario}"
                     CornerRadius="7"
@@ -89,7 +90,8 @@
                 HorizontalOptions="Start"
                 HeightRequest="45"
                 WidthRequest="140"
-                BackgroundColor="#00ADB5"
+                BackgroundColor="#1f273d"
+                TextColor="#DBEDF3"
                 Command="{Binding BackAdminMain}"
                 CornerRadius="7"
                 FontSize="15"

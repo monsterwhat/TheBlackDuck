@@ -3,11 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel"
     x:Class="SyncBlackDuck.Views.MainPage"
     NavigationPage.HasNavigationBar="false">
 
-    <StackLayout BackgroundColor="#393E46">
+    <StackLayout BackgroundColor="#283149">
 
         <StackLayout Margin="0,90,0,0">
             <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
@@ -19,21 +18,23 @@
                 Margin="0,0,0,10"
                 FontAttributes="Bold"
                 FontSize="22"
-                TextColor="White">
+                TextColor="#DBEDF3"
+                FontFamily="Times Roman"
+                >
                 Login
             </Label>
 
             <inputLayout:SfTextInputLayout
                 ContainerType="Outlined"
-                ErrorColor="#B00020"
-                FocusedColor="#00afb2"
+                ErrorColor="#540712"
+                FocusedColor="#04adff"
                 Hint="Telefono"
                 LeadingViewPosition="Outside"
                 UnfocusedColor="#C9D6DF">
                 <Entry
                     Keyboard="Numeric"
                     Text="{Binding Telefono}"
-                    TextColor="White" />
+                    TextColor="#DBEDF3" />
                 <inputLayout:SfTextInputLayout.LeadingView>
                     <Image HeightRequest="35" Source="https://cdn-icons-png.flaticon.com/512/976/976373.png" />
                 </inputLayout:SfTextInputLayout.LeadingView>
@@ -41,15 +42,15 @@
 
             <inputLayout:SfTextInputLayout
                 ContainerType="Outlined"
-                ErrorColor="#B00020"
-                FocusedColor="#00afb2"
+                ErrorColor="#540712"
+                FocusedColor="#04adff"
                 Hint="Contraseña"
                 LeadingViewPosition="Outside"
                 UnfocusedColor="#C9D6DF">
                 <Entry
                     IsPassword="true"
                     Text="{Binding Password}"
-                    TextColor="White" />
+                    TextColor="#DBEDF3" />
                 <inputLayout:SfTextInputLayout.LeadingView>
                     <Image Source="https://cdn-icons-png.flaticon.com/512/747/747981.png" />
                 </inputLayout:SfTextInputLayout.LeadingView>
@@ -57,7 +58,7 @@
 
             <buttons:SfButton
                 Margin="0,5,0,0"
-                BackgroundColor="#222831"
+                BackgroundColor="#1f273d"
                 Command="{Binding Path=Login}"
                 CornerRadius="7"
                 FontSize="19"

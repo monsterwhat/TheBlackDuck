@@ -6,15 +6,16 @@
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     NavigationPage.HasNavigationBar="false">
 
-    <StackLayout BackgroundColor="#393E46">
-        <Label Margin="15,15,0,0" FontSize="15" TextColor="white">Admin</Label>
+    <StackLayout BackgroundColor="#283149">
+        <Label Margin="15,15,0,0" FontSize="15" TextColor="#DBEDF3">Admin</Label>
         <StackLayout Margin="0,90,0,0">
             <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
         </StackLayout>
         <StackLayout Margin="40,40,40,40">
             <buttons:SfButton
                 Margin="0,30,0,0"
-                BackgroundColor="#222831"
+                BackgroundColor="#1f273d"
+                TextColor="#DBEDF3"
                 Command="{Binding Path=ADGestionUsuarios}"
                 CornerRadius="7"
                 FontSize="19"
@@ -22,8 +23,9 @@
 
 
             <buttons:SfButton
-                Margin="0,70,0,0"
-                BackgroundColor="#270F0F"
+                Margin="0,70,0,0"               
+                BackgroundColor="#540712"
+                TextColor="#DBEDF3"
                 Command="{Binding Path=ADCSCerrarSesion}"
                 CornerRadius="7"
                 FontSize="19"

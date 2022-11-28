@@ -5,17 +5,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
-    xmlns:viewModel="clr-namespace:SyncBlackDuck.ViewModel.cClientViewModel"
     NavigationPage.HasNavigationBar="false">
 
-    <StackLayout BackgroundColor="#393E46">
+    <StackLayout BackgroundColor="#283149">
 
         <StackLayout Margin="50">
             <Label FontSize="20"
-                   TextColor="White"
+                   TextColor="#DBEDF3"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center" >Historial de pagos</Label>
         </StackLayout>
+
         <StackLayout Margin="0,0,0,0" >
             <syncfusion:SfDataGrid x:Name="dataGrid" 
                                    ColumnSizer="Star"
@@ -42,14 +42,15 @@
                 </syncfusion:SfDataGrid.Columns>
 
                 <syncfusion:SfDataGrid.GridStyle>
-                    <syncfusion:DefaultStyle AlternatingRowColor="#DFDFDF"
-                                             HeaderBackgroundColor="#222831"
-                                             HeaderForegroundColor="White"
-                                             RowBackgroundColor="White"
-                                             RowForegroundColor="Black"
-                                             SelectionBackgroundColor="#00ADB5"
-                                             SelectionForegroundColor="Black"
-                                             GridLinesVisibility="None"/>
+                    <syncfusion:DefaultStyle 
+                        AlternatingRowColor="white"
+                        GridLinesVisibility="None"
+                        HeaderBackgroundColor="#1f273d"
+                        HeaderForegroundColor="#C9D6DF"
+                        RowBackgroundColor="#e0e9ff"
+                        RowForegroundColor="#07090e"
+                        SelectionBackgroundColor="#04adff"
+                        SelectionForegroundColor="#07090e"/>
                 </syncfusion:SfDataGrid.GridStyle>
             </syncfusion:SfDataGrid>
 
@@ -60,7 +61,8 @@
                 HorizontalOptions="Start"
                 HeightRequest="40"
                 WidthRequest="130"
-                BackgroundColor="#00ADB5"
+                BackgroundColor="#04adff"
+                TextColor="#DBEDF3"
                 Command="{Binding Path=BackClientMain}"
                 CornerRadius="7"
                 FontSize="15"
