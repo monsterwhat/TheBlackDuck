@@ -1,4 +1,5 @@
 ﻿using SyncBlackDuck.Model.Objetos;
+using SyncBlackDuck.Views;
 using SyncBlackDuck.Views.AdminViews;
 using System;
 using System.Threading.Tasks;
@@ -11,12 +12,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
     {
         private int user_Telefono;
         private user loggedInUser;
-
         public AdminVM(INavigation navigation)
         {
             Navigation = navigation;
         }
-
         public int User_Telefono { get => user_Telefono; set => user_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
@@ -61,9 +60,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
-                Navigation.PopAsync();
+                Navigation.PushAsync(new MainPage());
             }
             catch (Exception e)
             {

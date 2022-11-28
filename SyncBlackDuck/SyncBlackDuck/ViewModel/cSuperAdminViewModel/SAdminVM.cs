@@ -10,13 +10,13 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
     public partial class SAdminVM : SAdminBaseVM
     {
-        private string user_telefono;
+        private int user_Telefono;
         private user loggedInUser;
         public SAdminVM(INavigation navigation) {
 
             Navigation = navigation;
         }
-        public int User_Telefono { get => User_Telefono; set => User_Telefono = value; }
+        public int User_Telefono { get => user_Telefono; set => user_Telefono = value; }
         public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
         #region Commands
@@ -56,7 +56,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             try
             {
-                // Aqui hay que cerrar la sesion guardada
                 Application.Current.Properties["id"] = 0;
                 Navigation.PushAsync(new MainPage());
             }

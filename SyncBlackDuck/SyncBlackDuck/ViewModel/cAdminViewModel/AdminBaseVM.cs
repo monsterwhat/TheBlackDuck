@@ -8,7 +8,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
     public class AdminBaseVM : INotifyPropertyChanged
     {
-        public user loggedInUser = new user();
         public event PropertyChangedEventHandler PropertyChanged;
         public INavigation Navigation;
 
