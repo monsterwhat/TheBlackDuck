@@ -2,6 +2,7 @@
 using SyncBlackDuck.Services.Implementaciones;
 using Syncfusion.SfDataGrid.XForms;
 using Syncfusion.XForms.Buttons;
+using Syncfusion.XForms.ComboBox;
 using Syncfusion.XForms.PopupLayout;
 using Syncfusion.XForms.TextInputLayout;
 using System;
@@ -10,7 +11,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Uno.UI.Xaml.Controls;
 using Xamarin.Forms;
+using StackLayout = Xamarin.Forms.StackLayout;
 
 namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
@@ -41,6 +44,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         private string NewPassword;
         private int NewTelefono;
         private string NewRol;
+        public string SelectedBoxItem;
 
         public SAdminGestAdminVM(INavigation navigation, SfDataGrid datagrid)
         {
@@ -177,6 +181,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             };
 
             UserInput.Completed += UserInput_Completed;
+            UserInput.Unfocused += UserInput_Completed;
 
             var UserName = new SfTextInputLayout()
             {
@@ -201,6 +206,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             };
 
             PasswordInput.Completed += PasswordInput_Completed;
+            PasswordInput.Unfocused += PasswordInput_Completed;
 
             var UserPassword = new SfTextInputLayout()
             {
@@ -225,6 +231,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             };
 
             TelefonoInput.Completed += TelefonoInput_Completed;
+            TelefonoInput.Unfocused += TelefonoInput_Completed;
 
             var UserCell = new SfTextInputLayout()
             {
@@ -234,20 +241,23 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                 InputView = TelefonoInput
             };
 
-            var RolInput = new Entry()
+            List<string> opciones = new List<string>();
+
+            opciones.Add("admin");
+            opciones.Add("cliente");
+
+            var RolInput = new SfComboBox()
             {
                 TextColor = Color.Black,
-                FontSize = 12,
                 BackgroundColor = Color.White,
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center,
-                PlaceholderColor = Color.Gray,
-                Placeholder = "Rol de Usuario",
                 Text = "",
+                SelectedItem = SelectedBoxItem,
+                ComboBoxSource = opciones,
                 BindingContext = this
             };
 
-            RolInput.Completed += RolInput_Completed;
+            RolInput.SelectionChanged += RolInput_Completed;
+            RolInput.Unfocused += RolInput_Completed;
 
             var UserRol = new SfTextInputLayout()
             {
@@ -506,8 +516,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         private void RolInput_Completed(object sender, EventArgs e)
         {
 
-            var text = ((Entry)sender).Text;
-            Console.WriteLine("RolInput_Completed: " + text);
+            var text = ((SfComboBox)sender).Text;
             this.NewRol = text;
             this.userRol = true;
         }
@@ -554,7 +563,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                         User_rol = NewRol
                     };
 
-                    bool Agregado = userController.insertarNuevo(NuevoUsuario);
+                    bool Agregado = userController.insertarNuevoAD(NuevoUsuario);
 
                     Cancelar();
 

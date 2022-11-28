@@ -7,7 +7,6 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
     public class ClienteBaseVM : INotifyPropertyChanged
     {
-        public user loggedInUser = new user();
         public event PropertyChangedEventHandler PropertyChanged;
         public INavigation Navigation;
 

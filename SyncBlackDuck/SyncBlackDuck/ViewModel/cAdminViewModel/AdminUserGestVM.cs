@@ -1,6 +1,5 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
-using Syncfusion.SfAutoComplete.XForms;
 using Syncfusion.SfDataGrid.XForms;
 using Syncfusion.XForms.Buttons;
 using Syncfusion.XForms.ComboBox;
@@ -12,7 +11,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Uno.UI.Xaml.Controls;
 using Xamarin.Forms;
 using StackLayout = Xamarin.Forms.StackLayout;
 
@@ -70,7 +68,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             CeldaSeleccionada = true;
             getDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
         }
-        
+
         public void getDatosCelda(int row, string dato)
         {
             Row = row;
@@ -80,7 +78,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
         {
-            if(CeldaSeleccionada == true)
+            if (CeldaSeleccionada == true)
             {
                 bool Estado = false;
                 var Tipo = Dato;
@@ -106,7 +104,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                             UsuarioSelecionado.User_rol = ValorNuevo.ToString();
                             break;
                     }
-                    
+
                     Estado = userController.modificar(UsuarioSelecionado);
                     Console.WriteLine("Modificar " + Tipo + " -> Estado: " + Estado);
                 }
@@ -119,8 +117,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             SwipedUser = args.RowData as user;
         }
 
-        public DataTemplate RightSwipeTemplate() => 
-            
+        public DataTemplate RightSwipeTemplate() =>
+
             new DataTemplate(() =>
             {
                 ContentView myView = new ContentView()
@@ -149,11 +147,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             this.UserInput = false;
             this.UserTelefono = false;
             this.UserPassword = false;
-            this.userRol = false;
             this.NewUsername = null;
             this.NewPassword = null;
             this.NewTelefono = 0;
-            this.NewRol = null;
 
             if (!this.popupLayout.IsOpen)
             {
@@ -161,7 +157,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 this.popupLayout.Show();
             }
 
-            this.popupLayout.PopupView.HeightRequest = 450;
+            this.popupLayout.PopupView.HeightRequest = 350;
             this.popupLayout.PopupView.ShowCloseButton = false;
             this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnTop;
 
@@ -239,32 +235,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 InputView = TelefonoInput
             };
 
-            List<string> opciones = new List<string>();
-
-            opciones.Add("admin");
-            opciones.Add("cliente");
-
-            var RolInput = new SfComboBox()
-            {
-                TextColor = Color.Black,
-                BackgroundColor = Color.White,
-                Text = "",
-                SelectedItem = SelectedBoxItem,
-                ComboBoxSource = opciones,
-                BindingContext = this
-            };
-
-            RolInput.SelectionChanged += RolInput_Completed;
-            RolInput.Unfocused += RolInput_Completed;
-
-            var UserRol = new SfTextInputLayout()
-            {
-                Hint = "Rol del Usuario",
-                ErrorText = "El Rol del usuario no puede estar vacio",
-                Margin = new Thickness(0, 5, 5, 20),
-                InputView = RolInput
-            };
-
             var headerTemplateView = new DataTemplate(() =>
             {
                 headerContent = new Label()
@@ -282,10 +252,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
             var stackLayout = new DataTemplate(() =>
                 {
-            var stack = new StackLayout()
-                {
-                    Margin = new Thickness(10),
-                    Children =
+                    var stack = new StackLayout()
+                    {
+                        Margin = new Thickness(10),
+                        Children =
                     {
                         new Label(){
                                     Text = "Ingrese los datos del Usuario",
@@ -297,20 +267,19 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                                     UserName,
                                     UserPassword,
                                     UserCell,
-                                    UserRol
                     }
-                };
-                return stack;
-            });
-            
+                    };
+                    return stack;
+                });
+
             var footerStack = new DataTemplate(() =>
                     {
-            var Stack = new StackLayout()
-                {
-                    Margin = new Thickness(20),
-                    Orientation = StackOrientation.Horizontal,
-                    Children = {
-                                new SfButton 
+                        var Stack = new StackLayout()
+                        {
+                            Margin = new Thickness(20),
+                            Orientation = StackOrientation.Horizontal,
+                            Children = {
+                                new SfButton
                                 {   Text = "Guardar",
                                     TextColor = Color.White,
                                     FontAttributes = FontAttributes.Bold,
@@ -319,10 +288,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                                     Command=AgregarUsuarioC()
                                     }
                                 }
-                };
-                return Stack;
-            });
-            
+                        };
+                        return Stack;
+                    });
+
             this.popupLayout.PopupView.FooterTemplate = footerStack;
             this.popupLayout.PopupView.HeaderTemplate = headerTemplateView;
             this.popupLayout.PopupView.ContentTemplate = stackLayout;
@@ -388,7 +357,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             this.popupLayout.PopupView.FooterTemplate = footerTemplateView;
         }
 
-        public void DataGrid_SwipeEnded(object sender, Syncfusion.SfDataGrid.XForms.SwipeEndedEventArgs args){
+        public void DataGrid_SwipeEnded(object sender, Syncfusion.SfDataGrid.XForms.SwipeEndedEventArgs args)
+        {
             double fullswipe;
             fullswipe = args.SwipeOffset;
             if (fullswipe.Equals(-200))
@@ -447,9 +417,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             CargarClientes();
         }
-        
+
         #region Inputs
-        
+
         private void UserInput_Completed(object sender, EventArgs e)
         {
             var text = ((Entry)sender).Text;
@@ -460,27 +430,20 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         private void PasswordInput_Completed(object sender, EventArgs e)
         {
-            
+
             var text = ((Entry)sender).Text;
             Console.WriteLine("PasswordInput_Completed: " + text);
             this.NewPassword = text;
             this.UserPassword = true;
         }
-         
+
         private void TelefonoInput_Completed(object sender, EventArgs e)
         {
-            
+
             var text = ((Entry)sender).Text;
             Console.WriteLine("PasswordInput_Completed: " + text);
             this.NewTelefono = int.Parse(text);
             this.UserTelefono = true;
-        }
-         
-        private void RolInput_Completed(object sender, EventArgs e)
-        {
-            var text = ((SfComboBox)sender).Text;
-            this.NewRol = text;
-            this.userRol = true;
         }
 
         #endregion Inputs
@@ -506,7 +469,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         }
 
         public ICommand AgregarUsuariocommand => AgregarUsuarioC();
-        
+
         private Command AgregarUsuarioC()
         {
             return new Command(async () => await AgregarUsuarioT());
@@ -516,17 +479,16 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                if (this.UserInput != false && this.UserPassword != false && this.UserTelefono != false && this.userRol != false)
+                if (this.UserInput != false && this.UserPassword != false && this.UserTelefono != false)
                 {
                     user NuevoUsuario = new user()
                     {
                         User_name = NewUsername,
                         User_password = NewPassword,
                         User_telefono = NewTelefono,
-                        User_rol = NewRol
                     };
 
-                    bool Agregado = userController.insertarNuevo(NuevoUsuario);
+                    bool Agregado = userController.insertarNuevoC(NuevoUsuario);
 
                     Cancelar();
 
@@ -600,7 +562,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 usuariosInfo.Clear();
                 listaUsuarios.Clear();
-                
+
                 listaUsuarios = userController.verClientes();
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {
