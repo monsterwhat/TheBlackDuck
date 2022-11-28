@@ -1,6 +1,7 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using Syncfusion.SfDataGrid.XForms;
+using Syncfusion.SfNumericTextBox.XForms;
 using Syncfusion.XForms.Buttons;
 using Syncfusion.XForms.ComboBox;
 using Syncfusion.XForms.PopupLayout;
@@ -139,7 +140,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 ContentView myView = new ContentView()
                 {
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    BackgroundColor = Color.FromHex("#DC143C"),
+                    BackgroundColor = Color.FromHex("#540712"),
                     Padding = 9,
                 };
 
@@ -195,11 +196,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 var UserName = new SfTextInputLayout()
                 {
+                    ContainerType = ContainerType.Outlined,
                     Hint = "Nombre de Usuario",
                     ErrorText = "El nombre de usuario no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
                     FocusedColor = Color.FromHex("#00afb2"),
-                    Margin = new Thickness(0, 5, 20, 5),
+                    UnfocusedColor = Color.FromHex("#C9D6DF"),
+                    Margin = new Thickness(5, 5, 20, 5),
                     InputView = UserInput,
                     LeadingView = new Image()
                     {
@@ -226,11 +229,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 var UserPassword = new SfTextInputLayout()
                 {
+                    ContainerType = ContainerType.Outlined,
                     Hint = "Password del Usuario",
                     ErrorText = "El Password no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
+                    UnfocusedColor = Color.FromHex("#C9D6DF"),
                     FocusedColor = Color.FromHex("#00afb2"),
-                    Margin = new Thickness(0, 5, 20, 5),
+                    Margin = new Thickness(5, 5, 20, 5),
                     InputView = PasswordInput,
                     LeadingView = new Image()
                     {
@@ -239,29 +244,27 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     }
                 };
 
-                var TelefonoInput = new Entry()
+                var TelefonoInput = new SfNumericTextBox()
                 {
+                    AllowDefaultDecimalDigits = false,
+                    AllowNull = true,
                     TextColor = Color.White,
                     FontSize = 12,
-                    HorizontalTextAlignment = TextAlignment.Center,
-                    VerticalTextAlignment = TextAlignment.Center,
-                    PlaceholderColor = Color.Gray,
-                    Placeholder = "Telefono del Usuario",
-                    Text = "",
-                    BindingContext = this,
-                    Keyboard = Keyboard.Numeric
+                    BindingContext = this
                 };
-
+                
                 TelefonoInput.Completed += TelefonoInput_Completed;
                 TelefonoInput.Unfocused += TelefonoInput_Completed;
 
                 var UserCell = new SfTextInputLayout()
                 {
+                    ContainerType = ContainerType.Outlined,
                     Hint = "Telefono del Usuario",
                     ErrorText = "El Telefono del usuario no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
                     FocusedColor = Color.FromHex("#00afb2"),
-                    Margin = new Thickness(0, 5, 5, 5),
+                    UnfocusedColor = Color.FromHex("#C9D6DF"),
+                    Margin = new Thickness(5, 5, 20, 0),
                     InputView = TelefonoInput,
                     LeadingView = new Image()
                     {
@@ -270,58 +273,46 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     }
                 };
 
-                var headerTemplateView = new DataTemplate(() =>
-                {
-                    headerContent = new Label()
-                    {
-                        Text = "Agregar Usuario",
-                        FontAttributes = FontAttributes.Bold,
-                        TextColor = Color.White,
-                        BackgroundColor = Color.FromRgb(57, 62, 70),
-                        FontSize = 16,
-                        HorizontalTextAlignment = TextAlignment.Center,
-                        VerticalTextAlignment = TextAlignment.Center
-                    };
-                    return headerContent;
-                });
-
                 var stackLayout = new DataTemplate(() =>
                 {
                     var stack = new StackLayout()
                     {
+                        BackgroundColor = Color.FromHex("#283149"),
                         Margin = new Thickness(10),
                         Children =
-                    {
-                                    UserName,
-                                    UserPassword,
-                                    UserCell,
-                    }
+                        {
+                        new Label()
+                            {
+                            Text = "Agregar Usuario",
+                            HeightRequest = 40,
+                            FontAttributes = FontAttributes.Bold,
+                            TextColor = Color.White,
+                            BackgroundColor = Color.FromRgb(57, 62, 70),
+                            FontSize = 16,
+                            HorizontalTextAlignment = TextAlignment.Center,
+                            VerticalTextAlignment = TextAlignment.Center
+                            },
+                        UserName,
+                        UserPassword,
+                        UserCell,
+                        new SfButton
+                            {   
+                            Margin = new Thickness(20,0,20,10),
+                            Text = "Guardar",
+                            CornerRadius = 10,
+                            TextColor = Color.White,
+                            FontAttributes = FontAttributes.Bold,
+                            BackgroundColor = Color.FromHex("#04adff"),
+                            HorizontalOptions = LayoutOptions.FillAndExpand,
+                            Command=AgregarUsuarioC()
+                            }
+                        }
                     };
                     return stack;
                 });
 
-                var footerStack = new DataTemplate(() =>
-                {
-                    var Stack = new StackLayout()
-                    {
-                        Margin = new Thickness(20),
-                        Orientation = StackOrientation.Horizontal,
-                        Children = {
-                                new SfButton
-                                {   Text = "Guardar",
-                                    TextColor = Color.White,
-                                    FontAttributes = FontAttributes.Bold,
-                                    BackgroundColor = Color.FromHex("#00ADB5"),
-                                    HorizontalOptions = LayoutOptions.FillAndExpand,
-                                    Command=AgregarUsuarioC()
-                                    }
-                                }
-                    };
-                    return Stack;
-                });
-
-                this.popupLayout.PopupView.FooterTemplate = footerStack;
-                this.popupLayout.PopupView.HeaderTemplate = headerTemplateView;
+                this.popupLayout.PopupView.ShowFooter = false;
+                this.popupLayout.PopupView.ShowHeader = false;
                 this.popupLayout.PopupView.ContentTemplate = stackLayout;
                 
             }
@@ -478,16 +469,17 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             try
             {
                 var text = ((Entry)sender).Text;
-                Console.WriteLine("UserInput_Completed: " + text);
-                this.NewUsername = text;
-                this.UserInput = true;
+                if (!text.Equals(null) || !text.Equals(""))
+                {
+                    Console.WriteLine("UserInput_Completed: " + text);
+                    this.NewUsername = text;
+                    this.UserInput = true;
+                }
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
         private void PasswordInput_Completed(object sender, EventArgs e)
@@ -495,13 +487,15 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             try
             {
                 var text = ((Entry)sender).Text;
-                Console.WriteLine("PasswordInput_Completed: " + text);
-                this.NewPassword = text;
-                this.UserPassword = true;
+                if (!text.Equals(null) || !text.Equals(""))
+                {
+                    Console.WriteLine("PasswordInput_Completed: " + text);
+                    this.NewPassword = text;
+                    this.UserPassword = true;
+                }
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -511,10 +505,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                var text = ((Entry)sender).Text;
-                Console.WriteLine("PasswordInput_Completed: " + text);
-                this.NewTelefono = Int32.Parse(text);
-                this.UserTelefono = true;
+                object value = ((SfNumericTextBox)sender).Value;
+                if (!value.Equals(null) || !value.Equals(""))
+                {
+                    Console.WriteLine("PasswordInput_Completed: " + value);
+                    this.NewTelefono = (int)value;
+                    this.UserTelefono = true;
+                }
             }
             catch (Exception)
             {
@@ -539,7 +536,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -557,7 +553,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -580,7 +575,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     {
                         User_name = NewUsername,
                         User_password = NewPassword,
-                        User_telefono = NewTelefono,
+                        User_telefono = NewTelefono
                     };
 
                     bool Agregado = userController.insertarNuevoC(NuevoUsuario);
