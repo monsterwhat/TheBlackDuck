@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SyncBlackDuck.Views.AdminViews.AdminGestPagosPage"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             NavigationPage.HasNavigationBar="false">
+
+    <StackLayout BackgroundColor="#283149">
+
+        <StackLayout Margin="50">
+            <Label
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                TextColor="#DBEDF3"
+                VerticalTextAlignment="Center"
+                Text="Gestion de Pagos">
+            </Label>
+        </StackLayout>
+
+        <StackLayout Margin="0,0,0,0">
+            <syncfusion:SfDataGrid
+                x:Name="dataGrid"
+                AllowEditing="true"
+                AllowResizingColumn="True"
+                AllowSorting="True"
+                AllowSwiping="True"
+                AutoGenerateColumns="false"
+                ColumnSizer="Star"
+                EditTapAction="OnDoubleTap"
+                ImeOptions="NoExtractUi"
+                ItemsSource="{Binding PagosInfoCollection}"
+                LiveDataUpdateMode="Default"
+                LostFocusBehavior="EndEditCurrentCell"
+                NavigationMode="Cell"
+                SelectedItem="{Binding SelectedItem}"
+                SelectionMode="Single"
+                HorizontalOptions="Fill"
+                AllowPullToRefresh="true"
+                VerticalOptions="Fill">
+                <syncfusion:SfDataGrid.Columns>
+                    
+                    <syncfusion:GridTextColumn AllowEditing="False" HeaderText="Id Pago" MappingName="Pagos_id" />
+                    <syncfusion:GridDateTimeColumn AllowEditing="False"  HeaderText="Fecha de Corte" MappingName="Pagos_fecha" />
+                    <syncfusion:GridTextColumn HeaderText="Estado" MappingName="Pagos_estado"/>
+
+                </syncfusion:SfDataGrid.Columns>
+
+                <syncfusion:SfDataGrid.GridStyle >
+                    
+                    <syncfusion:DefaultStyle
+                        AlternatingRowColor="white"
+                        GridLinesVisibility="None"
+                        HeaderBackgroundColor="#1f273d"
+                        HeaderForegroundColor="#C9D6DF"
+                        RowBackgroundColor="#e0e9ff"
+                        RowForegroundColor="#07090e"
+                        SelectionBackgroundColor="#04adff"
+                        SelectionForegroundColor="#07090e"/>
+                </syncfusion:SfDataGrid.GridStyle>
+
+            </syncfusion:SfDataGrid>
+
+        </StackLayout>
+
+        <StackLayout           
+                Margin="10,-20,10,0"
+                HorizontalOptions="End"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
+        </StackLayout>
+
+        <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
+            <buttons:SfButton
+                HorizontalOptions="Start"
+                HeightRequest="45"
+                WidthRequest="140"
+                BackgroundColor="#1f273d"
+                TextColor="#DBEDF3"
+                Command="{Binding BackAdminMain}"
+                CornerRadius="7"
+                FontSize="15"
+                Text="Regresar" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

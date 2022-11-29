@@ -21,6 +21,15 @@
                 FontSize="19"
                 Text="Gestionar Usuarios" />
 
+            <buttons:SfButton
+                Margin="0,30,0,0"
+                BackgroundColor="#1f273d"
+                TextColor="#DBEDF3"
+                Command="{Binding Path=ADGestionPagos}"
+                CornerRadius="7"
+                FontSize="19"
+                Text="Gestionar Pagos" />
+
 
             <buttons:SfButton
                 Margin="0,70,0,0"               

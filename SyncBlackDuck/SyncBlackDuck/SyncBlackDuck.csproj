@@ -33,6 +33,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\AdminViews\AdminGestPagosPage.xaml.cs">
+      <DependentUpon>AdminGestPagosPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SuperAdminViews\SuperAdminGestAdminPage.xaml.cs">
       <DependentUpon>SuperAdminGestAdminPage.xaml</DependentUpon>
     </Compile>

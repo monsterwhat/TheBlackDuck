@@ -114,9 +114,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 }
                 CeldaSeleccionada = false;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine(e);
             }
         }
 
@@ -126,10 +126,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 SwipedUser = args.RowData as user;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                Console.WriteLine(e);
             }
         }
 
@@ -169,15 +169,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 this.NewPassword = null;
                 this.NewTelefono = 0;
 
-                if (!this.popupLayout.IsOpen)
-                {
-                    this.popupLayout.IsOpen = true;
-                    this.popupLayout.Show();
-                }
-
+                this.popupLayout.PopupView.ShowFooter = false;
+                this.popupLayout.PopupView.ShowHeader = false;
                 this.popupLayout.PopupView.HeightRequest = 350;
                 this.popupLayout.PopupView.ShowCloseButton = false;
                 this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnTop;
+
+                #region Inputs
 
                 var UserInput = new Entry()
                 {
@@ -189,26 +187,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     Placeholder = "Nombre de Usuario",
                     Text = "",
                     BindingContext = this
-                };
-
-                UserInput.Completed += UserInput_Completed;
-                UserInput.Unfocused += UserInput_Completed;
-
-                var UserName = new SfTextInputLayout()
-                {
-                    ContainerType = ContainerType.Outlined,
-                    Hint = "Nombre de Usuario",
-                    ErrorText = "El nombre de usuario no puede estar vacio",
-                    ErrorColor = Color.FromHex("#B00020"),
-                    FocusedColor = Color.FromHex("#00afb2"),
-                    UnfocusedColor = Color.FromHex("#C9D6DF"),
-                    Margin = new Thickness(5, 5, 20, 5),
-                    InputView = UserInput,
-                    LeadingView = new Image()
-                    {
-                        Source = "https://cdn-icons-png.flaticon.com/512/747/747376.png",
-                        HeightRequest = 20
-                    },
                 };
 
                 var PasswordInput = new Entry()
@@ -224,9 +202,47 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     BindingContext = this
                 };
 
+                var TelefonoInput = new SfNumericTextBox()
+                {
+                    AllowDefaultDecimalDigits = false,
+                    AllowNull = true,
+                    TextColor = Color.White,
+                    FontSize = 12,
+                    BindingContext = this
+                };
+
+                #endregion Inputs
+
+                #region Events
+                
+                UserInput.Completed += UserInput_Completed;
+                UserInput.Unfocused += UserInput_Completed;
                 PasswordInput.Completed += PasswordInput_Completed;
                 PasswordInput.Unfocused += PasswordInput_Completed;
+                TelefonoInput.Completed += TelefonoInput_Completed;
+                TelefonoInput.Unfocused += TelefonoInput_Completed;
 
+                #endregion Events
+
+                #region Containers
+
+                var UserName = new SfTextInputLayout()
+                {
+                    ContainerType = ContainerType.Outlined,
+                    Hint = "Nombre de Usuario",
+                    ErrorText = "El nombre de usuario no puede estar vacio",
+                    ErrorColor = Color.FromHex("#B00020"),
+                    FocusedColor = Color.FromHex("#00afb2"),
+                    UnfocusedColor = Color.FromHex("#C9D6DF"),
+                    Margin = new Thickness(5, 5, 20, 5),
+                    InputView = UserInput,
+                    LeadingView = new Image()
+                    {
+                        Source = "https://cdn-icons-png.flaticon.com/512/747/747545.png",
+                        HeightRequest = 20
+                    },
+                };
+                
                 var UserPassword = new SfTextInputLayout()
                 {
                     ContainerType = ContainerType.Outlined,
@@ -239,22 +255,11 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     InputView = PasswordInput,
                     LeadingView = new Image()
                     {
-                        Source = "https://cdn-icons-png.flaticon.com/512/2889/2889676.png",
+                        Source = "https://cdn-icons-png.flaticon.com/512/4686/4686696.png",
                         HeightRequest = 20
                     }
                 };
-
-                var TelefonoInput = new SfNumericTextBox()
-                {
-                    AllowDefaultDecimalDigits = false,
-                    AllowNull = true,
-                    TextColor = Color.White,
-                    FontSize = 12,
-                    BindingContext = this
-                };
                 
-                TelefonoInput.Completed += TelefonoInput_Completed;
-                TelefonoInput.Unfocused += TelefonoInput_Completed;
 
                 var UserCell = new SfTextInputLayout()
                 {
@@ -268,10 +273,14 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     InputView = TelefonoInput,
                     LeadingView = new Image()
                     {
-                        Source = "https://cdn-icons-png.flaticon.com/512/159/159832.png",
+                        Source = "https://cdn-icons-png.flaticon.com/512/4504/4504935.png",
                         HeightRequest = 20
                     }
                 };
+
+                #endregion Containers
+
+                #region Body
 
                 var stackLayout = new DataTemplate(() =>
                 {
@@ -311,15 +320,20 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     return stack;
                 });
 
-                this.popupLayout.PopupView.ShowFooter = false;
-                this.popupLayout.PopupView.ShowHeader = false;
                 this.popupLayout.PopupView.ContentTemplate = stackLayout;
-                
-            }
-            catch (Exception)
-            {
 
-                throw;
+                #endregion Body
+
+                if (!this.popupLayout.IsOpen)
+                {
+                    this.popupLayout.IsOpen = true;
+                    this.popupLayout.Show();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 
@@ -327,16 +341,11 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-
+                this.popupLayout.PopupView.ShowHeader = true;
+                this.popupLayout.PopupView.ShowFooter = true;
                 this.popupLayout.PopupView.HeightRequest = 200;
                 this.popupLayout.PopupView.ShowCloseButton = false;
                 this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnRight;
-
-                if (!this.popupLayout.IsOpen)
-                {
-                    this.popupLayout.IsOpen = true;
-                    this.popupLayout.Show();
-                }
 
                 var headerTemplateView = new DataTemplate(() =>
                 {
@@ -384,12 +393,17 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 this.popupLayout.PopupView.ContentTemplate = templateView;
                 this.popupLayout.PopupView.HeaderTemplate = headerTemplateView;
                 this.popupLayout.PopupView.FooterTemplate = footerTemplateView;
-                
-            }
-            catch (Exception)
-            {
 
-                throw;
+                if (!this.popupLayout.IsOpen)
+                {
+                    this.popupLayout.IsOpen = true;
+                    this.popupLayout.Show();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 
@@ -404,10 +418,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     LoadPopUpEliminar();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                Console.WriteLine(e);
             }
         }
 
@@ -443,6 +456,66 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #endregion Listas
 
+        #region Inputs
+
+        private void UserInput_Completed(object sender, EventArgs e)
+        {
+            try
+            {
+                var text = ((Entry)sender).Text;
+                if (!text.Equals(null) || !text.Equals(""))
+                {
+                    Console.WriteLine("UserInput_Completed: " + text);
+                    this.NewUsername = text;
+                    this.UserInput = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        private void PasswordInput_Completed(object sender, EventArgs e)
+        {
+            try
+            {
+                var text = ((Entry)sender).Text;
+                if (!text.Equals(null) || !text.Equals(""))
+                {
+                    Console.WriteLine("PasswordInput_Completed: " + text);
+                    this.NewPassword = text;
+                    this.UserPassword = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+        }
+
+        private void TelefonoInput_Completed(object sender, EventArgs e)
+        {
+            try
+            {
+                object value = ((SfNumericTextBox)sender).Value;
+                if (!value.Equals(null) || !value.Equals(""))
+                {
+                    Console.WriteLine("PasswordInput_Completed: " + value);
+                    this.NewTelefono = (int)value;
+                    this.UserTelefono = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+        }
+
+        #endregion Inputs
+
         #region Commands
 
         private Command agregarUsuario;
@@ -462,66 +535,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             CargarClientes();
         }
 
-        #region Inputs
-
-        private void UserInput_Completed(object sender, EventArgs e)
-        {
-            try
-            {
-                var text = ((Entry)sender).Text;
-                if (!text.Equals(null) || !text.Equals(""))
-                {
-                    Console.WriteLine("UserInput_Completed: " + text);
-                    this.NewUsername = text;
-                    this.UserInput = true;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        private void PasswordInput_Completed(object sender, EventArgs e)
-        {
-            try
-            {
-                var text = ((Entry)sender).Text;
-                if (!text.Equals(null) || !text.Equals(""))
-                {
-                    Console.WriteLine("PasswordInput_Completed: " + text);
-                    this.NewPassword = text;
-                    this.UserPassword = true;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
-
-        private void TelefonoInput_Completed(object sender, EventArgs e)
-        {
-            try
-            {
-                object value = ((SfNumericTextBox)sender).Value;
-                if (!value.Equals(null) || !value.Equals(""))
-                {
-                    Console.WriteLine("PasswordInput_Completed: " + value);
-                    this.NewTelefono = (int)value;
-                    this.UserTelefono = true;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
-
-        #endregion Inputs
-
         private Command borrarUsuario;
         public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
 
@@ -534,11 +547,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 this.popupLayout.IsOpen = false;
                 this.popupLayout.Dismiss();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine(e);
             }
-
         }
 
         private Command cancelarComando;
@@ -551,11 +563,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 this.popupLayout.IsOpen = false;
                 this.popupLayout.Dismiss();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine(e);
             }
-
         }
 
         public ICommand AgregarUsuariocommand => AgregarUsuarioC();

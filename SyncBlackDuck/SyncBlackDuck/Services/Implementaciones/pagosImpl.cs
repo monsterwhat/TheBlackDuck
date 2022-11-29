@@ -118,14 +118,14 @@ namespace SyncBlackDuck.Services.Implementaciones
                 List<pagos> lista = new List<pagos>();
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM pagos WHERE pagos_estado = 0", mysql);
+                MySqlCommand command = new MySqlCommand("SELECT pagos_id, pagos_fecha, pagos_estado FROM pagos WHERE pagos_estado = 0", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     pagos pago = new pagos
                     {
                         Pagos_id = reader.GetInt32(0),
-                        Pagos_fecha = reader.GetDateTime(1),
+                        Pagos_fecha = Convert.ToDateTime(reader.GetDateTime(1)),
                         Pagos_estado = reader.GetInt32(2)
                     };
                     lista.Add(pago);

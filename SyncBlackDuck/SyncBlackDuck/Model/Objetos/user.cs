@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 

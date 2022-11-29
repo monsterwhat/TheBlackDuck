@@ -25,8 +25,14 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public ICommand ADGestionUsuarios => GestionUserPage();
         public ICommand ADCSCerrarSesion => ADCerrarSesion();
         public ICommand BackAdminMain => BackAdminMainP();
+        public ICommand ADGestionPagos => GestionPagosPage();
 
         // Metodos Command para hacer los metodos async
+
+        private ICommand GestionPagosPage()
+        {
+            return new Command(async () => await GestinPagosAsync());
+        }
         private Command GestionUserPage()
         {
             return new Command(async () => await GestionUserAsync());
@@ -39,6 +45,21 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             return new Command(async () => await BackAdminAsync());
         }
+
+        private Task GestinPagosAsync()
+        {
+            try
+            {
+                Navigation.PushAsync(new AdminGestPagosPage());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return Task.CompletedTask;
+            }
+            return Task.CompletedTask;
+        }
+
         private Task GestionUserAsync()
         {
             try
