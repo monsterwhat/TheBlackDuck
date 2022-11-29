@@ -19,9 +19,9 @@ namespace SyncBlackDuck.ViewModel
         private string telefono;
         private string password;
         //Creamos el Objeto Usuario
-        private user loggedInUser;
+        private User loggedInUser;
         private string userId;
-        private loginService loginController = new loginService();
+        private LoginService loginController = new LoginService();
         public INavigation Navigation;
 
         //Getters y setters para los bindings de la vista
@@ -59,7 +59,7 @@ namespace SyncBlackDuck.ViewModel
                     userId = id;
                     if (userId != null || !userId.Equals(0))
                     {
-                        loggedInUser = loginController.loginByPhone(int.Parse(userId));
+                        loggedInUser = loginController.LoginByPhone(int.Parse(userId));
                         new Command(async () => await LoginAsync());
                         /* Aqui si encuentra el usuario, deberia redireccionar al
                            main page de cada usuario por medio de un if, que revise
@@ -83,7 +83,7 @@ namespace SyncBlackDuck.ViewModel
             {
                 if(loggedInUser == null)
                 {
-                    loggedInUser = loginController.loginByRank(int.Parse(Telefono), Password);
+                    loggedInUser = loginController.LoginByRank(int.Parse(Telefono), Password);
                     Application.Current.Properties["id"] = loggedInUser.User_telefono.ToString();
                 }
 

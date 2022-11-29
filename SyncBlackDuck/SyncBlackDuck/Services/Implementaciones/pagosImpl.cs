@@ -6,16 +6,16 @@ using System.Collections.Generic;
 
 namespace SyncBlackDuck.Services.Implementaciones
 {
-    internal class pagosImpl : Connection, ICRUD<pagos>
+    internal class PagosImpl : Connection, ICRUD<Pagos>
     {
         //Elimina un registro de la tabla pagos
 
-        public pagosImpl()
+        public PagosImpl()
         {
 
         }
 
-        public bool eliminar(pagos item)
+        public bool eliminar(Pagos item)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Inserta un pago a una cuenta
-        public bool insertar(pagos item)
+        public bool insertar(Pagos item)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Modifica un pago existente.
-        public bool modificar(pagos item)
+        public bool modificar(Pagos item)
         {
             try
             {
@@ -82,18 +82,18 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Carga todos los valores de la tabla en un ArrayList de objetos pago
-        public List<pagos> verTodo()
+        public List<Pagos> verTodo()
         {
             try
             {
-                List<pagos> lista = new List<pagos>();
+                List<Pagos> lista = new List<Pagos>();
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM pagos", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    pagos pago = new pagos
+                    Pagos pago = new Pagos
                     {
                         Pagos_id = reader.GetInt32(0),
                         Pagos_fecha = reader.GetDateTime(1),
@@ -111,18 +111,18 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<pagos> verPendientes()
+        public List<Pagos> VerPendientes()
         {
             try
             {
-                List<pagos> lista = new List<pagos>();
+                List<Pagos> lista = new List<Pagos>();
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("SELECT pagos_id, pagos_fecha, pagos_estado FROM pagos WHERE pagos_estado = 0", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    pagos pago = new pagos
+                    Pagos pago = new Pagos
                     {
                         Pagos_id = reader.GetInt32(0),
                         Pagos_fecha = Convert.ToDateTime(reader.GetDateTime(1)),
@@ -140,19 +140,19 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<pagos> verPagados()
+        public List<Pagos> VerPagados()
         {
 
             try
             {
-                List<pagos> lista = new List<pagos>();
+                List<Pagos> lista = new List<Pagos>();
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM pagos WHERE pagos_estado = 1", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    pagos pago = new pagos
+                    Pagos pago = new Pagos
                     {
                         Pagos_id = reader.GetInt32(0),
                         Pagos_fecha = reader.GetDateTime(1),

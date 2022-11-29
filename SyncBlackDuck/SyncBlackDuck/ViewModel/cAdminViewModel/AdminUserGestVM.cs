@@ -19,9 +19,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
     public partial class AdminUserGestVM : AdminBaseVM
     {
-        private List<user> listaUsuarios = new List<user>();
-        private userImpl userController = new userImpl();
-        public user SwipedUser = new user();
+        private List<User> listaUsuarios = new List<User>();
+        private UserImpl userController = new UserImpl();
+        public User SwipedUser = new User();
         public int SelectedIndex;
         public SfDataGrid userGrid;
         public int Row;
@@ -48,7 +48,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public AdminUserGestVM(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
-            usuariosInfo = new ObservableCollection<user>();
+            usuariosInfo = new ObservableCollection<User>();
             selectedItem = new Object();
             popupLayout = new SfPopupLayout();
             CargarClientes();
@@ -91,7 +91,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                     if (!ValorNuevo.Equals(ValorViejo))
                     {
-                        user UsuarioSelecionado = usuariosInfo.ElementAt(Row - 1);
+                        User UsuarioSelecionado = usuariosInfo.ElementAt(Row - 1);
                         switch (Tipo)
                         {
                             case "User_name":
@@ -124,7 +124,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                SwipedUser = args.RowData as user;
+                SwipedUser = args.RowData as User;
             }
             catch (Exception e)
             {
@@ -428,8 +428,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #region Listas
 
-        private ObservableCollection<user> usuariosInfo;
-        public ObservableCollection<user> usuariosInfoCollection
+        private ObservableCollection<User> usuariosInfo;
+        public ObservableCollection<User> usuariosInfoCollection
         {
             get { return usuariosInfo; }
             set
@@ -582,14 +582,14 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 if (this.UserInput != false && this.UserPassword != false && this.UserTelefono != false)
                 {
-                    user NuevoUsuario = new user()
+                    User NuevoUsuario = new User()
                     {
                         User_name = NewUsername,
                         User_password = NewPassword,
                         User_telefono = NewTelefono
                     };
 
-                    bool Agregado = userController.insertarNuevoC(NuevoUsuario);
+                    bool Agregado = userController.InsertarNuevoC(NuevoUsuario);
 
                     Cancelar();
 
@@ -664,7 +664,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 usuariosInfo.Clear();
                 listaUsuarios.Clear();
 
-                listaUsuarios = userController.verClientes();
+                listaUsuarios = userController.VerClientes();
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {
                     usuariosInfo.Add(listaUsuarios.ElementAt(i));

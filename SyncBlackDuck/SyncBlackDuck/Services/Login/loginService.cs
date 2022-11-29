@@ -5,12 +5,12 @@ using System;
 namespace SyncBlackDuck.Services.Login
 {
 
-    public class loginService : Connection
+    public class LoginService : Connection
     {
 
-        public loginService() { }
+        public LoginService() { }
         
-        public user loginByRank(int t, string p)
+        public User LoginByRank(int t, string p)
         {
             try
             {
@@ -23,11 +23,13 @@ namespace SyncBlackDuck.Services.Login
                 //Si se puede leer encontro resultados = si existe el usuario...
                 while (reader.Read())
                 {
-                    user loggedInUser = new user();
-                    loggedInUser.User_id = reader.GetInt32(0);
-                    loggedInUser.User_name = reader.GetString(1);
-                    loggedInUser.User_rol = reader.GetString(5);
-                    loggedInUser.User_telefono = reader.GetInt32(4);
+                    User loggedInUser = new User
+                    {
+                        User_id = reader.GetInt32(0),
+                        User_telefono = reader.GetInt32(1),
+                        User_name = reader.GetString(2),
+                        User_rol = reader.GetString(5)
+                    };
                     //Devolver entidad usuario.
                     return loggedInUser;
                 }
@@ -42,7 +44,7 @@ namespace SyncBlackDuck.Services.Login
             }
         }
 
-        public user loginByPhone(int t)
+        public User LoginByPhone(int t)
         {
             try
             {
@@ -54,11 +56,13 @@ namespace SyncBlackDuck.Services.Login
                 //Si se puede leer encontro resultados = si existe el usuario...
                 while (reader.Read())
                 {
-                    user loggedInUser = new user();
-                    loggedInUser.User_id = reader.GetInt32(0);
-                    loggedInUser.User_name = reader.GetString(1);
-                    loggedInUser.User_rol = reader.GetString(5);
-                    loggedInUser.User_telefono = reader.GetInt32(4);
+                    User loggedInUser = new User
+                    {
+                        User_id = reader.GetInt32(0),
+                        User_telefono = reader.GetInt32(1),
+                        User_name = reader.GetString(2),
+                        User_rol = reader.GetString(5)
+                    };
                     //Devolver entidad usuario.
                     return loggedInUser;
                 }

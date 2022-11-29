@@ -14,9 +14,9 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
     public partial class ClientGestVM : ClienteBaseVM
     {
-        private user usuarioSeleccionado = new user();
-        private List<user> listaUsuarios = new List<user>();
-        private userImpl userController = new userImpl();
+        private User usuarioSeleccionado = new User();
+        private List<User> listaUsuarios = new List<User>();
+        private UserImpl userController = new UserImpl();
         public int row;
         public string Dato;
         public int UserID;
@@ -24,7 +24,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         public ClientGestVM(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
-            usuariosInfo = new ObservableCollection<user>();
+            usuariosInfo = new ObservableCollection<User>();
             selectedItem = new Object();
             CargarClientes();
             datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
@@ -45,7 +45,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             bool Estado = false;
             if (args.OldValue != args.NewValue)
             {
-                user UsuarioSelecionado = usuariosInfo.ElementAt(row - 1);
+                User UsuarioSelecionado = usuariosInfo.ElementAt(row - 1);
                 Estado = userController.modificar(UsuarioSelecionado);
             }
 
@@ -56,8 +56,8 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 
         #region Listas
 
-        private ObservableCollection<user> usuariosInfo;
-        public ObservableCollection<user> usuariosInfoCollection
+        private ObservableCollection<User> usuariosInfo;
+        public ObservableCollection<User> usuariosInfoCollection
         {
             get { return usuariosInfo; }
             set
@@ -119,7 +119,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             try
             {
                 var tel = Application.Current.Properties["id"] as string;
-                listaUsuarios = userController.verClienteEspecifico(int.Parse(tel));
+                listaUsuarios = userController.VerClienteEspecifico(int.Parse(tel));
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {
                     usuariosInfo.Add(listaUsuarios.ElementAt(i));

@@ -18,10 +18,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
     public partial class AdminPagosGestVM : AdminBaseVM
     {
-        private List<pagos> listaPagos = new List<pagos>();
-        private pagosImpl pagosController = new pagosImpl();
+        private List<Pagos> listaPagos = new List<Pagos>();
+        private PagosImpl pagosController = new PagosImpl();
         public int Row;
-        public pagos SwipedPago = new user();
+        public Pagos SwipedPago = new Model.Objetos.User();
         public string Dato;
         public int PagoID;
         public SfPopupLayout popupLayout;
@@ -36,7 +36,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public AdminPagosGestVM(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
-            pagosInfo = new ObservableCollection<pagos>();
+            pagosInfo = new ObservableCollection<Pagos>();
             selectedItem = new Object();
             popupLayout = new SfPopupLayout();
             CargarPagos();
@@ -79,7 +79,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     
                     if (!ValorNuevo.Equals(ValorViejo))
                     {
-                        pagos PagoSelecionado = pagosInfo.ElementAt(Row - 1);
+                        Pagos PagoSelecionado = pagosInfo.ElementAt(Row - 1);
                         switch (Tipo)
                         {
                             case "Pagos_estado":
@@ -102,7 +102,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                SwipedPago = args.RowData as pagos;
+                SwipedPago = args.RowData as Pagos;
             }
             catch (Exception e)
             {
@@ -225,8 +225,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #region Listas
 
-        private ObservableCollection<pagos> pagosInfo;
-        public ObservableCollection<pagos> PagosInfoCollection
+        private ObservableCollection<Pagos> pagosInfo;
+        public ObservableCollection<Pagos> PagosInfoCollection
         {
             get { return pagosInfo; }
             set
@@ -319,7 +319,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 listaPagos.Clear();
                 pagosInfo.Clear();
 
-                listaPagos = pagosController.verPendientes();
+                listaPagos = pagosController.VerPendientes();
                 for (int i = 0; i < listaPagos.Count; i++)
                 {
                     pagosInfo.Add(listaPagos.ElementAt(i));

@@ -1,11 +1,10 @@
-﻿using MySqlConnector;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace SyncBlackDuck.Model.Objetos
 {
-    public class user : pagos, INotifyPropertyChanged
+    public class User : Pagos, INotifyPropertyChanged
     {
 
         private int user_id;
@@ -14,20 +13,20 @@ namespace SyncBlackDuck.Model.Objetos
         private DateTime user_time;
         private int user_telefono;
         private string user_rol;
+        private Boolean user_estado;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void RaisePropertyChanged([CallerMemberName] string property = null)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        public user()
+        public User()
         {
         }
 
-        public user(int user_id, string user_name, string user_password, DateTime user_time, int user_telefono, string user_rol)
+        public User(int user_id, string user_name, string user_password, DateTime user_time, int user_telefono, string user_rol, Boolean user_estado)
         {
             this.user_id = user_id;
             this.user_name = user_name;
@@ -35,22 +34,25 @@ namespace SyncBlackDuck.Model.Objetos
             this.user_time = user_time;
             this.user_telefono = user_telefono;
             this.user_rol = user_rol;
+            this.user_estado = user_estado;
         }
 
-        // Constructor para visualizar datos de cliente logueado
-        public user(string user_name, DateTime pagos_fecha, int pagos_estado)
+        // Constructor para View Cliente => user + pagos
+        public User(string user_name, DateTime pagos_fecha, int pagos_estado)
         {
             this.user_name = user_name;
             Pagos_fecha = pagos_fecha;
             Pagos_estado = pagos_estado;
         }
 
-        public user(int user_id, string user_name, int user_telefono, string user_rol)
+        // Constructor para View Admin => users (todos)
+        public User(int user_id, string user_name, int user_telefono, string user_rol)
         {
             this.user_id = user_id;
             this.user_name = user_name;
             this.user_telefono = user_telefono;
             this.user_rol = user_rol;
+
         }
 
         public int User_id
@@ -118,6 +120,19 @@ namespace SyncBlackDuck.Model.Objetos
                 if(this.user_rol != value)
                 {
                     this.user_rol = value;
+                }
+                RaisePropertyChanged();
+            }
+        }
+
+        public Boolean User_estado
+        {
+            get { return user_estado; }
+            set
+            {
+                if (this.user_estado != value)
+                {
+                    this.user_estado = value;
                 }
                 RaisePropertyChanged();
             }

@@ -11,13 +11,13 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
     public partial class SAdminVM : SAdminBaseVM
     {
         private int user_Telefono;
-        private user loggedInUser;
+        private User loggedInUser;
         public SAdminVM(INavigation navigation) {
 
             Navigation = navigation;
         }
         public int User_Telefono { get => user_Telefono; set => user_Telefono = value; }
-        public user LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
+        public User LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
         #region Commands
         public ICommand GestionAdministradores => GestionAdminPage();

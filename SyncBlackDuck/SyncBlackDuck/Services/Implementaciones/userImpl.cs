@@ -6,16 +6,16 @@ using System.Collections.Generic;
 
 namespace SyncBlackDuck.Services.Implementaciones
 {
-    internal class userImpl : Connection, ICRUD<user>
+    internal class UserImpl : Connection, ICRUD<User>
     {
         //Elimina un usuario de la tabla user
 
-        public userImpl()
+        public UserImpl()
         {
 
         }
 
-        public bool eliminar(user item)
+        public bool eliminar(User item)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Inserta un usuario a la tabla user
-        public bool insertar(user item)
+        public bool insertar(User item)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public bool insertarNuevoC(user item)
+        public bool InsertarNuevoC(User item)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public bool insertarNuevoAD(user item)
+        public bool InsertarNuevoAD(User item)
         {
             try
             {
@@ -114,7 +114,7 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Modifica un usuario existente.
-        public bool modificar(user item)
+        public bool modificar(User item)
         {
             try
             {
@@ -141,7 +141,7 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Carga todos los usuarios de la tabla user
-        public List<user> verTodo()
+        public List<User> verTodo()
         {
             try
             {
@@ -149,10 +149,10 @@ namespace SyncBlackDuck.Services.Implementaciones
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
-                List<user> list = new List<user>();
+                List<User> list = new List<User>();
                 while (reader.Read())
                 {
-                    user user = new user
+                    User user = new User
                         {
                             User_id = reader.GetInt32(0),
                             User_name = reader.GetString(1),
@@ -174,7 +174,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<user> verClientes()
+        public List<User> VerClientes()
         {
             try
             {
@@ -182,10 +182,10 @@ namespace SyncBlackDuck.Services.Implementaciones
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'cliente'", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
-                List<user> list = new List<user>();
+                List<User> list = new List<User>();
                 while (reader.Read())
                 {
-                    user user = new user
+                    User user = new User
                         {
                             User_id = reader.GetInt32(0),
                             User_name = reader.GetString(1),
@@ -207,7 +207,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<user> verAdministradores()
+        public List<User> VerAdministradores()
         {
             try
             {
@@ -215,10 +215,10 @@ namespace SyncBlackDuck.Services.Implementaciones
                 MySqlConnection mysql = conn.getConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'admin'", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
-                List<user> list = new List<user>();
+                List<User> list = new List<User>();
                 while (reader.Read())
                 {
-                    user user = new user
+                    User user = new User
                         {
                             User_id = reader.GetInt32(0),
                             User_name = reader.GetString(1),
@@ -240,7 +240,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<user> verClienteEspecifico(int cel)
+        public List<User> VerClienteEspecifico(int cel)
         {
             try
             {
@@ -250,10 +250,10 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@tel", cel);
                 Console.WriteLine(command);
                 MySqlDataReader reader = command.ExecuteReader();
-                List<user> list = new List<user>();
+                List<User> list = new List<User>();
                 while (reader.Read())
                 {
-                    user user = new user();
+                    User user = new User();
                         {
                             user.User_name = reader.GetString(0);
                             user.Pagos_fecha = reader.GetDateTime(1);

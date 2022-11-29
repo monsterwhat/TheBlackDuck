@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace SyncBlackDuck.Model.Objetos
 {
-    public class pagos : INotifyPropertyChanged
+    public class Pagos : INotifyPropertyChanged
     {
 
         private int pagos_id;
@@ -15,18 +15,17 @@ namespace SyncBlackDuck.Model.Objetos
         public event PropertyChangedEventHandler PropertyChanged;
         public void RaisePropertyChanged([CallerMemberName] string property = null)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        public pagos(int pagos_id, DateTime pagos_fecha, int pagos_estado)
+        public Pagos(int pagos_id, DateTime pagos_fecha, int pagos_estado)
         {
             this.pagos_id = pagos_id;
             this.pagos_fecha = pagos_fecha;
             this.pagos_estado = pagos_estado;
         }
 
-        public pagos()
+        public Pagos()
         {
 
         }
