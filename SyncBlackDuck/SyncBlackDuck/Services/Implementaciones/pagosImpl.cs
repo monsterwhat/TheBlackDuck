@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Interfaces;
+using SyncBlackDuck.ViewModel.cAdminViewModel;
 using System;
 using System.Collections.Generic;
 
@@ -8,8 +9,6 @@ namespace SyncBlackDuck.Services.Implementaciones
 {
     internal class PagosImpl : Connection, ICRUD<Pagos>
     {
-        //Elimina un registro de la tabla pagos
-
         public PagosImpl()
         {
 
@@ -111,14 +110,15 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        public List<Pagos> VerPendientes()
+        public List<Pagos> VerClienteSeleccionado(int id)
         {
             try
             {
                 List<Pagos> lista = new List<Pagos>();
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("SELECT pagos_id, pagos_fecha, pagos_estado FROM pagos WHERE pagos_estado = 0", mysql);
+                MySqlCommand command = new MySqlCommand("SELECT pagos_id, pagos_fecha, pagos_estado FROM pagos WHERE user_id = @val1", mysql);
+                command.Parameters.AddWithValue("@val1", id);
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {

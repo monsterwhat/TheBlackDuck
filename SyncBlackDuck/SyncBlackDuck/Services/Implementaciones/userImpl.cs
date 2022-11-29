@@ -84,7 +84,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Console.WriteLine("Error en Insertar Nuevo Usuario");
                 Console.WriteLine(e);
-                return false ;
+                return false;
             }
         }
 
@@ -153,14 +153,14 @@ namespace SyncBlackDuck.Services.Implementaciones
                 while (reader.Read())
                 {
                     User user = new User
-                        {
-                            User_id = reader.GetInt32(0),
-                            User_name = reader.GetString(1),
-                            User_password = reader.GetString(2),
-                            User_time = reader.GetDateTime(3),
-                            User_telefono = reader.GetInt32(4),
-                            User_rol = reader.GetString(5)
-                        };
+                    {
+                        User_id = reader.GetInt32(0),
+                        User_telefono = reader.GetInt32(2),
+                        User_name = reader.GetString(3),
+                        User_password = reader.GetString(4),
+                        User_time = reader.GetDateTime(5),
+                        User_rol = reader.GetString(6)
+                    };
                     list.Add(user);
                 }
                 conn.Disconnect();
@@ -186,14 +186,14 @@ namespace SyncBlackDuck.Services.Implementaciones
                 while (reader.Read())
                 {
                     User user = new User
-                        {
-                            User_id = reader.GetInt32(0),
-                            User_name = reader.GetString(1),
-                            User_password = reader.GetString(2),
-                            User_time = reader.GetDateTime(3),
-                            User_telefono = reader.GetInt32(4),
-                            User_rol = reader.GetString(5)
-                        };
+                    {
+                        User_id = reader.GetInt32(0),
+                        User_telefono = reader.GetInt32(1),
+                        User_name = reader.GetString(2),
+                        User_password = reader.GetString(3),
+                        User_time = reader.GetDateTime(4),
+                        User_rol = reader.GetString(5)
+                    };
                     list.Add(user);
                 }
                 conn.Disconnect();
@@ -219,14 +219,14 @@ namespace SyncBlackDuck.Services.Implementaciones
                 while (reader.Read())
                 {
                     User user = new User
-                        {
-                            User_id = reader.GetInt32(0),
-                            User_name = reader.GetString(1),
-                            User_password = reader.GetString(2),
-                            User_time = reader.GetDateTime(3),
-                            User_telefono = reader.GetInt32(4),
-                            User_rol = reader.GetString(5)
-                        };
+                    {
+                        User_id = reader.GetInt32(0),
+                        User_telefono = reader.GetInt32(1),
+                        User_name = reader.GetString(2),
+                        User_password = reader.GetString(3),
+                        User_time = reader.GetDateTime(4),
+                        User_rol = reader.GetString(5)
+                    };
                     list.Add(user);
                 }
                 conn.Disconnect();
@@ -254,11 +254,11 @@ namespace SyncBlackDuck.Services.Implementaciones
                 while (reader.Read())
                 {
                     User user = new User();
-                        {
-                            user.User_name = reader.GetString(0);
-                            user.Pagos_fecha = reader.GetDateTime(1);
-                            user.Pagos_estado = reader.GetInt32(2);
-                        };
+                    {
+                        user.User_name = reader.GetString(0);
+                        user.Pagos_fecha = reader.GetDateTime(1);
+                        user.Pagos_estado = reader.GetInt32(2);
+                    };
                     list.Add(user);
                 }
                 conn.Disconnect();

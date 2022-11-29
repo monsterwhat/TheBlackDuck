@@ -1,11 +1,13 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
+using SyncBlackDuck.Views.AdminViews;
 using Syncfusion.SfDataGrid.XForms;
 using Syncfusion.XForms.PopupLayout;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -16,6 +18,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
     {
         private List<Pagos> listaPagos = new List<Pagos>();
         private PagosImpl pagosController = new PagosImpl();
+        private AdminUserGestVM admUser;
         public int Row;
         public Pagos SwipedPago = new Model.Objetos.User();
         public string Dato;
@@ -315,8 +318,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 listaPagos.Clear();
                 pagosInfo.Clear();
-
-                listaPagos = pagosController.VerPendientes();
+                listaPagos = pagosController.VerClienteSeleccionado(admUser.swipedUserID);
                 for (int i = 0; i < listaPagos.Count; i++)
                 {
                     pagosInfo.Add(listaPagos.ElementAt(i));

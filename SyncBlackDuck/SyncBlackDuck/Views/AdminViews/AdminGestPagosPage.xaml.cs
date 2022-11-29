@@ -9,7 +9,7 @@ namespace SyncBlackDuck.Views.AdminViews
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AdminGestPagosPage : ContentPage
 	{
-		public AdminGestPagosPage ()
+		public AdminGestPagosPage (int swipedUserID)
 		{
 			InitializeComponent ();
             BindingContext = new AdminPagosGestVM(Navigation, this.dataGrid);

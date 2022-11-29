@@ -376,25 +376,29 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
                 var headerTemplateView = new DataTemplate(() =>
                 {
-                    headerContent = new Label();
-                    headerContent.Text = "Confirmacion de Eliminacion";
-                    headerContent.FontAttributes = FontAttributes.Bold;
-                    headerContent.TextColor = Color.White;
-                    headerContent.BackgroundColor = Color.FromRgb(57, 62, 70);
-                    headerContent.FontSize = 16;
-                    headerContent.HorizontalTextAlignment = TextAlignment.Center;
-                    headerContent.VerticalTextAlignment = TextAlignment.Center;
+                    headerContent = new Label
+                    {
+                        Text = "Confirmacion de Eliminacion",
+                        FontAttributes = FontAttributes.Bold,
+                        TextColor = Color.White,
+                        BackgroundColor = Color.FromRgb(57, 62, 70),
+                        FontSize = 16,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center
+                    };
                     return headerContent;
                 });
 
                 var templateView = new DataTemplate(() =>
                 {
-                    popupContent = new Label();
-                    popupContent.Text = "Desea Eliminar a '" + SwipedUser.User_name + "' ?";
-                    popupContent.TextColor = Color.Black;
-                    popupContent.BackgroundColor = Color.White;
-                    popupContent.HorizontalTextAlignment = TextAlignment.Center;
-                    popupContent.VerticalTextAlignment = TextAlignment.Center;
+                    popupContent = new Label
+                    {
+                        Text = "Desea Eliminar a '" + SwipedUser.User_name + "' ?",
+                        TextColor = Color.Black,
+                        BackgroundColor = Color.White,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center
+                    };
                     return popupContent;
                 });
 

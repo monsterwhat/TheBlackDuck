@@ -38,6 +38,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public bool UserTelefono = false;
         public bool userRol = false;
         public bool CeldaSeleccionada = false;
+        public int swipedUserID;
 
         private string NewUsername;
         private string NewPassword;
@@ -60,6 +61,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             datagrid.SwipeStarted += DataGrid_SwipeStarted;
             datagrid.SwipeEnded += DataGrid_SwipeEnded;
             datagrid.RightSwipeTemplate = RightSwipeTemplate();
+            datagrid.LeftSwipeTemplate = LeftSwipeTemplate();
         }
 
         #region CellListeners
@@ -155,14 +157,21 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 myView.Content = label;
 
-                ContentView myView2 = new ContentView()
+                return myView;
+            });
+
+        public DataTemplate LeftSwipeTemplate() =>
+
+            new DataTemplate(() =>
+            {
+                ContentView myView = new ContentView()
                 {
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     BackgroundColor = Color.FromHex("#04adff"),
                     Padding = 9,
                 };
 
-                var label2 = new Label()
+                var label = new Label()
                 {
                     Text = "Ver mas",
                     TextColor = Color.White,
@@ -171,7 +180,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     FontSize = 15
                 };
 
-                myView.Content = label2;
+                myView.Content = label;
 
                 return myView;
             });
@@ -367,25 +376,29 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 var headerTemplateView = new DataTemplate(() =>
                 {
-                    headerContent = new Label();
-                    headerContent.Text = "Confirmacion de Eliminacion";
-                    headerContent.FontAttributes = FontAttributes.Bold;
-                    headerContent.TextColor = Color.White;
-                    headerContent.BackgroundColor = Color.FromRgb(57, 62, 70);
-                    headerContent.FontSize = 16;
-                    headerContent.HorizontalTextAlignment = TextAlignment.Center;
-                    headerContent.VerticalTextAlignment = TextAlignment.Center;
+                    headerContent = new Label
+                    {
+                        Text = "Confirmacion de Eliminacion",
+                        FontAttributes = FontAttributes.Bold,
+                        TextColor = Color.White,
+                        BackgroundColor = Color.FromRgb(57, 62, 70),
+                        FontSize = 16,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center
+                    };
                     return headerContent;
                 });
 
                 var templateView = new DataTemplate(() =>
                 {
-                    popupContent = new Label();
-                    popupContent.Text = "Desea Eliminar a '" + SwipedUser.User_name + "' ?";
-                    popupContent.TextColor = Color.Black;
-                    popupContent.BackgroundColor = Color.White;
-                    popupContent.HorizontalTextAlignment = TextAlignment.Center;
-                    popupContent.VerticalTextAlignment = TextAlignment.Center;
+                    popupContent = new Label
+                    {
+                        Text = "Desea Eliminar a '" + SwipedUser.User_name + "' ?",
+                        TextColor = Color.Black,
+                        BackgroundColor = Color.White,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center
+                    };
                     return popupContent;
                 });
 
@@ -431,10 +444,19 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 double fullswipe;
                 fullswipe = args.SwipeOffset;
-                if (fullswipe.Equals(-200))
+                if (args.SwipeDirection == Syncfusion.SfDataGrid.XForms.SwipeDirection.Left && fullswipe.Equals(-200))
                 {
                     LoadPopUpEliminar();
                 }
+                else if (args.SwipeDirection == Syncfusion.SfDataGrid.XForms.SwipeDirection.Right && fullswipe.Equals(200))
+                {
+                   
+                    string swipedID = SwipedUser.User_id.ToString();
+                    swipedUserID = int.Parse(swipedID);
+                    Console.WriteLine($"{swipedUserID}");
+                    GestionPagos();
+                }
+
             }
             catch (Exception e)
             {
@@ -468,6 +490,17 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 if (this.selectedItem != value)
                 {
                     this.selectedItem = value;
+                }
+            }
+        }
+        public int SwipedUserID
+        {
+            get { return swipedUserID; }
+            set
+            {
+                if (this.swipedUserID != value)
+                {
+                    this.swipedUserID = value;
                 }
             }
         }
@@ -546,7 +579,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         // Path ICommands a Meodos
 
         public ICommand BackAdminMain => BackAdminMainP();
-        public ICommand ADGestionPagos => GestionPagosPage();
         public ICommand AgregarUsuariocommand => AgregarUsuarioC();
         public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
         public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
@@ -656,24 +688,19 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             return new Command(async () => await BackAdminAsync());
         }
-        private ICommand GestionPagosPage()
-        {
-            return new Command(async () => await GestinPagosAsync());
-        }
 
         // Redirecciones
-        private Task GestinPagosAsync()
+        private void GestionPagos()
         {
             try
             {
-                Navigation.PushAsync(new AdminGestPagosPage());
+                Navigation.PushAsync(new AdminGestPagosPage(swipedUserID));
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return Task.CompletedTask;
             }
-            return Task.CompletedTask;
+
         }
 
         private Task BackAdminAsync()
