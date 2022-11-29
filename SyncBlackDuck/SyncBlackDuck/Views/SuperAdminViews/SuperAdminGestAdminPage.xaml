@@ -13,7 +13,7 @@
             <Label
                 FontSize="20"
                 HorizontalTextAlignment="Center"
-                TextColor="#DBEDF3"
+                TextColor="#f5fbff"
                 VerticalTextAlignment="Center"
                 Text="Gestion de Administradores">
             </Label>
@@ -51,11 +51,12 @@
                         AlternatingRowColor="white"
                         GridLinesVisibility="None"
                         HeaderBackgroundColor="#1f273d"
-                        HeaderForegroundColor="#C9D6DF"
+                        HeaderForegroundColor="#f5fbff"
                         RowBackgroundColor="#e0e9ff"
                         RowForegroundColor="#07090e"
                         SelectionBackgroundColor="#04adff"
-                        SelectionForegroundColor="#07090e"/>
+                        SelectionForegroundColor="#07090e"
+                        CurrentCellBorderColor="#006699"/>
                 </syncfusion:SfDataGrid.GridStyle>
 
             </syncfusion:SfDataGrid>
@@ -71,7 +72,7 @@
                     HeightRequest="45"
                     WidthRequest="140"
                     BackgroundColor="#04adff"
-                    TextColor="#DBEDF3"
+                    TextColor="#f5fbff"
                     HorizontalOptions="EndAndExpand"
                     Command="{Binding Path=AgregarUsuario}"
                     CornerRadius="7"

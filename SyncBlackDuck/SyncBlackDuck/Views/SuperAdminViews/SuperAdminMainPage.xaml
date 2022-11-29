@@ -6,7 +6,7 @@
              NavigationPage.HasNavigationBar="false">
 
     <StackLayout BackgroundColor="#283149" >
-        <Label Margin="15,15,0,0" TextColor="#DBEDF3" FontSize="15" >Super admin</Label>
+        <Label Margin="15,15,0,0" TextColor="#f5fbff" FontSize="15" >Super admin</Label>
             <StackLayout Margin="0,90,0,0">
                 <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
             </StackLayout>
@@ -14,7 +14,7 @@
             <buttons:SfButton
                 Margin="0,30,0,0"
                 BackgroundColor="#1f273d"
-                TextColor="#DBEDF3"
+                TextColor="#f5fbff"
                 Command="{Binding Path=GestionAdministradores}"
                 CornerRadius="7"
                 FontSize="19"
@@ -23,7 +23,7 @@
             <buttons:SfButton
                 Margin="0,70,0,0"
                 BackgroundColor="#540712"
-                TextColor="#DBEDF3"
+                TextColor="#f5fbff"
                 Command="{Binding Path=SACSCerrarSesion}"
                 CornerRadius="7"
                 FontSize="19"

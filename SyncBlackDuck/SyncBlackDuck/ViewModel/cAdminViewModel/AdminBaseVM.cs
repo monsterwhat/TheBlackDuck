@@ -10,15 +10,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public INavigation Navigation;
-
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         protected void RaisePropertyChanged([CallerMemberName] string property = null)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
     }

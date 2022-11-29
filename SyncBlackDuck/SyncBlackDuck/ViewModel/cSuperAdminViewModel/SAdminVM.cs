@@ -20,9 +20,14 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         public User LoggedInUser { get => loggedInUser; set => loggedInUser = value; }
 
         #region Commands
+
+        // ICommand a Async
+
         public ICommand GestionAdministradores => GestionAdminPage();
         public ICommand SACSCerrarSesion => SACerrarSesion();
         public ICommand BackAdminMain => BackAdminMainP();
+
+        // ICommand Async a metodos
 
         private Command GestionAdminPage()
         {
@@ -36,6 +41,9 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             return new Command(async () => await BackAdminAsync());
         }
+
+        // Metodos
+
         private Task GestionAdminPageAsync()
         {
             try
@@ -51,7 +59,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             }
             return Task.CompletedTask;
         }
-
         private Task SACerrarSesionAsync()
         {
             try

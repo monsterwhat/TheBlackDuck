@@ -1,17 +1,13 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
 using Syncfusion.SfDataGrid.XForms;
-using Syncfusion.SfNumericTextBox.XForms;
-using Syncfusion.XForms.Buttons;
 using Syncfusion.XForms.PopupLayout;
-using Syncfusion.XForms.TextInputLayout;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.System;
 using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
@@ -258,9 +254,18 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #region Commands
 
-        private Command borrarPago;
+        // Commands
 
+        private Command borrarPago;
+        private Command recargar;
+
+        // Path ICommands a Metodos
+
+        public ICommand BackAdminMain => BackAdminMainP();
         public ICommand BorrarPago => borrarPago ?? (borrarPago = new Command(() => BorrarPagoExecute()));
+        public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
+
+        // Metodos 
 
         private void BorrarPagoExecute()
         {
@@ -277,19 +282,11 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
         }
 
-        private Command recargar;
-
-        public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
-
         private void ExecutePullToRefreshCommand()
         {
             CargarPagos();
         }
 
-        // ICommands para las redirecciones de paginas
-        public ICommand BackAdminMain => BackAdminMainP();
-
-        // Metodos Command para hacer los metodos async
         private Command BackAdminMainP()
         {
             return new Command(async () => await BackAdminAsync());

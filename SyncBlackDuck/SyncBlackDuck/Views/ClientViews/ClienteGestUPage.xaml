@@ -11,7 +11,7 @@
 
         <StackLayout Margin="50">
             <Label FontSize="20"
-                   TextColor="#DBEDF3"
+                   TextColor="#f5fbff"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center" >Historial de pagos</Label>
         </StackLayout>
@@ -46,11 +46,12 @@
                         AlternatingRowColor="white"
                         GridLinesVisibility="None"
                         HeaderBackgroundColor="#1f273d"
-                        HeaderForegroundColor="#C9D6DF"
+                        HeaderForegroundColor="#f5fbff"
                         RowBackgroundColor="#e0e9ff"
                         RowForegroundColor="#07090e"
                         SelectionBackgroundColor="#04adff"
-                        SelectionForegroundColor="#07090e"/>
+                        SelectionForegroundColor="#07090e"
+                        CurrentCellBorderColor="#006699"/>
                 </syncfusion:SfDataGrid.GridStyle>
             </syncfusion:SfDataGrid>
 
@@ -62,7 +63,7 @@
                 HeightRequest="40"
                 WidthRequest="130"
                 BackgroundColor="#04adff"
-                TextColor="#DBEDF3"
+                TextColor="#f5fbff"
                 Command="{Binding Path=BackClientMain}"
                 CornerRadius="7"
                 FontSize="15"

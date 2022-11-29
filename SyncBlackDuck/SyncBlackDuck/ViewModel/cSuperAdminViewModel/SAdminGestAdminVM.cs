@@ -352,7 +352,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                 };
                 return stack;
             });
-           
+
             this.popupLayout.PopupView.ContentTemplate = stackLayout;
 
             #endregion Body
@@ -362,7 +362,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                 this.popupLayout.IsOpen = true;
                 this.popupLayout.Show();
             }
-            
+
         }
         public void LoadPopUpEliminar()
         {
@@ -450,7 +450,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                 Console.WriteLine(e);
             }
         }
-        
+
         #endregion CellListeners
 
         #region Listas
@@ -565,24 +565,28 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
         #region Commands
 
+        // Commands
+
         private Command agregarUsuario;
+        private Command recargar;
+        private Command borrarUsuario;
+        private Command cancelarComando;
+
+        // ICommand
+
+        public ICommand AgregarUsuariocommand => AgregarUsuarioC();
+        public ICommand SBackAdminMain => BackSAdminMainP();
         public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
+        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
+        public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
+        public ICommand CancelarComando => cancelarComando ??= new Command(Cancelar);
+
+        // Metodos
 
         private void PerformAgregarUsuario()
         {
             LoadPopUpAgregar();
         }
-
-        private Command recargar;
-        public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
-
-        private void ExecutePullToRefreshCommand()
-        {
-            CargarAdministradores();
-        }
-
-        private Command borrarUsuario;
-        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
 
         private void PerformBorrarUsuario()
         {
@@ -591,9 +595,10 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             this.popupLayout.IsOpen = false;
             this.popupLayout.Dismiss();
         }
-
-        private Command cancelarComando;
-        public ICommand CancelarComando => cancelarComando ??= new Command(Cancelar);
+        private void ExecutePullToRefreshCommand()
+        {
+            CargarAdministradores();
+        }
 
         private void Cancelar()
         {
@@ -601,7 +606,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             this.popupLayout.Dismiss();
         }
 
-        public ICommand AgregarUsuariocommand => AgregarUsuarioC();
         private Command AgregarUsuarioC()
         {
             return new Command(async () => await AgregarUsuarioT());
@@ -662,8 +666,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             }
             return Task.CompletedTask;
         }
-
-        public ICommand SBackAdminMain => BackSAdminMainP();
 
         private Command BackSAdminMainP()
         {

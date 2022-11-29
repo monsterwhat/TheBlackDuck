@@ -1,9 +1,9 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
+using SyncBlackDuck.Views.AdminViews;
 using Syncfusion.SfDataGrid.XForms;
 using Syncfusion.SfNumericTextBox.XForms;
 using Syncfusion.XForms.Buttons;
-using Syncfusion.XForms.ComboBox;
 using Syncfusion.XForms.PopupLayout;
 using Syncfusion.XForms.TextInputLayout;
 using System;
@@ -54,11 +54,11 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             CargarClientes();
             datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
             datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
-            datagrid.SwipeEnded += DataGrid_SwipeEnded;
+            datagrid.PullToRefreshCommand = Recargar;
             datagrid.SwipeOffsetMode = SwipeOffsetMode.Custom;
             datagrid.MaxSwipeOffset = 200;
             datagrid.SwipeStarted += DataGrid_SwipeStarted;
-            datagrid.PullToRefreshCommand = Recargar;
+            datagrid.SwipeEnded += DataGrid_SwipeEnded;
             datagrid.RightSwipeTemplate = RightSwipeTemplate();
         }
 
@@ -155,6 +155,24 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 myView.Content = label;
 
+                ContentView myView2 = new ContentView()
+                {
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    BackgroundColor = Color.FromHex("#04adff"),
+                    Padding = 9,
+                };
+
+                var label2 = new Label()
+                {
+                    Text = "Ver mas",
+                    TextColor = Color.White,
+                    VerticalTextAlignment = TextAlignment.Center,
+                    HorizontalTextAlignment = TextAlignment.Start,
+                    FontSize = 15
+                };
+
+                myView.Content = label2;
+
                 return myView;
             });
 
@@ -214,7 +232,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 #endregion Inputs
 
                 #region Events
-                
+
                 UserInput.Completed += UserInput_Completed;
                 UserInput.Unfocused += UserInput_Completed;
                 PasswordInput.Completed += PasswordInput_Completed;
@@ -242,7 +260,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                         HeightRequest = 20
                     },
                 };
-                
+
                 var UserPassword = new SfTextInputLayout()
                 {
                     ContainerType = ContainerType.Outlined,
@@ -259,7 +277,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                         HeightRequest = 20
                     }
                 };
-                
+
 
                 var UserCell = new SfTextInputLayout()
                 {
@@ -305,7 +323,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                         UserPassword,
                         UserCell,
                         new SfButton
-                            {   
+                            {
                             Margin = new Thickness(20,0,20,10),
                             Text = "Guardar",
                             CornerRadius = 10,
@@ -518,26 +536,34 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #region Commands
 
+        // Commands
+
         private Command agregarUsuario;
+        private Command recargar;
+        private Command borrarUsuario;
+        private Command cancelarComando;
+
+        // Path ICommands a Meodos
+
+        public ICommand BackAdminMain => BackAdminMainP();
+        public ICommand ADGestionPagos => GestionPagosPage();
+        public ICommand AgregarUsuariocommand => AgregarUsuarioC();
         public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
+        public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
+        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
+        public ICommand CancelarComando => cancelarComando ??= new Command(Cancelar);
+
+        // Perform Metodos
 
         private void PerformAgregarUsuario()
         {
             LoadPopUpAgregar();
         }
 
-        private Command recargar;
-
-        public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
-
         private void ExecutePullToRefreshCommand()
         {
             CargarClientes();
         }
-
-        private Command borrarUsuario;
-        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
-
         private void PerformBorrarUsuario()
         {
             try
@@ -553,9 +579,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
         }
 
-        private Command cancelarComando;
-        public ICommand CancelarComando => cancelarComando ??= new Command(Cancelar);
-
         private void Cancelar()
         {
             try
@@ -568,8 +591,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 Console.WriteLine(e);
             }
         }
-
-        public ICommand AgregarUsuariocommand => AgregarUsuarioC();
 
         private Command AgregarUsuarioC()
         {
@@ -631,13 +652,28 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-        // ICommands para las redirecciones de paginas
-        public ICommand BackAdminMain => BackAdminMainP();
-
-        // Metodos Command para hacer los metodos async
         private Command BackAdminMainP()
         {
             return new Command(async () => await BackAdminAsync());
+        }
+        private ICommand GestionPagosPage()
+        {
+            return new Command(async () => await GestinPagosAsync());
+        }
+
+        // Redirecciones
+        private Task GestinPagosAsync()
+        {
+            try
+            {
+                Navigation.PushAsync(new AdminGestPagosPage());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return Task.CompletedTask;
+            }
+            return Task.CompletedTask;
         }
 
         private Task BackAdminAsync()

@@ -21,18 +21,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #region Commands
 
-        // ICommands para las redirecciones de paginas
+        // Path ICommands a Async
+
         public ICommand ADGestionUsuarios => GestionUserPage();
         public ICommand ADCSCerrarSesion => ADCerrarSesion();
         public ICommand BackAdminMain => BackAdminMainP();
-        public ICommand ADGestionPagos => GestionPagosPage();
 
-        // Metodos Command para hacer los metodos async
-
-        private ICommand GestionPagosPage()
-        {
-            return new Command(async () => await GestinPagosAsync());
-        }
+        // ICommand Async a Metodo
         private Command GestionUserPage()
         {
             return new Command(async () => await GestionUserAsync());
@@ -46,19 +41,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return new Command(async () => await BackAdminAsync());
         }
 
-        private Task GestinPagosAsync()
-        {
-            try
-            {
-                Navigation.PushAsync(new AdminGestPagosPage());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return Task.CompletedTask;
-            }
-            return Task.CompletedTask;
-        }
+        // Metodos.redirecciones
 
         private Task GestionUserAsync()
         {

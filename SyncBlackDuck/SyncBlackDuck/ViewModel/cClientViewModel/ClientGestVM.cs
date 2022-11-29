@@ -90,12 +90,18 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 
         #region Commands
 
+        // ICommand a Async
+
         public ICommand BackClientMain => BackClientMainP();
+
+        // ICommand Async a Metodo
 
         private Command BackClientMainP()
         {
             return new Command(async () => await BackClientAsync());
         }
+
+        // Metodos
 
         private Task BackClientAsync()
         {

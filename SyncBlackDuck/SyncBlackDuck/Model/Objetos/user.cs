@@ -17,7 +17,7 @@ namespace SyncBlackDuck.Model.Objetos
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void RaisePropertyChanged([CallerMemberName] string property = null)
+        public new void RaisePropertyChanged([CallerMemberName] string property = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
