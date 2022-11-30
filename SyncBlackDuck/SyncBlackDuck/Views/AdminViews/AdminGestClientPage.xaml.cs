@@ -23,6 +23,8 @@ namespace SyncBlackDuck.Views.AdminViews
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            this.dataGrid.ResetSwipeOffset();
+
         }
     }
 }

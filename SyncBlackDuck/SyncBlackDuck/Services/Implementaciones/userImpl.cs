@@ -3,7 +3,6 @@ using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace SyncBlackDuck.Services.Implementaciones
 {
@@ -15,8 +14,6 @@ namespace SyncBlackDuck.Services.Implementaciones
         {
 
         }
-
-        
 
         public bool eliminar(User item)
         {
@@ -46,13 +43,14 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("INSERT INTO user (User_id, User_name, User_password, User_time, User_telefono, User_rol) VALUES (@idUser, @userName, @userPassword, @userTime, @userTelefono, @userRol)", mysql);
+                MySqlCommand command = new MySqlCommand("INSERT INTO user (User_id, User_name, User_password, User_time, User_telefono, User_rol, User_Estado) VALUES (@idUser, @userName, @userPassword, @userTime, @userTelefono, @userRol, @userEstado)", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.Parameters.AddWithValue("@userName", item.User_name);
                 command.Parameters.AddWithValue("@userPassword", item.User_password);
                 command.Parameters.AddWithValue("@userTime", item.User_time);
                 command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
+                command.Parameters.AddWithValue("@userEstado", "Activo");
                 command.ExecuteNonQuery();
                 conn.Disconnect();
 
@@ -72,12 +70,13 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("INSERT INTO user (User_name, User_password, User_time, User_telefono, User_rol) VALUES (@userName, @userPassword, @userTime, @userTelefono, @userRol)", mysql);
+                MySqlCommand command = new MySqlCommand("INSERT INTO user (User_name, User_password, User_time, User_telefono, User_rol, User_estado) VALUES (@userName, @userPassword, @userTime, @userTelefono, @userRol, @userEstado)", mysql);
                 command.Parameters.AddWithValue("@userName", item.User_name);
                 command.Parameters.AddWithValue("@userPassword", item.User_password);
                 command.Parameters.AddWithValue("@userTime", DateTime.Now);
                 command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
                 command.Parameters.AddWithValue("@userRol", "cliente");
+                command.Parameters.AddWithValue("@userEstado", "Activo");
                 command.ExecuteNonQuery();
                 conn.Disconnect();
 
@@ -97,12 +96,13 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("INSERT INTO user (User_name, User_password, User_time, User_telefono, User_rol) VALUES (@userName, @userPassword, @userTime, @userTelefono, @userRol)", mysql);
+                MySqlCommand command = new MySqlCommand("INSERT INTO user (User_name, User_password, User_time, User_telefono, User_rol, User_estado) VALUES (@userName, @userPassword, @userTime, @userTelefono, @userRol, @userEstado)", mysql);
                 command.Parameters.AddWithValue("@userName", item.User_name);
                 command.Parameters.AddWithValue("@userPassword", item.User_password);
                 command.Parameters.AddWithValue("@userTime", DateTime.Now);
                 command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
+                command.Parameters.AddWithValue("@userEstado", "Activo");
                 command.ExecuteNonQuery();
                 conn.Disconnect();
 
@@ -123,13 +123,14 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("UPDATE user SET User_name = @userName, User_password = @userPassword, User_time = @userTime, User_telefono = @userTelefono, User_rol = @userRol WHERE user_id = @idUser", mysql);
+                MySqlCommand command = new MySqlCommand("UPDATE user SET User_name = @userName, User_password = @userPassword, User_time = @userTime, User_telefono = @userTelefono, User_rol = @userRol, User_estado = @userEstado WHERE user_id = @idUser", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.Parameters.AddWithValue("@userName", item.User_name);
                 command.Parameters.AddWithValue("@userPassword", item.User_password);
                 command.Parameters.AddWithValue("@userTime", item.User_time);
                 command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
                 command.Parameters.AddWithValue("@userRol", item.User_rol);
+                command.Parameters.AddWithValue("@userEstado", item.User_estado);
                 command.ExecuteNonQuery();
                 conn.Disconnect();
                 return true;
@@ -162,7 +163,8 @@ namespace SyncBlackDuck.Services.Implementaciones
                         User_name = reader.GetString(3),
                         User_password = reader.GetString(4),
                         User_time = reader.GetDateTime(5),
-                        User_rol = reader.GetString(6)
+                        User_rol = reader.GetString(6),
+                        User_estado = reader.GetString(7)
                     };
                     list.Add(user);
                 }
@@ -195,7 +197,8 @@ namespace SyncBlackDuck.Services.Implementaciones
                         User_name = reader.GetString(2),
                         User_password = reader.GetString(3),
                         User_time = reader.GetDateTime(4),
-                        User_rol = reader.GetString(5)
+                        User_rol = reader.GetString(5),
+                        User_estado = reader.GetString(6)
                     };
                     list.Add(user);
                 }
@@ -228,7 +231,8 @@ namespace SyncBlackDuck.Services.Implementaciones
                         User_name = reader.GetString(2),
                         User_password = reader.GetString(3),
                         User_time = reader.GetDateTime(4),
-                        User_rol = reader.GetString(5)
+                        User_rol = reader.GetString(5),
+                        User_estado = reader.GetString(6)
                     };
                     list.Add(user);
                 }

@@ -183,7 +183,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 return myView;
             });
 
-        public void LoadPopUpAgregar()
+        public Task LoadPopUpAgregar()
         {
             try
             {
@@ -230,6 +230,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 var TelefonoInput = new SfNumericTextBox()
                 {
                     AllowDefaultDecimalDigits = false,
+                    EnableGroupSeparator = false,
+                    MaximumNumberDecimalDigits = 0,
                     AllowNull = true,
                     TextColor = Color.White,
                     FontSize = 12,
@@ -355,14 +357,16 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     this.popupLayout.Show();
                 }
 
+                return Task.CompletedTask;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                return Task.CompletedTask;
             }
         }
 
-        public void LoadPopUpEliminar()
+        public Task LoadPopUpEliminar()
         {
             try
             {
@@ -428,11 +432,12 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     this.popupLayout.IsOpen = true;
                     this.popupLayout.Show();
                 }
-
+                return Task.CompletedTask;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                return Task.CompletedTask;
             }
         }
 
@@ -548,11 +553,12 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                object value = ((SfNumericTextBox)sender).Value;
+                object value = ((SfNumericTextBox)sender).Value.ToString();
                 if (!value.Equals(null) || !value.Equals(""))
                 {
                     Console.WriteLine("PasswordInput_Completed: " + value);
-                    this.NewTelefono = (int)value;
+                    int Telefono = Convert.ToInt32(value);
+                    this.NewTelefono = Telefono;
                     this.UserTelefono = true;
                 }
             }
@@ -637,7 +643,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     {
                         User_name = NewUsername,
                         User_password = NewPassword,
-                        User_telefono = NewTelefono
+                        User_telefono = NewTelefono,
+                        User_estado = "Activo"
                     };
 
                     bool Agregado = userController.InsertarNuevoC(NuevoUsuario);

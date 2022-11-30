@@ -9,13 +9,13 @@
     <StackLayout BackgroundColor="#283149">
 
         <StackLayout Margin="50">
-            <Label
+            <syncfusion:SfLabel
                 FontSize="20"
                 HorizontalTextAlignment="Center"
                 TextColor="#f5fbff"
                 VerticalTextAlignment="Center"
                 Text="Gestion de Pagos">
-            </Label>
+            </syncfusion:SfLabel>
         </StackLayout>
 
         <StackLayout Margin="0,0,0,0">
@@ -41,7 +41,7 @@
                 <syncfusion:SfDataGrid.Columns>
                     
                     <syncfusion:GridTextColumn AllowEditing="False" HeaderText="Id Pago" MappingName="Pagos_id" />
-                    <syncfusion:GridDateTimeColumn AllowEditing="False"  HeaderText="Fecha de Corte" MappingName="Pagos_fecha" />
+                    <syncfusion:GridDateTimeColumn AllowEditing="False"  HeaderText="Fecha de Corte" MappingName="Pagos_fecha" Format="M/yyyy" />
                     <syncfusion:GridTextColumn HeaderText="Estado" MappingName="Pagos_estado"/>
 
                 </syncfusion:SfDataGrid.Columns>

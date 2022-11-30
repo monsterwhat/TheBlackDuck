@@ -47,6 +47,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             datagrid.SwipeStarted += DataGrid_SwipeStarted;
             datagrid.PullToRefreshCommand = Recargar;
             datagrid.RightSwipeTemplate = RightSwipeTemplate();
+            datagrid.ResetSwipeOffset();
         }
 
         #region CellListeners

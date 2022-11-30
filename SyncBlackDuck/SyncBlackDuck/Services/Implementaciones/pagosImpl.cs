@@ -22,7 +22,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'cliente' AND user_estado = 1", mysql);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'cliente' AND user_estado = 'Activo'", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 List<User> list = new List<User>();
                 while (reader.Read())

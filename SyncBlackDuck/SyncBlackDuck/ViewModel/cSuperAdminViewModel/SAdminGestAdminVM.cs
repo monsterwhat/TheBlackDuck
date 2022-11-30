@@ -39,7 +39,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         public bool UserTelefono = false;
         public bool userRol = false;
         public bool CeldaSeleccionada = false;
-
         private string NewUsername;
         private string NewPassword;
         private int NewTelefono;
@@ -160,167 +159,171 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                 return myView;
             });
 
-        public void LoadPopUpAgregar()
+        public Task LoadPopUpAgregar()
         {
-            this.UserInput = false;
-            this.UserTelefono = false;
-            this.UserPassword = false;
-            this.userRol = false;
-            this.NewUsername = null;
-            this.NewPassword = null;
-            this.NewTelefono = 0;
-            this.NewRol = null;
-            List<string> opciones = new List<string>();
-            opciones.Add("admin");
-            opciones.Add("cliente");
-
-            this.popupLayout.PopupView.ShowFooter = false;
-            this.popupLayout.PopupView.ShowHeader = false;
-            this.popupLayout.PopupView.HeightRequest = 470;
-            this.popupLayout.PopupView.ShowCloseButton = false;
-            this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnTop;
-
-            #region Inputs
-
-            var UserInput = new Entry()
+            try
             {
-                TextColor = Color.White,
-                FontSize = 12,
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center,
-                PlaceholderColor = Color.Gray,
-                Placeholder = "Nombre de Usuario",
-                Text = "",
-                BindingContext = this
-            };
+                this.UserInput = false;
+                this.UserTelefono = false;
+                this.UserPassword = false;
+                this.userRol = false;
+                this.NewUsername = null;
+                this.NewPassword = null;
+                this.NewTelefono = 0;
+                this.NewRol = null;
+                List<string> opciones = new List<string>();
+                opciones.Add("admin");
+                opciones.Add("cliente");
 
-            var PasswordInput = new Entry()
-            {
-                TextColor = Color.White,
-                FontSize = 12,
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center,
-                PlaceholderColor = Color.Gray,
-                Placeholder = "Password",
-                Text = "",
-                IsPassword = true,
-                BindingContext = this
-            };
+                this.popupLayout.PopupView.ShowFooter = false;
+                this.popupLayout.PopupView.ShowHeader = false;
+                this.popupLayout.PopupView.HeightRequest = 470;
+                this.popupLayout.PopupView.ShowCloseButton = false;
+                this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnTop;
 
-            var TelefonoInput = new SfNumericTextBox()
-            {
-                AllowDefaultDecimalDigits = false,
-                AllowNull = true,
-                TextColor = Color.White,
-                FontSize = 12,
-                BindingContext = this
-            };
+                #region Inputs
 
-            var RolInput = new SfComboBox()
-            {
-                TextColor = Color.White,
-                Text = "",
-                SelectedItem = SelectedBoxItem,
-                ComboBoxSource = opciones,
-                BindingContext = this
-            };
-
-            #endregion Inputs
-
-            #region Events
-
-            UserInput.Completed += UserInput_Completed;
-            UserInput.Unfocused += UserInput_Completed;
-            PasswordInput.Completed += PasswordInput_Completed;
-            PasswordInput.Unfocused += PasswordInput_Completed;
-            TelefonoInput.Completed += TelefonoInput_Completed;
-            TelefonoInput.Unfocused += TelefonoInput_Completed;
-            RolInput.SelectionChanged += RolInput_Completed;
-            RolInput.Unfocused += RolInput_Completed;
-
-            #endregion Events
-
-            #region Containers
-
-            var UserName = new SfTextInputLayout()
-            {
-                ContainerType = ContainerType.Outlined,
-                Hint = "Nombre de Usuario",
-                ErrorText = "El nombre de usuario no puede estar vacio",
-                ErrorColor = Color.FromHex("#B00020"),
-                FocusedColor = Color.FromHex("#00afb2"),
-                UnfocusedColor = Color.FromHex("#C9D6DF"),
-                Margin = new Thickness(5, 5, 20, 5),
-                InputView = UserInput,
-                LeadingView = new Image()
+                var UserInput = new Entry()
                 {
-                    Source = "https://cdn-icons-png.flaticon.com/512/747/747545.png",
-                    HeightRequest = 20
-                },
-            };
+                    TextColor = Color.White,
+                    FontSize = 12,
+                    HorizontalTextAlignment = TextAlignment.Center,
+                    VerticalTextAlignment = TextAlignment.Center,
+                    PlaceholderColor = Color.Gray,
+                    Placeholder = "Nombre de Usuario",
+                    Text = "",
+                    BindingContext = this
+                };
 
-            var UserPassword = new SfTextInputLayout()
-            {
-                ContainerType = ContainerType.Outlined,
-                Hint = "Password del Usuario",
-                ErrorText = "El Password no puede estar vacio",
-                ErrorColor = Color.FromHex("#B00020"),
-                UnfocusedColor = Color.FromHex("#C9D6DF"),
-                FocusedColor = Color.FromHex("#00afb2"),
-                Margin = new Thickness(5, 5, 20, 5),
-                InputView = PasswordInput,
-                LeadingView = new Image()
+                var PasswordInput = new Entry()
                 {
-                    Source = "https://cdn-icons-png.flaticon.com/512/4686/4686696.png",
-                    HeightRequest = 20
-                }
-            };
+                    TextColor = Color.White,
+                    FontSize = 12,
+                    HorizontalTextAlignment = TextAlignment.Center,
+                    VerticalTextAlignment = TextAlignment.Center,
+                    PlaceholderColor = Color.Gray,
+                    Placeholder = "Password",
+                    Text = "",
+                    IsPassword = true,
+                    BindingContext = this
+                };
 
-            var UserCell = new SfTextInputLayout()
-            {
-                ContainerType = ContainerType.Outlined,
-                Hint = "Telefono del Usuario",
-                ErrorText = "El Telefono del usuario no puede estar vacio",
-                ErrorColor = Color.FromHex("#B00020"),
-                FocusedColor = Color.FromHex("#00afb2"),
-                UnfocusedColor = Color.FromHex("#C9D6DF"),
-                Margin = new Thickness(5, 5, 20, 5),
-                InputView = TelefonoInput,
-                LeadingView = new Image()
+                var TelefonoInput = new SfNumericTextBox()
                 {
-                    Source = "https://cdn-icons-png.flaticon.com/512/4504/4504935.png",
-                    HeightRequest = 20
-                }
-            };
+                    AllowDefaultDecimalDigits = false,
+                    EnableGroupSeparator = false,
+                    MaximumNumberDecimalDigits = 0,
+                    AllowNull = true,
+                    TextColor = Color.White,
+                    FontSize = 12,
+                    BindingContext = this
+                };
 
-            var UserRol = new SfTextInputLayout()
-            {
-                ContainerType = ContainerType.Outlined,
-                Hint = "Rol del Usuario",
-                ErrorText = "El Rol del usuario no puede estar vacio",
-                ErrorColor = Color.FromHex("#B00020"),
-                FocusedColor = Color.FromHex("#00afb2"),
-                UnfocusedColor = Color.FromHex("#C9D6DF"),
-                Margin = new Thickness(5, 5, 20, 0),
-                InputView = RolInput,
-                LeadingView = new Image()
+                var RolInput = new SfComboBox()
                 {
-                    Source = "https://cdn-icons-png.flaticon.com/512/1570/1570287.png",
-                    HeightRequest = 20
-                }
-            };
+                    TextColor = Color.White,
+                    Text = "",
+                    SelectedItem = SelectedBoxItem,
+                    ComboBoxSource = opciones,
+                    BindingContext = this
+                };
 
-            #endregion Containers
+                #endregion Inputs
 
-            #region Body
+                #region Events
 
-            var stackLayout = new DataTemplate(() =>
-            {
-                var stack = new StackLayout()
+                UserInput.Completed += UserInput_Completed;
+                UserInput.Unfocused += UserInput_Completed;
+                PasswordInput.Completed += PasswordInput_Completed;
+                PasswordInput.Unfocused += PasswordInput_Completed;
+                TelefonoInput.Completed += TelefonoInput_Completed;
+                TelefonoInput.Unfocused += TelefonoInput_Completed;
+                RolInput.SelectionChanged += RolInput_Completed;
+                RolInput.Unfocused += RolInput_Completed;
+
+                #endregion Events
+
+                #region Containers
+
+                var UserName = new SfTextInputLayout()
                 {
-                    BackgroundColor = Color.FromHex("#283149"),
-                    Margin = new Thickness(10),
-                    Children =
+                    ContainerType = ContainerType.Outlined,
+                    Hint = "Nombre de Usuario",
+                    ErrorText = "El nombre de usuario no puede estar vacio",
+                    ErrorColor = Color.FromHex("#B00020"),
+                    FocusedColor = Color.FromHex("#00afb2"),
+                    UnfocusedColor = Color.FromHex("#C9D6DF"),
+                    Margin = new Thickness(5, 5, 20, 5),
+                    InputView = UserInput,
+                    LeadingView = new Image()
+                    {
+                        Source = "https://cdn-icons-png.flaticon.com/512/747/747545.png",
+                        HeightRequest = 20
+                    },
+                };
+
+                var UserPassword = new SfTextInputLayout()
+                {
+                    ContainerType = ContainerType.Outlined,
+                    Hint = "Password del Usuario",
+                    ErrorText = "El Password no puede estar vacio",
+                    ErrorColor = Color.FromHex("#B00020"),
+                    UnfocusedColor = Color.FromHex("#C9D6DF"),
+                    FocusedColor = Color.FromHex("#00afb2"),
+                    Margin = new Thickness(5, 5, 20, 5),
+                    InputView = PasswordInput,
+                    LeadingView = new Image()
+                    {
+                        Source = "https://cdn-icons-png.flaticon.com/512/4686/4686696.png",
+                        HeightRequest = 20
+                    }
+                };
+
+                var UserCell = new SfTextInputLayout()
+                {
+                    ContainerType = ContainerType.Outlined,
+                    Hint = "Telefono del Usuario",
+                    ErrorText = "El Telefono del usuario no puede estar vacio",
+                    ErrorColor = Color.FromHex("#B00020"),
+                    FocusedColor = Color.FromHex("#00afb2"),
+                    UnfocusedColor = Color.FromHex("#C9D6DF"),
+                    Margin = new Thickness(5, 5, 20, 5),
+                    InputView = TelefonoInput,
+                    LeadingView = new Image()
+                    {
+                        Source = "https://cdn-icons-png.flaticon.com/512/4504/4504935.png",
+                        HeightRequest = 20
+                    }
+                };
+
+                var UserRol = new SfTextInputLayout()
+                {
+                    ContainerType = ContainerType.Outlined,
+                    Hint = "Rol del Usuario",
+                    ErrorText = "El Rol del usuario no puede estar vacio",
+                    ErrorColor = Color.FromHex("#B00020"),
+                    FocusedColor = Color.FromHex("#00afb2"),
+                    UnfocusedColor = Color.FromHex("#C9D6DF"),
+                    Margin = new Thickness(5, 5, 20, 0),
+                    InputView = RolInput,
+                    LeadingView = new Image()
+                    {
+                        Source = "https://cdn-icons-png.flaticon.com/512/1570/1570287.png",
+                        HeightRequest = 20
+                    }
+                };
+
+                #endregion Containers
+
+                #region Body
+
+                var stackLayout = new DataTemplate(() =>
+                {
+                    var stack = new StackLayout()
+                    {
+                        BackgroundColor = Color.FromHex("#283149"),
+                        Margin = new Thickness(10),
+                        Children =
                     {
                         new Label()
                         {
@@ -349,22 +352,30 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                             Command=AgregarUsuarioC()
                         }
                     }
-                };
-                return stack;
-            });
+                    };
+                    return stack;
+                });
 
-            this.popupLayout.PopupView.ContentTemplate = stackLayout;
+                this.popupLayout.PopupView.ContentTemplate = stackLayout;
 
-            #endregion Body
+                #endregion Body
 
-            if (!this.popupLayout.IsOpen)
+                if (!this.popupLayout.IsOpen)
+                {
+                    this.popupLayout.IsOpen = true;
+                    this.popupLayout.Show();
+                }
+
+                return Task.CompletedTask;
+            }
+            catch (Exception e)
             {
-                this.popupLayout.IsOpen = true;
-                this.popupLayout.Show();
+                Console.WriteLine(e);
+                return Task.CompletedTask;
             }
 
         }
-        public void LoadPopUpEliminar()
+        public Task LoadPopUpEliminar()
         {
             try
             {
@@ -430,10 +441,12 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                     this.popupLayout.IsOpen = true;
                     this.popupLayout.Show();
                 }
+                return Task.CompletedTask;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                return Task.CompletedTask;
             }
         }
 
@@ -531,11 +544,12 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             try
             {
-                object value = ((SfNumericTextBox)sender).Value;
+                object value = ((SfNumericTextBox)sender).Value.ToString();
                 if (!value.Equals(null) || !value.Equals(""))
                 {
                     Console.WriteLine("PasswordInput_Completed: " + value);
-                    this.NewTelefono = (int)value;
+                    int Telefono = Convert.ToInt32(value);
+                    this.NewTelefono = Telefono;
                     this.UserTelefono = true;
                 }
             }
@@ -591,7 +605,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             LoadPopUpAgregar();
         }
-
         private void PerformBorrarUsuario()
         {
             bool Eliminado = userController.eliminar(SwipedUser);
@@ -603,7 +616,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             CargarAdministradores();
         }
-
         private void Cancelar()
         {
             this.popupLayout.IsOpen = false;
@@ -626,7 +638,8 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                         User_name = NewUsername,
                         User_password = NewPassword,
                         User_telefono = NewTelefono,
-                        User_rol = NewRol
+                        User_rol = NewRol,
+                        User_estado = "Activo"
                     };
 
                     bool Agregado = userController.InsertarNuevoAD(NuevoUsuario);

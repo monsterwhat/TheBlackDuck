@@ -8,12 +8,12 @@ namespace SyncBlackDuck.Model.Objetos
     {
 
         private int user_id;
+        private int user_telefono;
         private string user_name;
         private string user_password;
         private DateTime user_time;
-        private int user_telefono;
         private string user_rol;
-        private Boolean user_estado;
+        private string user_estado;
 
         public new event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,7 +26,7 @@ namespace SyncBlackDuck.Model.Objetos
         {
         }
 
-        public User(int user_id, string user_name, string user_password, DateTime user_time, int user_telefono, string user_rol, Boolean user_estado)
+        public User(int user_id, string user_name, string user_password, DateTime user_time, int user_telefono, string user_rol, string user_estado)
         {
             this.user_id = user_id;
             this.user_name = user_name;
@@ -46,13 +46,13 @@ namespace SyncBlackDuck.Model.Objetos
         }
 
         // Constructor para View Admin => users (todos)
-        public User(int user_id, string user_name, int user_telefono, string user_rol)
+        public User(int user_id, string user_name, string user_estado, int user_telefono, string user_rol)
         {
             this.user_id = user_id;
             this.user_name = user_name;
             this.user_telefono = user_telefono;
             this.user_rol = user_rol;
-
+            this.user_estado = user_estado;
         }
 
         public int User_id
@@ -125,7 +125,7 @@ namespace SyncBlackDuck.Model.Objetos
             }
         }
 
-        public Boolean User_estado
+        public string User_estado
         {
             get { return user_estado; }
             set
