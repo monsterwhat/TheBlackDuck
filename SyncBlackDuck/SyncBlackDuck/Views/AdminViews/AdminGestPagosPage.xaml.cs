@@ -12,7 +12,8 @@ namespace SyncBlackDuck.Views.AdminViews
 		public AdminGestPagosPage (int swipedUserID)
 		{
 			InitializeComponent ();
-            BindingContext = new AdminPagosGestVM(Navigation, this.dataGrid);
+            BindingContext = new AdminPagosGestVM(Navigation, this.dataGrid, swipedUserID);
+            
         }
         protected override void OnDisappearing()
         {

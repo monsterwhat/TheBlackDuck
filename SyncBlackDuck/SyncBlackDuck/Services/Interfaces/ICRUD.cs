@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SyncBlackDuck.Model.Objetos;
+using System;
 using System.Collections.Generic;
 
 namespace SyncBlackDuck.Services.Interfaces
@@ -9,6 +10,5 @@ namespace SyncBlackDuck.Services.Interfaces
         public Boolean modificar(T item);
         public Boolean eliminar(T item);
         public List<T> verTodo();
-
     }
 }

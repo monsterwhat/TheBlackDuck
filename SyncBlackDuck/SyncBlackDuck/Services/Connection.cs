@@ -28,6 +28,7 @@ namespace SyncBlackDuck.Services
             try
             {
                 connection.Close();
+                connection = null;
             }
             catch
             { // Metodo para devolver el stacktrace en caso de un error
@@ -41,8 +42,16 @@ namespace SyncBlackDuck.Services
         {
             if (connection == null)
             {
+                connection = new MySqlConnection(connectionString);
                 connection.Open();
             }
+            else
+            {
+                Disconnect();
+                connection = new MySqlConnection(connectionString);
+                connection.Open();
+            }
+
             return connection;
         }
 

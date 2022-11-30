@@ -15,7 +15,7 @@ namespace SyncBlackDuck.Model.Objetos
         private string user_rol;
         private Boolean user_estado;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public new event PropertyChangedEventHandler PropertyChanged;
 
         public new void RaisePropertyChanged([CallerMemberName] string property = null)
         {

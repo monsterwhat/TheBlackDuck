@@ -3,6 +3,7 @@ using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SyncBlackDuck.Services.Implementaciones
 {
@@ -14,6 +15,8 @@ namespace SyncBlackDuck.Services.Implementaciones
         {
 
         }
+
+        
 
         public bool eliminar(User item)
         {

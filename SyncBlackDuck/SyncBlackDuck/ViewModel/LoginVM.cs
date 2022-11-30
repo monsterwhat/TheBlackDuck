@@ -22,7 +22,7 @@ namespace SyncBlackDuck.ViewModel
         private User loggedInUser;
         private string userId;
         private LoginService loginController = new LoginService();
-        public INavigation Navigation;
+        public new INavigation Navigation;
 
         //Getters y setters para los bindings de la vista
         public string Telefono { get => telefono; set => telefono = value; }

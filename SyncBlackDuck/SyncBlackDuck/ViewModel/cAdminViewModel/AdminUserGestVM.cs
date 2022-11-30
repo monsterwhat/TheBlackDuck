@@ -39,11 +39,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public bool userRol = false;
         public bool CeldaSeleccionada = false;
         public int swipedUserID;
-
         private string NewUsername;
         private string NewPassword;
         private int NewTelefono;
-        private string NewRol;
         public string SelectedBoxItem;
 
         public AdminUserGestVM(INavigation navigation, SfDataGrid datagrid)

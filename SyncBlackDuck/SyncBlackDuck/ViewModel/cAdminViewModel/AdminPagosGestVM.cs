@@ -18,7 +18,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
     {
         private List<Pagos> listaPagos = new List<Pagos>();
         private PagosImpl pagosController = new PagosImpl();
-        private AdminUserGestVM admUser;
         public int Row;
         public Pagos SwipedPago = new Model.Objetos.User();
         public string Dato;
@@ -30,14 +29,15 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public DataTemplate footerTemplateView;
         public Label headerContent;
         public Label popupContent;
+        public int swipedUserId = new int();
 
-
-        public AdminPagosGestVM(INavigation navigation, SfDataGrid datagrid)
+        public AdminPagosGestVM(INavigation navigation, SfDataGrid datagrid, int swipedUser)
         {
             Navigation = navigation;
             pagosInfo = new ObservableCollection<Pagos>();
             selectedItem = new Object();
             popupLayout = new SfPopupLayout();
+            swipedUserId = swipedUser;
             CargarPagos();
             datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
             datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
@@ -318,7 +318,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 listaPagos.Clear();
                 pagosInfo.Clear();
-                listaPagos = pagosController.VerClienteSeleccionado(admUser.swipedUserID);
+                listaPagos = pagosController.VerClienteSeleccionado(swipedUserId);
                 for (int i = 0; i < listaPagos.Count; i++)
                 {
                     pagosInfo.Add(listaPagos.ElementAt(i));
