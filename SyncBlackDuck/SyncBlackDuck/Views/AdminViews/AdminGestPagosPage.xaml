@@ -40,8 +40,9 @@
                 VerticalOptions="Fill">
                 <syncfusion:SfDataGrid.Columns>
                     
-                    <syncfusion:GridTextColumn AllowEditing="False" HeaderText="Id Pago" MappingName="Pagos_id" />
-                    <syncfusion:GridDateTimeColumn AllowEditing="False"  HeaderText="Fecha de Corte" MappingName="Pagos_fecha" Format="M/yyyy" />
+                    <syncfusion:GridTextColumn AllowEditing="False" HeaderText="ID Pago" MappingName="Pagos_id" />
+                    <syncfusion:GridTextColumn AllowEditing="False" HeaderText="Mes de Cobro" MappingName="Pagos_mes_cobro"/>
+                    <syncfusion:GridDateTimeColumn AllowEditing="False" HeaderText="Fecha pago realizado" MappingName="Pagos_fecha_pago" Format="dd/M/yyyy" />
                     <syncfusion:GridTextColumn HeaderText="Estado" MappingName="Pagos_estado"/>
 
                 </syncfusion:SfDataGrid.Columns>

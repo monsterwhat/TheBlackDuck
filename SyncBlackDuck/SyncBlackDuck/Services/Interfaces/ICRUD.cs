@@ -1,14 +1,13 @@
-﻿using SyncBlackDuck.Model.Objetos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace SyncBlackDuck.Services.Interfaces
 {
     public interface ICRUD<T>
     {
-        public Boolean insertar(T item);
-        public Boolean modificar(T item);
-        public Boolean eliminar(T item);
-        public List<T> verTodo();
+        public Boolean Insertar(T item);
+        public Boolean Modificar(T item);
+        public Boolean Eliminar(T item);
+        public List<T> VerTodo();
     }
 }

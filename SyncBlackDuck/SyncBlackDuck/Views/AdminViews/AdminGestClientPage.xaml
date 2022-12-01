@@ -29,7 +29,7 @@
                 ColumnSizer="Star"
                 EditTapAction="OnDoubleTap"
                 ImeOptions="NoExtractUi"
-                ItemsSource="{Binding usuariosInfoCollection}"
+                ItemsSource="{Binding UsuariosInfoCollection}"
                 LiveDataUpdateMode="Default"
                 LostFocusBehavior="EndEditCurrentCell"
                 NavigationMode="Cell"

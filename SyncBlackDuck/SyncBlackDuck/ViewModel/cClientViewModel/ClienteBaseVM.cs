@@ -1,5 +1,4 @@
-﻿using SyncBlackDuck.Model.Objetos;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 

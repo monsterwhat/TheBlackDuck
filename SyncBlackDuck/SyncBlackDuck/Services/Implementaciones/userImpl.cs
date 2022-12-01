@@ -15,12 +15,12 @@ namespace SyncBlackDuck.Services.Implementaciones
 
         }
 
-        public bool eliminar(User item)
+        public bool Eliminar(User item)
         {
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("DELETE FROM user WHERE User_id = @idUser", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.ExecuteNonQuery();
@@ -37,12 +37,12 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Inserta un usuario a la tabla user
-        public bool insertar(User item)
+        public bool Insertar(User item)
         {
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("INSERT INTO user (User_id, User_name, User_password, User_time, User_telefono, User_rol, User_Estado) VALUES (@idUser, @userName, @userPassword, @userTime, @userTelefono, @userRol, @userEstado)", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.Parameters.AddWithValue("@userName", item.User_name);
@@ -69,7 +69,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("INSERT INTO user (User_name, User_password, User_time, User_telefono, User_rol, User_estado) VALUES (@userName, @userPassword, @userTime, @userTelefono, @userRol, @userEstado)", mysql);
                 command.Parameters.AddWithValue("@userName", item.User_name);
                 command.Parameters.AddWithValue("@userPassword", item.User_password);
@@ -95,7 +95,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("INSERT INTO user (User_name, User_password, User_time, User_telefono, User_rol, User_estado) VALUES (@userName, @userPassword, @userTime, @userTelefono, @userRol, @userEstado)", mysql);
                 command.Parameters.AddWithValue("@userName", item.User_name);
                 command.Parameters.AddWithValue("@userPassword", item.User_password);
@@ -117,12 +117,12 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Modifica un usuario existente.
-        public bool modificar(User item)
+        public bool Modificar(User item)
         {
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("UPDATE user SET User_name = @userName, User_password = @userPassword, User_time = @userTime, User_telefono = @userTelefono, User_rol = @userRol, User_estado = @userEstado WHERE user_id = @idUser", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 command.Parameters.AddWithValue("@userName", item.User_name);
@@ -145,12 +145,12 @@ namespace SyncBlackDuck.Services.Implementaciones
         }
 
         //Carga todos los usuarios de la tabla user
-        public List<User> verTodo()
+        public List<User> VerTodo()
         {
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 List<User> list = new List<User>();
@@ -184,7 +184,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'cliente'", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 List<User> list = new List<User>();
@@ -218,7 +218,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'admin'", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 List<User> list = new List<User>();
@@ -252,8 +252,8 @@ namespace SyncBlackDuck.Services.Implementaciones
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
-                MySqlCommand command = new MySqlCommand("SELECT u.user_name, p.pagos_fecha, p.pagos_estado FROM user u, pagos p WHERE u.user_telefono = @tel AND u.user_id = p.user_id;", mysql);
+                MySqlConnection mysql = conn.GetConnection();
+                MySqlCommand command = new MySqlCommand("SELECT u.user_name, p.pagos_mes_cobro, p.pagos_estado FROM user u, pagos p WHERE u.user_telefono = @tel AND u.user_id = p.user_id;", mysql);
                 command.Parameters.AddWithValue("@tel", cel);
                 Console.WriteLine(command);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -263,8 +263,8 @@ namespace SyncBlackDuck.Services.Implementaciones
                     User user = new User();
                     {
                         user.User_name = reader.GetString(0);
-                        user.Pagos_fecha = reader.GetDateTime(1);
-                        user.Pagos_estado = reader.GetInt32(2);
+                        user.Pagos_mes_cobro = reader.GetString(1);
+                        user.Pagos_estado = reader.GetString(2);
                     };
                     list.Add(user);
                 }

@@ -14,9 +14,8 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
     public partial class ClientGestVM : ClienteBaseVM
     {
-        private User usuarioSeleccionado = new User();
         private List<User> listaUsuarios = new List<User>();
-        private UserImpl userController = new UserImpl();
+        private readonly UserImpl userController = new UserImpl();
         public int row;
         public string Dato;
         public int UserID;
@@ -26,7 +25,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             Navigation = navigation;
             usuariosInfo = new ObservableCollection<User>();
             selectedItem = new Object();
-            CargarClientes();
+            CargarCliente();
             datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
             datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
         }
@@ -42,11 +41,10 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 
         public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
         {
-            bool Estado = false;
             if (args.OldValue != args.NewValue)
             {
                 User UsuarioSelecionado = usuariosInfo.ElementAt(row - 1);
-                Estado = userController.modificar(UsuarioSelecionado);
+                _ = userController.Modificar(UsuarioSelecionado);
             }
 
         }
@@ -57,7 +55,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         #region Listas
 
         private ObservableCollection<User> usuariosInfo;
-        public ObservableCollection<User> usuariosInfoCollection
+        public ObservableCollection<User> UsuariosInfoCollection
         {
             get { return usuariosInfo; }
             set
@@ -120,7 +118,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 
         #endregion Commands
         
-        private void CargarClientes()
+        private void CargarCliente()
         {
             try
             {

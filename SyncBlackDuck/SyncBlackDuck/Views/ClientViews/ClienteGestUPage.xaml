@@ -20,7 +20,7 @@
             <syncfusion:SfDataGrid x:Name="dataGrid" 
                                    ColumnSizer="Star"
                                    AllowSorting="True"
-                                   ItemsSource="{Binding usuariosInfoCollection}"
+                                   ItemsSource="{Binding UsuariosInfoCollection}"
                                    SelectedItem="{Binding SelectedItem}"
                                    AllowEditing="true"
                                    SelectionMode="Single"
@@ -35,8 +35,8 @@
                 
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Nombre de usuario" MappingName="User_name" />
-                    <syncfusion:GridTextColumn HeaderText="Fecha de pago" MappingName="Pagos_fecha" />
-                    <syncfusion:GridTextColumn HeaderText="Estado de pago" MappingName="Pagos_estado" />
+                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Fecha de Cobro" MappingName="Pagos_mes_cobro" />
+                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Estado de pago" MappingName="Pagos_estado" />
                     <!-- Aqui muestra 1 o 0 dependiendo del estado de pago, debe pasarse a "Pagado" o "Pendiente" -->
                     
                 </syncfusion:SfDataGrid.Columns>

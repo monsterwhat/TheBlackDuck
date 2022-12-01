@@ -1,13 +1,11 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
-using SyncBlackDuck.Views.AdminViews;
 using Syncfusion.SfDataGrid.XForms;
 using Syncfusion.XForms.PopupLayout;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -17,7 +15,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
     public partial class AdminPagosGestVM : AdminBaseVM
     {
         private List<Pagos> listaPagos = new List<Pagos>();
-        private PagosImpl pagosController = new PagosImpl();
+        private readonly PagosImpl pagosController = new PagosImpl();
         public int Row;
         public Pagos SwipedPago = new Model.Objetos.User();
         public string Dato;
@@ -55,10 +53,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
         {
             CeldaSeleccionada = true;
-            getDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
+            GetDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
         }
 
-        public void getDatosCelda(int row, string dato)
+        public void GetDatosCelda(int row, string dato)
         {
             Row = row;
             Dato = dato;
@@ -76,25 +74,26 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     //Usando mapping name se puede haccer
                     var ValorViejo = args.OldValue;
                     var ValorNuevo = args.NewValue;
-                    
+
                     if (!ValorNuevo.Equals(ValorViejo))
                     {
                         Pagos PagoSelecionado = pagosInfo.ElementAt(Row - 1);
                         switch (Tipo)
                         {
                             case "Pagos_estado":
-                                PagoSelecionado.Pagos_estado = (int)ValorNuevo;
+                                PagoSelecionado.Pagos_estado = (string)ValorNuevo;
                                 break;
                         }
 
-                        Estado = pagosController.modificar(PagoSelecionado);
+                        Estado = pagosController.Modificar(PagoSelecionado);
                         Console.WriteLine("Modificar " + Tipo + " -> Estado: " + Estado);
                     }
                 }
                 CeldaSeleccionada = false;
             }
-            catch (Exception e) {
-                Console.WriteLine(e); 
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 
@@ -152,25 +151,29 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 var headerTemplateView = new DataTemplate(() =>
                 {
-                    headerContent = new Label();
-                    headerContent.Text = "Confirmacion de Eliminacion";
-                    headerContent.FontAttributes = FontAttributes.Bold;
-                    headerContent.TextColor = Color.White;
-                    headerContent.BackgroundColor = Color.FromRgb(57, 62, 70);
-                    headerContent.FontSize = 16;
-                    headerContent.HorizontalTextAlignment = TextAlignment.Center;
-                    headerContent.VerticalTextAlignment = TextAlignment.Center;
+                    headerContent = new Label
+                    {
+                        Text = "Confirmacion de Eliminacion",
+                        FontAttributes = FontAttributes.Bold,
+                        TextColor = Color.White,
+                        BackgroundColor = Color.FromRgb(57, 62, 70),
+                        FontSize = 16,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center
+                    };
                     return headerContent;
                 });
 
                 var templateView = new DataTemplate(() =>
                 {
-                    popupContent = new Label();
-                    popupContent.Text = "Desea Eliminar al ID '" + SwipedPago.Pagos_id + "' ?";
-                    popupContent.TextColor = Color.Black;
-                    popupContent.BackgroundColor = Color.White;
-                    popupContent.HorizontalTextAlignment = TextAlignment.Center;
-                    popupContent.VerticalTextAlignment = TextAlignment.Center;
+                    popupContent = new Label
+                    {
+                        Text = "Desea Eliminar al ID '" + SwipedPago.Pagos_id + "' ?",
+                        TextColor = Color.Black,
+                        BackgroundColor = Color.White,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center
+                    };
                     return popupContent;
                 });
 
@@ -266,7 +269,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         // Path ICommands a Metodos
 
         public ICommand BackAdminMain => BackAdminMainP();
-        public ICommand BorrarPago => borrarPago ?? (borrarPago = new Command(() => BorrarPagoExecute()));
+        public ICommand BorrarPago => borrarPago ??= new Command(() => BorrarPagoExecute());
         public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
 
         // Metodos 
@@ -275,7 +278,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                bool Eliminado = pagosController.eliminar(SwipedPago);
+                bool Eliminado = pagosController.Eliminar(SwipedPago);
                 Console.WriteLine("Elimar pagoId: " + SwipedPago.Pagos_id + "Estado : " + Eliminado);
                 this.popupLayout.IsOpen = false;
                 this.popupLayout.Dismiss();

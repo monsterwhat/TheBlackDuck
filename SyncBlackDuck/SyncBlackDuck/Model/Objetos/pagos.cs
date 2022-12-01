@@ -1,5 +1,4 @@
-﻿using MySqlConnector;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -10,8 +9,9 @@ namespace SyncBlackDuck.Model.Objetos
 
         private int pagos_id;
         private int user_id;
-        private DateTime pagos_fecha;
-        private int pagos_estado;
+        private String pagos_mes_cobro;
+        private DateTime pagos_fecha_pago;
+        private string pagos_estado;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void RaisePropertyChanged([CallerMemberName] string property = null)
@@ -19,26 +19,28 @@ namespace SyncBlackDuck.Model.Objetos
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        public Pagos(int pagos_id,int user_id, DateTime pagos_fecha, int pagos_estado)
+        public Pagos() { }
+
+        // Constuctor para todos los objetos de pagos
+        public Pagos(int pagos_id,int user_id, String pagos_mes_cobro, DateTime pagos_fecha_pago, string pagos_estado)
         {
             this.pagos_id = pagos_id;
             this.user_id = user_id;
-            this.pagos_fecha = pagos_fecha;
+            this.pagos_mes_cobro = pagos_mes_cobro;
+            this.pagos_fecha_pago = pagos_fecha_pago;
             this.pagos_estado = pagos_estado;
         }
-        public Pagos(int pagos_id, DateTime pagos_fecha, int pagos_estado)
+
+        // Constructor para mostrar a cliente informacion de sus pagos => ClienteGestUPage
+        public Pagos(int pagos_id, String pagos_mes_cobro, string pagos_estado)
         {
             this.pagos_id = pagos_id;
-            this.pagos_fecha = pagos_fecha;
+            this.pagos_mes_cobro = pagos_mes_cobro;
             this.pagos_estado = pagos_estado;
         }
 
+        #region Getters & Setters
 
-        public Pagos()
-        {
-
-        }
-        
         public int Pagos_id
         {
             get { return pagos_id; }
@@ -65,20 +67,33 @@ namespace SyncBlackDuck.Model.Objetos
             }
         }
 
-        public DateTime Pagos_fecha
+        public String Pagos_mes_cobro
         {
-            get { return pagos_fecha; }
+            get { return pagos_mes_cobro; }
             set
             {
-                if (this.pagos_fecha != value)
+                if (this.pagos_mes_cobro != value)
                 {
-                    this.pagos_fecha = value;
+                    this.pagos_mes_cobro = value;
                 }
                 RaisePropertyChanged();
             }
         }
 
-        public int Pagos_estado
+        public DateTime Pagos_fecha_pago
+        {
+            get { return pagos_fecha_pago; }
+            set
+            {
+                if (this.pagos_fecha_pago != value)
+                {
+                    this.pagos_fecha_pago = value;
+                }
+                RaisePropertyChanged();
+            }
+        }
+
+        public string Pagos_estado
         {
             get { return pagos_estado; }
             set
@@ -90,5 +105,7 @@ namespace SyncBlackDuck.Model.Objetos
                 RaisePropertyChanged();
             }
         }
+
+        #endregion
     }
 }

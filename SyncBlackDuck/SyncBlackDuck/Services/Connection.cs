@@ -38,7 +38,7 @@ namespace SyncBlackDuck.Services
 
         }
 
-        public MySqlConnection getConnection()
+        public MySqlConnection GetConnection()
         {
             if (connection == null)
             {

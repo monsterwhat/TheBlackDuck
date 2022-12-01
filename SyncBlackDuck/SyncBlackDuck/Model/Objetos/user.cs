@@ -22,10 +22,9 @@ namespace SyncBlackDuck.Model.Objetos
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-        public User()
-        {
-        }
+        public User() { }
 
+        // Constructor para todos los objetos de user
         public User(int user_id, string user_name, string user_password, DateTime user_time, int user_telefono, string user_rol, string user_estado)
         {
             this.user_id = user_id;
@@ -37,15 +36,15 @@ namespace SyncBlackDuck.Model.Objetos
             this.user_estado = user_estado;
         }
 
-        // Constructor para View Cliente => user + pagos
-        public User(string user_name, DateTime pagos_fecha, int pagos_estado)
+        // Constructor para mostrar a cliente informacion de sus pagos => ClienteGestUPage
+        public User(string user_name, String pagos_mes_cobro, string pagos_estado)
         {
             this.user_name = user_name;
-            Pagos_fecha = pagos_fecha;
+            Pagos_mes_cobro = pagos_mes_cobro;
             Pagos_estado = pagos_estado;
         }
 
-        // Constructor para View Admin => users (todos)
+        // Constructor para mostrar al admin informacion de todos los clientes => AdminGestClientPage
         public User(int user_id, string user_name, string user_estado, int user_telefono, string user_rol)
         {
             this.user_id = user_id;
@@ -54,6 +53,8 @@ namespace SyncBlackDuck.Model.Objetos
             this.user_rol = user_rol;
             this.user_estado = user_estado;
         }
+
+        #region Getters & Setters
 
         public int User_id
         {
@@ -137,5 +138,6 @@ namespace SyncBlackDuck.Model.Objetos
                 RaisePropertyChanged();
             }
         }
+        #endregion
     }
 }

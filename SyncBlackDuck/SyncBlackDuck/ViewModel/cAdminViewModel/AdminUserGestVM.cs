@@ -20,7 +20,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
     public partial class AdminUserGestVM : AdminBaseVM
     {
         private List<User> listaUsuarios = new List<User>();
-        private UserImpl userController = new UserImpl();
+        private readonly UserImpl userController = new UserImpl();
         public User SwipedUser = new User();
         public int SelectedIndex;
         public SfDataGrid userGrid;
@@ -67,10 +67,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
         {
             CeldaSeleccionada = true;
-            getDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
+            GetDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
         }
 
-        public void getDatosCelda(int row, string dato)
+        public void GetDatosCelda(int row, string dato)
         {
             Row = row;
             Dato = dato;
@@ -108,7 +108,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                                 break;
                         }
 
-                        Estado = userController.modificar(UsuarioSelecionado);
+                        Estado = userController.Modificar(UsuarioSelecionado);
                         Console.WriteLine("Modificar " + Tipo + " -> Estado: " + Estado);
                     }
                 }
@@ -255,7 +255,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 var UserName = new SfTextInputLayout()
                 {
-                    ContainerType = ContainerType.Outlined,
+                    ContainerType = ContainerType.Filled,
                     Hint = "Nombre de Usuario",
                     ErrorText = "El nombre de usuario no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
@@ -272,9 +272,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 var UserPassword = new SfTextInputLayout()
                 {
-                    ContainerType = ContainerType.Outlined,
-                    Hint = "Password del Usuario",
-                    ErrorText = "El Password no puede estar vacio",
+                    ContainerType = ContainerType.Filled,
+                    Hint = "Contraseña del Usuario",
+                    ErrorText = "La contraseña no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
                     UnfocusedColor = Color.FromHex("#C9D6DF"),
                     FocusedColor = Color.FromHex("#00afb2"),
@@ -290,7 +290,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 var UserCell = new SfTextInputLayout()
                 {
-                    ContainerType = ContainerType.Outlined,
+                    ContainerType = ContainerType.Filled,
                     Hint = "Telefono del Usuario",
                     ErrorText = "El Telefono del usuario no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
@@ -453,10 +453,9 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 }
                 else if (args.SwipeDirection == Syncfusion.SfDataGrid.XForms.SwipeDirection.Right && fullswipe.Equals(200))
                 {
-                   
+
                     string swipedID = SwipedUser.User_id.ToString();
                     swipedUserID = int.Parse(swipedID);
-                    Console.WriteLine($"{swipedUserID}");
                     GestionPagos();
                 }
 
@@ -472,7 +471,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         #region Listas
 
         private ObservableCollection<User> usuariosInfo;
-        public ObservableCollection<User> usuariosInfoCollection
+        public ObservableCollection<User> UsuariosInfoCollection
         {
             get { return usuariosInfo; }
             set
@@ -548,7 +547,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
 
         }
-
         private void TelefonoInput_Completed(object sender, EventArgs e)
         {
             try
@@ -604,7 +602,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             try
             {
-                bool Eliminado = userController.eliminar(SwipedUser);
+                bool Eliminado = userController.Eliminar(SwipedUser);
                 Console.WriteLine("Elimar userId: " + SwipedUser.User_id + "Estado : " + Eliminado);
                 this.popupLayout.IsOpen = false;
                 this.popupLayout.Dismiss();

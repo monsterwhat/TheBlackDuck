@@ -109,7 +109,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                                 break;
                         }
 
-                        Estado = userController.modificar(UsuarioSelecionado);
+                        Estado = userController.Modificar(UsuarioSelecionado);
                         Console.WriteLine("Modificar " + Tipo + " -> Estado: " + Estado);
                     }
                 }
@@ -247,7 +247,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
                 var UserName = new SfTextInputLayout()
                 {
-                    ContainerType = ContainerType.Outlined,
+                    ContainerType = ContainerType.Filled,
                     Hint = "Nombre de Usuario",
                     ErrorText = "El nombre de usuario no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
@@ -264,9 +264,9 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
                 var UserPassword = new SfTextInputLayout()
                 {
-                    ContainerType = ContainerType.Outlined,
-                    Hint = "Password del Usuario",
-                    ErrorText = "El Password no puede estar vacio",
+                    ContainerType = ContainerType.Filled,
+                    Hint = "Contraseña del Usuario",
+                    ErrorText = "La contraseña no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
                     UnfocusedColor = Color.FromHex("#C9D6DF"),
                     FocusedColor = Color.FromHex("#00afb2"),
@@ -281,7 +281,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
                 var UserCell = new SfTextInputLayout()
                 {
-                    ContainerType = ContainerType.Outlined,
+                    ContainerType = ContainerType.Filled,
                     Hint = "Telefono del Usuario",
                     ErrorText = "El Telefono del usuario no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
@@ -298,7 +298,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
                 var UserRol = new SfTextInputLayout()
                 {
-                    ContainerType = ContainerType.Outlined,
+                    ContainerType = ContainerType.Filled,
                     Hint = "Rol del Usuario",
                     ErrorText = "El Rol del usuario no puede estar vacio",
                     ErrorColor = Color.FromHex("#B00020"),
@@ -607,7 +607,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         }
         private void PerformBorrarUsuario()
         {
-            bool Eliminado = userController.eliminar(SwipedUser);
+            bool Eliminado = userController.Eliminar(SwipedUser);
             Console.WriteLine("Elimar userId: " + SwipedUser.User_id + "Estado : " + Eliminado);
             this.popupLayout.IsOpen = false;
             this.popupLayout.Dismiss();
@@ -621,7 +621,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             this.popupLayout.IsOpen = false;
             this.popupLayout.Dismiss();
         }
-
         private Command AgregarUsuarioC()
         {
             return new Command(async () => await AgregarUsuarioT());

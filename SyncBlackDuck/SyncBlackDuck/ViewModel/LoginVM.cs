@@ -1,12 +1,9 @@
-﻿using SyncBlackDuck;
-using SyncBlackDuck.Model.Objetos;
+﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Login;
 using SyncBlackDuck.Views.AdminViews;
 using SyncBlackDuck.Views.ClientViews;
 using SyncBlackDuck.Views.SuperAdminViews;
-using Syncfusion.Data.Extensions;
 using System;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -21,7 +18,7 @@ namespace SyncBlackDuck.ViewModel
         //Creamos el Objeto Usuario
         private User loggedInUser;
         private string userId;
-        private LoginService loginController = new LoginService();
+        private readonly LoginService loginController = new LoginService();
         public new INavigation Navigation;
 
         //Getters y setters para los bindings de la vista

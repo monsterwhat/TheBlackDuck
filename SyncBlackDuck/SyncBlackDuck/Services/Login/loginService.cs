@@ -15,7 +15,7 @@ namespace SyncBlackDuck.Services.Login
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_telefono = @val1 AND user_password = @val2;", mysql);
                 command.Parameters.AddWithValue("@val1", t);
                 command.Parameters.AddWithValue("@val2", p);
@@ -49,7 +49,7 @@ namespace SyncBlackDuck.Services.Login
             try
             {
                 Connection conn = new Connection();
-                MySqlConnection mysql = conn.getConnection();
+                MySqlConnection mysql = conn.GetConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_telefono = @val1;", mysql);
                 command.Parameters.AddWithValue("@val1", t);
                 MySqlDataReader reader = command.ExecuteReader();
