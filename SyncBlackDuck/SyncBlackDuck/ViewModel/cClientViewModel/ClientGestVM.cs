@@ -26,31 +26,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             usuariosInfo = new ObservableCollection<User>();
             selectedItem = new Object();
             CargarCliente();
-            datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
-            datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
         }
-
-        #region CellListeners
-
-        public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
-        {
-            row = args.RowColumnIndex.RowIndex;
-            Dato = args.Column.MappingName;
-            UserID = usuariosInfo.ElementAt(row - 1).User_id;
-        }
-
-        public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
-        {
-            if (args.OldValue != args.NewValue)
-            {
-                User UsuarioSelecionado = usuariosInfo.ElementAt(row - 1);
-                _ = userController.Modificar(UsuarioSelecionado);
-            }
-
-        }
-
-        #endregion CellListeners
-
 
         #region Listas
 
@@ -84,7 +60,6 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
         }
 
         #endregion Listas
-
 
         #region Commands
 

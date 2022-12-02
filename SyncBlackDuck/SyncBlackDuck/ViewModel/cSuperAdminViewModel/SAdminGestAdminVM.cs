@@ -59,6 +59,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             datagrid.SwipeOffsetMode = SwipeOffsetMode.Custom;
             datagrid.MaxSwipeOffset = 200;
             datagrid.SwipeStarted += DataGrid_SwipeStarted;
+            datagrid.AllowPullToRefresh = true;
             datagrid.PullToRefreshCommand = Recargar;
             datagrid.RightSwipeTemplate = RightSwipeTemplate();
         }
@@ -111,6 +112,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
                         Estado = userController.Modificar(UsuarioSelecionado);
                         Console.WriteLine("Modificar " + Tipo + " -> Estado: " + Estado);
+                        ExecutePullToRefreshCommand();
                     }
                 }
                 CeldaSeleccionada = false;
@@ -611,6 +613,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             Console.WriteLine("Elimar userId: " + SwipedUser.User_id + "Estado : " + Eliminado);
             this.popupLayout.IsOpen = false;
             this.popupLayout.Dismiss();
+            ExecutePullToRefreshCommand();
         }
         private void ExecutePullToRefreshCommand()
         {
@@ -646,6 +649,8 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                     Cancelar();
 
                     Console.WriteLine("Se agrego el Usuario: " + Agregado);
+
+                    ExecutePullToRefreshCommand();
                 }
                 else
                 {
@@ -709,6 +714,9 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             try
             {
+                listaUsuarios.Clear();
+                usuariosInfo.Clear();
+                
                 listaUsuarios = userController.VerAdministradores();
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {

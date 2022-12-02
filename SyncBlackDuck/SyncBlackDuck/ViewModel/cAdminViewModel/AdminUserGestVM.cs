@@ -110,6 +110,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                         Estado = userController.Modificar(UsuarioSelecionado);
                         Console.WriteLine("Modificar " + Tipo + " -> Estado: " + Estado);
+                        ExecutePullToRefreshCommand();
+
                     }
                 }
                 CeldaSeleccionada = false;
@@ -606,6 +608,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 Console.WriteLine("Elimar userId: " + SwipedUser.User_id + "Estado : " + Eliminado);
                 this.popupLayout.IsOpen = false;
                 this.popupLayout.Dismiss();
+                ExecutePullToRefreshCommand();
             }
             catch (Exception e)
             {
@@ -650,6 +653,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                     Cancelar();
 
                     Console.WriteLine("Se agrego el Usuario: " + Agregado);
+                    ExecutePullToRefreshCommand();
+
                 }
                 else
                 {
