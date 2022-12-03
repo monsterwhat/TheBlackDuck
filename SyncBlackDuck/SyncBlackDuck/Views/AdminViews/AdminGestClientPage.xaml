@@ -8,7 +8,7 @@
 
     <StackLayout BackgroundColor="#283149">
 
-        <StackLayout Margin="20" VerticalOptions="Center">
+        <StackLayout Margin="35" VerticalOptions="Center">
             <Label
                 FontSize="20"
                 HorizontalTextAlignment="Center"
@@ -66,7 +66,7 @@
         <StackLayout           
                 Margin="10,0,10,0"
                 Orientation="Horizontal"
-                VerticalOptions="Fill">
+                VerticalOptions="Center">
 
             <buttons:SfButton
                     Margin="0,0,0,0"
@@ -75,7 +75,7 @@
                     BackgroundColor="#04adff"
                     TextColor="#f5fbff"
                     Command="{Binding AgregarUsuario}"
-                    CornerRadius="30"
+                    CornerRadius="40"
                     FontSize="14"
                     Text="Agregar usuario" />
         </StackLayout>
@@ -91,7 +91,7 @@
                     BackgroundColor="#1f273d"
                     TextColor="#f5fbff"
                     Command="{Binding BackAdminMain}"
-                    CornerRadius="7"
+                    CornerRadius="40"
                     FontSize="15"
                     Text="Regresar" />
         </StackLayout>

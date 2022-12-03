@@ -7,28 +7,50 @@
              NavigationPage.HasNavigationBar="false">
 
     <StackLayout BackgroundColor="#283149" >
-        <Label Margin="15,15,0,0" TextColor="#f5fbff" FontSize="15" >Cliente</Label>
-        <StackLayout Margin="0,90,0,0">
-            <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
-        </StackLayout>
-        <StackLayout Margin="40,40,40,40">
-            <buttons:SfButton
-                Margin="0,30,0,0"
-                BackgroundColor="#1f273d"
-                TextColor="#f5fbff"
-                Command="{Binding Path=CGestionUsuario}"
-                CornerRadius="7"
-                FontSize="19"
-                Text="Ver historial" />
 
-            <buttons:SfButton
-                Margin="0,70,0,0"
-                BackgroundColor="#540712"
-                TextColor="#f5fbff"
-                Command="{Binding Path=CCSCerrarSesion}"
-                CornerRadius="7"
-                FontSize="19"
-                Text="Cerrar sesion"/>
-        </StackLayout>
+        <ScrollView>
+
+            <StackLayout>
+
+                <Label Margin="15,15,0,0" TextColor="#f5fbff" FontSize="15" >Cliente</Label>
+
+                <StackLayout Margin="0,90,0,0" 
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center" 
+                             Orientation="Horizontal" >
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
+                </StackLayout>
+
+            <StackLayout Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+            
+                <buttons:SfButton
+                    Margin="0,30,0,0"
+                    HeightRequest="50"
+                    WidthRequest="255"
+                    BackgroundColor="#1f273d"
+                    TextColor="#f5fbff"
+                    Command="{Binding Path=CGestionUsuario}"
+                    CornerRadius="40"
+                    FontSize="19"
+                    Text="Ver historial" />
+
+                <buttons:SfButton
+                    Margin="0,70,0,0"
+                    HeightRequest="50"
+                    WidthRequest="255"
+                    BackgroundColor="#540712"
+                    TextColor="#f5fbff"
+                    Command="{Binding Path=CCSCerrarSesion}"
+                    CornerRadius="40"
+                    FontSize="19"
+                    Text="Cerrar sesion"/>
+                
+                </StackLayout>
+
+             </StackLayout>
+
+         </ScrollView>
+
     </StackLayout>
+
 </ContentPage>

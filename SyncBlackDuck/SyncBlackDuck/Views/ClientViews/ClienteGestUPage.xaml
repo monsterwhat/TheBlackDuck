@@ -9,14 +9,14 @@
 
     <StackLayout BackgroundColor="#283149">
 
-        <StackLayout Margin="50">
+        <StackLayout Margin="35">
             <Label FontSize="20"
                    TextColor="#f5fbff"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center" >Historial de pagos</Label>
         </StackLayout>
 
-        <StackLayout Margin="0,0,0,0" >
+        <ScrollView Margin="10,10,10,10" >
             <syncfusion:SfDataGrid x:Name="dataGrid" 
                                    ColumnSizer="Star"
                                    AllowSorting="True"
@@ -55,7 +55,7 @@
                 </syncfusion:SfDataGrid.GridStyle>
             </syncfusion:SfDataGrid>
 
-        </StackLayout>
+        </ScrollView>
 
         <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
             <buttons:SfButton
@@ -65,7 +65,7 @@
                 BackgroundColor="#04adff"
                 TextColor="#f5fbff"
                 Command="{Binding Path=BackClientMain}"
-                CornerRadius="7"
+                CornerRadius="40"
                 FontSize="15"
                 Text="Regresar" />
         </StackLayout>

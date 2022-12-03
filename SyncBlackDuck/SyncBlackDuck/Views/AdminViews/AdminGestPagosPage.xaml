@@ -8,7 +8,7 @@
 
     <StackLayout BackgroundColor="#283149">
 
-        <StackLayout Margin="50">
+        <StackLayout Margin="35" VerticalOptions="Center" >
             <syncfusion:SfLabel
                 FontSize="20"
                 HorizontalTextAlignment="Center"
@@ -18,7 +18,7 @@
             </syncfusion:SfLabel>
         </StackLayout>
 
-        <StackLayout Margin="0,0,0,0">
+        <ScrollView Margin="10,10,10,10">
             <syncfusion:SfDataGrid
                 x:Name="dataGrid"
                 AllowEditing="true"
@@ -63,7 +63,7 @@
 
             </syncfusion:SfDataGrid>
 
-        </StackLayout>
+        </ScrollView>
 
         <StackLayout           
                 Margin="10,-20,10,0"
@@ -80,7 +80,7 @@
                 BackgroundColor="#1f273d"
                 TextColor="#f5fbff"
                 Command="{Binding BackAdminMain}"
-                CornerRadius="7"
+                CornerRadius="40"
                 FontSize="15"
                 Text="Regresar" />
         </StackLayout>

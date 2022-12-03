@@ -69,10 +69,10 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
         {
             CeldaSeleccionada = true;
-            getDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
+            GetDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
         }
 
-        public void getDatosCelda(int row, string dato)
+        public void GetDatosCelda(int row, string dato)
         {
             Row = row;
             Dato = dato;
@@ -173,9 +173,11 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                 this.NewPassword = null;
                 this.NewTelefono = 0;
                 this.NewRol = null;
-                List<string> opciones = new List<string>();
-                opciones.Add("admin");
-                opciones.Add("cliente");
+                List<string> opciones = new List<string>
+                {
+                    "admin",
+                    "cliente"
+                };
 
                 this.popupLayout.PopupView.ShowFooter = false;
                 this.popupLayout.PopupView.ShowHeader = false;
@@ -475,7 +477,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         #region Listas
 
         private ObservableCollection<User> usuariosInfo;
-        public ObservableCollection<User> usuariosInfoCollection
+        public ObservableCollection<User> UsuariosInfoCollection
         {
             get { return usuariosInfo; }
             set
@@ -594,7 +596,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
         // ICommand
 
-        public ICommand VistaAdmin => vistaAdmin();
+        public ICommand VistaAdmin => VistaAdminAsync();
         public ICommand AgregarUsuariocommand => AgregarUsuarioC();
         public ICommand SBackAdminMain => BackSAdminMainP();
         public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
@@ -603,7 +605,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         public ICommand CancelarComando => cancelarComando ??= new Command(Cancelar);
 
         // Metodos
-        private Task cambiarAdminMenu()
+        private Task CambiarAdminMenu()
         {
             try
             {
@@ -643,9 +645,9 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             return new Command(async () => await AgregarUsuarioT());
         }
-        private Command vistaAdmin()
+        private Command VistaAdminAsync()
         {
-            return new Command(async () => await cambiarAdminMenu());
+            return new Command(async () => await CambiarAdminMenu());
         }
         private Task AgregarUsuarioT()
         {

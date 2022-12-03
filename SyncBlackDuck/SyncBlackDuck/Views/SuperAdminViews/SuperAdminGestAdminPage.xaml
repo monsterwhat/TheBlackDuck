@@ -9,7 +9,7 @@
 
     <StackLayout BackgroundColor="#283149">
 
-        <StackLayout Margin="0,2,2,30">
+        <StackLayout Margin="0,11,9,30">
             <buttons:SfButton
                 Text="Admin"
                 ShowIcon="True"
@@ -22,7 +22,7 @@
                 CornerRadius="40"
                 />
         </StackLayout>
-        <StackLayout Margin="5,5,5,40">
+        <StackLayout Margin="0,0,0,25" VerticalOptions="Center">
             <Label
                 FontSize="20"
                 HorizontalTextAlignment="Center"
@@ -32,7 +32,7 @@
                 />
         </StackLayout>
 
-        <ScrollView Margin="0,0,0,0">
+        <ScrollView Margin="10,10,10,10">
             <syncfusion:SfDataGrid
                 x:Name="dataGrid"
                 AllowEditing="true"
@@ -44,7 +44,7 @@
                 ColumnSizer="Star"
                 EditTapAction="OnDoubleTap"
                 ImeOptions="NoExtractUi"
-                ItemsSource="{Binding usuariosInfoCollection}"
+                ItemsSource="{Binding UsuariosInfoCollection}"
                 LiveDataUpdateMode="Default"
                 LostFocusBehavior="EndEditCurrentCell"
                 NavigationMode="Cell"
@@ -91,7 +91,7 @@
                     TextColor="#f5fbff"
                     HorizontalOptions="EndAndExpand"
                     Command="{Binding AgregarUsuario}"
-                    CornerRadius="7"
+                    CornerRadius="40"
                     FontSize="14"
                     Text="Agregar usuario" />
 
@@ -105,7 +105,7 @@
                 BackgroundColor="#1f273d"
                 TextColor="#DBEDF3"
                 Command="{Binding SBackAdminMain}"
-                CornerRadius="7"
+                CornerRadius="40"
                 FontSize="15"
                 Text="Regresar" />
         </StackLayout>
