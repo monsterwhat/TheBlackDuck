@@ -9,7 +9,7 @@
 
     <StackLayout BackgroundColor="#283149">
         
-        <StackLayout Margin="0,2,2,30">
+        <StackLayout Margin="0,15,9,25">
             <buttons:SfButton
                 Text="Admin"
                 ShowIcon="True"
@@ -21,6 +21,8 @@
                 Command="{Binding VistaAdmin}"
                 CornerRadius="40"
                 />
+        </StackLayout>
+        <StackLayout Margin="5,5,5,40">
             <Label
                 FontSize="20"
                 HorizontalTextAlignment="Center"
