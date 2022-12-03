@@ -21,6 +21,8 @@
                 Command="{Binding VistaAdmin}"
                 CornerRadius="40"
                 />
+        </StackLayout>
+        <StackLayout Margin="5,5,5,40">
             <Label
                 FontSize="20"
                 HorizontalTextAlignment="Center"
