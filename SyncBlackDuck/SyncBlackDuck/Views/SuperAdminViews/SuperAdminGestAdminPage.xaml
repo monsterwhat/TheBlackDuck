@@ -8,7 +8,7 @@
     NavigationPage.HasNavigationBar="false">
 
     <StackLayout BackgroundColor="#283149">
-        
+
         <StackLayout Margin="0,2,2,30">
             <buttons:SfButton
                 Text="Admin"
@@ -30,7 +30,7 @@
                 />
         </StackLayout>
 
-        <StackLayout Margin="0,0,0,0">
+        <ScrollView Margin="0,0,0,0">
             <syncfusion:SfDataGrid
                 x:Name="dataGrid"
                 AllowEditing="true"
@@ -73,13 +73,15 @@
 
             </syncfusion:SfDataGrid>
 
-            <StackLayout           
+        </ScrollView>
+
+        <StackLayout           
                 Margin="10,-20,10,0"
                 HorizontalOptions="End"
                 Orientation="Horizontal"
                 VerticalOptions="Center">
 
-                <buttons:SfButton
+            <buttons:SfButton
                     Margin="0,30,0,0"
                     HeightRequest="45"
                     WidthRequest="140"
@@ -90,8 +92,6 @@
                     CornerRadius="7"
                     FontSize="14"
                     Text="Agregar usuario" />
-
-            </StackLayout>
 
         </StackLayout>
 

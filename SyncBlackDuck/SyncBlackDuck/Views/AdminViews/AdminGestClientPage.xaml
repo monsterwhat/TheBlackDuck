@@ -8,7 +8,7 @@
 
     <StackLayout BackgroundColor="#283149">
 
-        <StackLayout Margin="50">
+        <StackLayout Margin="20" VerticalOptions="Center">
             <Label
                 FontSize="20"
                 HorizontalTextAlignment="Center"
@@ -18,13 +18,15 @@
             </Label>
         </StackLayout>
 
-        <StackLayout Margin="0,0,0,0">
+        <ScrollView Margin="10,0,10,0" >
+
             <syncfusion:SfDataGrid
                 x:Name="dataGrid"
                 AllowEditing="true"
                 AllowResizingColumn="True"
                 AllowSorting="True"
                 AllowSwiping="True"
+                BackgroundColor="#283149"
                 AutoGenerateColumns="false"
                 ColumnSizer="Star"
                 EditTapAction="OnDoubleTap"
@@ -35,20 +37,16 @@
                 NavigationMode="Cell"
                 SelectedItem="{Binding SelectedItem}"
                 SelectionMode="Single"
-                HorizontalOptions="Fill"
-                AllowPullToRefresh="true"
-                VerticalOptions="Fill">
-                <syncfusion:SfDataGrid.Columns>
+                AllowPullToRefresh="true">
 
+                <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Id Usuario" MappingName="User_id" />
                     <syncfusion:GridTextColumn HeaderText="Nombre de usuario" MappingName="User_name" />
                     <syncfusion:GridNumericColumn NumberDecimalDigits="0" TextAlignment="center" HeaderText="Numero de telefono" MappingName="User_telefono"/>
                     <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password"/>
-
                 </syncfusion:SfDataGrid.Columns>
 
-                <syncfusion:SfDataGrid.GridStyle >
-
+                <syncfusion:SfDataGrid.GridStyle>
                     <syncfusion:DefaultStyle
                         AlternatingRowColor="white"
                         GridLinesVisibility="None"
@@ -60,42 +58,43 @@
                         SelectionForegroundColor="#07090e"
                         CurrentCellBorderColor="#006699"/>
                 </syncfusion:SfDataGrid.GridStyle>
-
+                
             </syncfusion:SfDataGrid>
-
-        </StackLayout>
+            
+        </ScrollView>
 
         <StackLayout           
-                Margin="10,-20,10,0"
-                HorizontalOptions="End"
+                Margin="10,0,10,0"
                 Orientation="Horizontal"
-                VerticalOptions="Center">
+                VerticalOptions="Fill">
 
             <buttons:SfButton
-                    Margin="0,30,0,0"
+                    Margin="0,0,0,0"
                     HeightRequest="45"
-                    WidthRequest="140"
+                    HorizontalOptions="EndAndExpand"
                     BackgroundColor="#04adff"
                     TextColor="#f5fbff"
-                    HorizontalOptions="FillAndExpand"
                     Command="{Binding AgregarUsuario}"
-                    CornerRadius="7"
+                    CornerRadius="30"
                     FontSize="14"
                     Text="Agregar usuario" />
-
         </StackLayout>
 
-        <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
+        <StackLayout 
+                Margin="20,0,0,20" 
+                VerticalOptions="EndAndExpand">
+
             <buttons:SfButton
-                HorizontalOptions="Start"
-                HeightRequest="45"
-                WidthRequest="140"
-                BackgroundColor="#1f273d"
-                TextColor="#f5fbff"
-                Command="{Binding BackAdminMain}"
-                CornerRadius="7"
-                FontSize="15"
-                Text="Regresar" />
+                    HorizontalOptions="Start"
+                    HeightRequest="45"
+                    WidthRequest="140"
+                    BackgroundColor="#1f273d"
+                    TextColor="#f5fbff"
+                    Command="{Binding BackAdminMain}"
+                    CornerRadius="7"
+                    FontSize="15"
+                    Text="Regresar" />
         </StackLayout>
+        
     </StackLayout>
 </ContentPage>

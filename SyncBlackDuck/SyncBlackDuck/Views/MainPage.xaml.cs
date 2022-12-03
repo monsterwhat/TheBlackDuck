@@ -22,5 +22,10 @@ namespace SyncBlackDuck.Views
         {
             base.OnAppearing();
         }
+
+        private void StackLayout_LayoutChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
