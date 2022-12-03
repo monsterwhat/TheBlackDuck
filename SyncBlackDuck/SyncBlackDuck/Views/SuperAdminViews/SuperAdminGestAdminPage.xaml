@@ -9,14 +9,25 @@
 
     <StackLayout BackgroundColor="#283149">
         
-        <StackLayout Margin="50">
+        <StackLayout Margin="0,2,2,30">
+            <buttons:SfButton
+                Text="Admin"
+                ShowIcon="True"
+                ImageSource="https://cdn-icons-png.flaticon.com/512/3099/3099635.png"
+                FontSize="10"
+                HorizontalOptions="End"
+                BackgroundColor="#f5fbff"
+                TextColor="#283149"
+                Command="{Binding VistaAdmin}"
+                CornerRadius="40"
+                />
             <Label
                 FontSize="20"
                 HorizontalTextAlignment="Center"
                 TextColor="#f5fbff"
                 VerticalTextAlignment="Center"
-                Text="Gestion de Administradores">
-            </Label>
+                Text="Gestion de Administradores"
+                />
         </StackLayout>
 
         <StackLayout Margin="0,0,0,0">
@@ -26,6 +37,7 @@
                 AllowResizingColumn="True"
                 AllowSorting="True"
                 AllowSwiping="True"
+                AllowPullToRefresh="True"
                 AutoGenerateColumns="false"
                 ColumnSizer="Star"
                 EditTapAction="OnDoubleTap"
@@ -74,7 +86,7 @@
                     BackgroundColor="#04adff"
                     TextColor="#f5fbff"
                     HorizontalOptions="EndAndExpand"
-                    Command="{Binding Path=AgregarUsuario}"
+                    Command="{Binding AgregarUsuario}"
                     CornerRadius="7"
                     FontSize="14"
                     Text="Agregar usuario" />
@@ -90,7 +102,7 @@
                 WidthRequest="140"
                 BackgroundColor="#1f273d"
                 TextColor="#DBEDF3"
-                Command="{Binding Path=SBackAdminMain}"
+                Command="{Binding SBackAdminMain}"
                 CornerRadius="7"
                 FontSize="15"
                 Text="Regresar" />

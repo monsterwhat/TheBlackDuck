@@ -1,5 +1,6 @@
 ﻿using SyncBlackDuck.Model.Objetos;
 using SyncBlackDuck.Services.Implementaciones;
+using SyncBlackDuck.Views.AdminViews;
 using Syncfusion.SfDataGrid.XForms;
 using Syncfusion.SfNumericTextBox.XForms;
 using Syncfusion.XForms.Buttons;
@@ -59,7 +60,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             datagrid.SwipeOffsetMode = SwipeOffsetMode.Custom;
             datagrid.MaxSwipeOffset = 200;
             datagrid.SwipeStarted += DataGrid_SwipeStarted;
-            datagrid.AllowPullToRefresh = true;
             datagrid.PullToRefreshCommand = Recargar;
             datagrid.RightSwipeTemplate = RightSwipeTemplate();
         }
@@ -594,6 +594,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
         // ICommand
 
+        public ICommand VistaAdmin => vistaAdmin();
         public ICommand AgregarUsuariocommand => AgregarUsuarioC();
         public ICommand SBackAdminMain => BackSAdminMainP();
         public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
@@ -602,6 +603,20 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         public ICommand CancelarComando => cancelarComando ??= new Command(Cancelar);
 
         // Metodos
+        private Task cambiarAdminMenu()
+        {
+            try
+            {
+                Navigation.PushAsync(new AdminGestClientPage());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("Error al cambiar de pagina");
+                return Task.CompletedTask;
+            }
+            return Task.CompletedTask;
+        }
 
         private void PerformAgregarUsuario()
         {
@@ -628,7 +643,10 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             return new Command(async () => await AgregarUsuarioT());
         }
-
+        private Command vistaAdmin()
+        {
+            return new Command(async () => await cambiarAdminMenu());
+        }
         private Task AgregarUsuarioT()
         {
             try
