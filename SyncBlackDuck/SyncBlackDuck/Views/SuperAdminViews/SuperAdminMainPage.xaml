@@ -7,23 +7,21 @@
 
     <StackLayout BackgroundColor="#283149" >
 
-        <ScrollView>
+        <StackLayout>
 
-            <StackLayout>
+            <Label Margin="15,15,0,0" TextColor="#f5fbff" FontSize="15" >Super admin</Label>
 
-                <Label Margin="15,15,0,0" TextColor="#f5fbff" FontSize="15" >Super admin</Label>
-
-                <StackLayout 
+            <StackLayout 
                     Margin="0,90,0,0" 
                     VerticalOptions="Center" 
                     HorizontalOptions="Center" 
                     Orientation="Horizontal">
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
-                </StackLayout>
+                <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
+            </StackLayout>
 
-                <StackLayout Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+            <StackLayout Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center">
 
-                    <buttons:SfButton
+                <buttons:SfButton
                         Margin="0,30,0,0"
                         HeightRequest="50"
                         WidthRequest="285"
@@ -34,7 +32,7 @@
                         FontSize="19"
                         Text="Gestionar Administradores" />
 
-                    <buttons:SfButton
+                <buttons:SfButton
                         Margin="0,70,0,20"
                         HeightRequest="50"
                         WidthRequest="285"
@@ -44,13 +42,11 @@
                         CornerRadius="40"
                         FontSize="19"
                         Text="Cerrar sesion"/>
-                    
-                </StackLayout>
-                
+
             </StackLayout>
-            
-        </ScrollView>
-        
+
+        </StackLayout>
+
     </StackLayout>
     
 </ContentPage>

@@ -17,21 +17,22 @@
         </StackLayout>
 
         <ScrollView Margin="10,10,10,10" >
-            <syncfusion:SfDataGrid x:Name="dataGrid" 
-                                   ColumnSizer="Star"
-                                   AllowSorting="True"
-                                   ItemsSource="{Binding UsuariosInfoCollection}"
-                                   SelectedItem="{Binding SelectedItem}"
-                                   AllowEditing="true"
-                                   SelectionMode="Single"
-                                   EditTapAction="OnDoubleTap"
-                                   NavigationMode="Cell"
-                                   ImeOptions="NoExtractUi"
-                                   SelectionUnit="Cell"
-                                   LostFocusBehavior="EndEditCurrentCell"
-                                   AllowResizingColumn="True"
-                                   AutoGenerateColumns="false"
-                                   LiveDataUpdateMode="Default">
+            <syncfusion:SfDataGrid 
+                x:Name="dataGrid" 
+                ColumnSizer="Star"
+                AllowSorting="True"
+                ItemsSource="{Binding UsuariosInfoCollection}"
+                SelectedItem="{Binding SelectedItem}"
+                AllowEditing="true"
+                SelectionMode="Single"
+                EditTapAction="OnDoubleTap"
+                NavigationMode="Cell"
+                ImeOptions="NoExtractUi"
+                SelectionUnit="Cell"
+                LostFocusBehavior="EndEditCurrentCell"
+                AllowResizingColumn="True"
+                AutoGenerateColumns="false"
+                MinimumHeightRequest="0">
                 
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Nombre de usuario" MappingName="User_name" />

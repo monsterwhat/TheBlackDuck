@@ -14,12 +14,10 @@
                 HorizontalTextAlignment="Center"
                 TextColor="#f5fbff"
                 VerticalTextAlignment="Center"
-                Text="Gestion de Usuarios">
-            </Label>
+                Text="Gestion de Usuarios"/>
         </StackLayout>
 
-        <ScrollView Margin="10,0,10,0" >
-
+        <StackLayout Margin="10,0,10,0">
             <syncfusion:SfDataGrid
                 x:Name="dataGrid"
                 AllowEditing="true"
@@ -37,7 +35,8 @@
                 NavigationMode="Cell"
                 SelectedItem="{Binding SelectedItem}"
                 SelectionMode="Single"
-                AllowPullToRefresh="true">
+                AllowPullToRefresh="true"
+                MinimumHeightRequest="0">
 
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Id Usuario" MappingName="User_id" />
@@ -58,18 +57,19 @@
                         SelectionForegroundColor="#07090e"
                         CurrentCellBorderColor="#006699"/>
                 </syncfusion:SfDataGrid.GridStyle>
-                
+
             </syncfusion:SfDataGrid>
-            
-        </ScrollView>
+
+        </StackLayout>
 
         <StackLayout           
-                Margin="10,0,10,0"
+                Margin="10,-20,10,0"
+                HorizontalOptions="End"
                 Orientation="Horizontal"
-                VerticalOptions="Center">
+                VerticalOptions="End">
 
             <buttons:SfButton
-                    Margin="0,0,0,0"
+                    Margin="0,30,0,0"
                     HeightRequest="45"
                     HorizontalOptions="EndAndExpand"
                     BackgroundColor="#04adff"
@@ -95,6 +95,5 @@
                     FontSize="15"
                     Text="Regresar" />
         </StackLayout>
-        
     </StackLayout>
 </ContentPage>

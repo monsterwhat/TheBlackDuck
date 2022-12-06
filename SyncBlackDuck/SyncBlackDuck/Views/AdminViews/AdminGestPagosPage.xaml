@@ -18,7 +18,7 @@
             </syncfusion:SfLabel>
         </StackLayout>
 
-        <ScrollView Margin="10,10,10,10">
+        <StackLayout Margin="10,10,10,10">
             <syncfusion:SfDataGrid
                 x:Name="dataGrid"
                 AllowEditing="true"
@@ -37,9 +37,10 @@
                 SelectionMode="Single"
                 HorizontalOptions="Fill"
                 AllowPullToRefresh="true"
-                VerticalOptions="Fill">
+                VerticalOptions="Fill"
+                MinimumHeightRequest="0">
+
                 <syncfusion:SfDataGrid.Columns>
-                    
                     <syncfusion:GridTextColumn AllowEditing="False" HeaderText="ID Pago" MappingName="Pagos_id" />
                     <syncfusion:GridTextColumn AllowEditing="False" HeaderText="Mes de Cobro" MappingName="Pagos_mes_cobro"/>
                     <syncfusion:GridDateTimeColumn AllowEditing="False" HeaderText="Fecha pago realizado" MappingName="Pagos_fecha_pago" Format="dd/M/yyyy" />
@@ -63,7 +64,7 @@
 
             </syncfusion:SfDataGrid>
 
-        </ScrollView>
+        </StackLayout>
 
         <StackLayout           
                 Margin="10,-20,10,0"

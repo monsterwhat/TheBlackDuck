@@ -19,27 +19,26 @@
                 BackgroundColor="#f5fbff"
                 TextColor="#283149"
                 Command="{Binding VistaAdmin}"
-                CornerRadius="40"
-                />
-        </StackLayout>
+                CornerRadius="40"/>
+            </StackLayout>
+        
         <StackLayout Margin="0,0,0,25" VerticalOptions="Center">
             <Label
                 FontSize="20"
                 HorizontalTextAlignment="Center"
                 TextColor="#f5fbff"
                 VerticalTextAlignment="Center"
-                Text="Gestion de Administradores"
-                />
+                Text="Gestion de Administradores"/>
         </StackLayout>
 
-        <ScrollView Margin="10,10,10,10">
+        <StackLayout Margin="10,10,10,10">
             <syncfusion:SfDataGrid
                 x:Name="dataGrid"
                 AllowEditing="true"
                 AllowResizingColumn="True"
                 AllowSorting="True"
                 AllowSwiping="True"
-                AllowPullToRefresh="True"
+                BackgroundColor="#283149"
                 AutoGenerateColumns="false"
                 ColumnSizer="Star"
                 EditTapAction="OnDoubleTap"
@@ -50,8 +49,9 @@
                 NavigationMode="Cell"
                 SelectedItem="{Binding SelectedItem}"
                 SelectionMode="Single"
-                HorizontalOptions="Fill"
-                VerticalOptions="Fill">
+                AllowPullToRefresh="true"
+                MinimumHeightRequest="0">
+
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:GridTextColumn AllowEditing="false" HeaderText="ID Administrador" MappingName="User_id" />
                     <syncfusion:GridTextColumn HeaderText="Nombre de admin" MappingName="User_name" />
@@ -75,13 +75,13 @@
 
             </syncfusion:SfDataGrid>
 
-        </ScrollView>
+        </StackLayout>
 
         <StackLayout           
                 Margin="10,-20,10,0"
                 HorizontalOptions="End"
                 Orientation="Horizontal"
-                VerticalOptions="Center">
+                VerticalOptions="End">
 
             <buttons:SfButton
                     Margin="0,30,0,0"

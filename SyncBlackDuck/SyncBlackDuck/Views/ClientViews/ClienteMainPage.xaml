@@ -8,21 +8,19 @@
 
     <StackLayout BackgroundColor="#283149" >
 
-        <ScrollView>
+        <StackLayout>
 
-            <StackLayout>
+            <Label Margin="15,15,0,0" TextColor="#f5fbff" FontSize="15" >Cliente</Label>
 
-                <Label Margin="15,15,0,0" TextColor="#f5fbff" FontSize="15" >Cliente</Label>
-
-                <StackLayout Margin="0,90,0,0" 
+            <StackLayout Margin="0,90,0,0" 
                              VerticalOptions="Center" 
                              HorizontalOptions="Center" 
                              Orientation="Horizontal" >
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
-                </StackLayout>
+                <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" ></Image>
+            </StackLayout>
 
             <StackLayout Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center">
-            
+
                 <buttons:SfButton
                     Margin="0,30,0,0"
                     HeightRequest="50"
@@ -44,13 +42,11 @@
                     CornerRadius="40"
                     FontSize="19"
                     Text="Cerrar sesion"/>
-                
-                </StackLayout>
 
-             </StackLayout>
+            </StackLayout>
 
-         </ScrollView>
-
+        </StackLayout>
+        
     </StackLayout>
 
 </ContentPage>

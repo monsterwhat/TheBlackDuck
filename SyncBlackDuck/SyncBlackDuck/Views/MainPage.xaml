@@ -7,27 +7,26 @@
     NavigationPage.HasNavigationBar="false">
 
     <StackLayout BackgroundColor="#283149">
-        <ScrollView>
-            <StackLayout>
+        <StackLayout>
 
-                <StackLayout Margin="0,90,0,50" VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
-                </StackLayout>
+            <StackLayout Margin="0,90,0,50" VerticalOptions="Center" HorizontalOptions="Center" Orientation="Horizontal">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
+            </StackLayout>
 
-                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
 
-                    <Label
+                <Label
                 VerticalOptions="Center"
                 HorizontalOptions="Start"
                 Margin="50,0,0,0"
                 FontAttributes="Bold"
                 FontSize="22"
-                TextColor="#DBEDF3"
+                TextColor="#f5fbff"
                 FontFamily="Times Roman"
                 Text="Login"
             />
 
-                    <inputLayout:SfTextInputLayout
+                <inputLayout:SfTextInputLayout
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 Margin="40,0,40,0"
@@ -36,17 +35,17 @@
                 FocusedColor="#04adff"
                 Hint="Telefono"
                 LeadingViewPosition="Outside"
-                UnfocusedColor="#C9D6DF">
-                        <Entry
+                UnfocusedColor="#f5fbff">
+                    <Entry
                     Keyboard="Numeric"
                     Text="{Binding Telefono}"
-                    TextColor="#DBEDF3" />
-                        <inputLayout:SfTextInputLayout.LeadingView>
-                            <Image HeightRequest="35" Source="https://cdn-icons-png.flaticon.com/512/976/976373.png" />
-                        </inputLayout:SfTextInputLayout.LeadingView>
-                    </inputLayout:SfTextInputLayout>
+                    TextColor="#f5fbff" />
+                    <inputLayout:SfTextInputLayout.LeadingView>
+                        <Image HeightRequest="35" Source="https://cdn-icons-png.flaticon.com/512/976/976373.png" />
+                    </inputLayout:SfTextInputLayout.LeadingView>
+                </inputLayout:SfTextInputLayout>
 
-                    <inputLayout:SfTextInputLayout
+                <inputLayout:SfTextInputLayout
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 Margin="40,0,40,0"
@@ -55,17 +54,17 @@
                 FocusedColor="#04adff"
                 Hint="Contraseña"
                 LeadingViewPosition="Outside"
-                UnfocusedColor="#C9D6DF">
-                        <Entry
+                UnfocusedColor="#f5fbff">
+                    <Entry
                     IsPassword="true"
                     Text="{Binding Password}"
-                    TextColor="#DBEDF3" />
-                        <inputLayout:SfTextInputLayout.LeadingView>
-                            <Image Source="https://cdn-icons-png.flaticon.com/512/747/747981.png" />
-                        </inputLayout:SfTextInputLayout.LeadingView>
-                    </inputLayout:SfTextInputLayout>
+                    TextColor="#f5fbff" />
+                    <inputLayout:SfTextInputLayout.LeadingView>
+                        <Image Source="https://cdn-icons-png.flaticon.com/512/747/747981.png" />
+                    </inputLayout:SfTextInputLayout.LeadingView>
+                </inputLayout:SfTextInputLayout>
 
-                    <buttons:SfButton
+                <buttons:SfButton
                 VerticalOptions="Center"
                 Margin="0,0,0,20"
                 HorizontalOptions="Center"
@@ -76,8 +75,7 @@
                 FontSize="20"
                 Text="Ingresar" />
 
-                </StackLayout>
             </StackLayout>
-        </ScrollView>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
