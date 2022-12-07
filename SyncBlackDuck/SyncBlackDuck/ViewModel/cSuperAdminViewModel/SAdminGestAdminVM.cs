@@ -587,67 +587,70 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 
         #region Commands
 
-        // Commands
-
-        private Command agregarUsuario;
-        private Command recargar;
-        private Command borrarUsuario;
-        private Command cancelarComando;
-
         // ICommand
 
         public ICommand VistaAdmin => VistaAdminAsync();
         public ICommand AgregarUsuariocommand => AgregarUsuarioC();
         public ICommand SBackAdminMain => BackSAdminMainP();
-        public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
-        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
-        public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
-        public ICommand CancelarComando => cancelarComando ??= new Command(Cancelar);
+        public ICommand AgregarUsuario => PerformAgregarUsuario();
+        public ICommand BorrarUsuario => PerformBorrarUsuario();
+        public ICommand Recargar => ExecutePullToRefreshCommand();
+        public ICommand CancelarComando => Cancelar();
 
         // Metodos
-        private Task CambiarAdminMenu()
+        
+        private Command PerformBorrarUsuario()
+        {
+            return new Command(async () => await PerformBorrarUsuarioT());
+        }
+        private Task PerformBorrarUsuarioT()
         {
             try
             {
-                Navigation.PushAsync(new AdminGestClientPage());
+                bool Eliminado = userController.Eliminar(SwipedUser);
+                Console.WriteLine("Elimar userId: " + SwipedUser.User_id + "Estado : " + Eliminado);
+                this.popupLayout.IsOpen = false;
+                this.popupLayout.Dismiss();
+                ExecutePullToRefreshCommand();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                Console.WriteLine("Error al cambiar de pagina");
-                return Task.CompletedTask;
             }
             return Task.CompletedTask;
         }
-
-        private void PerformAgregarUsuario()
+        
+        private Command PerformAgregarUsuario()
+        {
+            return new Command(async () => PerformAgregarUsuarioT());
+        }
+        private void PerformAgregarUsuarioT()
         {
             LoadPopUpAgregar();
         }
-        private void PerformBorrarUsuario()
+
+        private Command ExecutePullToRefreshCommand()
         {
-            bool Eliminado = userController.Eliminar(SwipedUser);
-            Console.WriteLine("Elimar userId: " + SwipedUser.User_id + "Estado : " + Eliminado);
-            this.popupLayout.IsOpen = false;
-            this.popupLayout.Dismiss();
-            ExecutePullToRefreshCommand();
+            return new Command(async () => ExecutePullToRefreshCommandT());
         }
-        private void ExecutePullToRefreshCommand()
+        private void ExecutePullToRefreshCommandT()
         {
             CargarAdministradores();
         }
-        private void Cancelar()
+
+        private Command Cancelar()
+        {
+            return new Command(async () => CancelarT());
+        }
+        private void CancelarT()
         {
             this.popupLayout.IsOpen = false;
             this.popupLayout.Dismiss();
         }
+        
         private Command AgregarUsuarioC()
         {
             return new Command(async () => await AgregarUsuarioT());
-        }
-        private Command VistaAdminAsync()
-        {
-            return new Command(async () => await CambiarAdminMenu());
         }
         private Task AgregarUsuarioT()
         {
@@ -708,11 +711,30 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             return Task.CompletedTask;
         }
 
+        private Command VistaAdminAsync()
+        {
+            return new Command(async () => await CambiarAdminMenu());
+        }
+        private Task CambiarAdminMenu()
+        {
+            try
+            {
+                Navigation.PushAsync(new AdminGestClientPage());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("Error al cambiar de pagina");
+                return Task.CompletedTask;
+            }
+            return Task.CompletedTask;
+        }
+
+
         private Command BackSAdminMainP()
         {
             return new Command(async () => await BackSAdminAsync());
         }
-
         private Task BackSAdminAsync()
         {
             try
@@ -727,10 +749,9 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             }
             return Task.CompletedTask;
         }
-
+        
         #endregion Commands
-
-        private void CargarAdministradores()
+        private Task CargarAdministradores()
         {
             try
             {
@@ -747,6 +768,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             {
                 Console.WriteLine(e);
             }
+            return Task.CompletedTask;
         }
     }
 

@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.ApplicationModel.UserDataTasks;
 using Xamarin.Forms;
 using StackLayout = Xamarin.Forms.StackLayout;
 
@@ -573,34 +574,39 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #region Commands
 
-        // Commands
-
-        private Command agregarUsuario;
-        private Command recargar;
-        private Command borrarUsuario;
-        private Command cancelarComando;
-
         // Path ICommands a Meodos
 
         public ICommand BackAdminMain => BackAdminMainP();
         public ICommand AgregarUsuariocommand => AgregarUsuarioC();
-        public ICommand AgregarUsuario => agregarUsuario ??= new Command(PerformAgregarUsuario);
-        public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
-        public ICommand BorrarUsuario => borrarUsuario ??= new Command(PerformBorrarUsuario);
-        public ICommand CancelarComando => cancelarComando ??= new Command(Cancelar);
+        public ICommand AgregarUsuario => PerformAgregarUsuario();
+        public ICommand Recargar => ExecutePullToRefreshCommand();
+        public ICommand BorrarUsuario => PerformBorrarUsuario();
+        public ICommand CancelarComando => Cancelar();
 
         // Perform Metodos
-
-        private void PerformAgregarUsuario()
+        private Command PerformAgregarUsuario()
+        {
+            return new Command(async () => PerformAgregarUsuarioT());
+        }
+        private void PerformAgregarUsuarioT()
         {
             LoadPopUpAgregar();
         }
-
-        private void ExecutePullToRefreshCommand()
+        
+        private Command ExecutePullToRefreshCommand()
+        {
+            return new Command(async () => ExecutePullToRefreshCommandT());
+        }
+        private void ExecutePullToRefreshCommandT()
         {
             CargarClientes();
         }
-        private void PerformBorrarUsuario()
+        
+        private Command PerformBorrarUsuario()
+        {
+            return new Command(async () => await PerformBorrarUsuarioT());
+        }
+        private Task PerformBorrarUsuarioT()
         {
             try
             {
@@ -614,9 +620,14 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 Console.WriteLine(e);
             }
+            return Task.CompletedTask;
         }
-
-        private void Cancelar()
+        
+        private Command Cancelar()
+        {
+            return new Command(async () => CancelarT());
+        }
+        private void CancelarT()
         {
             try
             {
@@ -628,12 +639,11 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 Console.WriteLine(e);
             }
         }
-
+        
         private Command AgregarUsuarioC()
         {
             return new Command(async () => await AgregarUsuarioT());
         }
-
         private Task AgregarUsuarioT()
         {
             try
@@ -692,25 +702,13 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
+        #endregion commands
+
+        // Redirecciones
         private Command BackAdminMainP()
         {
             return new Command(async () => await BackAdminAsync());
         }
-
-        // Redirecciones
-        private void GestionPagos()
-        {
-            try
-            {
-                Navigation.PushAsync(new AdminGestPagosPage(swipedUserID));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-
-        }
-
         private Task BackAdminAsync()
         {
             try
@@ -726,9 +724,19 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-        #endregion commands
-
-        private void CargarClientes()
+        private Task GestionPagos()
+        {
+            try
+            {
+                Navigation.PushAsync(new AdminGestPagosPage(swipedUserID));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return Task.CompletedTask;
+        }
+        private Task CargarClientes()
         {
             try
             {
@@ -745,6 +753,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 Console.WriteLine(e);
             }
+            return Task.CompletedTask;
         }
     }
 }

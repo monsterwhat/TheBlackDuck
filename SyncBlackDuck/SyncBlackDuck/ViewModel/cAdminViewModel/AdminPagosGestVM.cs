@@ -55,14 +55,12 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             CeldaSeleccionada = true;
             GetDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
         }
-
         public void GetDatosCelda(int row, string dato)
         {
             Row = row;
             Dato = dato;
             PagoID = pagosInfo.ElementAt(Row - 1).Pagos_id;
         }
-
         public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
         {
             try
@@ -96,7 +94,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 Console.WriteLine(e);
             }
         }
-
         public void DataGrid_SwipeStarted(object sender, Syncfusion.SfDataGrid.XForms.SwipeStartedEventArgs args)
         {
             try
@@ -108,7 +105,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 Console.WriteLine(e);
             }
         }
-
         public DataTemplate RightSwipeTemplate() =>
 
             new DataTemplate(() =>
@@ -133,12 +129,10 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                 return myView;
             });
-
-        public void LoadPopUpEliminar()
+        public Task LoadPopUpEliminar()
         {
             try
             {
-
                 this.popupLayout.PopupView.HeightRequest = 200;
                 this.popupLayout.PopupView.ShowCloseButton = false;
                 this.popupLayout.PopupView.AnimationMode = AnimationMode.SlideOnRight;
@@ -205,8 +199,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 Console.WriteLine(e);
             }
+            return Task.CompletedTask;
         }
-
         public void DataGrid_SwipeEnded(object sender, Syncfusion.SfDataGrid.XForms.SwipeEndedEventArgs args)
         {
             try
@@ -316,7 +310,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #endregion Commands
 
-        private void CargarPagos()
+        private Task CargarPagos()
         {
             try
             {
@@ -332,6 +326,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             {
                 Console.WriteLine(e);
             }
+            return Task.CompletedTask;
         }
     }
 }
