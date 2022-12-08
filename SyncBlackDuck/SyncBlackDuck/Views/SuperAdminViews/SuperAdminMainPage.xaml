@@ -21,24 +21,26 @@
 
             <StackLayout Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center">
 
-                <buttons:SfButton
+                <buttons:SfButton x:Name="GestionAdministradores"
                         Margin="0,30,0,0"
                         HeightRequest="50"
                         WidthRequest="285"
                         BackgroundColor="#1f273d"
                         TextColor="#f5fbff"
                         Command="{Binding Path=GestionAdministradores}"
+                        IsEnabled="{Binding Path=GestionAdministradoresEstado}"
                         CornerRadius="40"
                         FontSize="19"
                         Text="Gestionar Administradores" />
 
-                <buttons:SfButton
+                <buttons:SfButton x:Name="SACSCerrarSession"
                         Margin="0,70,0,20"
                         HeightRequest="50"
                         WidthRequest="285"
                         BackgroundColor="#540712"
                         TextColor="#f5fbff"
                         Command="{Binding Path=SACSCerrarSesion}"
+                        IsEnabled="{Binding Path=SACSCerrarSessionEstado}"
                         CornerRadius="40"
                         FontSize="19"
                         Text="Cerrar sesion"/>

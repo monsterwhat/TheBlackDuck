@@ -74,7 +74,7 @@
         </StackLayout>
 
         <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
-            <buttons:SfButton
+            <buttons:SfButton x:Name="BackAdmin"
                 HorizontalOptions="Start"
                 HeightRequest="45"
                 WidthRequest="140"

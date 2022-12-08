@@ -24,6 +24,7 @@ namespace SyncBlackDuck.Views.AdminViews
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            this.BackAdmin.IsEnabled = true;
         }
     }
 }

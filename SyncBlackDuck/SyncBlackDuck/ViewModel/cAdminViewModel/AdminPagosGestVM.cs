@@ -28,10 +28,12 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         public Label headerContent;
         public Label popupContent;
         public int swipedUserId = new int();
+        private bool BackAdminEstado;
 
         public AdminPagosGestVM(INavigation navigation, SfDataGrid datagrid, int swipedUser)
         {
             Navigation = navigation;
+            BackAdminEstado = false;
             pagosInfo = new ObservableCollection<Pagos>();
             selectedItem = new Object();
             popupLayout = new SfPopupLayout();

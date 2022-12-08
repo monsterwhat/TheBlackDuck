@@ -45,6 +45,8 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         private int NewTelefono;
         private string NewRol;
         public string SelectedBoxItem;
+        private bool VistaAdminEstado;
+        private bool SBackAdminMainEstado;
 
         public SAdminGestAdminVM(INavigation navigation, SfDataGrid datagrid)
         {
@@ -62,6 +64,8 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             datagrid.SwipeStarted += DataGrid_SwipeStarted;
             datagrid.PullToRefreshCommand = Recargar;
             datagrid.RightSwipeTemplate = RightSwipeTemplate();
+            VistaAdminEstado = true;
+            SBackAdminMainEstado = true;
         }
 
         #region CellListeners
@@ -719,7 +723,17 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             try
             {
-                Navigation.PushAsync(new AdminGestClientPage());
+                if(VistaAdminEstado == true)
+                {
+                    VistaAdminEstado = false;
+                    Navigation.PushAsync(new AdminGestClientPage());
+                }
+                else
+                {
+                    App.Current.MainPage.DisplayAlert("El boton ya fue precionado", "Por favor espere", "Ok");
+                    Task.Delay(4000);
+                    VistaAdminEstado = true;
+                }
             }
             catch (Exception e)
             {
@@ -739,7 +753,17 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         {
             try
             {
-                Navigation.PopAsync();
+                if (SBackAdminMainEstado == true)
+                {
+                    SBackAdminMainEstado = false;
+                    Navigation.PopAsync();
+                }
+                else
+                {
+                    App.Current.MainPage.DisplayAlert("El boton ya fue precionado", "Por favor espere", "Ok");
+                    Task.Delay(4000);
+                    SBackAdminMainEstado = true;
+                }
             }
             catch (Exception e)
             {

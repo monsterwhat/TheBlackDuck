@@ -68,7 +68,7 @@
                 Orientation="Horizontal"
                 VerticalOptions="End">
 
-            <buttons:SfButton
+            <buttons:SfButton x:Name="agregarUsuario"
                     Margin="0,30,0,0"
                     HeightRequest="45"
                     HorizontalOptions="EndAndExpand"
@@ -76,6 +76,7 @@
                     TextColor="#f5fbff"
                     Command="{Binding AgregarUsuario}"
                     CornerRadius="40"
+                    IsEnabled="{Binding Path=IsAgregarUsuarioEnabled}"
                     FontSize="14"
                     Text="Agregar usuario" />
         </StackLayout>
@@ -84,7 +85,7 @@
                 Margin="20,0,0,20" 
                 VerticalOptions="EndAndExpand">
 
-            <buttons:SfButton
+            <buttons:SfButton x:Name="backAdmin"
                     HorizontalOptions="Start"
                     HeightRequest="45"
                     WidthRequest="140"
@@ -92,6 +93,7 @@
                     TextColor="#f5fbff"
                     Command="{Binding BackAdminMain}"
                     CornerRadius="40"
+                    IsEnabled="{Binding Path=IsBackAdminEnabled}"
                     FontSize="15"
                     Text="Regresar" />
         </StackLayout>

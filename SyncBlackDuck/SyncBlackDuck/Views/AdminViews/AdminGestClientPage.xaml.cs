@@ -24,7 +24,8 @@ namespace SyncBlackDuck.Views.AdminViews
         {
             base.OnAppearing();
             this.dataGrid.ResetSwipeOffset();
-
+            this.backAdmin.IsEnabled = true;
+            this.agregarUsuario.IsEnabled = true;
         }
     }
 }

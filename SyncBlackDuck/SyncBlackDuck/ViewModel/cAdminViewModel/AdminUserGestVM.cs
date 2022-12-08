@@ -44,10 +44,12 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         private string NewPassword;
         private int NewTelefono;
         public string SelectedBoxItem;
+        private bool BackAdminEstado;
 
         public AdminUserGestVM(INavigation navigation, SfDataGrid datagrid)
         {
             Navigation = navigation;
+            BackAdminEstado = false;
             usuariosInfo = new ObservableCollection<User>();
             selectedItem = new Object();
             popupLayout = new SfPopupLayout();
@@ -707,6 +709,11 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         // Redirecciones
         private Command BackAdminMainP()
         {
+            if(BackAdminEstado == true)
+            {
+                return null;
+            }
+            BackAdminEstado = true;
             return new Command(async () => await BackAdminAsync());
         }
         private Task BackAdminAsync()

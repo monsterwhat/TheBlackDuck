@@ -10,8 +10,9 @@
     <StackLayout BackgroundColor="#283149">
 
         <StackLayout Margin="0,11,9,30">
-            <buttons:SfButton
+            <buttons:SfButton x:Name="VistaAdmin"
                 Text="Admin"
+                IsEnabled="{Binding VistaAdminEstado}"
                 ShowIcon="True"
                 ImageSource="https://cdn-icons-png.flaticon.com/512/3099/3099635.png"
                 FontSize="10"
@@ -98,13 +99,14 @@
         </StackLayout>
 
         <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
-            <buttons:SfButton
+            <buttons:SfButton x:Name="SBackAdminMain"
                 HorizontalOptions="Start"
                 HeightRequest="45"
                 WidthRequest="140"
                 BackgroundColor="#1f273d"
                 TextColor="#DBEDF3"
                 Command="{Binding SBackAdminMain}"
+                IsEnabled="{Binding SBackAdminMainEstado}"
                 CornerRadius="40"
                 FontSize="15"
                 Text="Regresar" />

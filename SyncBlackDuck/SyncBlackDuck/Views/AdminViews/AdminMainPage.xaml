@@ -21,7 +21,7 @@
 
             <StackLayout Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center">
 
-                <buttons:SfButton
+                <buttons:SfButton x:Name="ADGestionUsuarios"
                     Margin="0,30,0,0"
                     HeightRequest="50"
                     WidthRequest="255"
@@ -30,15 +30,17 @@
                     Command="{Binding Path=ADGestionUsuarios}"
                     CornerRadius="40"
                     FontSize="19"
+                    IsEnabled="{Binding Path=IsGestionEnabled}"
                     Text="Gestionar Usuarios" />
 
-                <buttons:SfButton
+                <buttons:SfButton x:Name="ADCSCerrarSession"
                     Margin="0,70,0,0"   
                     HeightRequest="50"
                     WidthRequest="255"
                     BackgroundColor="#540712"
                     TextColor="#f5fbff"
                     Command="{Binding Path=ADCSCerrarSesion}"
+                    IsEnabled="{Binding Path=IsCerrarSesionEnabled}"
                     CornerRadius="40"
                     FontSize="19"
                     Text="Cerrar sesion" />
