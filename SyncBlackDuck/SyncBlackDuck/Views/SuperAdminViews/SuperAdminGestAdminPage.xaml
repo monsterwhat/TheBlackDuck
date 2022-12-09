@@ -4,112 +4,127 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-    xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+    xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
     NavigationPage.HasNavigationBar="false">
 
     <StackLayout BackgroundColor="#283149">
 
-        <StackLayout Margin="0,11,9,30">
-            <buttons:SfButton x:Name="VistaAdmin"
-                Text="Admin"
-                IsEnabled="{Binding VistaAdminEstado}"
-                ShowIcon="True"
-                ImageSource="https://cdn-icons-png.flaticon.com/512/3099/3099635.png"
-                FontSize="10"
-                HorizontalOptions="End"
-                BackgroundColor="#f5fbff"
-                TextColor="#283149"
-                Command="{Binding VistaAdmin}"
-                CornerRadius="40"/>
+        <ScrollView>
+
+            <StackLayout>
+
+                <StackLayout Margin="0,11,9,30">
+                    <buttons:SfButton
+                        x:Name="VistaAdmin"
+                        BackgroundColor="#f5fbff"
+                        Command="{Binding VistaAdmin}"
+                        CornerRadius="40"
+                        FontSize="10"
+                        HorizontalOptions="End"
+                        ImageSource="https://cdn-icons-png.flaticon.com/512/3099/3099635.png"
+                        IsEnabled="{Binding VistaAdminEstado}"
+                        ShowIcon="True"
+                        Text="Admin"
+                        TextColor="#283149" />
+                </StackLayout>
+
+                <StackLayout Margin="0,0,0,25" VerticalOptions="Center">
+                    <Label
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Text="Gestion de Administradores"
+                        TextColor="#f5fbff"
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Margin="10,10,10,10">
+                    <syncfusion:SfDataGrid
+                        x:Name="dataGrid"
+                        AllowEditing="true"
+                        AllowPullToRefresh="true"
+                        AllowResizingColumn="True"
+                        AllowSorting="True"
+                        AllowSwiping="True"
+                        AutoGenerateColumns="false"
+                        BackgroundColor="#283149"
+                        ColumnSizer="Star"
+                        EditTapAction="OnDoubleTap"
+                        ImeOptions="NoExtractUi"
+                        ItemsSource="{Binding UsuariosInfoCollection}"
+                        LiveDataUpdateMode="Default"
+                        LostFocusBehavior="EndEditCurrentCell"
+                        MinimumHeightRequest="0"
+                        NavigationMode="Cell"
+                        SelectedItem="{Binding SelectedItem}"
+                        SelectionMode="Single">
+
+                        <syncfusion:SfDataGrid.Columns>
+                            <syncfusion:GridTextColumn
+                                AllowEditing="false"
+                                HeaderText="ID Administrador"
+                                MappingName="User_id" />
+                            <syncfusion:GridTextColumn HeaderText="Nombre de admin" MappingName="User_name" />
+                            <syncfusion:GridNumericColumn
+                                HeaderText="Numero de telefono"
+                                MappingName="User_telefono"
+                                NumberDecimalDigits="0"
+                                TextAlignment="center" />
+                            <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password" />
+
+                        </syncfusion:SfDataGrid.Columns>
+
+                        <syncfusion:SfDataGrid.GridStyle>
+                            <syncfusion:DefaultStyle
+                                AlternatingRowColor="white"
+                                CurrentCellBorderColor="#006699"
+                                GridLinesVisibility="None"
+                                HeaderBackgroundColor="#1f273d"
+                                HeaderForegroundColor="#f5fbff"
+                                RowBackgroundColor="#e0e9ff"
+                                RowForegroundColor="#07090e"
+                                SelectionBackgroundColor="#04adff"
+                                SelectionForegroundColor="#07090e" />
+                        </syncfusion:SfDataGrid.GridStyle>
+
+                    </syncfusion:SfDataGrid>
+
+                </StackLayout>
+
+                <StackLayout
+                    Margin="10,-20,10,0"
+                    HorizontalOptions="End"
+                    Orientation="Horizontal"
+                    VerticalOptions="End">
+
+                    <buttons:SfButton
+                        Margin="0,30,0,0"
+                        BackgroundColor="#04adff"
+                        Command="{Binding AgregarUsuario}"
+                        CornerRadius="40"
+                        FontSize="14"
+                        HeightRequest="45"
+                        HorizontalOptions="EndAndExpand"
+                        Text="Agregar usuario"
+                        TextColor="#f5fbff"
+                        WidthRequest="140" />
+
+                </StackLayout>
+
+                <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
+                    <buttons:SfButton
+                        x:Name="SBackAdminMain"
+                        BackgroundColor="#1f273d"
+                        Command="{Binding SBackAdminMain}"
+                        CornerRadius="40"
+                        FontSize="15"
+                        HeightRequest="45"
+                        HorizontalOptions="Start"
+                        IsEnabled="{Binding SBackAdminMainEstado}"
+                        Text="Regresar"
+                        TextColor="#DBEDF3"
+                        WidthRequest="140" />
+                </StackLayout>
             </StackLayout>
-        
-        <StackLayout Margin="0,0,0,25" VerticalOptions="Center">
-            <Label
-                FontSize="20"
-                HorizontalTextAlignment="Center"
-                TextColor="#f5fbff"
-                VerticalTextAlignment="Center"
-                Text="Gestion de Administradores"/>
-        </StackLayout>
-
-        <StackLayout Margin="10,10,10,10">
-            <syncfusion:SfDataGrid
-                x:Name="dataGrid"
-                AllowEditing="true"
-                AllowResizingColumn="True"
-                AllowSorting="True"
-                AllowSwiping="True"
-                BackgroundColor="#283149"
-                AutoGenerateColumns="false"
-                ColumnSizer="Star"
-                EditTapAction="OnDoubleTap"
-                ImeOptions="NoExtractUi"
-                ItemsSource="{Binding UsuariosInfoCollection}"
-                LiveDataUpdateMode="Default"
-                LostFocusBehavior="EndEditCurrentCell"
-                NavigationMode="Cell"
-                SelectedItem="{Binding SelectedItem}"
-                SelectionMode="Single"
-                AllowPullToRefresh="true"
-                MinimumHeightRequest="0">
-
-                <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="ID Administrador" MappingName="User_id" />
-                    <syncfusion:GridTextColumn HeaderText="Nombre de admin" MappingName="User_name" />
-                    <syncfusion:GridNumericColumn NumberDecimalDigits="0" HeaderText="Numero de telefono" TextAlignment="center" MappingName="User_telefono" />
-                    <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password" />
-
-                </syncfusion:SfDataGrid.Columns>
-
-                <syncfusion:SfDataGrid.GridStyle>
-                    <syncfusion:DefaultStyle
-                        AlternatingRowColor="white"
-                        GridLinesVisibility="None"
-                        HeaderBackgroundColor="#1f273d"
-                        HeaderForegroundColor="#f5fbff"
-                        RowBackgroundColor="#e0e9ff"
-                        RowForegroundColor="#07090e"
-                        SelectionBackgroundColor="#04adff"
-                        SelectionForegroundColor="#07090e"
-                        CurrentCellBorderColor="#006699"/>
-                </syncfusion:SfDataGrid.GridStyle>
-
-            </syncfusion:SfDataGrid>
-
-        </StackLayout>
-
-        <StackLayout           
-                Margin="10,-20,10,0"
-                HorizontalOptions="End"
-                Orientation="Horizontal"
-                VerticalOptions="End">
-
-            <buttons:SfButton
-                    Margin="0,30,0,0"
-                    HeightRequest="45"
-                    WidthRequest="140"
-                    BackgroundColor="#04adff"
-                    TextColor="#f5fbff"
-                    HorizontalOptions="EndAndExpand"
-                    Command="{Binding AgregarUsuario}"
-                    CornerRadius="40"
-                    FontSize="14"
-                    Text="Agregar usuario" />
-
-        </StackLayout>
-
-        <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
-            <buttons:SfButton x:Name="SBackAdminMain"
-                HorizontalOptions="Start"
-                HeightRequest="45"
-                WidthRequest="140"
-                BackgroundColor="#1f273d"
-                TextColor="#DBEDF3"
-                Command="{Binding SBackAdminMain}"
-                IsEnabled="{Binding SBackAdminMainEstado}"
-                CornerRadius="40"
-                FontSize="15"
-                Text="Regresar" />
-        </StackLayout>
+        </ScrollView>
     </StackLayout>
 </ContentPage>

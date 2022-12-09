@@ -1,54 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
-             x:Class="SyncBlackDuck.Views.SuperAdminViews.SuperAdminMainPage"
-             NavigationPage.HasNavigationBar="false">
+<ContentPage
+    x:Class="SyncBlackDuck.Views.SuperAdminViews.SuperAdminMainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    NavigationPage.HasNavigationBar="false">
 
-    <StackLayout BackgroundColor="#283149" >
+    <StackLayout BackgroundColor="#283149">
 
-        <StackLayout>
+        <ScrollView>
 
-            <Label Margin="15,15,0,0" TextColor="#f5fbff" FontSize="15" >Super admin</Label>
 
-            <StackLayout 
-                    Margin="0,90,0,0" 
-                    VerticalOptions="Center" 
-                    HorizontalOptions="Center" 
-                    Orientation="Horizontal">
-                <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
-            </StackLayout>
+            <StackLayout>
 
-            <StackLayout Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label
+                    Margin="15,15,0,0"
+                    FontSize="15"
+                    TextColor="#f5fbff">
+                    Super admin
+                </Label>
 
-                <buttons:SfButton x:Name="GestionAdministradores"
+                <StackLayout
+                    Margin="0,90,0,0"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    VerticalOptions="Center">
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/2011/2011452.png" />
+                </StackLayout>
+
+                <StackLayout
+                    Margin="0,50,0,0"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <buttons:SfButton
+                        x:Name="GestionAdministradores"
                         Margin="0,30,0,0"
-                        HeightRequest="50"
-                        WidthRequest="285"
                         BackgroundColor="#1f273d"
-                        TextColor="#f5fbff"
                         Command="{Binding Path=GestionAdministradores}"
-                        IsEnabled="{Binding Path=GestionAdministradoresEstado}"
                         CornerRadius="40"
                         FontSize="19"
-                        Text="Gestionar Administradores" />
-
-                <buttons:SfButton x:Name="SACSCerrarSession"
-                        Margin="0,70,0,20"
                         HeightRequest="50"
-                        WidthRequest="285"
-                        BackgroundColor="#540712"
+                        IsEnabled="{Binding Path=GestionAdministradoresEstado}"
+                        Text="Gestionar Administradores"
                         TextColor="#f5fbff"
+                        WidthRequest="285" />
+
+                    <buttons:SfButton
+                        x:Name="SACSCerrarSession"
+                        Margin="0,70,0,20"
+                        BackgroundColor="#540712"
                         Command="{Binding Path=SACSCerrarSesion}"
-                        IsEnabled="{Binding Path=SACSCerrarSessionEstado}"
                         CornerRadius="40"
                         FontSize="19"
-                        Text="Cerrar sesion"/>
+                        HeightRequest="50"
+                        IsEnabled="{Binding Path=SACSCerrarSessionEstado}"
+                        Text="Cerrar sesion"
+                        TextColor="#f5fbff"
+                        WidthRequest="285" />
+
+                </StackLayout>
 
             </StackLayout>
 
-        </StackLayout>
+
+        </ScrollView>
 
     </StackLayout>
-    
+
 </ContentPage>
