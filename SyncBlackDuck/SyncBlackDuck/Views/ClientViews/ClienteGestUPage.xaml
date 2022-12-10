@@ -23,7 +23,7 @@
                     </Label>
                 </StackLayout>
 
-                <ScrollView Margin="10,10,10,10">
+                <StackLayout Margin="10,10,10,10">
                     <syncfusion:SfDataGrid
                         x:Name="dataGrid"
                         AllowEditing="true"
@@ -72,7 +72,7 @@
                         </syncfusion:SfDataGrid.GridStyle>
                     </syncfusion:SfDataGrid>
 
-                </ScrollView>
+                </StackLayout>
 
                 <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
                     <buttons:SfButton
