@@ -13,7 +13,6 @@ namespace SyncBlackDuck.Services.Implementaciones
         {
             Mensualidad();
         }
-
         public Task Mensualidad()
         {
 
@@ -219,7 +218,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 while (reader.Read())
                 {
                     Pagos pago = new Pagos
-                    {                       
+                    {
                         Pagos_id = reader.GetInt32(0),
                         Pagos_mes_cobro = reader.GetString(1),
                         Pagos_fecha_pago = Convert.ToDateTime(reader.GetDateTime(2)),

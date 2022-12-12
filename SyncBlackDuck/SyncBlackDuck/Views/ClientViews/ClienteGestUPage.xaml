@@ -4,71 +4,89 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-    xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+    xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
     NavigationPage.HasNavigationBar="false">
 
     <StackLayout BackgroundColor="#283149">
 
-        <StackLayout Margin="35">
-            <Label FontSize="20"
-                   TextColor="#f5fbff"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center" >Historial de pagos</Label>
-        </StackLayout>
+        <ScrollView>
 
-        <ScrollView Margin="10,10,10,10" >
-            <syncfusion:SfDataGrid 
-                x:Name="dataGrid" 
-                ColumnSizer="Star"
-                AllowSorting="True"
-                ItemsSource="{Binding UsuariosInfoCollection}"
-                SelectedItem="{Binding SelectedItem}"
-                AllowEditing="true"
-                SelectionMode="Single"
-                EditTapAction="OnDoubleTap"
-                NavigationMode="Cell"
-                ImeOptions="NoExtractUi"
-                SelectionUnit="Cell"
-                LostFocusBehavior="EndEditCurrentCell"
-                AllowResizingColumn="True"
-                AutoGenerateColumns="false"
-                MinimumHeightRequest="0">
-                
-                <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Nombre de usuario" MappingName="User_name" />
-                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Fecha de Cobro" MappingName="Pagos_mes_cobro" />
-                    <syncfusion:GridTextColumn AllowEditing="false" HeaderText="Estado de pago" MappingName="Pagos_estado" />
-                    <!-- Aqui muestra 1 o 0 dependiendo del estado de pago, debe pasarse a "Pagado" o "Pendiente" -->
-                    
-                </syncfusion:SfDataGrid.Columns>
+            <StackLayout>
 
-                <syncfusion:SfDataGrid.GridStyle>
-                    <syncfusion:DefaultStyle 
-                        AlternatingRowColor="white"
-                        GridLinesVisibility="None"
-                        HeaderBackgroundColor="#1f273d"
-                        HeaderForegroundColor="#f5fbff"
-                        RowBackgroundColor="#e0e9ff"
-                        RowForegroundColor="#07090e"
-                        SelectionBackgroundColor="#04adff"
-                        SelectionForegroundColor="#07090e"
-                        CurrentCellBorderColor="#006699"/>
-                </syncfusion:SfDataGrid.GridStyle>
-            </syncfusion:SfDataGrid>
+                <StackLayout Margin="35">
+                    <Label
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        TextColor="#f5fbff"
+                        VerticalTextAlignment="Center">
+                        Historial de pagos
+                    </Label>
+                </StackLayout>
 
+                <StackLayout Margin="10,10,10,10">
+                    <syncfusion:SfDataGrid
+                        x:Name="dataGrid"
+                        AllowEditing="true"
+                        AllowResizingColumn="True"
+                        AllowSorting="True"
+                        AutoGenerateColumns="false"
+                        ColumnSizer="Star"
+                        EditTapAction="OnDoubleTap"
+                        ImeOptions="NoExtractUi"
+                        ItemsSource="{Binding UsuariosInfoCollection}"
+                        LostFocusBehavior="EndEditCurrentCell"
+                        MinimumHeightRequest="0"
+                        NavigationMode="Cell"
+                        SelectedItem="{Binding SelectedItem}"
+                        SelectionMode="Single"
+                        SelectionUnit="Cell">
+
+                        <syncfusion:SfDataGrid.Columns>
+                            <syncfusion:GridTextColumn
+                                AllowEditing="false"
+                                HeaderText="Nombre de usuario"
+                                MappingName="User_name" />
+                            <syncfusion:GridTextColumn
+                                AllowEditing="false"
+                                HeaderText="Fecha de Cobro"
+                                MappingName="Pagos_mes_cobro" />
+                            <syncfusion:GridTextColumn
+                                AllowEditing="false"
+                                HeaderText="Estado de pago"
+                                MappingName="Pagos_estado" />
+                            <!--  Aqui muestra 1 o 0 dependiendo del estado de pago, debe pasarse a "Pagado" o "Pendiente"  -->
+
+                        </syncfusion:SfDataGrid.Columns>
+
+                        <syncfusion:SfDataGrid.GridStyle>
+                            <syncfusion:DefaultStyle
+                                AlternatingRowColor="white"
+                                CurrentCellBorderColor="#006699"
+                                GridLinesVisibility="None"
+                                HeaderBackgroundColor="#1f273d"
+                                HeaderForegroundColor="#f5fbff"
+                                RowBackgroundColor="#e0e9ff"
+                                RowForegroundColor="#07090e"
+                                SelectionBackgroundColor="#04adff"
+                                SelectionForegroundColor="#07090e" />
+                        </syncfusion:SfDataGrid.GridStyle>
+                    </syncfusion:SfDataGrid>
+
+                </StackLayout>
+
+                <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
+                    <buttons:SfButton
+                        BackgroundColor="#04adff"
+                        Command="{Binding Path=BackClientMain}"
+                        CornerRadius="40"
+                        FontSize="15"
+                        HeightRequest="40"
+                        HorizontalOptions="Start"
+                        Text="Regresar"
+                        TextColor="#f5fbff"
+                        WidthRequest="130" />
+                </StackLayout>
+            </StackLayout>
         </ScrollView>
-
-        <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
-            <buttons:SfButton
-                HorizontalOptions="Start"
-                HeightRequest="40"
-                WidthRequest="130"
-                BackgroundColor="#04adff"
-                TextColor="#f5fbff"
-                Command="{Binding Path=BackClientMain}"
-                CornerRadius="40"
-                FontSize="15"
-                Text="Regresar" />
-        </StackLayout>
     </StackLayout>
 </ContentPage>
