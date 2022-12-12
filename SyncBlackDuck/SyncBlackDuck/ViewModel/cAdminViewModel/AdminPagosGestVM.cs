@@ -310,7 +310,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-        #endregion Commands
 
         private Task CargarPagos()
         {
@@ -330,5 +329,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             return Task.CompletedTask;
         }
+        #endregion Commands
     }
 }
