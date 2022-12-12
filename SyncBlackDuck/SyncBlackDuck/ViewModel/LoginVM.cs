@@ -86,11 +86,11 @@ namespace SyncBlackDuck.ViewModel
 
                 switch (loggedInUser.User_rol)
                 {
-                    case "admin":
+                    case "Admin":
                         //Redireccion admin
                          Navigation.PushAsync(new AdminMainPage());
                         break;
-                    case "superadmin":
+                    case "SuperAdmin":
                         //Redireccion superAdmin
                          Navigation.PushAsync(new SuperAdminMainPage());
                         break;

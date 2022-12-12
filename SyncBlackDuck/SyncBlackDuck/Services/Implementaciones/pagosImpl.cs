@@ -16,11 +16,12 @@ namespace SyncBlackDuck.Services.Implementaciones
 
         public Task Mensualidad()
         {
+
             try
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.GetConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'cliente' AND user_estado = 'Activo'", mysql);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'Cliente' AND user_estado = 'Activo' AND user_id NOT IN (SELECT user_id FROM pagos WHERE Pagos_mes_cobro = monthname(now())) LIMIT 10", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 List<User> list = new List<User>();
                 while (reader.Read())
@@ -42,14 +43,8 @@ namespace SyncBlackDuck.Services.Implementaciones
                 {
                     foreach (User item in list)
                     {
-                        List<Pagos> listPagos = new List<Pagos>();
-                        listPagos = GetPagosdelMes(item);
-
-                        if (listPagos.Equals(null) || listPagos.Count == 0)
-                        {
                             bool estado = false;
                             estado = InsertarU(item);
-                        }
                     }
                 }
 
@@ -70,7 +65,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.GetConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM pagos WHERE user_id = @idUser;", mysql);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM pagos WHERE user_id = @idUser AND Pagos_mes_cobro = MONTHNAME(NOW())", mysql);
                 command.Parameters.AddWithValue("@idUser", item.User_id);
                 MySqlDataReader reader = command.ExecuteReader();
                 List<Pagos> listPagos = new List<Pagos>();
@@ -79,9 +74,10 @@ namespace SyncBlackDuck.Services.Implementaciones
                     Pagos pago = new Pagos
                     {
                         Pagos_id = reader.GetInt32(0),
-                        Pagos_estado = reader.GetString(1),
+                        User_id = reader.GetInt32(1),
                         Pagos_mes_cobro = reader.GetString(2),
-                        User_id = reader.GetInt32(3),
+                        Pagos_fecha_pago = reader.GetDateTime(3),
+                        Pagos_estado = reader.GetString(4)
                     };
                     listPagos.Add(pago);
                 }
@@ -123,7 +119,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.GetConnection();
-                MySqlCommand command = new MySqlCommand("INSERT INTO pagos (User_id, Pagos_mes_cobro, Pagos_fecha_pago, Pagos_estado) VALUES (@userId, NOW(), 0)", mysql);
+                MySqlCommand command = new MySqlCommand("INSERT INTO pagos (User_id, Pagos_mes_cobro, Pagos_fecha_pago, Pagos_estado) VALUES (@userId, MONTHNAME(NOW()) , NOW(), 'Pendiente')", mysql);
                 command.Parameters.AddWithValue("@userId", item.User_id);
                 command.ExecuteNonQueryAsync();
 
@@ -143,7 +139,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.GetConnection();
-                MySqlCommand command = new MySqlCommand("INSERT INTO pagos (User_id, Pagos_mes_cobro, Pagos_fecha_pago, Pagos_estado) VALUES (@userId, NOW(), 0)", mysql);
+                MySqlCommand command = new MySqlCommand("INSERT INTO pagos (User_id, Pagos_mes_cobro, Pagos_fecha_pago, Pagos_estado) VALUES (@userId, MONTHNAME(NOW()) , NOW(), 'Pendiente')", mysql);
                 command.Parameters.AddWithValue("@userId", item.User_id);
                 command.ExecuteNonQueryAsync();
 
@@ -151,7 +147,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error en Insertar pagos: " + e.Message);
+                Console.WriteLine("Error en InsertarU pagos: " + e.Message);
                 Console.WriteLine(e);
                 return false;
             }
@@ -249,7 +245,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 List<Pagos> lista = new List<Pagos>();
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.GetConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM pagos WHERE pagos_estado = 1", mysql);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM pagos WHERE pagos_estado = Pagado", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {

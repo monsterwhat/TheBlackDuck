@@ -185,7 +185,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.GetConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'cliente'", mysql);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'Cliente'", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 List<User> list = new List<User>();
                 while (reader.Read())
@@ -219,7 +219,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             {
                 Connection conn = new Connection();
                 MySqlConnection mysql = conn.GetConnection();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'admin'", mysql);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE user_rol = 'Admin'", mysql);
                 MySqlDataReader reader = command.ExecuteReader();
                 List<User> list = new List<User>();
                 while (reader.Read())
