@@ -20,7 +20,7 @@ namespace SyncBlackDuck.Views.ClientViews
             base.OnDisappearing();
             GC.Collect();
         }
-
+        
 
     }
 }
