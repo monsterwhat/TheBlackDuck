@@ -30,6 +30,8 @@ namespace SyncBlackDuck.ViewModel
             AsyncCommand();
         }
 
+        #region Commands
+
         //Binding del boton login en la vista
         public ICommand Login => LoginCommand();
 
@@ -116,5 +118,7 @@ namespace SyncBlackDuck.ViewModel
             }
         }
 
+        #endregion Commands
     }
+
 }

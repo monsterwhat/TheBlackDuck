@@ -12,7 +12,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.ApplicationModel.UserDataTasks;
 using Xamarin.Forms;
 using StackLayout = Xamarin.Forms.StackLayout;
 
@@ -704,8 +703,6 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-        #endregion commands
-
         // Redirecciones
         private Command BackAdminMainP()
         {
@@ -762,5 +759,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             return Task.CompletedTask;
         }
+       
+        #endregion commands
     }
+
 }

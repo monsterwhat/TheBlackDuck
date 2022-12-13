@@ -91,8 +91,6 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
             return Task.CompletedTask;
         }
 
-        #endregion Commands
-        
         private void CargarCliente()
         {
             try
@@ -109,6 +107,7 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
                 Console.WriteLine(e);
             }
         }
+        #endregion Commands     
 
     }
 }

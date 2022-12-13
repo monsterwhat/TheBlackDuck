@@ -774,7 +774,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             return Task.CompletedTask;
         }
         
-        #endregion Commands
         private Task CargarAdministradores()
         {
             try
@@ -794,6 +793,6 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             }
             return Task.CompletedTask;
         }
+    #endregion Commands
     }
-
 }
