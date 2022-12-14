@@ -22,9 +22,10 @@
                         VerticalTextAlignment="Center" />
                 </StackLayout>
 
-                <StackLayout Margin="10,0,10,0">
+                <StackLayout Margin="10,10,10,10">
                     <syncfusion:SfDataGrid
                         x:Name="dataGrid"
+                        HeightRequest="500"              
                         AllowEditing="true"
                         AllowPullToRefresh="true"
                         AllowResizingColumn="True"
@@ -38,23 +39,25 @@
                         ItemsSource="{Binding UsuariosInfoCollection}"
                         LiveDataUpdateMode="Default"
                         LostFocusBehavior="EndEditCurrentCell"
-                        MinimumHeightRequest="0"
                         NavigationMode="Cell"
                         SelectedItem="{Binding SelectedItem}"
                         SelectionMode="Single">
 
                         <syncfusion:SfDataGrid.Columns>
                             <syncfusion:GridTextColumn
-                                AllowEditing="false"
-                                HeaderText="Id Usuario"
+                                AllowEditing="false" HeaderText="Id Usuario"
                                 MappingName="User_id" />
-                            <syncfusion:GridTextColumn HeaderText="Nombre de usuario" MappingName="User_name" />
+                            <syncfusion:GridTextColumn 
+                                HeaderText="Nombre de usuario" 
+                                MappingName="User_name" />
                             <syncfusion:GridNumericColumn
                                 HeaderText="Numero de telefono"
                                 MappingName="User_telefono"
                                 NumberDecimalDigits="0"
                                 TextAlignment="center" />
-                            <syncfusion:GridTextColumn HeaderText="Contraseña" MappingName="User_password" />
+                            <syncfusion:GridTextColumn 
+                                HeaderText="Contraseña" 
+                                MappingName="User_password" />
                         </syncfusion:SfDataGrid.Columns>
 
                         <syncfusion:SfDataGrid.GridStyle>

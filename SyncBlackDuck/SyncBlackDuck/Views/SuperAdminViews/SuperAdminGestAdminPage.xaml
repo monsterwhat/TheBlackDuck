@@ -40,6 +40,7 @@
                 <StackLayout Margin="10,10,10,10">
                     <syncfusion:SfDataGrid
                         x:Name="dataGrid"
+                        HeightRequest="400"
                         AllowEditing="true"
                         AllowPullToRefresh="true"
                         AllowResizingColumn="True"
@@ -53,7 +54,6 @@
                         ItemsSource="{Binding UsuariosInfoCollection}"
                         LiveDataUpdateMode="Default"
                         LostFocusBehavior="EndEditCurrentCell"
-                        MinimumHeightRequest="0"
                         NavigationMode="Cell"
                         SelectedItem="{Binding SelectedItem}"
                         SelectionMode="Single">

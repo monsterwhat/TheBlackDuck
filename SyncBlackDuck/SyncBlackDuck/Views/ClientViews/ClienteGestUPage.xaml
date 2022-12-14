@@ -26,6 +26,7 @@
                 <StackLayout Margin="10,10,10,10">
                     <syncfusion:SfDataGrid
                         x:Name="dataGrid"
+                        HeightRequest="400"
                         AllowEditing="true"
                         AllowResizingColumn="True"
                         AllowSorting="True"
@@ -35,7 +36,6 @@
                         ImeOptions="NoExtractUi"
                         ItemsSource="{Binding UsuariosInfoCollection}"
                         LostFocusBehavior="EndEditCurrentCell"
-                        MinimumHeightRequest="0"
                         NavigationMode="Cell"
                         SelectedItem="{Binding SelectedItem}"
                         SelectionMode="Single"
@@ -76,7 +76,7 @@
 
                 <StackLayout Margin="10,20,20,20" VerticalOptions="EndAndExpand">
                     <buttons:SfButton
-                        BackgroundColor="#04adff"
+                        BackgroundColor="#1f273d"
                         Command="{Binding Path=BackClientMain}"
                         CornerRadius="40"
                         FontSize="15"
