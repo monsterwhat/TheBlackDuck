@@ -15,7 +15,6 @@ namespace SyncBlackDuck.ViewModel
     {
         private string telefono;
         private string password;
-        //Creamos el Objeto Usuario
         private User loggedInUser;
         private string userId;
         private readonly LoginService loginController = new LoginService();

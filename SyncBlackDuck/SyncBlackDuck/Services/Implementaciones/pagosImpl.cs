@@ -13,7 +13,7 @@ namespace SyncBlackDuck.Services.Implementaciones
         {
             Mensualidad();
         }
-        public Task Mensualidad()
+        public async Task Mensualidad()
         {
 
             try
@@ -47,14 +47,12 @@ namespace SyncBlackDuck.Services.Implementaciones
                     }
                 }
 
-                return Task.CompletedTask;
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error en CobrarMensualidades de Clientes");
                 Console.WriteLine(e);
 
-                return Task.CompletedTask;
             }
         }
 
@@ -90,6 +88,38 @@ namespace SyncBlackDuck.Services.Implementaciones
                 return null;
             }
         }
+        public async Task<List<Pagos>> GetPagosdelMesAsync(User item)
+        {
+            try
+            {
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.GetConnection();
+                MySqlCommand command = new MySqlCommand("SELECT * FROM pagos WHERE user_id = @idUser AND Pagos_mes_cobro = MONTHNAME(NOW())", mysql);
+                command.Parameters.AddWithValue("@idUser", item.User_id);
+                MySqlDataReader reader = await command.ExecuteReaderAsync();
+                List<Pagos> listPagos = new List<Pagos>();
+                while (reader.Read())
+                {
+                    Pagos pago = new Pagos
+                    {
+                        Pagos_id = reader.GetInt32(0),
+                        User_id = reader.GetInt32(1),
+                        Pagos_mes_cobro = reader.GetString(2),
+                        Pagos_fecha_pago = reader.GetDateTime(3),
+                        Pagos_estado = reader.GetString(4)
+                    };
+                    listPagos.Add(pago);
+                }
+                conn.Disconnect();
+                return listPagos;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en Pagos del Mes");
+                Console.WriteLine(e);
+                return null;
+            }
+        }
 
         public bool Eliminar(Pagos item)
         {
@@ -100,6 +130,26 @@ namespace SyncBlackDuck.Services.Implementaciones
                 MySqlCommand command = new MySqlCommand("DELETE FROM pagos WHERE Pagos_id = @idPago", mysql);
                 command.Parameters.AddWithValue("@idPago", item.Pagos_id);
                 command.ExecuteNonQueryAsync();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error en Eliminar pagos: " + e.Message);
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+        
+        public async Task<bool> EliminarAsync(Pagos item)
+        {
+            try
+            {
+                Connection conn = new Connection();
+                MySqlConnection mysql = conn.GetConnection();
+                MySqlCommand command = new MySqlCommand("DELETE FROM pagos WHERE Pagos_id = @idPago", mysql);
+                command.Parameters.AddWithValue("@idPago", item.Pagos_id);
+                await command.ExecuteNonQueryAsync();
 
                 return true;
             }
