@@ -75,7 +75,7 @@ namespace SyncBlackDuck.Services.Implementaciones
                 command.Parameters.AddWithValue("@userPassword", item.User_password);
                 command.Parameters.AddWithValue("@userTime", DateTime.Now);
                 command.Parameters.AddWithValue("@userTelefono", item.User_telefono);
-                command.Parameters.AddWithValue("@userRol", "cliente");
+                command.Parameters.AddWithValue("@userRol", "Cliente");
                 command.Parameters.AddWithValue("@userEstado", "Activo");
                 command.ExecuteNonQuery();
                 conn.Disconnect();

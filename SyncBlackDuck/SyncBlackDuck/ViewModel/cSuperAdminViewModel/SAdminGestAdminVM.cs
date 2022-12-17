@@ -602,7 +602,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
         public ICommand CancelarComando => Cancelar();
 
         // Metodos
-        
+
         private Command PerformBorrarUsuario()
         {
             return new Command(async () => await PerformBorrarUsuarioT());
@@ -623,7 +623,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             }
             return Task.CompletedTask;
         }
-        
+
         private Command PerformAgregarUsuario()
         {
             return new Command(async () => PerformAgregarUsuarioT());
@@ -651,7 +651,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             this.popupLayout.IsOpen = false;
             this.popupLayout.Dismiss();
         }
-        
+
         private Command AgregarUsuarioC()
         {
             return new Command(async () => await AgregarUsuarioT());
@@ -678,6 +678,8 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
                     Console.WriteLine("Se agrego el Usuario: " + Agregado);
 
                     ExecutePullToRefreshCommand();
+                    this.popupLayout.IsOpen = false;
+                    this.popupLayout.Dismiss();
                 }
                 else
                 {
@@ -773,14 +775,14 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
             }
             return Task.CompletedTask;
         }
-        
+
         private Task CargarAdministradores()
         {
             try
             {
                 listaUsuarios.Clear();
                 usuariosInfo.Clear();
-                
+
                 listaUsuarios = userController.VerAdministradores();
                 for (int i = 0; i < listaUsuarios.Count; i++)
                 {

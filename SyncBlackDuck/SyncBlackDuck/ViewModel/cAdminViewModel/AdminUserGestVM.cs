@@ -593,7 +593,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             LoadPopUpAgregar();
         }
-        
+
         private Command ExecutePullToRefreshCommand()
         {
             return new Command(async () => ExecutePullToRefreshCommandT());
@@ -602,7 +602,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         {
             CargarClientes();
         }
-        
+
         private Command PerformBorrarUsuario()
         {
             return new Command(async () => await PerformBorrarUsuarioT());
@@ -623,7 +623,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             return Task.CompletedTask;
         }
-        
+
         private Command Cancelar()
         {
             return new Command(async () => CancelarT());
@@ -640,7 +640,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
                 Console.WriteLine(e);
             }
         }
-        
+
         private Command AgregarUsuarioC()
         {
             return new Command(async () => await AgregarUsuarioT());
@@ -665,6 +665,8 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
                     Console.WriteLine("Se agrego el Usuario: " + Agregado);
                     ExecutePullToRefreshCommand();
+                    this.popupLayout.IsOpen = false;
+                    this.popupLayout.Dismiss();
 
                 }
                 else
@@ -759,7 +761,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
             return Task.CompletedTask;
         }
-       
+
         #endregion commands
     }
 
