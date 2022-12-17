@@ -5,6 +5,7 @@ using Xamarin.Forms;
 
 namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
+    // Clase base para admin, sostiene PropertyChanged para todas las clases que implementen esta
     public class AdminBaseVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

@@ -14,17 +14,23 @@ namespace SyncBlackDuck.ViewModel.cClientViewModel
 {
     public partial class ClientGestVM : ClienteBaseVM
     {
+        // Lista de usuarios y controlador de usuarios
         private List<User> listaUsuarios = new List<User>();
         private readonly UserImpl userController = new UserImpl();
+
+        // Variables para la edición de celdas
         public int row;
         public string Dato;
         public int UserID;
 
         public ClientGestVM(INavigation navigation, SfDataGrid datagrid)
         {
+            // Inicialización de variables y estado de navegación
             Navigation = navigation;
             usuariosInfo = new ObservableCollection<User>();
             selectedItem = new Object();
+
+            // Cargar lista de clientes
             CargarCliente();
         }
 

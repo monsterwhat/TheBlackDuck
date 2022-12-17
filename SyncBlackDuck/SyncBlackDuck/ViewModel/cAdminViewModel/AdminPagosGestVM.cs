@@ -14,12 +14,17 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
     public partial class AdminPagosGestVM : AdminBaseVM
     {
+        // Lista de pagos y controlador de pagos
         private List<Pagos> listaPagos = new List<Pagos>();
         private readonly PagosImpl pagosController = new PagosImpl();
+
+        // Variables para la edición de celdas
         public int Row;
         public Pagos SwipedPago = new Model.Objetos.User();
         public string Dato;
         public int PagoID;
+
+        // Popup y plantillas de datagrid
         public SfPopupLayout popupLayout;
         public bool CeldaSeleccionada = false;
         public DataTemplate headerTemplateView;
@@ -32,12 +37,15 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         public AdminPagosGestVM(INavigation navigation, SfDataGrid datagrid, int swipedUser)
         {
+            // Inicialización de variables y estado de navegación
             Navigation = navigation;
             BackAdminEstado = false;
             pagosInfo = new ObservableCollection<Pagos>();
             selectedItem = new Object();
             popupLayout = new SfPopupLayout();
             swipedUserId = swipedUser;
+
+            // Cargar la lista de pagos y establecer eventos de datagrid
             CargarPagos();
             datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
             datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;
@@ -52,32 +60,45 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         #region CellListeners
 
+        // Evento al comenzar a editar una celda
         public void DataGrid_CurrentCellBeginEdit(object sender, GridCurrentCellBeginEditEventArgs args)
         {
+            // Marcar celda como seleccionada y obtiene datos de la celda
             CeldaSeleccionada = true;
             GetDatosCelda(args.RowColumnIndex.RowIndex, args.Column.MappingName);
         }
+
+        // Obtener datos de la celda seleccionada
         public void GetDatosCelda(int row, string dato)
         {
             Row = row;
             Dato = dato;
             PagoID = pagosInfo.ElementAt(Row - 1).Pagos_id;
         }
+
+        // Evento al terminar de editar una celda
         public void DataGrid_CurrentCellEndEdit(object sender, GridCurrentCellEndEditEventArgs args)
         {
             try
             {
+                // Si la celda ha sido seleccionada
                 if (CeldaSeleccionada == true)
                 {
+                    // Variable para almacenar el resultado de la modificación
                     bool Estado = false;
+
+                    // Obtener tipo de dato y valores viejo y nuevo de la celda
                     var Tipo = Dato;
-                    //Usando mapping name se puede haccer
                     var ValorViejo = args.OldValue;
                     var ValorNuevo = args.NewValue;
 
+                    // Si el valor ha cambiado
                     if (!ValorNuevo.Equals(ValorViejo))
                     {
+                        // Obtener pago seleccionado
                         Pagos PagoSelecionado = pagosInfo.ElementAt(Row - 1);
+
+                        // Modificar campo según el tipo de dato
                         switch (Tipo)
                         {
                             case "Pagos_estado":
@@ -258,18 +279,15 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
         #region Commands
 
         // Commands
-
         private Command borrarPago;
         private Command recargar;
 
         // Path ICommands a Metodos
-
         public ICommand BackAdminMain => BackAdminMainP();
         public ICommand BorrarPago => borrarPago ??= new Command(() => BorrarPagoExecute());
         public ICommand Recargar => recargar ??= new Command(ExecutePullToRefreshCommand);
 
         // Metodos 
-
         private void BorrarPagoExecute()
         {
             try
@@ -285,6 +303,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             }
         }
 
+        // Pull para actualizarlos datos mostrados en el datagrid
         private void ExecutePullToRefreshCommand()
         {
             CargarPagos();
@@ -310,7 +329,7 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
             return Task.CompletedTask;
         }
 
-
+       
         private Task CargarPagos()
         {
             try

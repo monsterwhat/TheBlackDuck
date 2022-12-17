@@ -6,7 +6,7 @@ namespace SyncBlackDuck.ViewModel.cSuperAdminViewModel
 {
     public class SAdminBaseVM : INotifyPropertyChanged
     {
-
+        // Clase base para super admin, sostiene PropertyChanged para todas las clases que implementen esta
         public event PropertyChangedEventHandler PropertyChanged;
         public INavigation Navigation;
 

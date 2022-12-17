@@ -19,20 +19,27 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 {
     public partial class AdminUserGestVM : AdminBaseVM
     {
+        // Lista de usuarios y controlador de usuarios
         private List<User> listaUsuarios = new List<User>();
         private readonly UserImpl userController = new UserImpl();
-        public User SwipedUser = new User();
+
+        // Variables para edicion de celdas
         public int SelectedIndex;
         public SfDataGrid userGrid;
         public int Row;
+        public User SwipedUser = new User();
         public string Dato;
         public int UserID;
+
+        // Popup y plantillas de datagrid
         public SfPopupLayout popupLayout;
         public DataTemplate headerTemplateView;
         public DataTemplate templateView;
         public DataTemplate footerTemplateView;
         public Label headerContent;
         public Label popupContent;
+
+        // Otras variables
         public bool UserInput = false;
         public bool UserPassword = false;
         public bool UserTelefono = false;
@@ -47,11 +54,14 @@ namespace SyncBlackDuck.ViewModel.cAdminViewModel
 
         public AdminUserGestVM(INavigation navigation, SfDataGrid datagrid)
         {
+            // Inicialización de variables y estado de navegación
             Navigation = navigation;
             BackAdminEstado = false;
             usuariosInfo = new ObservableCollection<User>();
             selectedItem = new Object();
             popupLayout = new SfPopupLayout();
+
+            // Cargar la lista de pagos y establecer eventos de datagrid
             CargarClientes();
             datagrid.CurrentCellBeginEdit += DataGrid_CurrentCellBeginEdit;
             datagrid.CurrentCellEndEdit += DataGrid_CurrentCellEndEdit;

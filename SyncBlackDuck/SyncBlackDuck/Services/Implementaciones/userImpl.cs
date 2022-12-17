@@ -8,13 +8,12 @@ namespace SyncBlackDuck.Services.Implementaciones
 {
     internal class UserImpl : Connection, ICRUD<User>
     {
-        //Elimina un usuario de la tabla user
-
+        // Crea una nueva instancia de la clase Connection
         public UserImpl()
         {
-
         }
 
+        // Elimina un usuario de la tabla user
         public bool Eliminar(User item)
         {
             try
@@ -36,7 +35,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        //Inserta un usuario a la tabla user
+        // Inserta un usuario a la tabla user
         public bool Insertar(User item)
         {
             try
@@ -64,6 +63,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        // Inserta un nuevo usuario cliente a la tabla user
         public bool InsertarNuevoC(User item)
         {
             try
@@ -90,6 +90,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        // Inserta un nuevo usuario administrador a la tabla user
         public bool InsertarNuevoAD(User item)
         {
             try
@@ -116,7 +117,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        //Modifica un usuario existente.
+        // Actualiza un usuario en la tabla user
         public bool Modificar(User item)
         {
             try
@@ -144,7 +145,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        //Carga todos los usuarios de la tabla user
+        // Carga todos los usuarios de la tabla user
         public List<User> VerTodo()
         {
             try
@@ -179,6 +180,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        // Carga todos los usuario de tipo cliente de la tabla user
         public List<User> VerClientes()
         {
             try
@@ -213,6 +215,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        // Carga todos los administradores de la tabla user
         public List<User> VerAdministradores()
         {
             try
@@ -247,6 +250,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        // Carga un cliente especifico de la tabla user
         public List<User> VerClienteEspecifico(int cel)
         {
             try

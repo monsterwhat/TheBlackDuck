@@ -9,10 +9,13 @@ namespace SyncBlackDuck.Services.Implementaciones
 {
     internal class PagosImpl : Connection, ICRUD<Pagos>
     {
+        // Crea una nueva instancia de la clase Connection
         public PagosImpl()
         {
             Mensualidad();
         }
+
+        // Genera el cobro de la mensualidad
         public async Task Mensualidad()
         {
 
@@ -56,6 +59,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        // Retorna los pagos del mes de la tabla pago
         public List<Pagos> GetPagosdelMes(User item)
         {
             try
@@ -88,6 +92,8 @@ namespace SyncBlackDuck.Services.Implementaciones
                 return null;
             }
         }
+
+        // Retorna los pagos del mes de modo asyncrono
         public async Task<List<Pagos>> GetPagosdelMesAsync(User item)
         {
             try
@@ -121,6 +127,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        // Elimina un pago de la tabla pago
         public bool Eliminar(Pagos item)
         {
             try
@@ -141,6 +148,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
         
+        // Elimina un pago de la tabla pago de modo asyncrono
         public async Task<bool> EliminarAsync(Pagos item)
         {
             try
@@ -161,7 +169,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        //Inserta un pago a una cuenta
+        //Inserta un pago a una cuenta de la tabla pagos
         public bool Insertar(Pagos item)
         {
             try
@@ -182,6 +190,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        // Inserta un pago en la tabla pago del usuario especifiamente seleccionado
         public bool InsertarU(User item)
         {
             try
@@ -202,7 +211,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        //Modifica un pago existente.
+        //Modifica un pago de la tabla pagos
         public bool Modificar(Pagos item)
         {
             try
@@ -224,7 +233,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
-        //Carga todos los valores de la tabla en un ArrayList de objetos pago
+        //Carga todos los pagos de la tabla pagos
         public List<Pagos> VerTodo()
         {
             try
@@ -255,6 +264,7 @@ namespace SyncBlackDuck.Services.Implementaciones
             }
         }
 
+        // Carga los pagos de la tabla pagos del cliente seleccionado
         public List<Pagos> VerClienteSeleccionado(int id)
         {
             try
@@ -285,7 +295,8 @@ namespace SyncBlackDuck.Services.Implementaciones
                 return null;
             }
         }
-
+        
+        // Carga los pagos realiados en la tabla pagos
         public List<Pagos> VerPagados()
         {
 

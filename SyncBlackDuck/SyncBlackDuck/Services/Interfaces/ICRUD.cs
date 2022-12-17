@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace SyncBlackDuck.Services.Interfaces
 {
+    // Interface que implementaran las clases que necesiten funciones CRUD
     public interface ICRUD<T>
     {
         public Boolean Insertar(T item);

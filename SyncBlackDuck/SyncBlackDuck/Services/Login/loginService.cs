@@ -9,7 +9,8 @@ namespace SyncBlackDuck.Services.Login
     {
 
         public LoginService() { }
-        
+
+        // Permite a un usuario iniciar sesión proporcionando su número de teléfono y contraseña
         public User LoginByRank(int t, string p)
         {
             try
@@ -44,6 +45,7 @@ namespace SyncBlackDuck.Services.Login
             }
         }
 
+        // Permite a un usuario iniciar sesión proporcionando solo su número de teléfono
         public User LoginByPhone(int t)
         {
             try

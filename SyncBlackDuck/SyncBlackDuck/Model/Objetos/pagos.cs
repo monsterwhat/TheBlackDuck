@@ -6,7 +6,6 @@ namespace SyncBlackDuck.Model.Objetos
 {
     public class Pagos : INotifyPropertyChanged
     {
-
         private int pagos_id;
         private int user_id;
         private String pagos_mes_cobro;
